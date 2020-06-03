@@ -48,6 +48,8 @@ const Styledh6 = styled.h6`
   color: black
 `;
 const Styledh5 = styled.h5`
+  -webkit-text-stroke: 0.5px black !important;
+  -webkit-text-fill-color: black !important;
   font-size: 15px;
 `;
 const CarouselControlRight = styled.div`
