@@ -6,7 +6,7 @@ import {faChevronRight, faChevronLeft, faLevelUpAlt} from '@fortawesome/free-sol
 
 const StyledServicesContainer = styled.div`
   position: relative;
-  margin: 22px 0px;
+  margin: 22px 25px;
   background-color: #F6F4F5;
   padding: 35px 0px;
   transition: all 0.5s ease-in-out;
