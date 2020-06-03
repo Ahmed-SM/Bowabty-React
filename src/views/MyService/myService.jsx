@@ -73,7 +73,6 @@ const StyledColumn= styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  
 
   & > label{
     width: fit-content;
