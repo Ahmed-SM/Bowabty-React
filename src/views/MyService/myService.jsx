@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { InputGroup, InputGroupAddon, InputGroupText, Input } from 'reactstrap';
 import {faChevronRight, faChevronLeft} from '@fortawesome/free-solid-svg-icons';
 
+
 const StyledServiceContainer = styled.div`
   margin 0 20px;
 `;
@@ -26,7 +27,7 @@ const StyledMyService = styled.div`
     background-color: white;
     border-radius: 15px;
     z-index: 0;
-    border-bottom: 6px solid #3497DB;
+    border-bottom: 6px solid ${props => props.primary  ? "#3497DB" : "#000000"};
   `;
 const StyledHeader = styled.div`
     padding: 25px 40px 10px 40px;
@@ -224,7 +225,7 @@ const MyService = () => {
   return (
     <StyledServiceContainer>
     <StyledMyService>
-      <StyledMdContainer>
+      <StyledMdContainer primary>
         <StyledHeader class="d-header ">
           <Styledh3 id="d-header-box1" data-translate="decision">
             قرارات داخلية جديدة
