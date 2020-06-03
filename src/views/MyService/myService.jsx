@@ -73,7 +73,7 @@ const StyledColumn= styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  width:100%;
+  
 
   & > label{
     width: fit-content;
@@ -171,6 +171,8 @@ const StyledInput = styled.input`
 `;
 const StyledFile = styled.div`
     padding-right: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
     height: 30px;
     border-radius: 5px;
     text-rendering: auto;
@@ -307,13 +309,13 @@ const MyService = () => {
         <StyledGroup class="d-content group">
           <form id="feedback-form" action="/">
             <StyledInputGroup class="input-group-a">
-              <StyledColumn class="column">
+              <StyledColumn className="col-md-12">
                 <label data-translate="suggested-title" for="">
                   عنوان المقترح
                 </label>
                 <StyledInput
                   id="suggestion-title-placeholder"
-                  className="input-border col-md-8"
+                  className="input-border col-md-10"
                   type="text"
                   data-translate="suggested-title"
                   placeholder="عنوان المقترح"
@@ -321,11 +323,11 @@ const MyService = () => {
               </StyledColumn>
             </StyledInputGroup>
             <StyledInputGroup class="input-group-b ">
-              <StyledColumn class="column  selectdiv">
+              <StyledColumn className="col-md-5  selectdiv">
                 <label data-translate="suggestion-origin" for="">
                   مصدر الاقتراح
                 </label>
-                <StyledSelect className="input-border col-md-8 " name="" id="">
+                <StyledSelect className="input-border col-md-12 " name="" id="">
                   <option
                     value="فكرة شخصية"
                     data-translate="suggestion-origin-option-1"
@@ -335,11 +337,11 @@ const MyService = () => {
                   </option>
                 </StyledSelect>
               </StyledColumn>
-              <StyledColumn class="column">
+              <StyledColumn className="col-md-5 ">
                 <label data-translate="attachemnt" for="file">
                   المرفقات
                 </label>
-                <StyledFile className="input-border col-md-8 input-file ">
+                <StyledFile className="input-border col-md-12 input-file ">
                   <div class="user-select">
                     <input name="file" type="file" id="file" />
                   </div>
