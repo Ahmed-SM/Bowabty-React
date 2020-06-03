@@ -6,7 +6,7 @@ import { faClipboard, faCircle, faAddressBook} from '@fortawesome/free-solid-svg
 
 const StyledUserInfo = styled.div`
     margin: 0;
-    padding: 20px 50px 0px 50px;
+    padding: 25px 50px 0px 50px;
     height: fit-content;
     width: 100%;
     justify-content: space-around;
@@ -49,6 +49,7 @@ const StyledH4 = styled.h4`
     white-space: nowrap;
 `; 
 const StyledTitle = styled.div`
+    margin-top:8px;
     flex-grow: 1;
 `;
 const StyledSideBtns  = styled.div`
@@ -57,10 +58,10 @@ const StyledSideBtns  = styled.div`
     display: inline-flex;
     flex-direction: row-reverse;
     flex-wrap: nowrap;
-
+    margin-top:8px;
 `;
 const StyledInfo = styled.div`
-
+    margin:14px 20px 0px 0px;
     & > user-role-h4 {
         text-align: right;
         color: #6D6D6D;
@@ -98,7 +99,7 @@ const UserContent = ({isVisible}) => {
       <StyledUserInfo>
         <StyledUserDetails>
           <div class="user-picture">
-          <FontAwesomeIcon size="6x" icon={faCircle} color={"#C4C4C4"} />  
+          <FontAwesomeIcon size="5x" icon={faCircle} color={"#C4C4C4"} />  
           </div>
           <StyledInfo>
             <div class="user-name">
