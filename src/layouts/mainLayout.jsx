@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Header from "../components/header/header";
 import Navigation from "../components/navigation/navigation";
 import UserContent from "../components/userContent/userContent";
-import ServicesSlider from "../components/servicesMenu/servicesSlider";
+import ServicesSlider from "../components/servicesSlider/servicesSlider";
 
 const MainLayout = styled.div`
     font-family: 'Cocon Next Arabic', Sans-Serif !important;
