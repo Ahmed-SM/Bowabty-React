@@ -72,6 +72,7 @@ const StyledColumn= styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
+  width:100%;
 
   & > label{
     width: fit-content;
@@ -188,6 +189,11 @@ const StyledFile = styled.div`
     display: flex;
     flex-direction: row-reverse;
     background-color: transparent;
+    & input[type=file] {
+      font-size: calc(1px + 0.65vw);
+      padding-left: 10px;
+      opacity: 0;
+  }
 `;
 const StyledSelect = styled.select`
     padding-right: 10px;
@@ -207,6 +213,10 @@ const StyledSelect = styled.select`
     border-width: 1px;
     border-style: solid;
     border-color: rgb(169, 169, 169);
+`;
+const StyledFileLabel = styled.label`
+    color: #757575;
+    margin: -25px 15px 0 0;
 `;
 
 
@@ -302,7 +312,7 @@ const MyService = () => {
                 </label>
                 <StyledInput
                   id="suggestion-title-placeholder"
-                  class="input-border w-100"
+                  className="input-border col-md-8"
                   type="text"
                   data-translate="suggested-title"
                   placeholder="عنوان المقترح"
@@ -314,7 +324,7 @@ const MyService = () => {
                 <label data-translate="suggestion-origin" for="">
                   مصدر الاقتراح
                 </label>
-                <StyledSelect class="input-border w155" name="" id="">
+                <StyledSelect className="input-border col-md-8 " name="" id="">
                   <option
                     value="فكرة شخصية"
                     data-translate="suggestion-origin-option-1"
@@ -324,12 +334,11 @@ const MyService = () => {
                   </option>
                 </StyledSelect>
               </StyledColumn>
-              <span class="space" />
               <StyledColumn class="column">
                 <label data-translate="attachemnt" for="file">
                   المرفقات
                 </label>
-                <StyledFile class="input-border w155 input-file">
+                <StyledFile className="input-border col-md-8 input-file ">
                   <div class="user-select">
                     <input name="file" type="file" id="file" />
                   </div>
@@ -363,14 +372,14 @@ const MyService = () => {
                     </svg>
                   </svg>
                 </StyledFile>
-                <label
+                <StyledFileLabel
                   id="file-placeholder"
                   class="file-placeholder"
                   data-translate="attachemnt"
                   for="file"
                 >
                   المرفقات
-                </label>
+                </StyledFileLabel>
               </StyledColumn>
             </StyledInputGroup>
             <div>
