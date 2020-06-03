@@ -8,7 +8,7 @@ import ServicesSlider from "../components/servicesMenu/servicesSlider";
 const MainLayout = styled.div`
     font-family: 'Cocon Next Arabic', Sans-Serif !important;
     letter-spacing: 0.2px !important;
-    background-color:  red;
+    background-color:  transparent;
     box-sizing: border-box;
     height:100vh;
     min-height:100%;
