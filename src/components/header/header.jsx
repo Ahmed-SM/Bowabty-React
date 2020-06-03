@@ -11,7 +11,6 @@ const StyledHeader = styled.header`
     display: inline-flex !important;
     flex-direction: row-reverse;
     flex-wrap: nowrap;
-    background:#F6F4F5;
     user-select: none;
     & > * {
         height: 82.3px;
