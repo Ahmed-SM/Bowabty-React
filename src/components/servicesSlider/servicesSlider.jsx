@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faChevronRight, faChevronLeft, faLevelUpAlt} from '@fortawesome/free-solid-svg-icons';
+import {faChevronRight, faChevronLeft, faLevelUpAlt, faBars} from '@fortawesome/free-solid-svg-icons';
 
 
 const StyledServicesContainer = styled.div`
@@ -282,7 +282,7 @@ const ServicesSlider = () => {
         </CarouselControlRight>
       </div>
       <div id="minimize" class="minimize-left">
-      <FontAwesomeIcon size="2x" icon={faLevelUpAlt} />
+      <FontAwesomeIcon size="2x" icon={faBars} />
       </div>
     </StyledServicesContainer>
   );
