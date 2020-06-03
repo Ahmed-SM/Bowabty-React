@@ -131,12 +131,6 @@ const StyledCardDate = styled.p`
 const StyledCardDivider = styled.hr`
     margin: 0;
 `;
-const StyledMultiInputGroup = styled.div`
-    width: 100%;
-    margin-bottom: 20px;
-    display: flex;
-    flex-wrap: nowrap;
-`;
 const StyledInputGroup = styled.div`
     width: 100%;
     margin-bottom: 20px;
@@ -161,6 +155,49 @@ const StyledInput = styled.input`
     border-width: 1px;
     border-style: solid;
     border-color: rgb(169, 169, 169)
+    cursor: pointer !important;
+    outline: 0;
+`;
+const StyledFile = styled.div`
+    padding-right: 10px;
+    height: 30px;
+    border-radius: 5px;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    align-items: center;
+    white-space: pre;
+    rtl-ordering: logical;
+    cursor: default;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(169, 169, 169);
+    display: flex;
+    flex-direction: row-reverse;
+    background-color: transparent;
+`;
+const StyledSelect = styled.select`
+    padding-right: 10px;
+    height: 30px;
+    border-radius: 5px;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    align-items: center;
+    white-space: pre;
+    rtl-ordering: logical;
+    cursor: default;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(169, 169, 169);
 `;
 
 
@@ -254,7 +291,7 @@ const MyService = () => {
                 </label>
                 <StyledInput
                   id="suggestion-title-placeholder"
-                  class="input-border w330"
+                  class="input-border w-100"
                   type="text"
                   data-translate="suggested-title"
                   placeholder="عنوان المقترح"
@@ -266,7 +303,7 @@ const MyService = () => {
                 <label data-translate="suggestion-origin" for="">
                   مصدر الاقتراح
                 </label>
-                <select class="input-border w155" name="" id="">
+                <StyledSelect class="input-border w155" name="" id="">
                   <option
                     value="فكرة شخصية"
                     data-translate="suggestion-origin-option-1"
@@ -274,14 +311,14 @@ const MyService = () => {
                   >
                     فكرة شخصية
                   </option>
-                </select>
+                </StyledSelect>
               </StyledColumn>
               <span class="space" />
               <StyledColumn class="column">
                 <label data-translate="attachemnt" for="file">
                   المرفقات
                 </label>
-                <div class="input-border w155 input-file">
+                <StyledFile class="input-border w155 input-file">
                   <div class="user-select">
                     <input name="file" type="file" id="file" />
                   </div>
@@ -314,7 +351,7 @@ const MyService = () => {
                       />
                     </svg>
                   </svg>
-                </div>
+                </StyledFile>
                 <label
                   id="file-placeholder"
                   class="file-placeholder"
