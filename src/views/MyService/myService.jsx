@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { InputGroup, InputGroupAddon, InputGroupText, Input } from 'reactstrap';
+import {faChevronRight, faChevronLeft} from '@fortawesome/free-solid-svg-icons';
 
 const StyledServiceContainer = styled.div`
   margin 0 20px;
@@ -133,6 +135,10 @@ const StyledCardDate = styled.p`
 `;
 const StyledCardDivider = styled.hr`
     margin: 0;
+`;
+const StyledGroup = styled.div`
+    display: block;
+    padding: 0px 40px;
 `;
 const StyledInputGroup = styled.div`
     width: 100%;
@@ -274,6 +280,7 @@ const MyService = () => {
             class="carousel-control carousel-control-2"
             style={{ left: `1.4vw` }}
           >
+            <FontAwesomeIcon size="2x" icon={faChevronLeft}  color={"#C0C0C0"}/>
             <i class="fas fa-chevron-left C0C0C0" />
           </a>
         </div>
@@ -286,7 +293,7 @@ const MyService = () => {
           </Styledh3>
           <StyledContainerDivider class="hr-d-container" />
         </StyledHeader>
-        <InputGroup class="d-content group">
+        <StyledGroup class="d-content group">
           <form id="feedback-form" action="/">
             <StyledInputGroup class="input-group-a">
               <StyledColumn class="column">
@@ -377,7 +384,7 @@ const MyService = () => {
               </StyledSendButton>
             </div>
           </form>
-        </InputGroup>
+        </StyledGroup>
       </StyledMdContainer>
     </StyledMyService>
     </StyledServiceContainer>
