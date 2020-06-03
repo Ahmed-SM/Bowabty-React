@@ -2,6 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { InputGroup, InputGroupAddon, InputGroupText, Input } from 'reactstrap';
 
+const StyledServiceContainer = styled.div`
+  margin 0 20px;
+`;
 const StyledMyService = styled.div`
   display: inline-flex;
   flex-wrap: nowrap;
@@ -203,6 +206,7 @@ const StyledSelect = styled.select`
 
 const MyService = () => {
   return (
+    <StyledServiceContainer>
     <StyledMyService>
       <StyledMdContainer>
         <StyledHeader class="d-header ">
@@ -376,6 +380,7 @@ const MyService = () => {
         </InputGroup>
       </StyledMdContainer>
     </StyledMyService>
+    </StyledServiceContainer>
   );
 }
 export default MyService;
