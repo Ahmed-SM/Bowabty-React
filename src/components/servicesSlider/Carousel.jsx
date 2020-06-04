@@ -1,8 +1,7 @@
 import React, {useContext} from "react";
 import Carousel from "react-multi-carousel";
 import styled from "styled-components";
-import {ServiceContext} from "../../contexts/ServiceContext"
-
+import { Link } from "react-router-dom";
 
 const responsive = {
     desktop: {
@@ -51,8 +50,8 @@ const Styledh5 = styled.h5`
   -webkit-text-fill-color: black !important;
   font-size: 15px;
 `;
-const ServicesCarousel = ({ deviceType }) => {
-  const servicesList = useContext(ServiceContext);
+const ServicesCarousel = ({ deviceType, list}) => {
+  const itemsList = useContext(list);
     return (
       <Carousel
         autoPlay
@@ -63,23 +62,25 @@ const ServicesCarousel = ({ deviceType }) => {
         itemClass="image-item"
         responsive={responsive}
       >
-        {servicesList.slice(0, servicesList.length).map((service, index) => {
-          return (    
+        {itemsList.slice(0, itemsList.length).map((item, index) => {
+          return (
+            <Link to={"/ServiceID="+index} >  
             <StyledElement key={index}>
                 <div style={{padding: `30px 30px 0px 30px`}}>
-                <img src={service.Icon} alt="" width="42" />
+                <img src={item.Icon} alt="" width="42" />
                 </div>
             <StyledElementTitle class="element-title">
               <Styledh5 data-translate="status-requests" class="bold-text">
-                 {service.Title}
+                 {item.Title}
                </Styledh5>
              </StyledElementTitle>
             <StyledDescription class="element-description">
               <Styledh6 data-translate="element-description" dir="auto">
-              {service.Description}
+              {item.Description}
                </Styledh6>
              </StyledDescription> 
             </StyledElement>
+            </Link>
           );
         })}
       </Carousel>

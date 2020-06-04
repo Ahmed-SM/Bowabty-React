@@ -5,7 +5,7 @@ import ServicesCarousel from "./Carousel";
 import CarouselSection from "./CarouselSection";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faBars} from '@fortawesome/free-solid-svg-icons';
-
+import {ServiceContext} from "../../contexts/ServiceContext"
 
 const StyledServicesContainer = styled.div`
   position: relative;
@@ -37,7 +37,7 @@ const ServicesSlider = () => {
   return (
     <StyledServicesContainer>
       <CarouselSection>
-          <ServicesCarousel deviceType={"desktop"}/>
+          <ServicesCarousel deviceType={"desktop"} list={ServiceContext}/>
        </CarouselSection>
       <StyledMinimize id="minimize" class="minimize-left">
       <FontAwesomeIcon size="1x" icon={faBars} />
