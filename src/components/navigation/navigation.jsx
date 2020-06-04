@@ -4,7 +4,6 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
     faLifeRing,
     faTasks,
-    faSortDown,
     faBatteryHalf,
     faCog,
     faInfo,
@@ -113,6 +112,8 @@ const StyledSocialBox = styled.div `
     display: inline-flex;
     flex-direction: row-reverse;
     flex-wrap: nowrap;
+    
+
     width: 200px;
     & > div {
         max-width: 35px;

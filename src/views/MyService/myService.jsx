@@ -145,6 +145,7 @@ const StyledInputGroup = styled.div`
     margin-bottom: 20px;
     display: flex;
     flex-wrap: nowrap;
+    
 `;
 const StyledInput = styled.input`
     padding-right: 10px;

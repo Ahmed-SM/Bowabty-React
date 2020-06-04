@@ -9,7 +9,6 @@ const StyledUserInfo = styled.div`
     height: fit-content;
     width: 100%;
     justify-content: space-around;
-    -webkit-justify-content: space-around !important;
     text-align: center;
     display: inline-flex;
     flex-direction: row-reverse;
@@ -21,7 +20,6 @@ const StyledUserDetails = styled.div`
     display: inline-flex;
     flex-direction: row-reverse;
     flex-wrap: nowrap;
-
     & > img {
         width: 70px;
     }

@@ -5,7 +5,7 @@ import Navigation from "../components/navigation/navigation";
 import UserContent from "../components/userContent/userContent";
 import ServicesSlider from "../components/servicesSlider/servicesSlider";
 
-const MainLayout = styled.div`
+const MainLayout = styled.div `
     font-family: 'Cocon Next Arabic', Sans-Serif !important;
     letter-spacing: 0.2px !important;
     background-color:  transparent;
@@ -14,15 +14,14 @@ const MainLayout = styled.div`
     min-height:100%;
 `;
 
-const mainLayout = ({ children }) => {
-    return(
-    <MainLayout>
-        <Header/>
-        <Navigation/>
-        <UserContent isVisible={true}/>
-        <ServicesSlider/>
-       { children }
-    </MainLayout>
+const mainLayout = ({children}) => {
+    return (
+        <MainLayout>
+            <Header/>
+            <Navigation/>
+            <UserContent isVisible={true}/>
+            <ServicesSlider/> {children}
+        </MainLayout>
     );
 }
 export default mainLayout;

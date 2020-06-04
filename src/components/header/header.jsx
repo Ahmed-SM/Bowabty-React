@@ -1,5 +1,6 @@
-import React from "react";
+import React, {useContext} from "react";
 import styled from "styled-components";
+import {LocalsContext} from "../../contexts/ServiceContext";
 import rakLogo from "../../assets/RAK.png"
 import logo from "../../assets/logo.png"
 const StyledHeader = styled.header`
@@ -15,14 +16,18 @@ const StyledHeader = styled.header`
     & > * {
         height: 82.3px;
     }
+    ${({ isLTR }) => isLTR && `
+    flex-direction: row;
+  `}
 `;
 const WelcomeSection = styled.div`
     margin-top: 0px;
 `;
 
 const Header = () => {
+    const {LTR} = useContext(LocalsContext);
     return (
-        <StyledHeader className="user-select">
+        <StyledHeader className="user-select" isLTR={LTR}>
             <div>
                 <a href="#">
                     <img src={logo} alt="" width="280"/>
