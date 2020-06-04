@@ -19,7 +19,7 @@ const Dropdown = ({icon, text, children}) => {
                     <span data-translate="task">{text}</span>
                 </div>
             </DropdownToggle>
-            <DropdownMenu>
+            <DropdownMenu right>
                 {children}
             </DropdownMenu>
         </UncontrolledDropdown>
