@@ -3,17 +3,13 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLifeRing,  faTasks, faSortDown, faBatteryHalf, faCog, faInfo, faFileAlt, faSlidersH} from '@fortawesome/free-solid-svg-icons';
 import { faYoutube, faFacebookF, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
-import { slidersh } from '@fortawesome/fontawesome-free';
 import { Link } from "react-router-dom";
 import {
-    Collapse,
-    Navbar,
-    NavbarBrand,
-    NavbarToggler,
-    NavItem,
-    NavLink,
-    Button,
-  } from "reactstrap";
+    UncontrolledDropdown,
+    DropdownToggle,
+    DropdownMenu,
+    DropdownItem,
+  } from 'reactstrap';
   
 const StyledNavigation = styled.nav`
     justify-content: space-between;
@@ -167,19 +163,23 @@ const Navigation = () => {
                         <div data-translate="meeting">الإجتماعات</div>
                     </Link>
                 </StyledNavTab>
-                <StyledNavTab className="dropdown">
-                    <a href="javascript:void(0)" class="dropbtn">
+                <StyledNavTab>
+                    <UncontrolledDropdown>
+                        <DropdownToggle style={{background:`transparent`, color:`white`, outline:'none'}}>
                         <FontAwesomeIcon size="2x" icon={faTasks} />
                         <div>
-                            <span data-translate="task">المهام</span>
                             <FontAwesomeIcon size="1x" icon={faSortDown} />
+                            <span data-translate="task">المهام</span>
                         </div>
-                    </a>
-                    <div className="dropdown-content">
-                        <Link to="/1" data-translate="select">اختيار</Link>
-                        <Link to="/2" data-translate="select">اختيار</Link>
-                        <Link to="/3" data-translate="select">اختيار</Link>
-                    </div>
+                        </DropdownToggle>
+                    <DropdownMenu>
+                        <DropdownItem><Link to="/1" data-translate="select">اختيار</Link></DropdownItem> 
+                        <DropdownItem divider />
+                        <DropdownItem><Link to="/1" data-translate="select">اختيار</Link></DropdownItem> 
+                        <DropdownItem divider />
+                       <DropdownItem><Link to="/1" data-translate="select">اختيار</Link></DropdownItem> 
+                    </DropdownMenu>
+                    </UncontrolledDropdown>
                 </StyledNavTab>
                 <StyledNavTab>
                     <Link to="myorders">
@@ -187,46 +187,57 @@ const Navigation = () => {
                         <div data-translate="order-status">طلباتي</div>
                     </Link>
                 </StyledNavTab>
-                <StyledNavTab className="dropdown">
-                    <a href="javascript:void(0)" className="dropbtn">
-                        <FontAwesomeIcon size="2x" icon={faCog} />
-                        <div>
-                            <span data-translate="administration">إدارة النظام</span>
-                            <FontAwesomeIcon size="1x" icon={faSortDown} />
-                        </div>
-                    </a>
-                    <div className="dropdown-content">
-                        <Link to="/user" data-translate="select">المستخدم</Link>
-                        <Link to="/useroles" data-translate="select2">صلاحيات المستخدم</Link>
-                    </div>
+                <StyledNavTab >
+                    <UncontrolledDropdown>
+                        <DropdownToggle style={{background:`transparent`, color:`white`, outline:'none'}}>
+                            <FontAwesomeIcon size="2x" icon={faCog} />
+                            <div>
+                                <FontAwesomeIcon size="1x" icon={faSortDown} />
+                                <span data-translate="administration">إدارة النظام</span>
+                            </div>
+                        </DropdownToggle>
+                        <DropdownMenu >
+                            <DropdownItem> <Link to="/user" data-translate="select">المستخدم</Link> </DropdownItem>
+                            <DropdownItem divider />
+                            <DropdownItem><Link to="/useroles" data-translate="select2">صلاحيات المستخدم</Link> </DropdownItem>
+                        </DropdownMenu>
+                    </UncontrolledDropdown>
                 </StyledNavTab>
                 <StyledNavTab className="dropdown">
-                    <a href="javascript:void(0)" class="dropbtn">
+                <UncontrolledDropdown>
+                        <DropdownToggle style={{background:`transparent`, color:`white`, outline:'none'}}>
                         <FontAwesomeIcon size="2x" icon={faInfo} />
                         <div>
-                            <span data-translate="other">أخرى</span>
                             <FontAwesomeIcon size="1x" icon={faSortDown} />
+                            <span data-translate="other">أخرى</span>
                         </div>
-                    </a>
-                    <div className="dropdown-content">
-                        <Link to="/" data-translate="select">اختيار</Link>
-                        <Link to="/" data-translate="select">اختيار</Link>
-                        <Link to="/" data-translate="select">اختيار</Link>
-                    </div>
+                        </DropdownToggle>
+                    <DropdownMenu>
+                    <DropdownItem><Link to="/1" data-translate="select">اختيار</Link></DropdownItem> 
+                        <DropdownItem divider />
+                        <DropdownItem><Link to="/1" data-translate="select">اختيار</Link></DropdownItem> 
+                        <DropdownItem divider />
+                       <DropdownItem><Link to="/1" data-translate="select">اختيار</Link></DropdownItem> 
+                    </DropdownMenu>
+                    </UncontrolledDropdown>
                 </StyledNavTab>
                 <StyledNavTab className="dropdown">
-                    <a href="javascript:void(0)" class="dropbtn">
+                <UncontrolledDropdown>
+                        <DropdownToggle style={{background:`transparent`, color:`white`, outline:'none'}}>
                         <FontAwesomeIcon size="2x" icon={faFileAlt} />
                         <div>
-                            <span data-translate="report">التقارير</span>
                             <FontAwesomeIcon size="1x" icon={faSortDown} />
+                            <span data-translate="report">التقارير</span>
                         </div>
-                    </a>
-                    <div className="dropdown-content">
-                        <Link to="/" data-translate="select">اختيار</Link>
-                        <Link to="/" data-translate="select">اختيار</Link>
-                        <Link to="/" data-translate="select">اختيار</Link>
-                    </div>
+                        </DropdownToggle>
+                    <DropdownMenu className="dropdown-content">
+                        <DropdownItem><Link to="/1" data-translate="select">اختيار</Link></DropdownItem> 
+                        <DropdownItem divider />
+                        <DropdownItem><Link to="/1" data-translate="select">اختيار</Link></DropdownItem> 
+                        <DropdownItem divider />
+                       <DropdownItem><Link to="/1" data-translate="select">اختيار</Link></DropdownItem> 
+                    </DropdownMenu>
+                    </UncontrolledDropdown>
                 </StyledNavTab>
             </StyledRightSection>
             <StyledLeftSection>

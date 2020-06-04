@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { InputGroup, InputGroupAddon, InputGroupText, Input } from 'reactstrap';
-import {faChevronRight, faChevronLeft} from '@fortawesome/free-solid-svg-icons';
+import {faChevronLeft} from '@fortawesome/free-solid-svg-icons';
 
 
 const StyledServiceContainer = styled.div`

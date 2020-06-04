@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import fallBackCircle from "../../assets/fallback-circle.png"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClipboard, faCircle, faAddressBook} from '@fortawesome/free-solid-svg-icons';
 
