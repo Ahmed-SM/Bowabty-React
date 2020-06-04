@@ -7,10 +7,10 @@ import {NewsFeedContext} from "../../contexts/ServiceContext"
 import NewsFeed from "./newsFeed";
 import NewsFeedSection from "./newsFeedSection";
 
-const StyledServiceContainer = styled.div `
+const StyledServiceContainer = styled.div`
   margin 0 20px;
 `;
-const StyledMyService = styled.div `
+const StyledMyService = styled.div`
   display: inline-flex;
   flex-wrap: nowrap;
   direction: rtl;
@@ -21,7 +21,7 @@ const StyledMyService = styled.div `
   background-color: #F6F4F5;
   box-sizing: border-box;
   `;
-const StyledMdContainer = styled.div `
+const StyledMdContainer = styled.div`
     height: 300px;
     width: 45%;
     min-width: 45%;
@@ -33,26 +33,26 @@ const StyledMdContainer = styled.div `
     ? "#3497DB"
     : "#000000"};
   `;
-const StyledHeader = styled.div `
+const StyledHeader = styled.div`
     padding: 25px 40px 10px 40px;
     -webkit-text-stroke: 0.4px black;
     -webkit-text-fill-color: black;
     overflow: hidden;
     white-space: nowrap;
 `;
-const Styledh3 = styled.h3 `
+const Styledh3 = styled.h3`
     text-overflow: ellipsis;
 `;
-const Styledh6 = styled.h6 `
+const Styledh6 = styled.h6`
     font-size: 13px;
     margin-bottom:0.3em;
 `;
-const StyledContainerDivider = styled.hr `
+const StyledContainerDivider = styled.hr`
   margin: 10px 0px ;
   border: 0;
   border-top: 1px solid #eee;
 `;
-const StyledCard = styled.div `
+const StyledCard = styled.div`
   padding: 10px 15px;
   border-radius: 5px;
   width: 125px;
@@ -68,12 +68,12 @@ const StyledCard = styled.div `
     text-decoration:none;
   }
 `;
-const StyledCardHeader = styled.div `
+const StyledCardHeader = styled.div`
     text-stroke: 0.4px black;
     text-fill-color: black;
     min-height: 30px;
 `;
-const StyledColumn = styled.div `
+const StyledColumn = styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -82,7 +82,7 @@ const StyledColumn = styled.div `
     width: fit-content;
   }
 `;
-const StyledItemAlign = styled.div `
+const StyledItemAlign = styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -92,7 +92,7 @@ const StyledItemAlign = styled.div `
   }
 `;
 
-const StyledSendButton = styled.button `
+const StyledSendButton = styled.button`
     display: inline-block;
     margin-bottom: 0;
     text-align: center;
@@ -117,15 +117,15 @@ const StyledSendButton = styled.button `
       border: 1px solid rgba(81, 203, 238, 1);
     }
 `;
-const StyledSliderInner = styled.div `
+const StyledSliderInner = styled.div`
       display: inline-flex ;
       width: 80%;
 `;
-const StyledJustifiedTextArea = styled.div `
+const StyledJustifiedTextArea = styled.div`
     max-height: 80px;
     overflow: hidden;
 `;
-const StyledJustifiedParagraph = styled.p `
+const StyledJustifiedParagraph = styled.p`
     font-size: 8.5px;
     text-align: justify;
     text-align-last: justify;
@@ -134,25 +134,25 @@ const StyledJustifiedParagraph = styled.p `
     word-spacing: 0px;
     text-stroke: 0.1px #333;
 `;
-const StyledCardDate = styled.p `
+const StyledCardDate = styled.p`
     font-size: 8px;
     margin: 0;
 `;
-const StyledCardDivider = styled.hr `
+const StyledCardDivider = styled.hr`
     margin: 0;
 `;
-const StyledGroup = styled.div `
+const StyledGroup = styled.div`
     display: block;
     padding: 0px 40px;
 `;
-const StyledInputGroup = styled.div `
+const StyledInputGroup = styled.div`
     width: 100%;
     margin-bottom: 20px;
     display: flex;
     flex-wrap: nowrap;
     
 `;
-const StyledInput = styled.input `
+const StyledInput = styled.input`
     padding-right: 10px;
     height: 30px;
     border-radius: 5px;
@@ -173,7 +173,7 @@ const StyledInput = styled.input `
     cursor: pointer !important;
     outline: 0;
 `;
-const StyledFile = styled.div `
+const StyledFile = styled.div`
     padding-right: 10px;
     margin-left: 5px;
     margin-right: 5px;
@@ -202,7 +202,7 @@ const StyledFile = styled.div `
       opacity: 0;
   }
 `;
-const StyledSelect = styled.select `
+const StyledSelect = styled.select`
     padding-right: 10px;
     height: 30px;
     border-radius: 5px;
@@ -221,10 +221,17 @@ const StyledSelect = styled.select `
     border-style: solid;
     border-color: rgb(169, 169, 169);
 `;
-const StyledFileLabel = styled.label `
+const StyledFileLabel = styled.label`
     color: #757575;
     margin: -25px 15px 0 0;
 `;
+const StyledSVG = styled.svg`
+  position: absolute;
+  width: 15px;
+  left:0;
+  margin: 1px 0px 0 15px;
+  z-index: -1;
+}`;
 
 const MyService = () => {
     return (
@@ -285,8 +292,7 @@ const MyService = () => {
                                         <div class="user-select">
                                             <input name="file" type="file" id="file"/>
                                         </div>
-                                        <svg
-                                            class="svg-size"
+                                        <StyledSVG
                                             aria-hidden="true"
                                             focusable="false"
                                             data-prefix="far"
@@ -304,7 +310,7 @@ const MyService = () => {
                                                     fill="currentColor"
                                                     d="M43.246 466.142c-58.43-60.289-57.341-157.511 1.386-217.581L254.392 34c44.316-45.332 116.351-45.336 160.671 0 43.89 44.894 43.943 117.329 0 162.276L232.214 383.128c-29.855 30.537-78.633 30.111-107.982-.998-28.275-29.97-27.368-77.473 1.452-106.953l143.743-146.835c6.182-6.314 16.312-6.422 22.626-.241l22.861 22.379c6.315 6.182 6.422 16.312.241 22.626L171.427 319.927c-4.932 5.045-5.236 13.428-.648 18.292 4.372 4.634 11.245 4.711 15.688.165l182.849-186.851c19.613-20.062 19.613-52.725-.011-72.798-19.189-19.627-49.957-19.637-69.154 0L90.39 293.295c-34.763 35.56-35.299 93.12-1.191 128.313 34.01 35.093 88.985 35.137 123.058.286l172.06-175.999c6.177-6.319 16.307-6.433 22.626-.256l22.877 22.364c6.319 6.177 6.434 16.307.256 22.626l-172.06 175.998c-59.576 60.938-155.943 60.216-214.77-.485z"/>
                                             </svg>
-                                        </svg>
+                                        </StyledSVG>
                                     </StyledFile>
                                     <StyledFileLabel
                                         id="file-placeholder"

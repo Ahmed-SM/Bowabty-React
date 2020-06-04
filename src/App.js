@@ -10,7 +10,7 @@ import docDarkGreen from "./assets/serviceImgs/doc-dark-green.png";
 import dockGreen from "./assets/serviceImgs/doc-green.png";
 import dockYellow from "./assets/serviceImgs/doc-yellow.png";
 import paperTime from "./assets/serviceImgs/paper-time.png";
-import {ServiceContext, LocalsContext} from "./contexts/ServiceContext";
+import {ServiceContext, LocalsContext, NewsFeedContext} from "./contexts/ServiceContext";
 
 const servicesList = [
     {
@@ -43,6 +43,19 @@ const servicesList = [
         Icon: desk
     }
 ]
+const Newslist = [
+    {
+        header: 'اليوم العالمي للعدالة الاجتماعية',
+        Paragraph: ' لوريم إيبسوم هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكلوليس المحتوى) ويُستخدم ' +
+                'في صناعات المطابع ودور النشر.',
+        PostDate: 'الأربعاء 20 , فبراير 2019'
+    }, {
+        header: 'اليوم العالمي للعدالة الاجتماعية',
+        Paragraph: ' لوريم إيبسوم هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكلوليس المحتوى) ويُستخدم ' +
+                'في صناعات المطابع ودور النشر.',
+        PostDate: 'الأربعاء 20 , فبراير 2019'
+    }
+]
 
 const local = {
     isLTR: false
@@ -55,7 +68,9 @@ function App() {
                 <MainLayout>
                     {/* Dynamic Components are passed down to the Layout,
                      The Layout component also wraps up a essential static components*/}
-                    <Route exact path="/" component={MyService}/>
+                    <NewsFeedContext.Provider value={Newslist}>
+                        <Route exact path="/" component={MyService}/>
+                    </NewsFeedContext.Provider>
                 </MainLayout>
             </LocalsContext.Provider>
         </ServiceContext.Provider>

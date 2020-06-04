@@ -6,11 +6,12 @@ const StyledElementSection =  styled.section`
     padding: 0px 10px;
 }
 `;
-const CarouselSection = ({ children }, ref) => {
+const NewsFeedSection = ({ children }) => {
   return (
-    <StyledElementSection ref={ref}>
+    <StyledElementSection>
       {children}
     </StyledElementSection>
   );
 };
-export default React.forwardRef(CarouselSection);
+
+export default NewsFeedSection;
