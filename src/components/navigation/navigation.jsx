@@ -1,17 +1,23 @@
 import React from "react";
 import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLifeRing,  faTasks, faSortDown, faBatteryHalf, faCog, faInfo, faFileAlt, faSlidersH} from '@fortawesome/free-solid-svg-icons';
-import { faYoutube, faFacebookF, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
-import { Link } from "react-router-dom";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
-    UncontrolledDropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem,
-  } from 'reactstrap';
-  
-const StyledNavigation = styled.nav`
+    faLifeRing,
+    faTasks,
+    faSortDown,
+    faBatteryHalf,
+    faCog,
+    faInfo,
+    faFileAlt,
+    faSlidersH
+} from '@fortawesome/free-solid-svg-icons';
+import {faYoutube, faFacebookF, faInstagram, faTwitter} from '@fortawesome/free-brands-svg-icons';
+import {Link} from "react-router-dom";
+import Tab from "./tab";
+import Dropdown from "./dropdown";
+import {DropdownItem} from 'reactstrap';
+
+const StyledNavigation = styled.nav `
     justify-content: space-between;
     width: 100%;
     background-color: #3C4652;
@@ -23,20 +29,20 @@ const StyledNavigation = styled.nav`
     flex-wrap: nowrap;
 
 `;
-const StyledRightSection = styled.div`
+const StyledRightSection = styled.div `
     display: inline-flex;
     justify-content: space-around;
     flex-direction: row-reverse;
     flex-wrap: nowrap;
     
 `;
-const StyledLeftSection = styled.div`
+const StyledLeftSection = styled.div `
     clear: both;
     display: inline-flex;
     flex-direction: row-reverse;
     flex-wrap: nowrap;
 `;
-const StyledNavTab = styled.div`
+const StyledNavTab = styled.div `
     margin: 1px 7px;
     
     & > a {
@@ -102,7 +108,7 @@ const StyledNavTab = styled.div`
         transition: all 0.5s;
     }
 `;
-const StyledSocialBox = styled.div`
+const StyledSocialBox = styled.div `
     justify-content: space-around;
     display: inline-flex;
     flex-direction: row-reverse;
@@ -112,7 +118,7 @@ const StyledSocialBox = styled.div`
         max-width: 35px;
     }
 `;
-const StyledSocialPosition = styled.div`
+const StyledSocialPosition = styled.div `
     display: block;
     width: 70px;
     color: white;
@@ -124,7 +130,7 @@ const StyledSocialPosition = styled.div`
         color: white;
     }
 `;
-const StyledLangaugeBox = styled.div`
+const StyledLangaugeBox = styled.div `
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-around;
@@ -136,13 +142,13 @@ const StyledLangaugeBox = styled.div`
         box-shadow: -10px 35px 46px -12px rgba(0,0,0,0.75);
     }
 `;
-const StyledVerticalLine = styled.div`
+const StyledVerticalLine = styled.div `
     margin-top: 20px;
     opacity: 0.4;
     border-left: 1px solid #F6F4F5;
     height: 30px;
 `;
-const StyledLangaugePosition = styled.div`
+const StyledLangaugePosition = styled.div `
     line-height: 4.6 !important;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
@@ -150,116 +156,85 @@ const StyledLangaugePosition = styled.div`
         color: white;
     }
 `;
-
-
-
 const Navigation = () => {
     return (
         <StyledNavigation>
             <StyledRightSection>
                 <StyledNavTab>
-                    <Link to="/meeting">
-                        <FontAwesomeIcon size="2x" icon={faLifeRing} />
-                        <div data-translate="meeting">الإجتماعات</div>
-                    </Link>
+                    <Tab path={"/meeting"} icon={faLifeRing} text={"الإجتماعات"}/>
                 </StyledNavTab>
                 <StyledNavTab>
-                    <UncontrolledDropdown>
-                        <DropdownToggle style={{background:`transparent`, color:`white`, outline:'none'}}>
-                        <FontAwesomeIcon size="2x" icon={faTasks} />
-                        <div>
-                            <FontAwesomeIcon size="1x" icon={faSortDown} />
-                            <span data-translate="task">المهام</span>
-                        </div>
-                        </DropdownToggle>
-                    <DropdownMenu>
-                        <DropdownItem><Link to="/1" data-translate="select">اختيار</Link></DropdownItem> 
-                        <DropdownItem divider />
-                        <DropdownItem><Link to="/1" data-translate="select">اختيار</Link></DropdownItem> 
-                        <DropdownItem divider />
-                       <DropdownItem><Link to="/1" data-translate="select">اختيار</Link></DropdownItem> 
-                    </DropdownMenu>
-                    </UncontrolledDropdown>
+                    <Dropdown icon={faTasks} text={"المهام"}>
+                        <DropdownItem>
+                            <Link to="/1" data-translate="select">اختيار</Link>
+                        </DropdownItem>
+                        <DropdownItem divider/>
+                        <DropdownItem>
+                            <Link to="/1" data-translate="select">اختيار</Link>
+                        </DropdownItem>
+                        <DropdownItem divider/>
+                        <DropdownItem>
+                            <Link to="/1" data-translate="select">اختيار</Link>
+                        </DropdownItem>
+                    </Dropdown>
                 </StyledNavTab>
                 <StyledNavTab>
-                    <Link to="myorders">
-                        <FontAwesomeIcon size="2x" icon={faBatteryHalf} />
-                        <div data-translate="order-status">طلباتي</div>
-                    </Link>
+                    <Tab path={"/myorders"} icon={faBatteryHalf} text={"طلباتي"}/>
                 </StyledNavTab>
                 <StyledNavTab >
-                    <UncontrolledDropdown>
-                        <DropdownToggle style={{background:`transparent`, color:`white`, outline:'none'}}>
-                            <FontAwesomeIcon size="2x" icon={faCog} />
-                            <div>
-                                <FontAwesomeIcon size="1x" icon={faSortDown} />
-                                <span data-translate="administration">إدارة النظام</span>
-                            </div>
-                        </DropdownToggle>
-                        <DropdownMenu >
-                            <DropdownItem> <Link to="/user" data-translate="select">المستخدم</Link> </DropdownItem>
-                            <DropdownItem divider />
-                            <DropdownItem><Link to="/useroles" data-translate="select2">صلاحيات المستخدم</Link> </DropdownItem>
-                        </DropdownMenu>
-                    </UncontrolledDropdown>
+                    <Dropdown icon={faCog} text={"إدارة النظام"}>
+                        <DropdownItem>
+                            <Link to="/user" data-translate="select">المستخدم</Link>
+                        </DropdownItem>
+                        <DropdownItem divider/>
+                        <DropdownItem>
+                            <Link to="/useroles" data-translate="select2">صلاحيات المستخدم</Link>
+                        </DropdownItem>
+                    </Dropdown>
                 </StyledNavTab>
                 <StyledNavTab className="dropdown">
-                <UncontrolledDropdown>
-                        <DropdownToggle style={{background:`transparent`, color:`white`, outline:'none'}}>
-                        <FontAwesomeIcon size="2x" icon={faInfo} />
-                        <div>
-                            <FontAwesomeIcon size="1x" icon={faSortDown} />
-                            <span data-translate="other">أخرى</span>
-                        </div>
-                        </DropdownToggle>
-                    <DropdownMenu>
-                    <DropdownItem><Link to="/1" data-translate="select">اختيار</Link></DropdownItem> 
-                        <DropdownItem divider />
-                        <DropdownItem><Link to="/1" data-translate="select">اختيار</Link></DropdownItem> 
-                        <DropdownItem divider />
-                       <DropdownItem><Link to="/1" data-translate="select">اختيار</Link></DropdownItem> 
-                    </DropdownMenu>
-                    </UncontrolledDropdown>
+                    <Dropdown icon={faInfo} text={"أخرى"}>
+                        <DropdownItem>
+                            <Link to="/user" data-translate="select">المستخدم</Link>
+                        </DropdownItem>
+                        <DropdownItem divider/>
+                        <DropdownItem>
+                            <Link to="/useroles" data-translate="select2">صلاحيات المستخدم</Link>
+                        </DropdownItem>
+                    </Dropdown>
                 </StyledNavTab>
                 <StyledNavTab className="dropdown">
-                <UncontrolledDropdown>
-                        <DropdownToggle style={{background:`transparent`, color:`white`, outline:'none'}}>
-                        <FontAwesomeIcon size="2x" icon={faFileAlt} />
-                        <div>
-                            <FontAwesomeIcon size="1x" icon={faSortDown} />
-                            <span data-translate="report">التقارير</span>
-                        </div>
-                        </DropdownToggle>
-                    <DropdownMenu className="dropdown-content">
-                        <DropdownItem><Link to="/1" data-translate="select">اختيار</Link></DropdownItem> 
-                        <DropdownItem divider />
-                        <DropdownItem><Link to="/1" data-translate="select">اختيار</Link></DropdownItem> 
-                        <DropdownItem divider />
-                       <DropdownItem><Link to="/1" data-translate="select">اختيار</Link></DropdownItem> 
-                    </DropdownMenu>
-                    </UncontrolledDropdown>
+                    <Dropdown icon={faFileAlt} text={"التقارير"}>
+                        <DropdownItem>
+                            <Link to="/user" data-translate="select">المستخدم</Link>
+                        </DropdownItem>
+                        <DropdownItem divider/>
+                        <DropdownItem>
+                            <Link to="/useroles" data-translate="select2">صلاحيات المستخدم</Link>
+                        </DropdownItem>
+                    </Dropdown>
                 </StyledNavTab>
             </StyledRightSection>
             <StyledLeftSection>
                 <StyledSocialBox>
                     <StyledSocialPosition>
                         <Link to="/">
-                            <FontAwesomeIcon size="1x" icon={faYoutube} />
+                            <FontAwesomeIcon size="1x" icon={faYoutube}/>
                         </Link>
                     </StyledSocialPosition>
                     <StyledSocialPosition>
                         <Link to="/">
-                            <FontAwesomeIcon size="1x" icon={faInstagram} />
+                            <FontAwesomeIcon size="1x" icon={faInstagram}/>
                         </Link>
                     </StyledSocialPosition>
                     <StyledSocialPosition>
                         <Link to="/">
-                            <FontAwesomeIcon size="1x" icon={faTwitter} />
+                            <FontAwesomeIcon size="1x" icon={faTwitter}/>
                         </Link>
                     </StyledSocialPosition>
                     <StyledSocialPosition>
                         <Link to="/">
-                            <FontAwesomeIcon size="1x" icon={faFacebookF} />  
+                            <FontAwesomeIcon size="1x" icon={faFacebookF}/>
                         </Link>
                     </StyledSocialPosition>
                 </StyledSocialBox>
@@ -273,12 +248,7 @@ const Navigation = () => {
                     <StyledVerticalLine/>
                 </StyledLangaugeBox>
                 <StyledNavTab>
-                    <Link to="/">
-                        <FontAwesomeIcon size="2x" icon={faSlidersH} />  
-                        <i className="fa fa-sliders-h"></i>
-                        <div data-translate="setting">
-                            الاعدادات</div>
-                    </Link>
+                    <Tab path={"/"} icon={faSlidersH} text={"الاعدادات"}/>
                 </StyledNavTab>
             </StyledLeftSection>
         </StyledNavigation>
