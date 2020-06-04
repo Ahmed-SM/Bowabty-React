@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useRef, useEffect, useState} from "react";
 import styled from "styled-components";
 import 'react-multi-carousel/lib/styles.css';
 import ServicesCarousel from "./Carousel";
@@ -22,10 +22,6 @@ const StyledMinimize= styled.div`
   text-indent: 5px;
   cursor: pointer;
   color: #3C4652;
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  -ms-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
   left: 5px;
   &:hover{
@@ -34,12 +30,25 @@ const StyledMinimize= styled.div`
   }
 `;
 const ServicesSlider = () => {
+  const [isOpen, setIsOpen] = useState(true);
+
+  const minimizeRef = useRef();
+  const handleMinimize = () =>{
+    if (isOpen){
+    minimizeRef.current.style.height = "35px";
+    minimizeRef.current.style.padding = "0";
+    }else{
+      minimizeRef.current.style.height = "250px";
+      minimizeRef.current.style.padding = "35px 0px";
+    }
+    setIsOpen(!isOpen);
+  }
   return (
-    <StyledServicesContainer>
+    <StyledServicesContainer ref={minimizeRef} >
       <CarouselSection>
           <ServicesCarousel deviceType={"desktop"} list={ServiceContext}/>
        </CarouselSection>
-      <StyledMinimize id="minimize" class="minimize-left">
+      <StyledMinimize className="minimize-left" onClick={handleMinimize}>
       <FontAwesomeIcon size="1x" icon={faBars} />
       </StyledMinimize>
     </StyledServicesContainer>
