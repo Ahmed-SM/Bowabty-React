@@ -1,6 +1,13 @@
 import React from "react";
 import Carousel from "react-multi-carousel";
 import styled from "styled-components";
+import artBag from "../../assets/serviceImgs/art-bag.png";
+import desk from "../../assets/serviceImgs/desk.png";
+import docBlue from "../../assets/serviceImgs/doc-blue.png";
+import docDarkGreen from "../../assets/serviceImgs/doc-dark-green.png";
+import dockGreen from "../../assets/serviceImgs/doc-green.png";
+import dockYellow from "../../assets/serviceImgs/doc-yellow.png";
+import paperTime from "../../assets/serviceImgs/paper-time.png";
 
 const responsive = {
     desktop: {
@@ -20,13 +27,13 @@ const responsive = {
     }
   };
   const servicesList = [
-    {Title: 'حالة طلباتي', Description: 'تشمل طلبات القرطاسية صيانة المكتب والمعدات الأخرى في المكتب..'},
-    {Title: 'طلبات متنوعة', Description: 'تشمل طلبات القرطاسية صيانة المكتب والمعدات الأخرى في المكتب..'},
-    {Title: 'طلبات من مكتب التطوير المؤسسي', Description: ''},
-    {Title: 'طلبات من قسم الاتصال المؤسسي', Description: ''},
-    {Title: ' طلبات من قسم الموارد البشرية', Description: ''},
-    {Title: 'طلبات من قسم الخدمات الإدارية', Description: ''},
-    {Title: 'مكتبي', Description: ' تشمل طلبات القرطاسية صيانة المكتب والمعدات الأخرى في المكتب..'}
+    {Title: 'حالة طلباتي', Description: 'تشمل طلبات القرطاسية صيانة المكتب والمعدات الأخرى في المكتب..', Icon:paperTime },
+    {Title: 'طلبات متنوعة', Description: 'تشمل طلبات القرطاسية صيانة المكتب والمعدات الأخرى في المكتب..', Icon:artBag},
+    {Title: 'طلبات من مكتب التطوير المؤسسي', Description: '', Icon:dockGreen},
+    {Title: 'طلبات من قسم الاتصال المؤسسي', Description: '', Icon:docDarkGreen},
+    {Title: ' طلبات من قسم الموارد البشرية', Description: '', Icon:dockYellow},
+    {Title: 'طلبات من قسم الخدمات الإدارية', Description: '', Icon:docBlue},
+    {Title: 'مكتبي', Description: ' تشمل طلبات القرطاسية صيانة المكتب والمعدات الأخرى في المكتب..', Icon:desk}
   ]
   const StyledElement = styled.div`
   width: 135px;
@@ -72,8 +79,8 @@ const ServicesCarousel = ({ deviceType }) => {
         {servicesList.slice(0, servicesList.length).map((service, index) => {
           return (    
             <StyledElement key={index}>
-                <div class="pl30 pr30 pt30">
-                <img src="./imgs/paper-time.png" alt="" width="52" />
+                <div style={{padding: `30px 30px 0px 30px`}}>
+                <img src={service.Icon} alt="" width="42" />
                 </div>
             <StyledElementTitle class="element-title">
               <Styledh5 data-translate="status-requests" class="bold-text">
