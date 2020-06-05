@@ -2,6 +2,10 @@ import React from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSortDown} from '@fortawesome/free-solid-svg-icons';
 import {UncontrolledDropdown, DropdownToggle, DropdownMenu} from 'reactstrap';
+const DropMenu = {
+    padding: '0',
+    border:'none',
+}
 
 const Dropdown = ({icon, text, children}) => {
     return (
@@ -18,7 +22,7 @@ const Dropdown = ({icon, text, children}) => {
                     <span data-translate="task">{text}</span>
                 </div>
             </DropdownToggle>
-            <DropdownMenu right>
+            <DropdownMenu style={DropMenu} right>
                 {children}
             </DropdownMenu>
         </UncontrolledDropdown>

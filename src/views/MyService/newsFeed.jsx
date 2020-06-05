@@ -1,7 +1,7 @@
-import React, {useContext, useState, useEffect } from "react";
+import React, {useContext, useState, useEffect} from "react";
 import Carousel from "react-multi-carousel";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
 const StyledCard = styled.div`
   padding: 10px 15px;
@@ -51,66 +51,77 @@ const StyledCardDivider = styled.hr`
 
 const responsive = {
     desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 3,
-      paritialVisibilityGutter: 30
+        breakpoint: {
+            max: 3000,
+            min: 1024
+        },
+        items: 3,
+        paritialVisibilityGutter: 30
     },
     tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 2,
-      paritialVisibilityGutter: 50
+        breakpoint: {
+            max: 1024,
+            min: 464
+        },
+        items: 2,
+        paritialVisibilityGutter: 50
     },
     mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-      paritialVisibilityGutter: 30
+        breakpoint: {
+            max: 464,
+            min: 0
+        },
+        items: 1,
+        paritialVisibilityGutter: 30
     }
-  };
-  const NewsFeed = ({ deviceType, list}) => {
-    const [toggle, setToggle] = useState(true);
+};
+const NewsFeed = ({deviceType, list}) => {
+    const [toggle,
+        setToggle] = useState(true);
     const itemsList = useContext(list);
     useEffect(() => {
-      setTimeout(() => {
-        setToggle(false);
-      }, itemsList.length*400)
+        setTimeout(() => {
+            setToggle(false);
+        }, itemsList.length * 400)
     });
-      return (
+    return (
         <Carousel
-          partialVisible={true}
-          autoPlay={toggle}
-          autoPlaySpeed={1}
-          deviceType="desktop"
-          responsive={responsive}
-          itemClass="image-item"
-          containerClass="ltr"
-        >
-          {itemsList.slice(0, itemsList.length).map((item, index) => {
-            return (
-              <StyledCard key={index}>
-                  <StyledCardHeader>
-                    <Styledh6 dir="auto">{item.header}</Styledh6>
-                  </StyledCardHeader>
-                  <StyledJustifiedTextArea>
-                    <StyledJustifiedParagraph>
-                      {item.Paragraph}
-                    </StyledJustifiedParagraph>
-                  </StyledJustifiedTextArea>
-                  <div>
-                    <StyledCardDate class="d-card-date" dir="auto">
-                    {item.PostDate}
-                    </StyledCardDate>
-                  </div>
-                  <StyledCardDivider class="d-card-line" />
-                  <div class="text-center">
-                    <a data-translate="read-more" href="#">
-                      اقرأ المزيد
-                    </a>
-                  </div>
-                </StyledCard>
-            );
-          })}
+            partialVisible={true}
+            autoPlay={toggle}
+            autoPlaySpeed={1}
+            deviceType="desktop"
+            responsive={responsive}
+            itemClass="image-item"
+            containerClass="ltr">
+            {itemsList
+                .slice(0, itemsList.length)
+                .map((item, index) => {
+                    return (
+                        <StyledCard key={index}>
+                            <StyledCardHeader>
+                                <Styledh6 dir="auto">{item.header}</Styledh6>
+                            </StyledCardHeader>
+                            <StyledJustifiedTextArea>
+                                <StyledJustifiedParagraph>
+                                    {item.Paragraph}
+                                </StyledJustifiedParagraph>
+                            </StyledJustifiedTextArea>
+                            <div>
+                                <StyledCardDate class="d-card-date" dir="auto">
+                                    {item.PostDate}
+                                </StyledCardDate>
+                            </div>
+                            <StyledCardDivider class="d-card-line"/>
+                            <div class="text-center">
+                                <a data-translate="read-more" href="#">
+                                    اقرأ المزيد
+                                </a>
+                            </div>
+                        </StyledCard>
+                    );
+                })}
         </Carousel>
-      );
-    };
-    
-    export default NewsFeed;
+    );
+};
+
+export default NewsFeed;

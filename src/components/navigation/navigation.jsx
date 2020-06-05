@@ -157,6 +157,20 @@ const StyledLangaugePosition = styled.div `
         color: white;
     }
 `;
+const DropItem ={
+    color: 'black',
+    width: '100%',
+    padding: '12px 16px',
+    textDecoration: 'none',
+    display: 'block',
+    textAlign: 'right',
+    border:'none',
+    borderBottom: '2px dashed #C0C0C0',
+}
+const LinkStyles = {
+    textDecoration: 'none',
+    color: 'black',
+}
 const Navigation = () => {
     return (
         <StyledNavigation>
@@ -166,17 +180,18 @@ const Navigation = () => {
                 </StyledNavTab>
                 <StyledNavTab>
                     <Dropdown icon={faTasks} text={"المهام"}>
-                        <DropdownItem>
-                            <Link to="/1" data-translate="select">اختيار</Link>
+                        <DropdownItem style={DropItem}>
+                            <Link style={LinkStyles} to="/1" data-translate="select">اختيار</Link>
                         </DropdownItem>
                         <DropdownItem divider/>
-                        <DropdownItem>
-                            <Link to="/1" data-translate="select">اختيار</Link>
+                        <DropdownItem style={DropItem}>
+                            <Link style={LinkStyles} to="/1" data-translate="select">اختيار</Link>
                         </DropdownItem>
                         <DropdownItem divider/>
-                        <DropdownItem>
-                            <Link to="/1" data-translate="select">اختيار</Link>
+                        <DropdownItem style={DropItem}>
+                            <Link style={LinkStyles} to="/1" data-translate="select">اختيار</Link>
                         </DropdownItem>
+                        <DropdownItem divider/>
                     </Dropdown>
                 </StyledNavTab>
                 <StyledNavTab>
@@ -184,34 +199,35 @@ const Navigation = () => {
                 </StyledNavTab>
                 <StyledNavTab >
                     <Dropdown icon={faCog} text={"إدارة النظام"}>
-                        <DropdownItem>
-                            <Link to="/user" data-translate="select">المستخدم</Link>
+                        <DropdownItem style={DropItem}>
+                            <Link style={LinkStyles} to="/user" data-translate="select">المستخدم</Link>
+                        </DropdownItem >
+                        <DropdownItem divider/>
+                        <DropdownItem style={DropItem}>
+                            <Link style={LinkStyles} to="/useroles" data-translate="select2">صلاحيات المستخدم</Link>
                         </DropdownItem>
                         <DropdownItem divider/>
-                        <DropdownItem>
-                            <Link to="/useroles" data-translate="select2">صلاحيات المستخدم</Link>
-                        </DropdownItem>
                     </Dropdown>
                 </StyledNavTab>
                 <StyledNavTab className="dropdown">
                     <Dropdown icon={faInfo} text={"أخرى"}>
-                        <DropdownItem>
-                            <Link to="/user" data-translate="select">المستخدم</Link>
+                        <DropdownItem style={DropItem}>
+                            <Link style={LinkStyles} to="/user" data-translate="select">المستخدم</Link>
                         </DropdownItem>
                         <DropdownItem divider/>
-                        <DropdownItem>
-                            <Link to="/useroles" data-translate="select2">صلاحيات المستخدم</Link>
+                        <DropdownItem style={DropItem}>
+                            <Link style={LinkStyles} to="/useroles" data-translate="select2">صلاحيات المستخدم</Link>
                         </DropdownItem>
                     </Dropdown>
                 </StyledNavTab>
                 <StyledNavTab className="dropdown">
                     <Dropdown icon={faFileAlt} text={"التقارير"}>
-                        <DropdownItem>
-                            <Link to="/user" data-translate="select">المستخدم</Link>
+                        <DropdownItem style={DropItem}>
+                            <Link style={LinkStyles} to="/user" data-translate="select">المستخدم</Link>
                         </DropdownItem>
                         <DropdownItem divider/>
-                        <DropdownItem>
-                            <Link to="/useroles" data-translate="select2">صلاحيات المستخدم</Link>
+                        <DropdownItem style={DropItem}>
+                            <Link style={LinkStyles} to="/useroles" data-translate="select2">صلاحيات المستخدم</Link>
                         </DropdownItem>
                     </Dropdown>
                 </StyledNavTab>
