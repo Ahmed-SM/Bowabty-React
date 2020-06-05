@@ -1,6 +1,6 @@
 import React, {useContext, useState, useEffect } from "react";
 import Carousel from "react-multi-carousel";
-import styled, {css} from "styled-components";
+import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 const StyledCard = styled.div`

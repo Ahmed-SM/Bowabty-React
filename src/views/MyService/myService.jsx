@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import styled from "styled-components";
 import 'react-multi-carousel/lib/styles.css';
 import {NewsFeedContext} from "../../contexts/ServiceContext"
@@ -185,7 +185,6 @@ const MyService = () => {
                         <NewsFeed deviceType={"desktop"} list={NewsFeedContext}/>
                     </NewsFeedSection>
                 </StyledMdContainer>
-
                 <StyledMdContainer className="border-bottom-black">
                     <StyledHeader className="d-header">
                         <Styledh3 id="d-header-box2" data-translate="suggestion">

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClipboard, faCircle, faAddressBook} from '@fortawesome/free-solid-svg-icons';
+import { faClipboard, faCircle, faAddressBook, faBell} from '@fortawesome/free-solid-svg-icons';
 
 const StyledUserInfo = styled.div`
     margin: 0;
@@ -68,9 +68,6 @@ const StyledInfo = styled.div`
         color: #6D6D6D;
     }
 `;
-const StyledSpace = styled.div`
-    margin: 0 80px 0 0 ;
-`;
 const StyledSideBtn = styled.div`
     margin: 0px 10px;
     position: relative;
@@ -125,6 +122,12 @@ const UserContent = ({isVisible}) => {
           </div>
         </StyledTitle>
         <StyledSideBtns>
+          <StyledSideBtn>
+            <a href="/">
+            <FontAwesomeIcon size="3x" icon={faBell} color={"#3C4652"} />  
+            </a>
+            <div data-translate="contact">الإشعارات</div>
+          </StyledSideBtn>
           <StyledSideBtn>
             <a href="/">
             <FontAwesomeIcon size="3x" icon={faAddressBook} color={"#3C4652"} />  
