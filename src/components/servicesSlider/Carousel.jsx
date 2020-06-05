@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 7,
-      paritialVisibilityGutter: 60
+      items: 6,
+      paritialVisibilityGutter: 70
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
@@ -56,7 +56,7 @@ const ServicesCarousel = ({ deviceType, list}) => {
       <Carousel
         autoPlay
         infinite={true}
-        autoPlaySpeed={1500}
+        autoPlaySpeed={2500}
         centerMode={true}
         deviceType="desktop"
         itemClass="image-item"
@@ -64,8 +64,8 @@ const ServicesCarousel = ({ deviceType, list}) => {
       >
         {itemsList.slice(0, itemsList.length).map((item, index) => {
           return (
-            <Link to={"/ServiceID="+index} >  
             <StyledElement key={index}>
+            <Link to={"/ServiceID="+index}>  
                 <div style={{padding: `30px 30px 0px 30px`}}>
                 <img src={item.Icon} alt="" width="42" />
                 </div>
@@ -79,8 +79,8 @@ const ServicesCarousel = ({ deviceType, list}) => {
               {item.Description}
                </Styledh6>
              </StyledDescription> 
-            </StyledElement>
             </Link>
+            </StyledElement>
           );
         })}
       </Carousel>

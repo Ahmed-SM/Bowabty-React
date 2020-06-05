@@ -1,8 +1,7 @@
-import React, {useContext} from "react";
+import React, {useContext, useState, useEffect } from "react";
 import Carousel from "react-multi-carousel";
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 import { Link } from "react-router-dom";
-import { faParagraph } from "@fortawesome/free-solid-svg-icons";
 
 const StyledCard = styled.div`
   padding: 10px 15px;
@@ -53,8 +52,8 @@ const StyledCardDivider = styled.hr`
 const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 2,
-      paritialVisibilityGutter: 60
+      items: 3,
+      paritialVisibilityGutter: 30
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
@@ -67,39 +66,25 @@ const responsive = {
       paritialVisibilityGutter: 30
     }
   };
-  const Newslist = [
-    {
-        header: 'اليوم العالمي للعدالة الاجتماعية',
-        Paragraph: ' لوريم إيبسوم هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكلوليس المحتوى) ويُستخدم ' +
-                'في صناعات المطابع ودور النشر.',
-        PostDate: 'الأربعاء 20 , فبراير 2019'
-    }, {
-        header: 'اليوم العالمي للعدالة الاجتماعية',
-        Paragraph: ' لوريم إيبسوم هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكلوليس المحتوى) ويُستخدم ' +
-                'في صناعات المطابع ودور النشر.',
-        PostDate: 'الأربعاء 20 , فبراير 2019'
-    }, 
-    {
-      header: 'اليوم العالمي للعدالة الاجتماعية',
-      Paragraph: ' لوريم إيبسوم هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكلوليس المحتوى) ويُستخدم ' +
-              'في صناعات المطابع ودور النشر.',
-      PostDate: 'الأربعاء 20 , فبراير 2019'
-  }
-]
-
   const NewsFeed = ({ deviceType, list}) => {
+    const [toggle, setToggle] = useState(true);
     const itemsList = useContext(list);
+    useEffect(() => {
+      setTimeout(() => {
+        setToggle(false);
+      }, itemsList.length*400)
+    });
       return (
         <Carousel
-          autoPlay
-          infinite={true}
-          autoPlaySpeed={1500}
-          centerMode={true}
+          partialVisible={true}
+          autoPlay={toggle}
+          autoPlaySpeed={1}
           deviceType="desktop"
-          itemClass="image-item"
           responsive={responsive}
+          itemClass="image-item"
+          containerClass="ltr"
         >
-          {Newslist.slice(0, Newslist.length).map((item, index) => {
+          {itemsList.slice(0, itemsList.length).map((item, index) => {
             return (
               <StyledCard key={index}>
                   <StyledCardHeader>

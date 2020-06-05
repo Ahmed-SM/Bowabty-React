@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faChevronLeft} from '@fortawesome/free-solid-svg-icons';
@@ -232,37 +232,34 @@ const StyledSVG = styled.svg`
   margin: 1px 0px 0 15px;
   z-index: -1;
 }`;
-
 const MyService = () => {
     return (
         <StyledServiceContainer>
             <StyledMyService>
                 <StyledMdContainer primary>
-                    <StyledHeader class="d-header ">
+                    <StyledHeader className="d-header ">
                         <Styledh3 id="d-header-box1" data-translate="decision">
                             قرارات داخلية جديدة
                         </Styledh3>
-                        <StyledContainerDivider class="hr-d-container"/>
+                        <StyledContainerDivider className="hr-d-container"/>
                     </StyledHeader>
-                    <StyledSliderInner>
-                        <NewsFeedSection>
-                            <NewsFeed deviceType={"desktop"} list={NewsFeedContext}/>
-                        </NewsFeedSection>
-                    </StyledSliderInner>
+                    <NewsFeedSection >
+                        <NewsFeed deviceType={"desktop"} list={NewsFeedContext}/>
+                    </NewsFeedSection>
                 </StyledMdContainer>
 
-                <StyledMdContainer class="border-bottom-black">
-                    <StyledHeader class="d-header">
+                <StyledMdContainer className="border-bottom-black">
+                    <StyledHeader className="d-header">
                         <Styledh3 id="d-header-box2" data-translate="suggestion">
                             تقديم مقترح
                         </Styledh3>
-                        <StyledContainerDivider class="hr-d-container"/>
+                        <StyledContainerDivider className="hr-d-container"/>
                     </StyledHeader>
-                    <StyledGroup class="d-content group">
+                    <StyledGroup className="d-content group">
                         <form id="feedback-form" action="/">
-                            <StyledInputGroup class="input-group-a">
+                            <StyledInputGroup className="input-group-a">
                                 <StyledColumn className="col-md-12">
-                                    <label data-translate="suggested-title" for="">
+                                    <label data-translate="suggested-title" htmlFor="">
                                         عنوان المقترح
                                     </label>
                                     <StyledInput
@@ -273,19 +270,19 @@ const MyService = () => {
                                         placeholder="عنوان المقترح"/>
                                 </StyledColumn>
                             </StyledInputGroup>
-                            <StyledInputGroup class="input-group-b ">
+                            <StyledInputGroup className="input-group-b ">
                                 <StyledColumn className="col-md-5  selectdiv">
-                                    <label data-translate="suggestion-origin" for="">
+                                    <label data-translate="suggestion-origin" htmlFor="">
                                         مصدر الاقتراح
                                     </label>
                                     <StyledSelect className="input-border col-md-12 " name="" id="">
-                                        <option value="فكرة شخصية" data-translate="suggestion-origin-option-1" selected>
+                                        <option value="فكرة شخصية" data-translate="suggestion-origin-option-1">
                                             فكرة شخصية
                                         </option>
                                     </StyledSelect>
                                 </StyledColumn>
                                 <StyledColumn className="col-md-5 ">
-                                    <label data-translate="attachemnt" for="file">
+                                    <label data-translate="attachemnt" htmlFor="file">
                                         المرفقات
                                     </label>
                                     <StyledFile className="input-border col-md-12 input-file ">
@@ -314,9 +311,9 @@ const MyService = () => {
                                     </StyledFile>
                                     <StyledFileLabel
                                         id="file-placeholder"
-                                        class="file-placeholder"
+                                        className="file-placeholder"
                                         data-translate="attachemnt"
-                                        for="file">
+                                        htmlFor="file">
                                         المرفقات
                                     </StyledFileLabel>
                                 </StyledColumn>

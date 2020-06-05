@@ -1,4 +1,10 @@
 
+.image-item {
+  padding: 0 0 0 50px;
+}
+.ltr{
+  direction: ltr;
+}
 /* .App {
   text-align: center;
 }

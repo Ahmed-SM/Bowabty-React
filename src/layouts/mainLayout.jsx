@@ -20,7 +20,8 @@ const mainLayout = ({children}) => {
             <Header/>
             <Navigation/>
             <UserContent isVisible={true}/>
-            <ServicesSlider/> {children}
+            <ServicesSlider/> 
+            {children}
         </MainLayout>
     );
 }
