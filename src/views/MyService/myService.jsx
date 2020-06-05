@@ -1,7 +1,5 @@
 import React, {useState} from "react";
 import styled from "styled-components";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faChevronLeft} from '@fortawesome/free-solid-svg-icons';
 import 'react-multi-carousel/lib/styles.css';
 import {NewsFeedContext} from "../../contexts/ServiceContext"
 import NewsFeed from "./newsFeed";
@@ -43,35 +41,10 @@ const StyledHeader = styled.div`
 const Styledh3 = styled.h3`
     text-overflow: ellipsis;
 `;
-const Styledh6 = styled.h6`
-    font-size: 13px;
-    margin-bottom:0.3em;
-`;
 const StyledContainerDivider = styled.hr`
   margin: 10px 0px ;
   border: 0;
   border-top: 1px solid #eee;
-`;
-const StyledCard = styled.div`
-  padding: 10px 15px;
-  border-radius: 5px;
-  width: 125px;
-  height: 165px;
-  margin-right: auto;
-  background-color: #F5F5F5;
-
-  & > div >  a{
-    color: black ;
-    font-size: 10px;
-    text-stroke: 0.4px black;
-    text-fill-color: black;
-    text-decoration:none;
-  }
-`;
-const StyledCardHeader = styled.div`
-    text-stroke: 0.4px black;
-    text-fill-color: black;
-    min-height: 30px;
 `;
 const StyledColumn = styled.div`
   display: flex;
@@ -82,16 +55,6 @@ const StyledColumn = styled.div`
     width: fit-content;
   }
 `;
-const StyledItemAlign = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-
-  & > label{
-    width: fit-content;
-  }
-`;
-
 const StyledSendButton = styled.button`
     display: inline-block;
     margin-bottom: 0;
@@ -117,30 +80,6 @@ const StyledSendButton = styled.button`
       border: 1px solid rgba(81, 203, 238, 1);
     }
 `;
-const StyledSliderInner = styled.div`
-      display: inline-flex ;
-      width: 80%;
-`;
-const StyledJustifiedTextArea = styled.div`
-    max-height: 80px;
-    overflow: hidden;
-`;
-const StyledJustifiedParagraph = styled.p`
-    font-size: 8.5px;
-    text-align: justify;
-    text-align-last: justify;
-    opacity: 0.7;
-    min-height: 78px;
-    word-spacing: 0px;
-    text-stroke: 0.1px #333;
-`;
-const StyledCardDate = styled.p`
-    font-size: 8px;
-    margin: 0;
-`;
-const StyledCardDivider = styled.hr`
-    margin: 0;
-`;
 const StyledGroup = styled.div`
     display: block;
     padding: 0px 40px;
@@ -150,7 +89,6 @@ const StyledInputGroup = styled.div`
     margin-bottom: 20px;
     display: flex;
     flex-wrap: nowrap;
-    
 `;
 const StyledInput = styled.input`
     padding-right: 10px;
