@@ -1,7 +1,9 @@
-import React from "react";
+import React, {useContext} from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClipboard, faCircle, faAddressBook, faBell} from '@fortawesome/free-solid-svg-icons';
+import { faClipboard, faCircle, faAddressBook, faBell, faSortDown} from '@fortawesome/free-solid-svg-icons';
+import { useTranslation, Trans } from "react-i18next";
+import {DiractionContext} from "../../contexts/DiractionContext";
 
 const StyledUserInfo = styled.div`
     margin: 0;
@@ -14,6 +16,9 @@ const StyledUserInfo = styled.div`
     flex-direction: row-reverse;
     flex-wrap: nowrap;
     box-sizing: border-box;
+    ${({ isLTR }) => isLTR && `
+    direction: rtl;
+  `}
 `;
 const StyledUserDetails = styled.div`
     justify-content: space-around;
@@ -23,6 +28,9 @@ const StyledUserDetails = styled.div`
     & > img {
         width: 70px;
     }
+    ${({ isLTR }) => isLTR && `
+    flex-direction: row;
+  `}
 `;
 const StyledH1 = styled.h1`
     margin: 0; 
@@ -86,23 +94,27 @@ const StyledSideBtn = styled.div`
 `;
 
 
-const UserContent = ({isVisible}) => {
+const UserContent = ({isVisible, data}) => {
+  const { t, i18n } = useTranslation();
+  const [isLTR] = useContext(DiractionContext);
+  console.log("userContent rerendred")
   return (
     <>
     {isVisible ? 
-      <StyledUserInfo>
+      <StyledUserInfo isLTR={isLTR}>
         <StyledUserDetails>
-          <div class="user-picture">
+          <div className="user-picture">
           <FontAwesomeIcon size="5x" icon={faCircle} color={"#C4C4C4"} />  
           </div>
           <StyledInfo>
-            <div class="user-name">
+            <div className="user-name">
               <StyledH3 id="logged-user">
-                علياء أحمد مصطفى
+              {/* <FontAwesomeIcon size="1x" icon={faSortDown}  />   */}
+              {data.userName}
               </StyledH3>
             </div>
-            <div class="user-role user-role-h4 user-role-h3">
-              <h4 id="logged-role">اخصائي تطوير مؤسس</h4>
+            <div className="user-role user-role-h4 user-role-h3">
+            <h4 id="logged-role">{data.userRole}</h4>
             </div>
           </StyledInfo>
         </StyledUserDetails>
@@ -126,19 +138,19 @@ const UserContent = ({isVisible}) => {
             <a href="/">
             <FontAwesomeIcon size="3x" icon={faBell} color={"#3C4652"} />  
             </a>
-            <div data-translate="contact">الإشعارات</div>
+            <div data-translate="contact"> <Trans i18nKey={"navigation.notifications"} t={t}>الإشعارات</Trans></div>
           </StyledSideBtn>
           <StyledSideBtn>
             <a href="/">
             <FontAwesomeIcon size="3x" icon={faAddressBook} color={"#3C4652"} />  
             </a>
-            <div data-translate="contact">التحويلات</div>
+            <div data-translate="contact"><Trans i18nKey={"navigation.contacts"} t={t}>التحويلات</Trans></div>
           </StyledSideBtn>
           <StyledSideBtn >
             <a href="/">
             <FontAwesomeIcon size="3x" icon={faClipboard} color={"#3C4652"}/>  
             </a>
-            <div data-translate="note">ملاحظاتي</div>
+            <div data-translate="note"><Trans i18nKey={"navigation.myNotes"} t={t}>ملاحظاتي</Trans></div>
           </StyledSideBtn>
         </StyledSideBtns>
       </StyledUserInfo>

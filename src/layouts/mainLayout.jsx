@@ -13,13 +13,15 @@ const MainLayout = styled.div `
     height:100vh;
     min-height:100%;
 `;
+const userData ={userName:'علياء أحمد مصطفى', userRole:'اخصائي تطوير مؤسس'}
 
 const mainLayout = ({children}) => {
+    console.log("mainLayout rerendred")
     return (
         <MainLayout>
             <Header/>
             <Navigation/>
-            <UserContent isVisible={true}/>
+            <UserContent isVisible={true} data={userData}/>
             <ServicesSlider/> 
             {children}
         </MainLayout>

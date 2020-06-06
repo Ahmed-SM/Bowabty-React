@@ -1,8 +1,10 @@
 import React, {useContext} from "react";
 import styled from "styled-components";
-import {LocalsContext} from "../../contexts/ServiceContext";
-import rakLogo from "../../assets/RAK.png"
-import logo from "../../assets/logo.png"
+import rakLogo from "../../assets/RAK.png";
+import logo from "../../assets/logo.png";
+import { useTranslation, Trans } from "react-i18next";
+
+
 const StyledHeader = styled.header`
     width: 100%;
     box-sizing: border-box;
@@ -16,18 +18,16 @@ const StyledHeader = styled.header`
     & > * {
         height: 82.3px;
     }
-    ${({ isLTR }) => isLTR && `
-    flex-direction: row;
-  `}
 `;
 const WelcomeSection = styled.div`
     margin-top: 0px;
 `;
 
 const Header = () => {
-    const {LTR} = useContext(LocalsContext);
+    const { t } = useTranslation();
+    console.log("Header rerendred")
     return (
-        <StyledHeader className="user-select" isLTR={LTR}>
+        <StyledHeader className="user-select" >
             <div>
                 <a href="#">
                     <img src={logo} alt="" width="280"/>
@@ -35,7 +35,7 @@ const Header = () => {
             </div>
             <WelcomeSection>
                 <h5 data-translate="welcome" id="welcome-element">
-                    اهلا بك
+                <Trans i18nKey={"welcome"} t={t} >اهلا بك</Trans>
                 </h5>
                 <h5 id="logged-user">Aamna Ahmed AlNaqbii</h5>
             </WelcomeSection>

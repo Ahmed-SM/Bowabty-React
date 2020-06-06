@@ -69,12 +69,12 @@ const ServicesCarousel = ({ deviceType, list}) => {
                 <div style={{padding: `30px 30px 0px 30px`}}>
                 <img src={item.Icon} alt="" width="42" />
                 </div>
-            <StyledElementTitle class="element-title">
-              <Styledh5 data-translate="status-requests" class="bold-text">
+            <StyledElementTitle className="element-title">
+              <Styledh5 data-translate="status-requests" className="bold-text">
                  {item.Title}
                </Styledh5>
              </StyledElementTitle>
-            <StyledDescription class="element-description">
+            <StyledDescription className="element-description">
               <Styledh6 data-translate="element-description" dir="auto">
               {item.Description}
                </Styledh6>

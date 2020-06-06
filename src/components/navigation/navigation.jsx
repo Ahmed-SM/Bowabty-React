@@ -1,5 +1,6 @@
-import React from "react";
+import React, {useState, useEffect, useContext} from "react";
 import styled from "styled-components";
+import { useTranslation, Trans } from "react-i18next";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
     faLifeRing,
@@ -15,6 +16,7 @@ import {Link} from "react-router-dom";
 import Tab from "./tab";
 import Dropdown from "./dropdown";
 import {DropdownItem} from 'reactstrap';
+import {DiractionContext} from "../../contexts/DiractionContext";
 
 const StyledNavigation = styled.nav `
     justify-content: space-between;
@@ -26,6 +28,9 @@ const StyledNavigation = styled.nav `
     display: inline-flex;
     flex-direction: row-reverse;
     flex-wrap: nowrap;
+    ${({ isLTR }) => isLTR && `
+    direction: rtl;
+  `}
 
 `;
 const StyledRightSection = styled.div `
@@ -172,14 +177,28 @@ const LinkStyles = {
     color: 'black',
 }
 const Navigation = () => {
+    console.log("Navigation rerendred")
+    const { t, i18n } = useTranslation();
+    const [ lng, setLng] = useState('ar');
+    const [isLTR, setIsLTR] = useContext(DiractionContext);
+    const changeLanguage = () => {
+        setLng(lng == 'ar' ? 'en' : 'ar');
+        setIsLTR(isLTR == true ? false : true )
+      };
+    useEffect(()=>{
+        if (i18n.language == lng) return;
+        i18n.changeLanguage(lng);
+        console.log("Navigation rerendred useeffect")
+    },[lng]);
+
     return (
-        <StyledNavigation>
+        <StyledNavigation isLTR={isLTR}>
             <StyledRightSection>
                 <StyledNavTab>
-                    <Tab path={"/meeting"} icon={faLifeRing} text={"الإجتماعات"}/>
+                    <Tab path={"/meeting"} icon={faLifeRing} text={ <Trans i18nKey={"navigation.meetings"} t={t} >الإجتماعات</Trans>}/>
                 </StyledNavTab>
                 <StyledNavTab>
-                    <Dropdown icon={faTasks} text={"المهام"}>
+                    <Dropdown icon={faTasks}  text={ <Trans i18nKey={"navigation.tasks.name"} t={t}>المهام</Trans>}>
                         <DropdownItem style={DropItem}>
                             <Link style={LinkStyles} to="/1" data-translate="select">اختيار</Link>
                         </DropdownItem>
@@ -195,10 +214,10 @@ const Navigation = () => {
                     </Dropdown>
                 </StyledNavTab>
                 <StyledNavTab>
-                    <Tab path={"/myorders"} icon={faBatteryHalf} text={"طلباتي"}/>
+                    <Tab path={"/myorders"} icon={faBatteryHalf} text={ <Trans i18nKey={"navigation.myOrders"} t={t} >طلباتي</Trans>}/>
                 </StyledNavTab>
                 <StyledNavTab >
-                    <Dropdown icon={faCog} text={"إدارة النظام"}>
+                    <Dropdown icon={faCog} text={ <Trans i18nKey={"navigation.administration.name"} t={t}>إدارة النظام</Trans>}>
                         <DropdownItem style={DropItem}>
                             <Link style={LinkStyles} to="/user" data-translate="select">المستخدم</Link>
                         </DropdownItem >
@@ -210,7 +229,7 @@ const Navigation = () => {
                     </Dropdown>
                 </StyledNavTab>
                 <StyledNavTab className="dropdown">
-                    <Dropdown icon={faInfo} text={"أخرى"}>
+                    <Dropdown icon={faInfo} text={ <Trans i18nKey={"navigation.others.name"} t={t}>إدارة النظام</Trans>}>
                         <DropdownItem style={DropItem}>
                             <Link style={LinkStyles} to="/user" data-translate="select">المستخدم</Link>
                         </DropdownItem>
@@ -221,7 +240,7 @@ const Navigation = () => {
                     </Dropdown>
                 </StyledNavTab>
                 <StyledNavTab className="dropdown">
-                    <Dropdown icon={faFileAlt} text={"التقارير"}>
+                    <Dropdown icon={faFileAlt} text={ <Trans i18nKey={"navigation.reports.name"} t={t}>إدارة النظام</Trans>}>
                         <DropdownItem style={DropItem}>
                             <Link style={LinkStyles} to="/user" data-translate="select">المستخدم</Link>
                         </DropdownItem>
@@ -258,14 +277,12 @@ const Navigation = () => {
                 <StyledLangaugeBox>
                     <StyledVerticalLine/>
                     <StyledLangaugePosition>
-                        <Link to="/">
-                            <i id="language-choice">English</i>
-                        </Link>
+                        <i onClick={changeLanguage} ><Trans i18nKey={"navigation.language"} t={t}>English</Trans></i>
                     </StyledLangaugePosition>
                     <StyledVerticalLine/>
                 </StyledLangaugeBox>
                 <StyledNavTab>
-                    <Tab path={"/"} icon={faSlidersH} text={"الاعدادات"}/>
+                    <Tab path={"/"} icon={faSlidersH} text={<Trans i18nKey={"navigation.settings"} t={t}>الاعدادات</Trans>} />
                 </StyledNavTab>
             </StyledLeftSection>
         </StyledNavigation>

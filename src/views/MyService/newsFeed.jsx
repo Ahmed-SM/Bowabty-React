@@ -107,12 +107,12 @@ const NewsFeed = ({deviceType, list}) => {
                                 </StyledJustifiedParagraph>
                             </StyledJustifiedTextArea>
                             <div>
-                                <StyledCardDate class="d-card-date" dir="auto">
+                                <StyledCardDate className="d-card-date" dir="auto">
                                     {item.PostDate}
                                 </StyledCardDate>
                             </div>
-                            <StyledCardDivider class="d-card-line"/>
-                            <div class="text-center">
+                            <StyledCardDivider className="d-card-line"/>
+                            <div className="text-center">
                                 <a data-translate="read-more" href="#">
                                     اقرأ المزيد
                                 </a>

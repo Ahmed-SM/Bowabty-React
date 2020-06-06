@@ -1,9 +1,11 @@
-import React from "react";
+import React, {useContext} from "react";
 import styled from "styled-components";
 import 'react-multi-carousel/lib/styles.css';
 import {NewsFeedContext} from "../../contexts/ServiceContext"
 import NewsFeed from "./newsFeed";
 import NewsFeedSection from "./newsFeedSection";
+import { useTranslation, Trans } from "react-i18next";
+import {DiractionContext} from "../../contexts/DiractionContext";
 
 const StyledServiceContainer = styled.div`
   margin 0 20px;
@@ -18,6 +20,9 @@ const StyledMyService = styled.div`
   width: 100%;
   background-color: #F6F4F5;
   box-sizing: border-box;
+  ${({ isLTR }) => isLTR && `
+    direction: ltr;
+  `}
   `;
 const StyledMdContainer = styled.div`
     height: 300px;
@@ -171,13 +176,16 @@ const StyledSVG = styled.svg`
   z-index: -1;
 }`;
 const MyService = () => {
+    const { t, i18n } = useTranslation();
+    const [isLTR] = useContext(DiractionContext);
+    console.log("MyService rerendred")
     return (
         <StyledServiceContainer>
-            <StyledMyService>
+            <StyledMyService  isLTR={isLTR}>
                 <StyledMdContainer primary>
                     <StyledHeader className="d-header ">
                         <Styledh3 id="d-header-box1" data-translate="decision">
-                            قرارات داخلية جديدة
+                            <Trans i18nKey={"navigation.decision"} t={t}>قرارات داخلية جديدة</Trans>
                         </Styledh3>
                         <StyledContainerDivider className="hr-d-container"/>
                     </StyledHeader>
@@ -188,7 +196,7 @@ const MyService = () => {
                 <StyledMdContainer className="border-bottom-black">
                     <StyledHeader className="d-header">
                         <Styledh3 id="d-header-box2" data-translate="suggestion">
-                            تقديم مقترح
+                            <Trans i18nKey={"navigation.suggestion"} t={t}>تقديم مقترح</Trans>   
                         </Styledh3>
                         <StyledContainerDivider className="hr-d-container"/>
                     </StyledHeader>
@@ -197,33 +205,33 @@ const MyService = () => {
                             <StyledInputGroup className="input-group-a">
                                 <StyledColumn className="col-md-12">
                                     <label data-translate="suggested-title" htmlFor="">
-                                        عنوان المقترح
+                                    <Trans i18nKey={"navigation.suggestedTitle"} t={t}>عنوان المقترح</Trans> 
                                     </label>
                                     <StyledInput
                                         id="suggestion-title-placeholder"
                                         className="input-border col-md-10"
                                         type="text"
                                         data-translate="suggested-title"
-                                        placeholder="عنوان المقترح"/>
+                                        placeholder={ t('navigation.suggestedTitlePlaceholder')} />
                                 </StyledColumn>
                             </StyledInputGroup>
                             <StyledInputGroup className="input-group-b ">
                                 <StyledColumn className="col-md-5  selectdiv">
                                     <label data-translate="suggestion-origin" htmlFor="">
-                                        مصدر الاقتراح
+                                    <Trans i18nKey={"navigation.suggestionOrigin"} t={t}>مصدر الاقتراح</Trans> 
                                     </label>
                                     <StyledSelect className="input-border col-md-12 " name="" id="">
                                         <option value="فكرة شخصية" data-translate="suggestion-origin-option-1">
-                                            فكرة شخصية
+                                        { t('navigation.suggestionOriginOption1')}
                                         </option>
                                     </StyledSelect>
                                 </StyledColumn>
                                 <StyledColumn className="col-md-5 ">
                                     <label data-translate="attachemnt" htmlFor="file">
-                                        المرفقات
+                                    <Trans i18nKey={"navigation.attachemnt"} t={t}>المرفقات</Trans> 
                                     </label>
                                     <StyledFile className="input-border col-md-12 input-file ">
-                                        <div class="user-select">
+                                        <div className="user-select">
                                             <input name="file" type="file" id="file"/>
                                         </div>
                                         <StyledSVG
@@ -231,7 +239,7 @@ const MyService = () => {
                                             focusable="false"
                                             data-prefix="far"
                                             data-icon="file"
-                                            class="svg-inline--fa fa-file fa-w-12"
+                                            className="svg-inline--fa fa-file fa-w-12"
                                             role="img"
                                             xmlns="http://www.w3.org/2000/svg"
                                             viewBox="0 0 384 512">
@@ -251,7 +259,8 @@ const MyService = () => {
                                         className="file-placeholder"
                                         data-translate="attachemnt"
                                         htmlFor="file">
-                                        المرفقات
+                                             <Trans i18nKey={"navigation.attachemnt"} t={t}>المرفقات</Trans> 
+                                        
                                     </StyledFileLabel>
                                 </StyledColumn>
                             </StyledInputGroup>
@@ -260,8 +269,8 @@ const MyService = () => {
                                     type="submit"
                                     id="submit-btn"
                                     data-translate="send-btn"
-                                    class="send-btn">
-                                    ارسال
+                                    className="send-btn">
+                                    <Trans i18nKey={"navigation.sendBtn"} t={t}>ارسال</Trans> 
                                 </StyledSendButton>
                             </div>
                         </form>
