@@ -1,0 +1,49 @@
+{
+    "welcome": "Welcome",
+    "navigation": {
+      "meetings": "Meetings",
+      "tasks": {
+          "name":"Tasks",
+          "dropitem":"Option"
+        },
+        "myOrders":"My Orders",
+        "administration": {
+            "name":"Administration",
+            "dropitem":"Option"
+          },
+          "others": {
+            "name":"Others",
+            "dropitem":"Option"
+          },
+          "reports": {
+            "name":"Reports",
+            "dropitem":"Option"
+          },
+          "language":"English",
+          "settings":"Settings",
+          "notifications":"Notifications",
+          "contacts":"Contacts",
+          "myNotes": "My Notes",
+          "decision":"New internal decisions",
+          "suggestion": "Submit a Suggestion'",
+          "suggestedTitle": "Title Suggestion",
+          "suggestedTitlePlaceholder":"Title Suggestion",
+          "suggestionOrigin":"Suggestion Origin",
+          "suggestionOriginPlaceholder": "Suggestion Origin",
+          "suggestionOriginOption1":"Personal Idea",
+          "attachemnt": "Attachemnts",
+          "sendBtn":"Send",
+          "readMore":"Read More",
+          "select":"Option",
+          "elementDescription": "Includes Stationery requests, office maintenance and others..",
+          "myOffice":"My Office",
+          "statusRequests": "My Requests Status",
+          "variedRequests": "Varied Requests",
+          "officeRequests": "Institutional Development Office Requests",
+          "communicationRequests":"Institutional Communication Department Requests",
+          "humanRequests": "Human Resources Department Requests",
+          "administrativeRequests": "Department of Administrative Services Requests",
+          "supportBox":"Happiness Meter",
+          "happinessBox":"Support"
+    }
+  }

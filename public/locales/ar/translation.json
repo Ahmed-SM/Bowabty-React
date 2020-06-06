@@ -1,0 +1,50 @@
+{
+    "welcome": "اهلا بك",
+    "navigation": {
+      "meetings": "الإجتماعات",
+      "tasks": {
+          "name":"المهام",
+          "dropitem":"اختيار"
+        },
+        "myOrders":"طلباتي",
+        "administration": {
+            "name":"إدارة النظام",
+            "dropitem":"اختيار"
+          },
+          "others": {
+            "name":"التقارير",
+            "dropitem":"أخرى"
+          },
+          "reports": {
+            "name":"التقارير",
+            "dropitem":"اختيار"
+          },
+          "language":"English",
+          "settings":"الاعدادت",
+          "notifications":"الإشعارات",
+          "contacts":"التحويلات",
+          "myNotes": "ملاحظاتي",
+          "decision":"قرارات داخلية جديدة",
+          "suggestion": "تقديم مقترح",
+          "suggestedTitle": "عنوان المقترح",
+          "suggestedTitlePlaceholder":"عنوان المقترح",
+          "suggestionOrigin":"مصدر الاقتراح",
+          "suggestionOriginOption1":"فكرة شخصية",
+          "suggestionOriginPlaceholder": "مصدر الاقتراح",
+          "attachemnt": "المرفقات",
+          "sendBtn":"ارسال",
+          "readMore":"اقرأ المزيد",
+          "select":"اختيار",
+          "elementDescription": "تشمل طلبات القرطاسية صيانة المكتب والمعدات الأخرى في المكتب..",
+          "myOffice":"مكتبي",
+          "statusRequests": "حالة طلباتي",
+          "variedRequests": "طلبات متنوعة",
+          "officeRequests": "طلبات من مكتب التطوير المؤسسي",
+          "communicationRequests":"طلبات من قسم الاتصال المؤسسي",
+          "humanRequests": "طلبات من إدارة الموارد البشرية",
+          "administrativeRequests": "طلبات من قسم الخدمات الإدارية",
+          "supportBox":"مؤشر السعادة",
+          "happinessBox":"الدعم الفني"
+
+    }
+  }
