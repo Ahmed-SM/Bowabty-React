@@ -60,7 +60,7 @@ const responsive = {
     },
     tablet: {
         breakpoint: {
-            max: 1024,
+            max: 1366,
             min: 464
         },
         items: 2,
@@ -68,11 +68,11 @@ const responsive = {
     },
     mobile: {
         breakpoint: {
-            max: 464,
+            max: 800,
             min: 0
         },
         items: 1,
-        paritialVisibilityGutter: 30
+        paritialVisibilityGutter: 70
     }
 };
 const NewsFeed = ({deviceType, list}) => {
@@ -113,7 +113,7 @@ const NewsFeed = ({deviceType, list}) => {
                             </div>
                             <StyledCardDivider className="d-card-line"/>
                             <div className="text-center">
-                                <a data-translate="read-more" href="#">
+                                <a href="#">
                                     اقرأ المزيد
                                 </a>
                             </div>

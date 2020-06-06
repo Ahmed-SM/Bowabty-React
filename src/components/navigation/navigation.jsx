@@ -8,9 +8,10 @@ import {
     faBatteryHalf,
     faCog,
     faInfo,
-    faFileAlt,
     faSlidersH
 } from '@fortawesome/free-solid-svg-icons';
+import {faFileAlt} from '@fortawesome/free-regular-svg-icons';
+
 import {faYoutube, faFacebookF, faInstagram, faTwitter} from '@fortawesome/free-brands-svg-icons';
 import {Link} from "react-router-dom";
 import Tab from "./tab";
@@ -182,11 +183,11 @@ const Navigation = () => {
     const [ lng, setLng] = useState('ar');
     const [isLTR, setIsLTR] = useContext(DiractionContext);
     const changeLanguage = () => {
-        setLng(lng == 'ar' ? 'en' : 'ar');
-        setIsLTR(isLTR == true ? false : true )
+        setLng(lng === 'ar' ? 'en' : 'ar');
+        setIsLTR(isLTR === true ? false : true )
       };
     useEffect(()=>{
-        if (i18n.language == lng) return;
+        if (i18n.language === lng) return;
         i18n.changeLanguage(lng);
         console.log("Navigation rerendred useeffect")
     },[lng]);
@@ -200,15 +201,15 @@ const Navigation = () => {
                 <StyledNavTab>
                     <Dropdown icon={faTasks}  text={ <Trans i18nKey={"navigation.tasks.name"} t={t}>المهام</Trans>}>
                         <DropdownItem style={DropItem}>
-                            <Link style={LinkStyles} to="/1" data-translate="select">اختيار</Link>
+                            <Link style={LinkStyles} to="/1" >اختيار</Link>
                         </DropdownItem>
                         <DropdownItem divider/>
                         <DropdownItem style={DropItem}>
-                            <Link style={LinkStyles} to="/1" data-translate="select">اختيار</Link>
+                            <Link style={LinkStyles} to="/1" >اختيار</Link>
                         </DropdownItem>
                         <DropdownItem divider/>
                         <DropdownItem style={DropItem}>
-                            <Link style={LinkStyles} to="/1" data-translate="select">اختيار</Link>
+                            <Link style={LinkStyles} to="/1" >اختيار</Link>
                         </DropdownItem>
                         <DropdownItem divider/>
                     </Dropdown>
@@ -219,11 +220,11 @@ const Navigation = () => {
                 <StyledNavTab >
                     <Dropdown icon={faCog} text={ <Trans i18nKey={"navigation.administration.name"} t={t}>إدارة النظام</Trans>}>
                         <DropdownItem style={DropItem}>
-                            <Link style={LinkStyles} to="/user" data-translate="select">المستخدم</Link>
+                            <Link style={LinkStyles} to="/user" >المستخدم</Link>
                         </DropdownItem >
                         <DropdownItem divider/>
                         <DropdownItem style={DropItem}>
-                            <Link style={LinkStyles} to="/useroles" data-translate="select2">صلاحيات المستخدم</Link>
+                            <Link style={LinkStyles} to="/useroles" >صلاحيات المستخدم</Link>
                         </DropdownItem>
                         <DropdownItem divider/>
                     </Dropdown>
@@ -231,22 +232,22 @@ const Navigation = () => {
                 <StyledNavTab className="dropdown">
                     <Dropdown icon={faInfo} text={ <Trans i18nKey={"navigation.others.name"} t={t}>إدارة النظام</Trans>}>
                         <DropdownItem style={DropItem}>
-                            <Link style={LinkStyles} to="/user" data-translate="select">المستخدم</Link>
+                            <Link style={LinkStyles} to="/user" >المستخدم</Link>
                         </DropdownItem>
                         <DropdownItem divider/>
                         <DropdownItem style={DropItem}>
-                            <Link style={LinkStyles} to="/useroles" data-translate="select2">صلاحيات المستخدم</Link>
+                            <Link style={LinkStyles} to="/useroles" >صلاحيات المستخدم</Link>
                         </DropdownItem>
                     </Dropdown>
                 </StyledNavTab>
                 <StyledNavTab className="dropdown">
                     <Dropdown icon={faFileAlt} text={ <Trans i18nKey={"navigation.reports.name"} t={t}>إدارة النظام</Trans>}>
                         <DropdownItem style={DropItem}>
-                            <Link style={LinkStyles} to="/user" data-translate="select">المستخدم</Link>
+                            <Link style={LinkStyles} to="/user" >المستخدم</Link>
                         </DropdownItem>
                         <DropdownItem divider/>
                         <DropdownItem style={DropItem}>
-                            <Link style={LinkStyles} to="/useroles" data-translate="select2">صلاحيات المستخدم</Link>
+                            <Link style={LinkStyles} to="/useroles" >صلاحيات المستخدم</Link>
                         </DropdownItem>
                     </Dropdown>
                 </StyledNavTab>
@@ -254,30 +255,32 @@ const Navigation = () => {
             <StyledLeftSection>
                 <StyledSocialBox>
                     <StyledSocialPosition>
-                        <Link to="/">
-                            <FontAwesomeIcon size="1x" icon={faYoutube}/>
+                        <Link   className="social-icon" to="/">
+                            <FontAwesomeIcon  size="1x" icon={faYoutube}>
+                                
+                            </FontAwesomeIcon>
                         </Link>
                     </StyledSocialPosition>
                     <StyledSocialPosition>
-                        <Link to="/">
-                            <FontAwesomeIcon size="1x" icon={faInstagram}/>
+                        <Link  className="social-icon" to="/">
+                            <FontAwesomeIcon  size="1x" icon={faInstagram}/>
                         </Link>
                     </StyledSocialPosition>
                     <StyledSocialPosition>
-                        <Link to="/">
-                            <FontAwesomeIcon size="1x" icon={faTwitter}/>
+                        <Link  className="social-icon" to="/">
+                            <FontAwesomeIcon  size="1x" icon={faTwitter}/>
                         </Link>
                     </StyledSocialPosition>
                     <StyledSocialPosition>
-                        <Link to="/">
+                        <Link  className="social-icon" to="/">
                             <FontAwesomeIcon size="1x" icon={faFacebookF}/>
                         </Link>
                     </StyledSocialPosition>
                 </StyledSocialBox>
                 <StyledLangaugeBox>
                     <StyledVerticalLine/>
-                    <StyledLangaugePosition>
-                        <i onClick={changeLanguage} ><Trans i18nKey={"navigation.language"} t={t}>English</Trans></i>
+                    <StyledLangaugePosition className="langauge-select">
+                        <i  onClick={changeLanguage} ><Trans i18nKey={"navigation.language"} t={t}>English</Trans></i>
                     </StyledLangaugePosition>
                     <StyledVerticalLine/>
                 </StyledLangaugeBox>

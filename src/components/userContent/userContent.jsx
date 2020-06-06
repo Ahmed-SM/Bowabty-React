@@ -120,15 +120,12 @@ const UserContent = ({isVisible, data}) => {
         </StyledUserDetails>
         <StyledTitle>
           <div>
-            <StyledH1 data-translate="title">
+            <StyledH1>
               خدماتي
             </StyledH1>
           </div>
           <div>
-            <StyledH4
-              id="title-child"
-              data-translate="title-child"
-            >
+            <StyledH4>
               لوريم إيبسوم هو ببساطة نص شكلي
             </StyledH4>
           </div>
@@ -138,19 +135,19 @@ const UserContent = ({isVisible, data}) => {
             <a href="/">
             <FontAwesomeIcon size="3x" icon={faBell} color={"#3C4652"} />  
             </a>
-            <div data-translate="contact"> <Trans i18nKey={"navigation.notifications"} t={t}>الإشعارات</Trans></div>
+            <div> <Trans i18nKey={"navigation.notifications"} t={t}>الإشعارات</Trans></div>
           </StyledSideBtn>
           <StyledSideBtn>
             <a href="/">
             <FontAwesomeIcon size="3x" icon={faAddressBook} color={"#3C4652"} />  
             </a>
-            <div data-translate="contact"><Trans i18nKey={"navigation.contacts"} t={t}>التحويلات</Trans></div>
+            <div><Trans i18nKey={"navigation.contacts"} t={t}>التحويلات</Trans></div>
           </StyledSideBtn>
           <StyledSideBtn >
             <a href="/">
             <FontAwesomeIcon size="3x" icon={faClipboard} color={"#3C4652"}/>  
             </a>
-            <div data-translate="note"><Trans i18nKey={"navigation.myNotes"} t={t}>ملاحظاتي</Trans></div>
+            <div><Trans i18nKey={"navigation.myNotes"} t={t}>ملاحظاتي</Trans></div>
           </StyledSideBtn>
         </StyledSideBtns>
       </StyledUserInfo>

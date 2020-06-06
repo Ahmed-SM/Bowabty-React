@@ -31,8 +31,8 @@ const StyledMinimize= styled.div`
 `;
 
 const ServicesSlider = () => {
-  const [isOpen, setIsOpen] = useState(true);
   console.log("ServicesSlider rerendred")
+  const [isOpen, setIsOpen] = useState(true);
 
   const minimizeRef = useRef();
   const carouselRef = useRef();

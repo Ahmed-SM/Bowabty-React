@@ -70,12 +70,12 @@ const ServicesCarousel = ({ deviceType, list}) => {
                 <img src={item.Icon} alt="" width="42" />
                 </div>
             <StyledElementTitle className="element-title">
-              <Styledh5 data-translate="status-requests" className="bold-text">
+              <Styledh5 className="bold-text">
                  {item.Title}
                </Styledh5>
              </StyledElementTitle>
             <StyledDescription className="element-description">
-              <Styledh6 data-translate="element-description" dir="auto">
+              <Styledh6 dir="auto">
               {item.Description}
                </Styledh6>
              </StyledDescription> 

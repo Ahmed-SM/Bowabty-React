@@ -34,10 +34,10 @@ const Header = () => {
                 </a>
             </div>
             <WelcomeSection>
-                <h5 data-translate="welcome" id="welcome-element">
+                <h5>
                 <Trans i18nKey={"welcome"} t={t} >اهلا بك</Trans>
                 </h5>
-                <h5 id="logged-user">Aamna Ahmed AlNaqbii</h5>
+                <h5>Aamna Ahmed AlNaqbii</h5>
             </WelcomeSection>
             <div>
                 <a href="#">

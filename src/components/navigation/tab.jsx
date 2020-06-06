@@ -5,7 +5,7 @@ const Tab = ({path, icon, text}) => {
     return (
         <Link to={path}>
             <FontAwesomeIcon size="2x" icon={icon}/>
-            <div data-translate="meeting">{text}</div>
+            <div>{text}</div>
         </Link>
     )
 }
