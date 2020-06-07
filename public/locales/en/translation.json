@@ -7,8 +7,8 @@
           "dropitem":"Option"
         },
         "myOrders":"My Orders",
-        "administration": {
-            "name":"Administration",
+        "administration": {      
+            "name":"Management",
             "dropitem":"Option"
           },
           "others": {
