@@ -43,7 +43,7 @@
           "communicationRequests":"Institutional Communication Department Requests",
           "humanRequests": "Human Resources Department Requests",
           "administrativeRequests": "Department of Administrative Services Requests",
-          "supportBox":"Happiness Meter",
-          "happinessBox":"Support"
+          "support":"Happiness Meter",
+          "happiness":"Support"
     }
   }

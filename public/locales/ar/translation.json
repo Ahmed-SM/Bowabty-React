@@ -12,7 +12,7 @@
             "dropitem":"اختيار"
           },
           "others": {
-            "name":"التقارير",
+            "name":"أخرى",
             "dropitem":"أخرى"
           },
           "reports": {
@@ -43,8 +43,8 @@
           "communicationRequests":"طلبات من قسم الاتصال المؤسسي",
           "humanRequests": "طلبات من إدارة الموارد البشرية",
           "administrativeRequests": "طلبات من قسم الخدمات الإدارية",
-          "supportBox":"مؤشر السعادة",
-          "happinessBox":"الدعم الفني"
+          "support":"مؤشر السعادة",
+          "happiness":"الدعم الفني"
 
     }
   }
