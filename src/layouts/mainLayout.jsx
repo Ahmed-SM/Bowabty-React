@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Header from "../components/header/header";
 import Navigation from "../components/navigation/navigation";
 import UserContent from "../components/userContent/userContent";
-import ServicesSlider from "../components/servicesSlider/servicesSlider";
+import ServiceSlider from "../components/serviceSlider/serviceSlider";
 import StickyBox from "../components/stickyLabel/stickyBox";
 
 const MainLayout = styled.div `
@@ -23,8 +23,8 @@ const mainLayout = ({children}) => {
             <Header/>
             <Navigation/>
             <UserContent isVisible={true} data={userData}/>
-            <ServicesSlider/> 
-            {children}
+            <ServiceSlider/> 
+                {children}
             <StickyBox/>
            
         </MainLayout>

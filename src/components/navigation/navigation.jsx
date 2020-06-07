@@ -47,38 +47,6 @@ const StyledLeftSection = styled.div `
     flex-direction: row-reverse;
     flex-wrap: nowrap;
 `;
-const StyledNavTab = styled.div `
-    margin: 1px 7px;
-    background: transparent;
-    text-decoration: none;
-    color: white;
-    outline: none !important;
-    border: none !important;
-    min-width: 90px;
-    transition: all 0.5s;
-    padding: 6px 12px;
-    & > * {
-        color: white;
-        outline: none;
-        border: none;
-    }
-    &:hover  {
-        outline: none;
-        border: none;
-        background-color: #fff;
-        border-radius: 5px;
-      }
-      &:hover > * {
-        color: black !important;
-      }
-    &:focus{
-        background-color: #fff !important;
-        color: black !important;
-        border-radius: 5px;
-        outline: none !important;
-        border: none !important;
-      }
-`;
 const StyledDropdown = styled.div`
     margin: 1px 7px;
 `;
@@ -164,9 +132,7 @@ const Navigation = () => {
     return (
         <StyledNavigation isLTR={isLTR}>
             <StyledRightSection>
-                <StyledNavTab >
                     <Tab path={"/meeting"} icon={faLifeRing} text={ <Trans i18nKey={"navigation.meetings"} t={t} >الإجتماعات</Trans>}/>
-                </StyledNavTab>
                 <StyledDropdown>
                     <Dropdown icon={faTasks}  text={ <Trans i18nKey={"navigation.tasks.name"} t={t}>المهام</Trans>}>
                         <DropdownItem style={DropItem}>
@@ -183,9 +149,7 @@ const Navigation = () => {
                         <DropdownItem divider/>
                     </Dropdown>
                 </StyledDropdown>
-                <StyledNavTab>
                     <Tab path={"/myorders"} icon={faBatteryHalf} text={ <Trans i18nKey={"navigation.myOrders"} t={t} >طلباتي</Trans>}/>
-                </StyledNavTab>
                 <StyledDropdown >
                     <Dropdown icon={faCog} text={ <Trans i18nKey={"navigation.administration.name"} t={t}>إدارة النظام</Trans>}>
                         <DropdownItem style={DropItem}>
@@ -253,9 +217,7 @@ const Navigation = () => {
                     </StyledLangaugePosition>
                     <StyledVerticalLine/>
                 </StyledLangaugeBox>
-                <StyledNavTab>
                     <Tab path={"/"} icon={faSlidersH} text={<Trans i18nKey={"navigation.settings"} t={t}>الاعدادات</Trans>} />
-                </StyledNavTab>
             </StyledLeftSection>
         </StyledNavigation>
     );
