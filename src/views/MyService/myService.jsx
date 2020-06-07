@@ -185,7 +185,9 @@ const StyledSVG = styled.svg`
         const {t} = useTranslation();
         const [isLTR] = useContext(DiractionContext);
         const [Title, setTitle] = useContext(TitleContext);
-        setTitle("خدماتي")
+        if(Title !== "خدماتي"){
+            setTitle("خدماتي")
+        }
         console.log("MyService rerendred")
         return (
             <StyledServiceContainer>
