@@ -30,7 +30,7 @@ const StyledMinimize= styled.div`
   }
 `;
 
-const ServicesSlider = () => {
+const ServiceSlider = () => {
   console.log("ServicesSlider rerendred")
   const [isOpen, setIsOpen] = useState(true);
 
@@ -60,4 +60,4 @@ const ServicesSlider = () => {
     </StyledServicesContainer>
   );
 };
-export default ServicesSlider;
+export default ServiceSlider;

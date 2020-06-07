@@ -14,10 +14,10 @@ const responsive = {
     },
     tablet: {
         breakpoint: {
-            max: 1024,
+            max: 1366,
             min: 464
         },
-        items: 4
+        items: 5
     },
     mobile: {
         breakpoint: {
@@ -68,6 +68,7 @@ const ServicesCarousel = ({deviceType, list}) => {
             deviceType={deviceType}
             itemClass="image-item"
             sliderClass="carousel-slider"
+            containerClass="carousel-padding"
             responsive={responsive}>
             {itemsList
                 .slice(0, itemsList.length)
