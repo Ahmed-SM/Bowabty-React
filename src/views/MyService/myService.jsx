@@ -191,7 +191,7 @@ const StyledMyService = styled.div `
                             <StyledContainerDivider className="hr-d-container"/>
                         </StyledHeader>
                         <NewsFeedSection >
-                            <NewsFeed deviceType={"desktop"} list={NewsFeedContext}/>
+                            <NewsFeed list={NewsFeedContext}/>
                         </NewsFeedSection>
                     </StyledMdContainer>
                     <StyledMdContainer className="border-bottom-black">

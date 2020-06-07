@@ -1,6 +1,7 @@
 import React, {useContext, useState, useEffect} from "react";
 import Carousel from "react-multi-carousel";
 import styled from "styled-components";
+import UAParser from "ua-parser-js";
 
 const StyledCard = styled.div`
   padding: 10px 15px;
@@ -63,7 +64,7 @@ const responsive = {
             min: 464
         },
         items: 2,
-        paritialVisibilityGutter: 50
+        paritialVisibilityGutter: 0
     },
     mobile: {
         breakpoint: {
@@ -71,7 +72,7 @@ const responsive = {
             min: 0
         },
         items: 1,
-        paritialVisibilityGutter: 70
+        paritialVisibilityGutter: 0
     }
 };
 const NewsFeed = ({deviceType, list}) => {
@@ -88,7 +89,7 @@ const NewsFeed = ({deviceType, list}) => {
             partialVisible={true}
             autoPlay={toggle}
             autoPlaySpeed={1}
-            deviceType="desktop"
+            deviceType={deviceType}
             draggable={false}
             responsive={responsive}
             itemClass="image-item"
@@ -124,5 +125,17 @@ const NewsFeed = ({deviceType, list}) => {
         </Carousel>
     );
 };
-
+NewsFeed.getInitialProps = ({ req }) => {
+    let userAgent;
+    if (req) {
+      userAgent = req.headers["user-agent"];
+    } else {
+      userAgent = navigator.userAgent;
+    }
+    const parser = new UAParser();
+    parser.setUA(userAgent);
+    const result = parser.getResult();
+    const deviceType = (result.device && result.device.type) || "desktop";
+    return { deviceType };
+  };
 export default NewsFeed;

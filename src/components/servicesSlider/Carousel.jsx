@@ -2,6 +2,7 @@ import React, {useContext} from "react";
 import Carousel from "react-multi-carousel";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import UAParser from "ua-parser-js";
 
 const responsive = {
     desktop: {
@@ -83,6 +84,19 @@ const ServicesCarousel = ({ deviceType, list}) => {
         })}
       </Carousel>
     );
+  };
+  ServicesCarousel.getInitialProps = ({ req }) => {
+    let userAgent;
+    if (req) {
+      userAgent = req.headers["user-agent"];
+    } else {
+      userAgent = navigator.userAgent;
+    }
+    const parser = new UAParser();
+    parser.setUA(userAgent);
+    const result = parser.getResult();
+    const deviceType = (result.device && result.device.type) || "desktop";
+    return { deviceType };
   };
   
   export default ServicesCarousel;
