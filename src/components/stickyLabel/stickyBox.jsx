@@ -11,7 +11,7 @@ const StyledStickyBox= styled.div`
     left: 45px;
 `;
 const StickyBox = () =>{
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
     return(
         <StyledStickyBox >
             <StickyLabel Title={<Trans i18nKey={"navigation.support"} t={t}>مؤشر السعادة</Trans>} Color={'#F1C210'} Icon={<FontAwesomeIcon  size="2x" icon={faSmile}/>}/>

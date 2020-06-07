@@ -1,7 +1,7 @@
 import React, {useContext} from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClipboard, faCircle, faAddressBook, faBell, faSortDown} from '@fortawesome/free-solid-svg-icons';
+import { faClipboard, faCircle, faAddressBook, faBell} from '@fortawesome/free-solid-svg-icons';
 import { useTranslation, Trans } from "react-i18next";
 import {DiractionContext} from "../../contexts/DiractionContext";
 
@@ -95,7 +95,7 @@ const StyledSideBtn = styled.div`
 
 
 const UserContent = ({isVisible, data}) => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const [isLTR] = useContext(DiractionContext);
   console.log("userContent rerendred")
   return (

@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React from "react";
 import styled from "styled-components";
 import rakLogo from "../../assets/RAK.png";
 import logo from "../../assets/logo.png";
@@ -27,7 +27,7 @@ const Header = () => {
     return (
         <StyledHeader className="user-select" >
             <div>
-                <a href="#">
+                <a href="/">
                     <img src={logo} alt="" width="280"/>
                 </a>
             </div>
@@ -38,7 +38,7 @@ const Header = () => {
                 <h5>Aamna Ahmed AlNaqbii</h5>
             </WelcomeSection>
             <div>
-                <a href="#">
+                <a href="/">
                     <img src={rakLogo} alt="" width="240"/>
                 </a>
             </div>

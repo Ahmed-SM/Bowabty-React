@@ -1,7 +1,6 @@
 import React, {useContext, useState, useEffect} from "react";
 import Carousel from "react-multi-carousel";
 import styled from "styled-components";
-import {Link} from "react-router-dom";
 
 const StyledCard = styled.div`
   padding: 10px 15px;
@@ -115,7 +114,7 @@ const NewsFeed = ({deviceType, list}) => {
                             </div>
                             <StyledCardDivider className="d-card-line"/>
                             <div className="text-center">
-                                <a href="#">
+                                <a href="/">
                                     اقرأ المزيد
                                 </a>
                             </div>

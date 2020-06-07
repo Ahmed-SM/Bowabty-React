@@ -177,7 +177,7 @@ const StyledMyService = styled.div `
   z-index: -1;
 }`;
     const MyService = () => {
-        const {t, i18n} = useTranslation();
+        const {t} = useTranslation();
         const [isLTR] = useContext(DiractionContext);
         console.log("MyService rerendred")
         return (

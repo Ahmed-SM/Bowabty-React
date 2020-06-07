@@ -159,7 +159,7 @@ const Navigation = () => {
         if (i18n.language === lng) return;
         i18n.changeLanguage(lng);
         console.log("Navigation rerendred useeffect")
-    },[lng]);
+    },[lng, i18n]);
 
     return (
         <StyledNavigation isLTR={isLTR}>
