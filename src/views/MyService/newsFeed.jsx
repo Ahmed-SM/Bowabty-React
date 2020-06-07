@@ -56,7 +56,6 @@ const responsive = {
             min: 1024
         },
         items: 3,
-        paritialVisibilityGutter: 30
     },
     tablet: {
         breakpoint: {
@@ -64,7 +63,6 @@ const responsive = {
             min: 464
         },
         items: 2,
-        paritialVisibilityGutter: 0
     },
     mobile: {
         breakpoint: {
@@ -72,7 +70,6 @@ const responsive = {
             min: 0
         },
         items: 1,
-        paritialVisibilityGutter: 0
     }
 };
 const NewsFeed = ({deviceType, list}) => {
@@ -86,7 +83,7 @@ const NewsFeed = ({deviceType, list}) => {
     });
     return (
         <Carousel
-            partialVisible={true}
+            
             autoPlay={toggle}
             autoPlaySpeed={1}
             deviceType={deviceType}
