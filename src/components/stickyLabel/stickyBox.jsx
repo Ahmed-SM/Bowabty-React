@@ -6,7 +6,7 @@ import {faSmile} from '@fortawesome/free-regular-svg-icons';
 import {faHeadset} from '@fortawesome/free-solid-svg-icons';
 import { useTranslation, Trans } from "react-i18next";
 const StyledStickyBox= styled.div`
-    position: absolute;
+    position: fixed;
     bottom:0;
     left: 45px;
 `;
