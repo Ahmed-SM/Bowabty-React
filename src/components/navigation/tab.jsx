@@ -3,7 +3,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {Link} from "react-router-dom";
 const Tab = ({path, icon, text}) => {
     return (
-        <Link to={path}>
+        <Link className="defaultLink" to={path}>
             <FontAwesomeIcon size="2x" icon={icon}/>
             <div>{text}</div>
         </Link>

@@ -7,7 +7,7 @@ import {DiractionContext} from "../../contexts/DiractionContext";
 
 const StyledUserInfo = styled.div`
     margin: 0;
-    padding: 25px 50px 0px 50px;
+    padding: 20px 50px 0px 50px;
     height: fit-content;
     width: 100%;
     justify-content: space-around;

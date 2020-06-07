@@ -7,17 +7,14 @@ const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
       items: 6,
-      paritialVisibilityGutter: 70
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
       items: 4,
-      paritialVisibilityGutter: 50
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
       items: 2,
-      paritialVisibilityGutter: 30
     }
   };
   const StyledElement = styled.div`
@@ -60,6 +57,7 @@ const ServicesCarousel = ({ deviceType, list}) => {
         centerMode={true}
         deviceType="desktop"
         itemClass="image-item"
+        sliderClass="carousel-slider"
         responsive={responsive}
       >
         {itemsList.slice(0, itemsList.length).map((item, index) => {

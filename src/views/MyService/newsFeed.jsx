@@ -90,8 +90,10 @@ const NewsFeed = ({deviceType, list}) => {
             autoPlay={toggle}
             autoPlaySpeed={1}
             deviceType="desktop"
+            draggable={false}
             responsive={responsive}
             itemClass="image-item"
+            sliderClass="feed-slider"
             containerClass="ltr">
             {itemsList
                 .slice(0, itemsList.length)

@@ -4,6 +4,7 @@ import Header from "../components/header/header";
 import Navigation from "../components/navigation/navigation";
 import UserContent from "../components/userContent/userContent";
 import ServicesSlider from "../components/servicesSlider/servicesSlider";
+import StickyBox from "../components/stickyLabel/stickyBox";
 
 const MainLayout = styled.div `
     font-family: 'Cocon Next Arabic', Sans-Serif !important;
@@ -24,6 +25,8 @@ const mainLayout = ({children}) => {
             <UserContent isVisible={true} data={userData}/>
             <ServicesSlider/> 
             {children}
+            <StickyBox/>
+           
         </MainLayout>
     );
 }

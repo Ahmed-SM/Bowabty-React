@@ -9,11 +9,11 @@ import {ServiceContext} from "../../contexts/ServiceContext"
 
 const StyledServicesContainer = styled.div`
   position: relative;
-  margin: 22px 25px;
+  margin: 15px 25px 22px 25px;
   background-color: #F6F4F5;
-  padding: 35px 0px;
+  padding: 30px 0px 0px 0px;
   transition: all 0.5s ease-in-out;
-  height: 250px;
+  height: 230px;
 `;
 const StyledMinimize= styled.div`
   position: absolute;

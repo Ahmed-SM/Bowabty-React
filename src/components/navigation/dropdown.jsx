@@ -7,28 +7,7 @@ const DropMenu = {
     padding: '0',
     border:'none',
 }
-const DropdToggle = {
-    background: 'transparent',
-    color: 'white',
-    outline: 'none',
-    '&:hover':{
-        backgroundColor: '#fff',
-        color: 'black',
-        borderRadius: '8px',
-        transition: 'all 1s',
-    }
-}
-const ExtendedDropdownToggle = styled(DropdownToggle)`
-    background: transparent,
-    color: white,
-    outline: none,
-    &:hover {
-        backgroundColor: #fff,
-        color: black,
-        borderRadius: 8px,
-        transition: all 1s,
-    }
-`
+
 const Dropdown = ({icon, text, children}) => {
     return (
         <UncontrolledDropdown>

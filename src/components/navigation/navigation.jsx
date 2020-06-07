@@ -23,7 +23,7 @@ const StyledNavigation = styled.nav `
     justify-content: space-between;
     width: 100%;
     background-color: #3C4652;
-    height: 70px;
+    height: 66px;
     box-shadow: 0px 7px 5px 0px rgba(0, 0, 0, 0.31);
     text-align: center;
     display: inline-flex;
@@ -49,69 +49,38 @@ const StyledLeftSection = styled.div `
 `;
 const StyledNavTab = styled.div `
     margin: 1px 7px;
-    
-    & > a {
-        display: block;
-        direction: rtl;
-        width: 85px;
-        padding: 9.2px 2px;
-        color:white;
-        text-decoration: none;
-        user-select: none;
-    }
-    & > a:hover,
-    .dropdown:hover .dropbtn, .dropbtn:focus  {
-        background-color: #fff;
-        color: black !important;
-        border-radius: 8px;
-        transition: all 1s;
-    }
-    & > .dropdown {
-        list-style-type: none;
-        text-decoration: none;
-        float: right;
-    }
-    
-    & > .dropbtn {
-        display: inline-block;
+    background: transparent;
+    text-decoration: none;
+    color: white;
+    outline: none !important;
+    border: none !important;
+    min-width: 90px;
+    transition: all 0.5s;
+    padding: 6px 12px;
+    & > * {
         color: white;
-        text-decoration: none;
-    
+        outline: none;
+        border: none;
     }
-    & > .dropdown-content {
-        right: calc(1px + -3%);
-        top: calc(65px + 3%);
-        display: none;
-        position: absolute;
-        direction: rtl;
-        background-color: #eee;
-        border-radius: 4px;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-        z-index: 1;
-        text-indent: 5px;
-    }
-    
-    & > .dropdown-content a {
+    &:hover  {
+        outline: none;
+        border: none;
+        background-color: #fff;
+        border-radius: 5px;
+      }
+      &:hover > * {
         color: black !important;
-        width: 100%;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-        text-align: right;
-        border-bottom: 2px dashed #C0C0C0;
-    }
-    
-    & > .dropdown-content a:hover {
-        background-color: white;
-        transition: all 1s;
-    
-    }
-    
-    & > .dropdown:hover .dropdown-content {
-        display: block;
-        transition: all 0.5s;
-    }
+      }
+    &:focus{
+        background-color: #fff !important;
+        color: black !important;
+        border-radius: 5px;
+        outline: none !important;
+        border: none !important;
+      }
+`;
+const StyledDropdown = styled.div`
+    margin: 1px 7px;
 `;
 const StyledSocialBox = styled.div `
     justify-content: space-around;
@@ -129,7 +98,7 @@ const StyledSocialPosition = styled.div `
     display: block;
     width: 70px;
     color: white;
-    line-height: 5;
+    line-height: 4.5;
     & > i {
         font-size: 25px;  
     }
@@ -142,7 +111,7 @@ const StyledLangaugeBox = styled.div `
     flex-wrap: nowrap;
     justify-content: space-around;
     min-width: 110px;
-
+    
     & > i{
         font-size: 16.2px;
         transition: all 0.1s;
@@ -195,10 +164,10 @@ const Navigation = () => {
     return (
         <StyledNavigation isLTR={isLTR}>
             <StyledRightSection>
-                <StyledNavTab>
+                <StyledNavTab >
                     <Tab path={"/meeting"} icon={faLifeRing} text={ <Trans i18nKey={"navigation.meetings"} t={t} >الإجتماعات</Trans>}/>
                 </StyledNavTab>
-                <StyledNavTab>
+                <StyledDropdown>
                     <Dropdown icon={faTasks}  text={ <Trans i18nKey={"navigation.tasks.name"} t={t}>المهام</Trans>}>
                         <DropdownItem style={DropItem}>
                             <Link style={LinkStyles} to="/1" >اختيار</Link>
@@ -213,11 +182,11 @@ const Navigation = () => {
                         </DropdownItem>
                         <DropdownItem divider/>
                     </Dropdown>
-                </StyledNavTab>
+                </StyledDropdown>
                 <StyledNavTab>
                     <Tab path={"/myorders"} icon={faBatteryHalf} text={ <Trans i18nKey={"navigation.myOrders"} t={t} >طلباتي</Trans>}/>
                 </StyledNavTab>
-                <StyledNavTab >
+                <StyledDropdown >
                     <Dropdown icon={faCog} text={ <Trans i18nKey={"navigation.administration.name"} t={t}>إدارة النظام</Trans>}>
                         <DropdownItem style={DropItem}>
                             <Link style={LinkStyles} to="/user" >المستخدم</Link>
@@ -228,9 +197,9 @@ const Navigation = () => {
                         </DropdownItem>
                         <DropdownItem divider/>
                     </Dropdown>
-                </StyledNavTab>
-                <StyledNavTab className="dropdown">
-                    <Dropdown icon={faInfo} text={ <Trans i18nKey={"navigation.others.name"} t={t}>إدارة النظام</Trans>}>
+                </StyledDropdown>
+                <StyledDropdown >
+                    <Dropdown icon={faInfo} text={ <Trans i18nKey={"navigation.others.name"} t={t}>أخرى</Trans>}>
                         <DropdownItem style={DropItem}>
                             <Link style={LinkStyles} to="/user" >المستخدم</Link>
                         </DropdownItem>
@@ -239,8 +208,8 @@ const Navigation = () => {
                             <Link style={LinkStyles} to="/useroles" >صلاحيات المستخدم</Link>
                         </DropdownItem>
                     </Dropdown>
-                </StyledNavTab>
-                <StyledNavTab className="dropdown">
+                </StyledDropdown>
+                <StyledDropdown>
                     <Dropdown icon={faFileAlt} text={ <Trans i18nKey={"navigation.reports.name"} t={t}>إدارة النظام</Trans>}>
                         <DropdownItem style={DropItem}>
                             <Link style={LinkStyles} to="/user" >المستخدم</Link>
@@ -250,7 +219,7 @@ const Navigation = () => {
                             <Link style={LinkStyles} to="/useroles" >صلاحيات المستخدم</Link>
                         </DropdownItem>
                     </Dropdown>
-                </StyledNavTab>
+                </StyledDropdown>
             </StyledRightSection>
             <StyledLeftSection>
                 <StyledSocialBox>

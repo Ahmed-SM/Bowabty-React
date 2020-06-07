@@ -7,6 +7,7 @@ import { useTranslation, Trans } from "react-i18next";
 
 const StyledHeader = styled.header`
     width: 100%;
+    height: 72px;
     box-sizing: border-box;
     padding: 0px 30px;
     justify-content: space-between;
@@ -15,9 +16,6 @@ const StyledHeader = styled.header`
     flex-direction: row-reverse;
     flex-wrap: nowrap;
     user-select: none;
-    & > * {
-        height: 82.3px;
-    }
 `;
 const WelcomeSection = styled.div`
     margin-top: 0px;
