@@ -1,7 +1,7 @@
 import React, {useContext} from "react";
 import styled from "styled-components";
 import 'react-multi-carousel/lib/styles.css';
-import {NewsFeedContext} from "../../contexts/ServiceContext"
+import {NewsFeedContext} from "../../contexts/NewsFeedContext"
 import NewsFeed from "./newsFeed";
 import NewsFeedSection from "./newsFeedSection";
 import {useTranslation, Trans} from "react-i18next";

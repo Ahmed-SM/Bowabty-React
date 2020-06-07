@@ -54,7 +54,7 @@ const ServicesSlider = () => {
       <CarouselSection ref={carouselRef}>
           <ServicesCarousel list={ServiceContext}/>
        </CarouselSection>
-      <StyledMinimize className="minimize-left" onClick={handleMinimize}>
+      <StyledMinimize onClick={handleMinimize}>
       <FontAwesomeIcon size="1x" icon={faBars} />
       </StyledMinimize>
     </StyledServicesContainer>

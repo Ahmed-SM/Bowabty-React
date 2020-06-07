@@ -2,7 +2,8 @@ import React, {Suspense} from 'react';
 import MainLayout from './layouts/mainLayout'
 import {Route} from "react-router-dom";
 import MyService from "./views/MyService/myService";
-import {ServiceContext, NewsFeedContext} from "./contexts/ServiceContext";
+import {ServiceContext} from "./contexts/ServiceContext";
+import {NewsFeedContext} from "./contexts/NewsFeedContext";
 import {DiractionProvider} from "./contexts/DiractionContext";
 import {servicesList, Newslist} from './services/MockData';
 import './App.css';
