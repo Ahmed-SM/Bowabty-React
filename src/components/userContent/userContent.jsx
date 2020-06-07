@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClipboard, faCircle, faAddressBook, faBell} from '@fortawesome/free-solid-svg-icons';
 import { useTranslation, Trans } from "react-i18next";
 import {DiractionContext} from "../../contexts/DiractionContext";
+import {TitleContext} from "../../contexts/TitleContext";
 
 const StyledUserInfo = styled.div`
     margin: 0;
@@ -47,14 +48,14 @@ const StyledH3 = styled.h3`
     white-space: nowrap;
 `; 
 const StyledH4 = styled.h4`
-    margin: 0;
+    margin: 5px 0 0 0;
     color: #6D6D6D;
     font-size: 19.8px;
     width: 100%;
     white-space: nowrap;
 `; 
 const StyledTitle = styled.div`
-    margin-top:8px;
+    margin-top:5px;
     flex-grow: 1;
 `;
 const StyledSideBtns  = styled.div`
@@ -97,6 +98,7 @@ const StyledSideBtn = styled.div`
 const UserContent = ({isVisible, data}) => {
   const { t } = useTranslation();
   const [isLTR] = useContext(DiractionContext);
+  const [Title] = useContext(TitleContext);
   console.log("userContent rerendred")
   return (
     <>
@@ -121,7 +123,7 @@ const UserContent = ({isVisible, data}) => {
         <StyledTitle>
           <div>
             <StyledH1>
-              خدماتي
+              {Title}
             </StyledH1>
           </div>
           <div>

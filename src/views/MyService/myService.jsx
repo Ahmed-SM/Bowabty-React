@@ -6,6 +6,7 @@ import NewsFeed from "./newsFeed";
 import NewsFeedSection from "./newsFeedSection";
 import {useTranslation, Trans} from "react-i18next";
 import {DiractionContext} from "../../contexts/DiractionContext";
+import {TitleContext} from "../../contexts/TitleContext";
 
 const StyledServiceContainer = styled.div `
   margin 0 20px;
@@ -60,6 +61,7 @@ const StyledMyService = styled.div `
 
   & > label{
     width: fit-content;
+    padding: 0 5px;
   }
 `;
     const StyledSendButton = styled.button `
@@ -165,20 +167,25 @@ const StyledMyService = styled.div `
     border-style: solid;
     border-color: rgb(169, 169, 169);
 `;
-    const StyledFileLabel = styled.label `
+const StyledFileLabel = styled.label `
     color: #757575;
-    margin: -25px 15px 0 0;
+    margin: -25px 0px 0 0;
+    padding:0 15px;
 `;
-    const StyledSVG = styled.svg `
+const StyledSVG = styled.svg`
   position: absolute;
   width: 15px;
-  left:0;
-  margin: 1px 0px 0 15px;
+  margin: 1px 10px 0 10px;
   z-index: -1;
-}`;
+  ${ ({
+    isLTR}) => isLTR && `margin: 1px 10px 0 0px;
+    `}
+  `;
     const MyService = () => {
         const {t} = useTranslation();
         const [isLTR] = useContext(DiractionContext);
+        const [Title, setTitle] = useContext(TitleContext);
+        setTitle("خدماتي")
         console.log("MyService rerendred")
         return (
             <StyledServiceContainer>

@@ -1,4 +1,4 @@
-import React, {useContext, useState, useEffect} from "react";
+import React, {useContext} from "react";
 import Carousel from "react-multi-carousel";
 import styled from "styled-components";
 import UAParser from "ua-parser-js";
@@ -66,28 +66,37 @@ const responsive = {
     },
     mobile: {
         breakpoint: {
-            max: 800,
+            max: 813,
             min: 0
         },
         items: 1,
     }
 };
+const CustomLeftArrow = ({ onClick, ...rest }) => {
+    return <button className="custom-left-arrow" onClick={() => onClick()} />;
+  };
+  const CustomRightArrow = ({ onClick, ...rest }) => {
+    return <button className="custom-right-arrow" onClick={() => onClick()} />;
+  };
 const NewsFeed = ({deviceType, list}) => {
-    const [toggle,
-        setToggle] = useState(true);
     const itemsList = useContext(list);
-    useEffect(() => {
-        setTimeout(() => {
-            setToggle(false);
-        }, itemsList.length * 400)
-    });
+    //This section was used to toggle autoPlay passed on time give a sorting effect 
+    // const [toggle,
+    //     setToggle] = useState(true);
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         setToggle(false);
+    //     }, itemsList.length * 400)
+    // });
     return (
-        <Carousel
-            
-            autoPlay={toggle}
-            autoPlaySpeed={1}
+        <Carousel 
+            autoPlay={true}
+            autoPlaySpeed={3000}
             deviceType={deviceType}
-            draggable={false}
+            draggable={true}
+            infinite={true}
+            customRightArrow={<CustomRightArrow/>}
+            customLeftArrow={<CustomLeftArrow />}
             responsive={responsive}
             itemClass="image-item"
             sliderClass="feed-slider"
