@@ -4,23 +4,6 @@ import rakLogo from "../../assets/RAK.png";
 import logo from "../../assets/logo.png";
 import { useTranslation, Trans } from "react-i18next";
 
-
-const StyledHeader = styled.header`
-    width: 100%;
-    height: 72px;
-    box-sizing: border-box;
-    padding: 0px 30px;
-    justify-content: space-between;
-    text-align: center;
-    display: inline-flex !important;
-    flex-direction: row-reverse;
-    flex-wrap: nowrap;
-    user-select: none;
-`;
-const WelcomeSection = styled.div`
-    margin-top: 0px;
-`;
-
 const Header = () => {
     const { t } = useTranslation();
     console.log("Header rerendred")
@@ -46,3 +29,19 @@ const Header = () => {
     );
 }
 export default Header;
+
+const StyledHeader = styled.header`
+    width: 100%;
+    height: 72px;
+    box-sizing: border-box;
+    padding: 0px 30px;
+    justify-content: space-between;
+    text-align: center;
+    display: inline-flex !important;
+    flex-direction: row-reverse;
+    flex-wrap: nowrap;
+    user-select: none;
+`;
+const WelcomeSection = styled.div`
+    margin-top: 0px;
+`;

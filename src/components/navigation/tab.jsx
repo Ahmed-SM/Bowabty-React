@@ -2,8 +2,19 @@ import React from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {Link} from "react-router-dom";
 import styled from "styled-components";
+const Tab = ({path, icon, text}) => {
+    return (
+        <Link className="defaultLink" to={path}>
+            <StyledNavTab >
+            <FontAwesomeIcon size="2x" icon={icon}/>
+            <div>{text}</div>
+            </StyledNavTab>
+        </Link>
+    )
+}
+export default Tab;
 
-const StyledNavTab = styled.div `
+const StyledNavTab = styled.div`
     margin: 1px 7px;
     background: transparent;
     text-decoration: none;
@@ -35,14 +46,3 @@ const StyledNavTab = styled.div `
         border: none !important;
       }
 `;
-const Tab = ({path, icon, text}) => {
-    return (
-        <Link className="defaultLink" to={path}>
-            <StyledNavTab >
-            <FontAwesomeIcon size="2x" icon={icon}/>
-            <div>{text}</div>
-            </StyledNavTab>
-        </Link>
-    )
-}
-export default Tab;

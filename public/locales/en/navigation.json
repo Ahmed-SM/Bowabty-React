@@ -1,0 +1,22 @@
+{
+        "meetings": "Meetings",
+        "tasks": {
+            "name": "Tasks",
+            "dropitem": "Option"
+        },
+        "myOrders": "My Orders",
+        "administration": {
+            "name": "Management",
+            "dropitem": "Option"
+        },
+        "others": {
+            "name": "Others",
+            "dropitem": "Option"
+        },
+        "reports": {
+            "name": "Reports",
+            "dropitem": "Option"
+        },
+        "language": "عربي",
+        "settings": "Settings"
+}

@@ -3,6 +3,73 @@ import Carousel from "react-multi-carousel";
 import styled from "styled-components";
 import UAParser from "ua-parser-js";
 
+const NewsFeed = ({deviceType, list}) => {
+    const itemsList = useContext(list);
+    //This section was used to toggle autoPlay passed on time give a sorting effect 
+    // const [toggle,
+    //     setToggle] = useState(true);
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         setToggle(false);
+    //     }, itemsList.length * 400)
+    // });
+    return (
+        <Carousel 
+            autoPlay={true}
+            autoPlaySpeed={3000}
+            deviceType={deviceType}
+            draggable={true}
+            infinite={true}
+            customRightArrow={<CustomRightArrow/>}
+            customLeftArrow={<CustomLeftArrow />}
+            responsive={responsive}
+            itemClass="image-item"
+            sliderClass="feed-slider"
+            containerClass="ltr">
+            {itemsList
+                .slice(0, itemsList.length)
+                .map((item, index) => {
+                    return (
+                        <StyledCard key={index}>
+                            <StyledCardHeader>
+                                <Styledh6 dir="auto">{item.header}</Styledh6>
+                            </StyledCardHeader>
+                            <StyledJustifiedTextArea>
+                                <StyledJustifiedParagraph>
+                                    {item.Paragraph}
+                                </StyledJustifiedParagraph>
+                            </StyledJustifiedTextArea>
+                            <div>
+                                <StyledCardDate className="d-card-date" dir="auto">
+                                    {item.PostDate}
+                                </StyledCardDate>
+                            </div>
+                            <StyledCardDivider className="d-card-line"/>
+                            <div className="text-center">
+                                <a href="/">
+                                    اقرأ المزيد
+                                </a>
+                            </div>
+                        </StyledCard>
+                    );
+                })}
+        </Carousel>
+    );
+};
+NewsFeed.getInitialProps = ({ req }) => {
+    let userAgent;
+    if (req) {
+      userAgent = req.headers["user-agent"];
+    } else {
+      userAgent = navigator.userAgent;
+    }
+    const parser = new UAParser();
+    parser.setUA(userAgent);
+    const result = parser.getResult();
+    const deviceType = (result.device && result.device.type) || "desktop";
+    return { deviceType };
+  };
+export default NewsFeed;
 const StyledCard = styled.div`
   padding: 10px 15px;
   border-radius: 5px;
@@ -75,73 +142,6 @@ const responsive = {
 const CustomLeftArrow = ({ onClick, ...rest }) => {
     return <button className="custom-left-arrow" onClick={() => onClick()} />;
   };
-  const CustomRightArrow = ({ onClick, ...rest }) => {
+const CustomRightArrow = ({ onClick, ...rest }) => {
     return <button className="custom-right-arrow" onClick={() => onClick()} />;
   };
-const NewsFeed = ({deviceType, list}) => {
-    const itemsList = useContext(list);
-    //This section was used to toggle autoPlay passed on time give a sorting effect 
-    // const [toggle,
-    //     setToggle] = useState(true);
-    // useEffect(() => {
-    //     setTimeout(() => {
-    //         setToggle(false);
-    //     }, itemsList.length * 400)
-    // });
-    return (
-        <Carousel 
-            autoPlay={true}
-            autoPlaySpeed={3000}
-            deviceType={deviceType}
-            draggable={true}
-            infinite={true}
-            customRightArrow={<CustomRightArrow/>}
-            customLeftArrow={<CustomLeftArrow />}
-            responsive={responsive}
-            itemClass="image-item"
-            sliderClass="feed-slider"
-            containerClass="ltr">
-            {itemsList
-                .slice(0, itemsList.length)
-                .map((item, index) => {
-                    return (
-                        <StyledCard key={index}>
-                            <StyledCardHeader>
-                                <Styledh6 dir="auto">{item.header}</Styledh6>
-                            </StyledCardHeader>
-                            <StyledJustifiedTextArea>
-                                <StyledJustifiedParagraph>
-                                    {item.Paragraph}
-                                </StyledJustifiedParagraph>
-                            </StyledJustifiedTextArea>
-                            <div>
-                                <StyledCardDate className="d-card-date" dir="auto">
-                                    {item.PostDate}
-                                </StyledCardDate>
-                            </div>
-                            <StyledCardDivider className="d-card-line"/>
-                            <div className="text-center">
-                                <a href="/">
-                                    اقرأ المزيد
-                                </a>
-                            </div>
-                        </StyledCard>
-                    );
-                })}
-        </Carousel>
-    );
-};
-NewsFeed.getInitialProps = ({ req }) => {
-    let userAgent;
-    if (req) {
-      userAgent = req.headers["user-agent"];
-    } else {
-      userAgent = navigator.userAgent;
-    }
-    const parser = new UAParser();
-    parser.setUA(userAgent);
-    const result = parser.getResult();
-    const deviceType = (result.device && result.device.type) || "desktop";
-    return { deviceType };
-  };
-export default NewsFeed;

@@ -8,5 +8,4 @@ const DiractionProvider  = ({children}) => {
       </DiractionContext.Provider>
     );
   }
-  
   export { DiractionContext, DiractionProvider };

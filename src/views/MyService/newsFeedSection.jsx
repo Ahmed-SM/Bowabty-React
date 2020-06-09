@@ -1,10 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-const StyledElementSection =  styled.section`
-  text-align: center;
-
-}
-`;
 const NewsFeedSection = ({ children }) => {
   return (
     <StyledElementSection > 
@@ -14,3 +9,8 @@ const NewsFeedSection = ({ children }) => {
 };
 
 export default NewsFeedSection;
+
+const StyledElementSection =  styled.section`
+  text-align: center;
+}
+`;

@@ -1,7 +1,16 @@
 import React from "react";
 import styled from "styled-components";
+const StickyLabel = ({Title, Icon, Color}) =>{
+    return(
+        <StyledStickyLabel Color={Color}>
+            {Icon}
+            {Title}
+        </StyledStickyLabel>
+    )
+}
+export default StickyLabel;
 
-const StyledStickyLabel= styled.div `
+const StyledStickyLabel= styled.div`
     display: inline-table;
     margin: 5px 5px 0 5px;
     color:white;
@@ -14,12 +23,3 @@ const StyledStickyLabel= styled.div `
     background: ${({ Color }) => Color}; 
     font-size:10px;
 `;
-const StickyLabel = ({Title, Icon, Color}) =>{
-    return(
-        <StyledStickyLabel Color={Color}>
-            {Icon}
-            {Title}
-        </StyledStickyLabel>
-    )
-}
-export default StickyLabel;

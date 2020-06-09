@@ -23,6 +23,7 @@
   padding: 6px;
   opacity: 0.8;
   cursor: pointer;
+  background: transparent;
   transform: rotate(135deg) scale(1.2);
   outline: none;
 }
@@ -43,12 +44,12 @@
   outline: none;
   border: none;
   background-color: #fff;
-  color: black !important;
+  color: #333 !important;
   border-radius: 5px;
 }
 .dropdown:focus{
   background-color: #fff !important;
-  color: black !important;
+  color: #333 !important;
   border-radius: 5px;
   outline: none !important;
   border: none !important;
@@ -59,7 +60,7 @@
   
 }
 .defaultLink:hover{
-  color: black;
+  color: #333;
   text-decoration: none;
 }
 .defaultLink:focus{

@@ -1,0 +1,22 @@
+{
+        "meetings": "الإجتماعات",
+        "tasks": {
+            "name": "المهام",
+            "dropitem": "اختيار"
+        },
+        "myOrders": "طلباتي",
+        "administration": {
+            "name": "إدارة النظام",
+            "dropitem": "اختيار"
+        },
+        "others": {
+            "name": "أخرى",
+            "dropitem": "أخرى"
+        },
+        "reports": {
+            "name": "التقارير",
+            "dropitem": "اختيار"
+        },
+        "language": "English",
+        "settings": "الاعدادت"
+}

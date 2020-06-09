@@ -4,6 +4,59 @@ import styled from "styled-components";
 import {Link} from "react-router-dom";
 import UAParser from "ua-parser-js";
 
+const ServicesCarousel = ({deviceType, list}) => {
+    const itemsList = useContext(list);
+    return (
+        <Carousel
+            autoPlay
+            infinite={true}
+            autoPlaySpeed={2500}
+            centerMode={true}
+            deviceType={deviceType}
+            itemClass="image-item"
+            sliderClass="carousel-slider"
+            containerClass="carousel-padding"
+            responsive={responsive}>
+            {itemsList.slice(0, itemsList.length).map((item, index) => {
+                    return (
+                        <StyledElement key={index}>
+                            <Link to={"/ServiceID=" + index}>
+                                <div style={{padding: `30px 30px 0px 30px`}}>
+                                    <img src={item.Icon} alt="" width="42"/>
+                                </div>
+                                <StyledElementTitle>
+                                    <Styledh5>
+                                        {item.Title}
+                                    </Styledh5>
+                                </StyledElementTitle>
+                                <StyledDescription>
+                                    <Styledh6>
+                                        {item.Description}
+                                    </Styledh6>
+                                </StyledDescription>
+                            </Link>
+                        </StyledElement>
+                    );
+                })}
+        </Carousel>
+    );
+};
+ServicesCarousel.getInitialProps = ({req}) => {
+    let userAgent;
+    if (req) {
+        userAgent = req.headers["user-agent"];
+    } else {
+        userAgent = navigator.userAgent;
+    }
+    const parser = new UAParser();
+    parser.setUA(userAgent);
+    const result = parser.getResult();
+    const deviceType = (result.device && result.device.type) || "desktop";
+    return {deviceType};
+};
+
+export default ServicesCarousel;
+
 const responsive = {
     desktop: {
         breakpoint: {
@@ -57,60 +110,3 @@ const Styledh5 = styled.h5 `
   -webkit-text-fill-color: black !important;
   font-size: 15px;
 `;
-const ServicesCarousel = ({deviceType, list}) => {
-    const itemsList = useContext(list);
-    return (
-        <Carousel
-            autoPlay
-            infinite={true}
-            autoPlaySpeed={2500}
-            centerMode={true}
-            deviceType={deviceType}
-            itemClass="image-item"
-            sliderClass="carousel-slider"
-            containerClass="carousel-padding"
-            responsive={responsive}>
-            {itemsList
-                .slice(0, itemsList.length)
-                .map((item, index) => {
-                    return (
-                        <StyledElement key={index}>
-                            <Link to={"/ServiceID=" + index}>
-                                <div
-                                    style={{
-                                    padding: `30px 30px 0px 30px`
-                                }}>
-                                    <img src={item.Icon} alt="" width="42"/>
-                                </div>
-                                <StyledElementTitle>
-                                    <Styledh5>
-                                        {item.Title}
-                                    </Styledh5>
-                                </StyledElementTitle>
-                                <StyledDescription>
-                                    <Styledh6>
-                                        {item.Description}
-                                    </Styledh6>
-                                </StyledDescription>
-                            </Link>
-                        </StyledElement>
-                    );
-                })}
-        </Carousel>
-    );
-};
-ServicesCarousel.getInitialProps = ({req}) => {
-    let userAgent;
-    if (req) {
-        userAgent = req.headers["user-agent"];
-    } else {
-        userAgent = navigator.userAgent;
-    }
-    const parser = new UAParser();
-    parser.setUA(userAgent);
-    const result = parser.getResult();
-    const deviceType = (result.device && result.device.type) || "desktop";
-    return {deviceType};
-};
-
-export default ServicesCarousel;

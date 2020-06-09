@@ -1,0 +1,14 @@
+{
+        "title":"My Service",
+        "decision":"New internal decisions",
+        "suggestion": "Submit a Suggestion",
+        "suggestedTitle": "Title Suggestion",
+        "suggestedTitlePlaceholder":"Title Suggestion",
+        "suggestionOrigin":"Suggestion Origin",
+        "suggestionOriginPlaceholder": "Suggestion Origin",
+        "suggestionOriginOption1":"Personal Idea",
+        "attachemnt": "Attachemnts",
+        "sendBtn":"Send",
+        "readMore":"Read More",
+        "select":"Option"
+}
