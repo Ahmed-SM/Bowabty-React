@@ -20,7 +20,6 @@ const MyService = React.lazy(()=> import("./views/MyService/myService"));
 function App() {
     const [userData , setUserData] = useContext(UserContext);
     console.log("App rerendred")
-    console.log(userData + "-------")
     return (
         <DiractionProvider>
               { userData ?

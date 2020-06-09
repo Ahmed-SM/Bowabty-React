@@ -10,8 +10,6 @@ const Login = () => {
     console.log("Login rerendred ")
   const { t } = useTranslation();
   const [userData, setUserData] = useContext(UserContext);
-
-
   const validation = Yup.object({
     username: Yup.string()
         .min(3, t('login:min'))
@@ -19,6 +17,12 @@ const Login = () => {
         .required(t('login:required')),
       password: Yup.string().min(3, "login:min").max(8, "login:max").required(t('login:required')),
     });
+    const handleOnSubmit = (values) =>{
+        setTimeout(()=>{
+            console.log(JSON.stringify(values, null, 2));
+            setUserData(true);
+        },1000)
+    }
   return (
     <StyledLogin>
       <StyledContainer>
@@ -29,12 +33,7 @@ const Login = () => {
         <StyledGroup dir="auto">
           <Formik initialValues={{username: "", password: ""}}
             validationSchema={validation}
-            onSubmit={(values, { setSubmitting, resetForm }) => {
-                setTimeout(()=>{
-                    console.log(JSON.stringify(values, null, 2));
-                    setUserData(true);
-                },1000)
-            }}>
+            onSubmit={handleOnSubmit}>
               <Form>
                 <StyledInputGroup>
                   <StyledColumn>
