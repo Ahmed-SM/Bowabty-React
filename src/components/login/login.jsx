@@ -1,19 +1,23 @@
-import React from "react";
+import React, {useContext} from "react";
 import styled from "styled-components";
 import { Formik, Form } from "formik";
 import { useTranslation, Trans } from "react-i18next";
+import { UserContext} from "../../contexts/UserContext";
 import CustomInput from "../atoms/customInput"
 import * as Yup from "yup";
 
 const Login = () => {
+    console.log("Login rerendred ")
   const { t } = useTranslation();
+  const [userData, setUserData] = useContext(UserContext);
+
 
   const validation = Yup.object({
     username: Yup.string()
-        .min(3, t('login:less'))
-        .max(15, t('login:more'))
+        .min(3, t('login:min'))
+        .max(15, t('login:max'))
         .required(t('login:required')),
-      password: Yup.string().min(3, "login:less").max(8, "login:more").required(t('login:required')),
+      password: Yup.string().min(3, "login:min").max(8, "login:max").required(t('login:required')),
     });
   return (
     <StyledLogin>
@@ -26,9 +30,10 @@ const Login = () => {
           <Formik initialValues={{username: "", password: ""}}
             validationSchema={validation}
             onSubmit={(values, { setSubmitting, resetForm }) => {
-              console.log(JSON.stringify(values, null, 2));
-              resetForm();
-              setSubmitting(false);
+                setTimeout(()=>{
+                    console.log(JSON.stringify(values, null, 2));
+                    setUserData(true);
+                },1000)
             }}>
             {(props) => (
               <Form>

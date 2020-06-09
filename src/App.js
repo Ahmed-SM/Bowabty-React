@@ -1,4 +1,4 @@
-import React, {Suspense} from 'react';
+import React, {useContext} from "react";
 import MainLayout from './layouts/mainLayout'
 import LoginLayout from './layouts/loginLayout'
 import {Route, Redirect} from "react-router-dom";
@@ -7,8 +7,9 @@ import StickyBox from "./components/stickyLabel/stickyBox";
 import {ServiceContext} from "./contexts/ServiceContext";
 import {NewsFeedContext} from "./contexts/NewsFeedContext";
 import {DiractionProvider} from "./contexts/DiractionContext";
+import {UserContext} from "./contexts/UserContext";
 import {TitleProvider} from "./contexts/TitleContext";
-import {servicesList, Newslist, isUserLogged} from './services/MockData';
+import {servicesList, Newslist} from './services/MockData';
 import './App.css';
 import "./i18n";
 
@@ -17,10 +18,12 @@ const MyService = React.lazy(()=> import("./views/MyService/myService"));
 
 
 function App() {
+    const [userData , setUserData] = useContext(UserContext);
     console.log("App rerendred")
+    console.log(userData + "-------")
     return (
-    <Suspense fallback={<div> Loading.. </div>}>
-        <DiractionProvider>  { isUserLogged ?
+        <DiractionProvider>
+              { userData ?
             <ServiceContext.Provider value={servicesList}>
              <TitleProvider>
                 <MainLayout> {/* ✨ غير, عدل او اقترح طرق احسن للروتينج اذا ينفع ✨ */}
@@ -37,7 +40,6 @@ function App() {
             </ServiceContext.Provider> : <LoginLayout/>}
             <StickyBox/>
         </DiractionProvider>
-        </Suspense>
     );
 }
 

@@ -5,6 +5,6 @@
     "enter":"Log In",
     "required":"Required",
     "min":"less",
-    "man":"more"
+    "max":"more"
 
 }

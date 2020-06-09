@@ -3,6 +3,7 @@ import styled from "styled-components";
 import {useField} from "formik";
 
 const CustomInput = ({ label, ...props }) => {
+  console.log("CustomInput rerendred ")
     const [field, meta] = useField(props);
     return (
       <>

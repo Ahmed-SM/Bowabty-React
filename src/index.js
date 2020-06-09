@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from "react-router-dom";
+import {UserProvider} from "./contexts/UserContext";
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
@@ -8,7 +9,11 @@ import * as serviceWorker from './serviceWorker';
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+    <Suspense fallback={<div> Loading.. </div>}>
+      <UserProvider>
+        <App />
+      </UserProvider>
+      </Suspense>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
