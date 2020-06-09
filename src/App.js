@@ -23,15 +23,15 @@ function App() {
         <DiractionProvider>  { isUserLogged ?
             <ServiceContext.Provider value={servicesList}>
              <TitleProvider>
-                <MainLayout>
+                <MainLayout> {/* ✨ غير, عدل او اقترح طرق احسن للروتينج اذا ينفع ✨ */}
                     {/* Dynamic Components are passed down to the Layout,
                      The Layout component also wraps up a essential static components*/}
-                    <Route exact path={["/v/*", "/"]} component={ServiceSlider}/>
+                    <Route exact path={["/v/*", "/"]} component={ServiceSlider}/> {/* Views with Sliders should start /v/NAME_OF_THE_VIEW ✔  */}
                     <NewsFeedContext.Provider value={Newslist}>
-                        <Route exact path="/" component={MyService}/>
+                        <Route exact path="/" component={MyService}/> {/* Default view ✔  */}
                     </NewsFeedContext.Provider>
-                    <Route exact path="/inbox" component={Inbox}/>
-                    <Redirect  to="/"/>
+                    <Route exact path="/inbox" component={Inbox}/>{/* /NAME_OF_THE_COMPONENT for pages with no sliders  ✔  */}
+                    <Redirect  to="/"/> {/* Redirection on route mismatch ✔ */}
                 </MainLayout>
              </TitleProvider>
             </ServiceContext.Provider> : <LoginLayout/>}
