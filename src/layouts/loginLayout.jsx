@@ -3,7 +3,6 @@ import styled from "styled-components";
 import Header from "../components/header/header";
 import LoginNav from "../components/navigation/loginNav";
 import Login from "../components/login/login";
-import StickyBox from "../components/stickyLabel/stickyBox";
 
 const loginLayout = () => {
     console.log("loginLayout rerendred")
@@ -12,7 +11,6 @@ const loginLayout = () => {
             <Header/>
             <LoginNav/>
             <Login/>
-            <StickyBox/>
         </LoginLayout>
     );
 }
