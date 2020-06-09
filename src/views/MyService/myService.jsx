@@ -123,6 +123,8 @@ const StyledMyService = styled.div `
   direction: rtl;
   justify-content: space-around;
   height: 100%;
+  min-height:400px;
+  max-height:400px;
   align-items: center;
   padding: 50px 10px;
   width: 100%;

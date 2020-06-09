@@ -34,6 +34,8 @@ import DataGrid, {
     direction: rtl;
     justify-content: space-around;
     height: 100%;
+    min-height:670px;
+    max-height:670px;
     padding: 50px 10px;
     width: 100%;
     background-color: #F6F4F5;

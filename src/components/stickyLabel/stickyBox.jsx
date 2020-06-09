@@ -17,8 +17,8 @@ const StickyBox = () =>{
 export default StickyBox;
 
 const StyledStickyBox= styled.div`
-    position: relative;
-    bottom:0px;
+    position: absolute;
+    top:870px;
     width:150px;
     left: 45px;
 `;
