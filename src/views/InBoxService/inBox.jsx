@@ -58,6 +58,7 @@ import DataGrid, {
         : "#000000"};
   `;
   const Inbox = () => {
+    console.log("InBox rerendred")
     const [Title, setTitle] = useContext(TitleContext);
     const {t} = useTranslation();   
           useEffect(()=>{

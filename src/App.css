@@ -91,9 +91,9 @@
 -moz-text-shadow: -10px 35px 46px -12px rgba(0,0,0,0.75);
 text-shadow: -10px 35px 46px -12px rgba(0,0,0,0.75);
 }
-
-
-
+.error{
+  color:red;
+}
 
 /* .App {
   text-align: center;
