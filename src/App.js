@@ -1,7 +1,7 @@
 import React, {Suspense} from 'react';
 import MainLayout from './layouts/mainLayout'
 import LoginLayout from './layouts/loginLayout'
-import {Route} from "react-router-dom";
+import {Route, Redirect} from "react-router-dom";
 import Inbox from "./views/InBoxService/inBox";
 import StickyBox from "./components/stickyLabel/stickyBox";
 import {ServiceContext} from "./contexts/ServiceContext";
@@ -14,6 +14,7 @@ import "./i18n";
 
 const ServiceSlider = React.lazy(()=> import("./components/serviceSlider/serviceSlider"));
 const MyService = React.lazy(()=> import("./views/MyService/myService"));
+
 
 function App() {
     console.log("App rerendred")
@@ -30,6 +31,7 @@ function App() {
                         <Route exact path="/" component={MyService}/>
                     </NewsFeedContext.Provider>
                     <Route exact path="/inbox" component={Inbox}/>
+                    <Redirect  to="/"/>
                 </MainLayout>
              </TitleProvider>
             </ServiceContext.Provider> : <LoginLayout/>}
