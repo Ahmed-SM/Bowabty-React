@@ -1,14 +1,108 @@
 import React from "react";
 import styled from "styled-components";
+import {Formik, useField} from "formik";
+import * as Yup from 'yup';
+import { Form } from "reactstrap";
 
-const StyledLogin = styled.div `
+// const CustomTextInput = ({label, ...props}) =>{
+//     const [field, meta] = useField(props);
+//     return(
+//         <>
+//             <label htmlFor={props.id || props.name}>{label}</label>
+//             <input className="" {...field} {...props} />
+//             {meta.touched && meta.error ? (
+//                 <div  className="error">{meta.error}</div>
+//             ):null}
+//         </>
+//     )
+// }
+const Login = () => {
+    return (
+        // <Formik
+        // initialValues={{
+        //     username:'',
+        //     password:'',
+        // }}
+        // validationSchema={Yup.object({
+        //     username: Yup.string().min(3,'اقل')
+        //     .max(15, 'اكثر')
+        //     .required('Required'),
+        //     password: Yup.string.min(3, 'اقل')
+        //     .max(8, 'اكثر'),
+        // })}
+        // onSubmit={(values, {setSubmitting, resetForm})=>{
+        //     console.log(JSON.stringify(values, null, 2));
+        //     resetForm();
+        //     setSubmitting(false);
+        // }}
+        // >
+        //     {props => (
+        //         <Form>
+        //             <CustomTextInput label="Name" name="name" type="text" placeholder="Frank"></CustomTextInput>
+        //         </Form>
+        //     )}
+        // </Formik>
+        <StyledLogin>
+                <StyledContainer>
+                        <StyledHeader>
+                            <h3>
+                                تسجيل دخول
+                            </h3>
+                        </StyledHeader>
+                            <StyledDivider/>
+                        <StyledGroup dir="auto">
+                            <form >
+                                <StyledInputGroup >
+                                    <StyledColumn >
+                                        <label data-translate="username" htmlFor="">
+                                            اسم المستخدم
+                                        </label>
+                                        <StyledInput
+                                            id="username"
+                                            className="input-border "
+                                            type="text"
+                                            minlength="5"
+                                            pattern="
+                        ^([a-zA-Z])[a-zA-Z_-]*[\w_-]*[\S]$|^([a-zA-Z])[0-9_-]*[\S]$|^[a-zA-Z]*[\S]$"
+                                            required/>
+                                        <span className="error" aria-live="polite"/>
+                                    </StyledColumn>
+                                </StyledInputGroup>
+                                <StyledInputGroup className="input-group-a">
+                                    <StyledColumn className="column">
+                                        <label data-translate="password" htmlFor="">
+                                            كلمة المرور
+                                        </label>
+                                        <StyledInput
+                                            id="password"
+                                            className="input-border "
+                                            type="password"
+                                            minlength="5"
+                                            pattern="^([a-zA-Z0-9@*#]{5,15})$"
+                                            required/>
+                                        <span className="error" aria-live="polite"/>
+                                    </StyledColumn>
+                                </StyledInputGroup>
+                                <div className="button-section">
+                                    <StyledButton type="submit" id="submit-btn" data-translate="button" className="send-btn">
+                                        دخول
+                                    </StyledButton>
+                                </div>
+                            </form>
+                        </StyledGroup>
+                </StyledContainer>
+        </StyledLogin>
+    )
+}
+export default Login;
+
+const StyledLogin = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
     -webkit-align-items: center;
     -webkit-box-align: center;
     align-items: center;
-    -webkit-box-pack: center;
     -webkit-font-smoothing: antialiased;
     user-select: none;
     background-color: #F6F4F5;
@@ -16,7 +110,7 @@ const StyledLogin = styled.div `
     width: 100%;
     min-height: 80vh;
 `;
-const StyledContainer = styled.div `
+const StyledContainer = styled.div`
     width: 50rem;
     height: 30rem;
     display: flex;
@@ -24,14 +118,13 @@ const StyledContainer = styled.div `
     justify-content: center;
     -webkit-box-align: center;
     align-items: center;
-    -webkit-box-pack: center;
     min-width: 45rem;
     box-shadow: 0px 0px 8px 3px rgba(0, 0, 0, 0.09);
     background-color: white;
     border-radius: 15px;
     border-bottom: 6px solid #323130;
 `;
-const StyledInput = styled.input `
+const StyledInput = styled.input`
     height: 2.875rem;
     margin-bottom: 0.1rem;
     border-color: black;
@@ -105,59 +198,3 @@ const StyledButton= styled.button`
     background-color: #3C4652;
     outline: none;
 `;
-
-const Login = () => {
-    return (
-        <StyledLogin>
-                <StyledContainer>
-                        <StyledHeader>
-                            <h3>
-                                تسجيل دخول
-                            </h3>
-                        </StyledHeader>
-                            <StyledDivider/>
-                        <StyledGroup dir="auto">
-                            <form novalidate>
-                                <StyledInputGroup >
-                                    <StyledColumn >
-                                        <label data-translate="username" for="">
-                                            اسم المستخدم
-                                        </label>
-                                        <StyledInput
-                                            id="username"
-                                            class="input-border "
-                                            type="text"
-                                            minlength="5"
-                                            pattern="
-                        ^([a-zA-Z])[a-zA-Z_-]*[\w_-]*[\S]$|^([a-zA-Z])[0-9_-]*[\S]$|^[a-zA-Z]*[\S]$"
-                                            required/>
-                                        <span class="error" aria-live="polite"/>
-                                    </StyledColumn>
-                                </StyledInputGroup>
-                                <StyledInputGroup class="input-group-a">
-                                    <StyledColumn class="column">
-                                        <label data-translate="password" for="">
-                                            كلمة المرور
-                                        </label>
-                                        <StyledInput
-                                            id="password"
-                                            class="input-border "
-                                            type="password"
-                                            minlength="5"
-                                            pattern="^([a-zA-Z0-9@*#]{5,15})$"
-                                            required/>
-                                        <span class="error" aria-live="polite"/>
-                                    </StyledColumn>
-                                </StyledInputGroup>
-                                <div class="button-section">
-                                    <StyledButton type="submit" id="submit-btn" data-translate="button" class="send-btn">
-                                        دخول
-                                    </StyledButton>
-                                </div>
-                            </form>
-                        </StyledGroup>
-                </StyledContainer>
-        </StyledLogin>
-    )
-}
-export default Login;
