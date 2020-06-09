@@ -2,7 +2,7 @@ import React, {useContext} from "react";
 import MainLayout from './layouts/mainLayout'
 import LoginLayout from './layouts/loginLayout'
 import {Route, Redirect} from "react-router-dom";
-import Inbox from "./views/InBoxService/inBox";
+import Inbox from "./pages/myOrders/myOrders";
 import StickyBox from "./components/stickyLabel/stickyBox";
 import {ServiceContext} from "./contexts/ServiceContext";
 import {NewsFeedContext} from "./contexts/NewsFeedContext";
@@ -14,7 +14,7 @@ import './App.css';
 import "./i18n";
 
 const ServiceSlider = React.lazy(()=> import("./components/serviceSlider/serviceSlider"));
-const MyService = React.lazy(()=> import("./views/MyService/myService"));
+const MyService = React.lazy(()=> import("./views/myService/myService"));
 
 
 function App() {
