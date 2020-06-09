@@ -35,7 +35,6 @@ const Login = () => {
                     setUserData(true);
                 },1000)
             }}>
-            {(props) => (
               <Form>
                 <StyledInputGroup>
                   <StyledColumn>
@@ -47,7 +46,6 @@ const Login = () => {
                 </StyledInputGroup>
                 <StyledButton type="submit"><Trans i18nKey={"login:enter"} t={t}>دخول</Trans></StyledButton>
               </Form>
-            )}
           </Formik>
         </StyledGroup>
       </StyledContainer>
