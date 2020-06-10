@@ -18,7 +18,7 @@ export default StickyBox;
 
 const StyledStickyBox= styled.div`
     postion:relative;
-    margin -20px 20px;
+    margin -27px 20px;
     width:150px;
     
 `;

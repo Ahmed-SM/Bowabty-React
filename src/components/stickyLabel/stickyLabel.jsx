@@ -20,7 +20,7 @@ const StyledStickyLabel= styled.div`
     display: inline-table;
     margin: 5px 5px 0 5px;
     padding: 6px 0;
-    height: 73px;
+    height: 65px;
     width:60px;
     text-align:center;
     background: ${({ Color }) => Color}; 
