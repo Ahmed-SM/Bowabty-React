@@ -15,7 +15,7 @@ const Login = () => {
         .min(3, t('login:min'))
         .max(15, t('login:max'))
         .required(t('login:required')),
-      password: Yup.string().min(3, "login:min").max(8, "login:max").required(t('login:required')),
+      password: Yup.string().min(3, t('login:min')).max(8, t('login:max')).required(t('login:required')),
     });
     const handleOnSubmit = (values) =>{
         setTimeout(()=>{
