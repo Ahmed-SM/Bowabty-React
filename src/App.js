@@ -2,7 +2,8 @@ import React, {useContext} from "react";
 import MainLayout from './layouts/mainLayout'
 import LoginLayout from './layouts/loginLayout'
 import {Route, Redirect} from "react-router-dom";
-import Inbox from "./pages/myOrders/myOrders";
+import MyOrders from "./pages/myOrders/myOrders";
+import IncomingRequest from "./pages/incomingRequest/incomingRequest";
 import StickyBox from "./components/stickyLabel/stickyBox";
 import {ServiceContext} from "./contexts/ServiceContext";
 import {NewsFeedContext} from "./contexts/NewsFeedContext";
@@ -25,14 +26,15 @@ function App() {
               { userData ?
             <ServiceContext.Provider value={servicesList}>
              <TitleProvider>
-                <MainLayout> {/* ✨ غير, عدل او اقترح طرق احسن للروتينج اذا ينفع ✨ */}
+                <MainLayout>
                     {/* Dynamic Components are passed down to the Layout,
                      The Layout component also wraps up a essential static components*/}
                     <Route exact path={["/v/*", "/"]} component={ServiceSlider}/> {/* Views with Sliders should start /v/NAME_OF_THE_VIEW ✔  */}
                     <NewsFeedContext.Provider value={Newslist}>
                         <Route exact path="/" component={MyService}/> {/* Default view ✔  */}
                     </NewsFeedContext.Provider>
-                    <Route exact path="/inbox" component={Inbox}/>{/* /NAME_OF_THE_COMPONENT for pages with no sliders  ✔  */}
+                    <Route exact path="/myorders" component={MyOrders}/>{/* /NAME_OF_THE_COMPONENT for pages with no sliders  ✔  */}
+                    <Route exact path="/incomingrequest" component={IncomingRequest}/>{/* /NAME_OF_THE_COMPONENT for pages with no sliders  ✔  */}
                     <Redirect  to="/"/> {/* Redirection on route mismatch ✔ */}
                 </MainLayout>
              </TitleProvider>

@@ -23,7 +23,7 @@ const Navigation = () => {
                 <StyledDropdown>
                     <Dropdown icon={faTasks}  text={ <Trans i18nKey={"navigation:tasks.name"} t={t}>المهام</Trans>}>
                         <DropdownItem style={DropItem}>
-                            <Link style={LinkStyles} to="/1" >اختيار</Link>
+                            <Link style={LinkStyles} to="/incomingrequest" ><Trans i18nKey={"IncomingRequest:title"} t={t}>الطلبات الواردة</Trans></Link>
                         </DropdownItem>
                         <DropdownItem divider/>
                         <DropdownItem style={DropItem}>
@@ -36,7 +36,7 @@ const Navigation = () => {
                         <DropdownItem divider/>
                     </Dropdown>
                 </StyledDropdown>
-                    <Tab path={"/inbox"} icon={faBatteryHalf} text={ <Trans i18nKey={"navigation:myOrders"} t={t} >طلباتي</Trans>}/>
+                    <Tab path={"/myorders"} icon={faBatteryHalf} text={ <Trans i18nKey={"navigation:myOrders"} t={t} >طلباتي</Trans>}/>
                 <StyledDropdown >
                     <Dropdown icon={faCog} text={ <Trans i18nKey={"navigation:administration.name"} t={t}>إدارة النظام</Trans>}>
                         <DropdownItem style={DropItem}>
