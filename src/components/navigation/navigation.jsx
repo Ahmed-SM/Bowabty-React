@@ -21,7 +21,7 @@ const Navigation = () => {
             <StyledRightSection>
                     <Tab path={"/meeting"} icon={faLifeRing} text={ <Trans i18nKey={"navigation:meetings"} t={t} >الإجتماعات</Trans>}/>
                 <StyledDropdown>
-                    <Dropdown icon={faTasks}  text={ <Trans i18nKey={"navigation:tasks.name"} t={t}>المهام</Trans>}>
+                    <Dropdown icon={faTasks}  text={ <Trans i18nKey={"navigation:tasks.name"} t={t}>المهام</Trans>} diraction={isLTR}>
                         <DropdownItem style={DropItem}>
                             <Link style={LinkStyles} to="/incomingrequest" ><Trans i18nKey={"IncomingRequest:title"} t={t}>الطلبات الواردة</Trans></Link>
                         </DropdownItem>
@@ -38,7 +38,7 @@ const Navigation = () => {
                 </StyledDropdown>
                     <Tab path={"/myorders"} icon={faBatteryHalf} text={ <Trans i18nKey={"navigation:myOrders"} t={t} >طلباتي</Trans>}/>
                 <StyledDropdown >
-                    <Dropdown icon={faCog} text={ <Trans i18nKey={"navigation:administration.name"} t={t}>إدارة النظام</Trans>}>
+                    <Dropdown icon={faCog} text={ <Trans i18nKey={"navigation:administration.name"} t={t}>إدارة النظام</Trans>} diraction={isLTR}>
                         <DropdownItem style={DropItem}>
                             <Link style={LinkStyles} to="/user" >المستخدم</Link>
                         </DropdownItem >
@@ -50,7 +50,7 @@ const Navigation = () => {
                     </Dropdown>
                 </StyledDropdown>
                 <StyledDropdown >
-                    <Dropdown icon={faInfo} text={ <Trans i18nKey={"navigation:others.name"} t={t}>أخرى</Trans>}>
+                    <Dropdown icon={faInfo} text={ <Trans i18nKey={"navigation:others.name"} t={t}>أخرى</Trans>} diraction={isLTR}>
                         <DropdownItem style={DropItem}>
                             <Link style={LinkStyles} to="/user" >المستخدم</Link>
                         </DropdownItem>
@@ -61,7 +61,7 @@ const Navigation = () => {
                     </Dropdown>
                 </StyledDropdown>
                 <StyledDropdown>
-                    <Dropdown icon={faFileAlt} text={ <Trans i18nKey={"navigation:reports.name"} t={t}>التقارير</Trans>}>
+                    <Dropdown icon={faFileAlt} text={ <Trans i18nKey={"navigation:reports.name"} t={t}>التقارير</Trans>} diraction={isLTR}>
                         <DropdownItem style={DropItem}>
                             <Link style={LinkStyles} to="/user" >المستخدم</Link>
                         </DropdownItem>
@@ -76,7 +76,7 @@ const Navigation = () => {
                 <SocialBox/>
                 <LanguageBox/>
                 <StyledDropdown>
-                    <Dropdown icon={faSlidersH} text={ <Trans i18nKey={"navigation:settings"} t={t}>الاعدادات</Trans>}>
+                    <Dropdown icon={faSlidersH} text={ <Trans i18nKey={"navigation:settings"} t={t}>الاعدادات</Trans>} diraction={ !isLTR }>
                         <DropdownItem style={DropItem}>
                             <Link style={LinkStyles} to="/" >المستخدم</Link>
                         </DropdownItem>
