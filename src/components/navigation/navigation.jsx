@@ -21,53 +21,46 @@ const Navigation = () => {
             <StyledRightSection>
                     <Tab path={"/meeting"} icon={faLifeRing} text={ <Trans i18nKey={"navigation:meetings"} t={t} >الإجتماعات</Trans>}/>
                 <StyledDropdown>
-                    <Dropdown icon={faTasks}  text={ <Trans i18nKey={"navigation:tasks.name"} t={t}>المهام</Trans>} diraction={isLTR}>
-                        <DropdownItem style={DropItem}>
-                            <Link style={LinkStyles} to="/incomingrequest" ><Trans i18nKey={"IncomingRequest:title"} t={t}>الطلبات الواردة</Trans></Link>
+                    <Dropdown icon={faTasks}  text={ <Trans i18nKey={"navigation:tasks.name"} t={t}>المهام</Trans>} toRight={!isLTR}>
+                        <DropdownItem style={DropItem} tag={Link} to="/incomingrequest">
+                            <Trans i18nKey={"IncomingRequest:title"} t={t}>الطلبات الواردة</Trans>
                         </DropdownItem>
-                        <DropdownItem divider/>
-                        <DropdownItem style={DropItem}>
-                            <Link style={LinkStyles} to="/1" >اختيار</Link>
+                        <DropdownItem style={DropItem} tag={Link} to="/incomingrequest">
+                            <Trans i18nKey={"IncomingRequest:title"} t={t}>الطلبات الواردة</Trans>
                         </DropdownItem>
-                        <DropdownItem divider/>
-                        <DropdownItem style={DropItem}>
-                            <Link style={LinkStyles} to="/1" >اختيار</Link>
+                        <DropdownItem style={DropItem} tag={Link} to="/incomingrequest">
+                            <Trans i18nKey={"IncomingRequest:title"} t={t}>الطلبات الواردة</Trans>
                         </DropdownItem>
-                        <DropdownItem divider/>
                     </Dropdown>
                 </StyledDropdown>
-                    <Tab path={"/myorders"} icon={faBatteryHalf} text={ <Trans i18nKey={"navigation:myOrders"} t={t} >طلباتي</Trans>}/>
+                    <Tab path={"/myorders"} icon={faBatteryHalf} text={ <Trans i18nKey={"navigation:myOrders"} t={t} >طلباتي</Trans>} />
                 <StyledDropdown >
-                    <Dropdown icon={faCog} text={ <Trans i18nKey={"navigation:administration.name"} t={t}>إدارة النظام</Trans>} diraction={isLTR}>
-                        <DropdownItem style={DropItem}>
-                            <Link style={LinkStyles} to="/user" >المستخدم</Link>
-                        </DropdownItem >
-                        <DropdownItem divider/>
-                        <DropdownItem style={DropItem}>
-                            <Link style={LinkStyles} to="/useroles" >صلاحيات المستخدم</Link>
+                    <Dropdown icon={faCog} text={ <Trans i18nKey={"navigation:administration.name"} t={t}>إدارة النظام</Trans>} toRight={!isLTR}>
+                    <DropdownItem style={DropItem} tag={Link} to="/incomingrequest">
+                            <Trans i18nKey={"IncomingRequest:title"} t={t}>الطلبات الواردة</Trans>
                         </DropdownItem>
-                        <DropdownItem divider/>
+                        <DropdownItem style={DropItem} tag={Link} to="/incomingrequest">
+                            <Trans i18nKey={"IncomingRequest:title"} t={t}>الطلبات الواردة</Trans>
+                        </DropdownItem>
                     </Dropdown>
                 </StyledDropdown>
                 <StyledDropdown >
-                    <Dropdown icon={faInfo} text={ <Trans i18nKey={"navigation:others.name"} t={t}>أخرى</Trans>} diraction={isLTR}>
-                        <DropdownItem style={DropItem}>
-                            <Link style={LinkStyles} to="/user" >المستخدم</Link>
+                    <Dropdown icon={faInfo} text={ <Trans i18nKey={"navigation:others.name"} t={t}>أخرى</Trans>} toRight={!isLTR}>
+                        <DropdownItem style={DropItem} tag={Link} to="/incomingrequest">
+                            <Trans i18nKey={"IncomingRequest:title"} t={t}>الطلبات الواردة</Trans>
                         </DropdownItem>
-                        <DropdownItem divider/>
-                        <DropdownItem style={DropItem}>
-                            <Link style={LinkStyles} to="/useroles" >صلاحيات المستخدم</Link>
+                        <DropdownItem style={DropItem} tag={Link} to="/incomingrequest">
+                            <Trans i18nKey={"IncomingRequest:title"} t={t}>الطلبات الواردة</Trans>
                         </DropdownItem>
                     </Dropdown>
                 </StyledDropdown>
                 <StyledDropdown>
-                    <Dropdown icon={faFileAlt} text={ <Trans i18nKey={"navigation:reports.name"} t={t}>التقارير</Trans>} diraction={isLTR}>
-                        <DropdownItem style={DropItem}>
-                            <Link style={LinkStyles} to="/user" >المستخدم</Link>
+                    <Dropdown icon={faFileAlt} text={ <Trans i18nKey={"navigation:reports.name"} t={t}>التقارير</Trans>} toRight={!isLTR}>
+                        <DropdownItem style={DropItem} tag={Link} to="/incomingrequest">
+                            <Trans i18nKey={"IncomingRequest:title"} t={t}>الطلبات الواردة</Trans>
                         </DropdownItem>
-                        <DropdownItem divider/>
-                        <DropdownItem style={DropItem}>
-                            <Link style={LinkStyles} to="/useroles" >صلاحيات المستخدم</Link>
+                        <DropdownItem style={DropItem} tag={Link} to="/incomingrequest">
+                            <Trans i18nKey={"IncomingRequest:title"} t={t}>الطلبات الواردة</Trans>
                         </DropdownItem>
                     </Dropdown>
                 </StyledDropdown>
@@ -76,13 +69,12 @@ const Navigation = () => {
                 <SocialBox/>
                 <LanguageBox/>
                 <StyledDropdown>
-                    <Dropdown icon={faSlidersH} text={ <Trans i18nKey={"navigation:settings"} t={t}>الاعدادات</Trans>} diraction={ !isLTR }>
-                        <DropdownItem style={DropItem}>
-                            <Link style={LinkStyles} to="/" >المستخدم</Link>
+    <Dropdown icon={faSlidersH} text={ <Trans i18nKey={"navigation:settings"} t={t}>الاعدادات</Trans>} toRight={isLTR}>
+                        <DropdownItem style={DropItem} tag={Link} to="/">
+                            <Trans i18nKey={"IncomingRequest:title"} t={t}>الطلبات الواردة</Trans>
                         </DropdownItem>
-                        <DropdownItem divider/>
-                        <DropdownItem style={DropItem}>
-                            <Link style={LinkStyles} to="/" >صلاحيات المستخدم</Link>
+                        <DropdownItem style={DropItem} tag={Link} to="/incomingrequest">
+                            <Trans i18nKey={"IncomingRequest:title"} t={t}>الطلبات الواردة</Trans>
                         </DropdownItem>
                     </Dropdown>
                 </StyledDropdown>
@@ -132,8 +124,6 @@ const DropItem ={
     border:'none',
     outline:'none',
     borderBottom: '2px dashed #C0C0C0',
-}
-const LinkStyles = {
-    textDecoration: 'none',
-    color: 'black',
+    background:'#F6F4F5',
+
 }
