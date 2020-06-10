@@ -24,41 +24,8 @@ import DataGrid, {
       }
     })
   };
-  const StyledPage = styled.div`
-    margin: 0 20px;
-    height: 71%;
-`;
-  const StyledContainer = styled.div`
-    display: inline-flex;
-    flex-wrap: nowrap;
-    direction: rtl;
-    justify-content: space-around;
-    height: 100%;
-    min-height:670px;
-    max-height:670px;
-    padding: 50px 10px;
-    width: 100%;
-    background-color: #F6F4F5;
-    box-sizing: border-box;
-    margin 0 auto;
-  `;
-  const StyledMdContainer = styled.div`
-    height: fit-content;
-    min-height: 300px;
-    width: 60%;
-    padding: 20px;
-    min-width: 45%;
-    height:inherit;
-    box-shadow: 0px 0px 8px 3px rgba(0, 0, 0, 0.09);
-    background-color: white;
-    border-radius: 15px;
-    z-index: 0;
-    border-bottom: 6px solid ${props => props.primary
-        ? "#3497DB"
-        : "#000000"};
-  `;
   const Inbox = () => {
-    console.log("InBox rerendred")
+    console.log("myOrders rerendred")
     const [Title, setTitle] = useContext(TitleContext);
     const {t} = useTranslation();   
           useEffect(()=>{
@@ -103,4 +70,36 @@ import DataGrid, {
       );
     }
   export default Inbox;
-  
+  const StyledPage = styled.div`
+  margin: 0 20px;
+  height: 71%;
+`;
+const StyledContainer = styled.div`
+  display: inline-flex;
+  flex-wrap: nowrap;
+  direction: rtl;
+  justify-content: space-around;
+  height: 69vh;
+  min-height:69vh;
+  max-height:69vh;
+  padding: 50px 10px;
+  width: 100%;
+  background-color: #F6F4F5;
+  box-sizing: border-box;
+  margin 0 auto;
+`;
+const StyledMdContainer = styled.div`
+  height: fit-content;
+  min-height: 300px;
+  width: 60%;
+  padding: 20px;
+  min-width: 45%;
+  height: initial;
+  box-shadow: 0px 0px 8px 3px rgba(0, 0, 0, 0.09);
+  background-color: white;
+  border-radius: 15px;
+  z-index: 0;
+  border-bottom: 6px solid ${props => props.primary
+      ? "#3497DB"
+      : "#000000"};
+`;
