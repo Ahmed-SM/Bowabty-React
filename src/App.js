@@ -37,7 +37,7 @@ function App() {
                     <Route exact path="/myorders" component={MyOrders}/>{/* /NAME_OF_THE_COMPONENT for pages with no sliders  ✔  */}
                     <Route exact path="/incomingrequest" component={IncomingRequest}/>{/* /NAME_OF_THE_COMPONENT for pages with no sliders  ✔  */}
                     {/* Redirection on route mismatch ✔ Remove or comment this component if you don't want a Redirection on recompiling */}
-                    {/* <Redirect  to="/"/>  ✖ */}
+                    <Redirect  to="/"/> 
                 </MainLayout>
              </TitleProvider>
             </ServiceContext.Provider> : <LoginLayout/>}
