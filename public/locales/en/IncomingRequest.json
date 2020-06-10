@@ -1,3 +1,11 @@
 {
-    "title":"Incoming Requests"
+    "title":"Incoming Requests",
+    "orderNumber": "Order Number",
+    "orderType": "Order Type",
+    "orderDetails":"Order Details",
+    "OrderDate":"Order Date",
+    "issuerName":"Issuer Name",
+    "orderStatus":"Order Status",
+    "emptyPanelText":"Drag a column header here to group by that column",
+    "placeholder":"Search"
 }

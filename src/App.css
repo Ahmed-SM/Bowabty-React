@@ -94,7 +94,25 @@ text-shadow: -10px 35px 46px -12px rgba(0,0,0,0.75);
 .error{
   color:red;
 }
-
+.x-datagrid-headers{
+  border: none !important;
+}
+.dx-datagrid-nowrap{
+  border: none !important;
+}
+.dx-datagrid-headers .dx-datagrid-table .dx-row > td {
+  border: none !important;
+  border-bottom: #333 solid 1px !important;
+}
+.dx-datagrid-header-panel {
+  border: none !important;
+}
+.dx-datagrid .dx-row > td{
+  padding: 7px 0;
+}
+.dx-datagrid .dx-row > td {
+  padding: 7px 0; 
+}
 /* .App {
   text-align: center;
 }

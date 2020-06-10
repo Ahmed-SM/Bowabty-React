@@ -1,3 +1,12 @@
 {
-    "title":"الطالبات الواردة"
+    "title":"الطالبات الواردة",
+    "orderNumber": "رقم الطلب",
+    "orderType": "نوع الطلب",
+    "orderDetails":"تفاصيل الطلب",
+    "OrderDate":"تاريخ تقديم الطلب",
+    "issuerName":"اسم مقدم الطلب",
+    "orderStatus":"حالة الطلب",
+    "emptyPanelText":"اسحب الخانة هنا للتجميع",
+    "placeholder":"بحث"
+
 }

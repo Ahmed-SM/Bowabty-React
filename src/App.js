@@ -31,11 +31,13 @@ function App() {
                      The Layout component also wraps up a essential static components*/}
                     <Route exact path={["/v/*", "/"]} component={ServiceSlider}/> {/* Views with Sliders should start /v/NAME_OF_THE_VIEW ✔  */}
                     <NewsFeedContext.Provider value={Newslist}>
-                        <Route exact path="/" component={MyService}/> {/* Default view ✔  */}
+                    {/*  /meeting and the rest of the array are routes that is not used yet  ✖  */}
+                        <Route exact path={["/", "/meeting", "/useroles", "/user","/1",  ]} component={MyService}/> {/* "/" Default view ✔ */}
                     </NewsFeedContext.Provider>
                     <Route exact path="/myorders" component={MyOrders}/>{/* /NAME_OF_THE_COMPONENT for pages with no sliders  ✔  */}
                     <Route exact path="/incomingrequest" component={IncomingRequest}/>{/* /NAME_OF_THE_COMPONENT for pages with no sliders  ✔  */}
-                    <Redirect  to="/"/> {/* Redirection on route mismatch ✔ */}
+                    {/* Redirection on route mismatch ✔ Remove or comment this component if you don't want a Redirection on recompiling */}
+                    {/* <Redirect  to="/"/>  ✖ */}
                 </MainLayout>
              </TitleProvider>
             </ServiceContext.Provider> : <LoginLayout/>}
