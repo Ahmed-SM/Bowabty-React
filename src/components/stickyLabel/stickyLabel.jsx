@@ -19,14 +19,17 @@ const StyledStickyLabel= styled.div`
     letter-spacing: 0.2px;
     display: inline-table;
     margin: 5px 5px 0 5px;
-    padding: 6px 10px;
+    padding: 6px 0;
     height: 73px;
-    width:62px;
+    width:60px;
     text-align:center;
     background: ${({ Color }) => Color}; 
 `;
 const StyledContainer= styled.div`
-    max-width:60px;
+    max-width:20px;
+    margin: 5px auto;
+    display: table;
+    text-align:center;
     font-size:9px;
     color:white;
 `;
