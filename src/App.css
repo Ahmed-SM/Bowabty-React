@@ -27,6 +27,20 @@
   transform: rotate(135deg) scale(1.2);
   outline: none;
 }
+.custom-right-arrow {
+  position: absolute !important;
+  right: 30px;
+  z-index: 1;
+  border: 1px solid grey;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 6px;
+  opacity: 0.8;
+  cursor: pointer;
+  background: transparent;
+  transform: rotate(315deg) scale(1.2);
+  outline: none;
+}
 .carousel-padding{
   margin: 0 50px 0 50px;
   padding: 0 200px 0 200px;

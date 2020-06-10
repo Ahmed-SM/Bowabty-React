@@ -126,7 +126,7 @@ const StyledSideBtns  = styled.div`
     justify-content: space-around;
     text-align: center;
     display: inline-flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
     flex-wrap: nowrap;
     margin-top:8px;
 `;
