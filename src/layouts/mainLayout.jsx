@@ -18,11 +18,10 @@ const mainLayout = ({children}) => {
 export default mainLayout;
 
 const MainLayout = styled.div`
-    font-family: 'Cocon Next Arabic', Sans-Serif !important;
-    letter-spacing: 0.2px !important;
+    font-family: 'Cocon Next Arabic', Sans-Serif;
+    letter-spacing: 0.2px;
     background-color:  transparent;
     box-sizing: border-box;
-    height:92vh;
-    min-height92%;
+    min-height:92%;
 `;
 const userData ={userName:'علياء أحمد مصطفى', userRole:'اخصائي تطوير مؤسس'}
