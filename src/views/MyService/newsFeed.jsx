@@ -3,16 +3,15 @@ import Carousel from "react-multi-carousel";
 import styled from "styled-components";
 import UAParser from "ua-parser-js";
 
-const NewsFeed = ({deviceType, list}) => {
+const CustomLeftArrow = ({ onClick, classLeft, ...rest }) => {
+    return <button className={classLeft} onClick={() => onClick()} />;
+  };
+const CustomRightArrow = ({ onClick, classRight, ...rest }) => {
+    return <button className={classRight} onClick={() => onClick()} />;
+  };
+
+const NewsFeed = ({deviceType, list, isLTR}) => {
     const itemsList = useContext(list);
-    //This section was used to toggle autoPlay passed on time give a sorting effect 
-    // const [toggle,
-    //     setToggle] = useState(true);
-    // useEffect(() => {
-    //     setTimeout(() => {
-    //         setToggle(false);
-    //     }, itemsList.length * 400)
-    // });
     return (
         <Carousel 
             autoPlay={true}
@@ -20,8 +19,8 @@ const NewsFeed = ({deviceType, list}) => {
             deviceType={deviceType}
             draggable={true}
             infinite={true}
-            customRightArrow={<CustomRightArrow/>}
-            customLeftArrow={<CustomLeftArrow />}
+            customRightArrow={isLTR ? <CustomRightArrow classRight="custom-right-arrow"/> : <CustomRightArrow/> }
+            customLeftArrow={!isLTR ? <CustomLeftArrow  classLeft="custom-left-arrow" /> : <CustomLeftArrow /> }
             responsive={responsive}
             itemClass="image-item"
             sliderClass="feed-slider"
@@ -139,9 +138,3 @@ const responsive = {
         items: 1,
     }
 };
-const CustomLeftArrow = ({ onClick, ...rest }) => {
-    return <button className="custom-left-arrow" onClick={() => onClick()} />;
-  };
-const CustomRightArrow = ({ onClick, ...rest }) => {
-    return <button className="custom-right-arrow" onClick={() => onClick()} />;
-  };

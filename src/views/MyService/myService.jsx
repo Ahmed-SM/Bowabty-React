@@ -31,7 +31,7 @@ const MyService = () => {
                         <StyledContainerDivider className="hr-d-container"/>
                     </StyledHeader>
                     <NewsFeedSection >
-                        <NewsFeed list={NewsFeedContext}/>
+                        <NewsFeed list={NewsFeedContext} isLTR={isLTR}/>
                     </NewsFeedSection>
                 </StyledMdContainer>
                 <StyledMdContainer className="border-bottom-black">
