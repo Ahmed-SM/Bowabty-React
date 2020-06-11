@@ -99,6 +99,10 @@
     transition: all 0.2s !important;
     color: white !important;
 }
+.social-icon:focus{
+  text-decoration: none !important;
+  color: white !important;
+}
 .langauge-select{
   min-width: 110px;
   cursor: pointer;
