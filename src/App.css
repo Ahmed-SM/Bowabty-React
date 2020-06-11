@@ -57,12 +57,21 @@
 .dropdown:hover  {
   outline: none;
   border: none;
-  background-color: #fff;
+  background-color: #fff !important;
   color: #333 !important;
   border-radius: 5px;
 }
+
 .dropdown:focus{
-  background-color: #fff !important;
+  color: white;
+  border-radius: 5px;
+  outline: none !important;
+  border: none !important;
+}
+.show:hover *{
+  color: #333 !important;
+}
+.dropdown:active{
   color: #333 !important;
   border-radius: 5px;
   outline: none !important;
