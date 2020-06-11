@@ -15,7 +15,6 @@ const StickyLabel = ({Title, Icon, Color}) =>{
 export default StickyLabel;
 
 const StyledStickyLabel= styled.div`
-    font-family: 'Cocon Next Arabic', Sans-Serif;
     letter-spacing: 0.2px;
     display: inline-table;
     margin: 5px 5px 0 5px;

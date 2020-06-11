@@ -16,8 +16,7 @@ const loginLayout = () => {
 }
 export default loginLayout;
 
-const LoginLayout = styled.div`
-    font-family: 'Cocon Next Arabic', Sans-Serif;
+const LoginLayout = styled.main`
     letter-spacing: 0.2px;
     background-color:  transparent;
     box-sizing: border-box;

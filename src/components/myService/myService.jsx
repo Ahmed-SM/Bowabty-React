@@ -7,6 +7,7 @@ import NewsFeedSection from "./newsFeedSection";
 import {useTranslation, Trans} from "react-i18next";
 import {DiractionContext} from "../../contexts/DiractionContext";
 import {TitleContext} from "../../contexts/TitleContext";
+import View from "../../containers/View";
 
 const MyService = () => {
     const {t} = useTranslation();
@@ -21,7 +22,7 @@ const MyService = () => {
     })
     console.log("MyService rerendred")
     return (
-        <StyledServiceContainer>
+        <View>
             <StyledMyService isLTR={isLTR}>
                 <StyledMdContainer primary>
                     <StyledHeader className="d-header ">
@@ -108,16 +109,12 @@ const MyService = () => {
                     </StyledGroup>
                 </StyledMdContainer>
             </StyledMyService>
-        </StyledServiceContainer>
+        </View>
     );
 }
 export default MyService;
 
-const StyledServiceContainer = styled.div `
-  margin 0 20px;
-  height: 46%;
-`;
-const StyledMyService = styled.div `
+const StyledMyService = styled.div`
   display: inline-flex;
   flex-wrap: nowrap;
   direction: rtl;
@@ -134,7 +131,7 @@ const StyledMyService = styled.div `
     isLTR}) => isLTR && ` direction: ltr;
     `}
   `;
-    const StyledMdContainer = styled.div `
+    const StyledMdContainer = styled.div`
     height: 300px;
     width: 45%;
     min-width: 45%;
@@ -146,22 +143,22 @@ const StyledMyService = styled.div `
         ? "#3497DB"
         : "#000000"};
   `;
-    const StyledHeader = styled.div `
+    const StyledHeader = styled.div`
     padding: 25px 40px 10px 40px;
     -webkit-text-stroke: 0.4px black;
     -webkit-text-fill-color: black;
     overflow: hidden;
     white-space: nowrap;
 `;
-    const Styledh3 = styled.h3 `
+    const Styledh3 = styled.h3`
     text-overflow: ellipsis;
 `;
-    const StyledContainerDivider = styled.hr `
+    const StyledContainerDivider = styled.hr`
   margin: 10px 0px ;
   border: 0;
   border-top: 1px solid #eee;
 `;
-    const StyledColumn = styled.div `
+    const StyledColumn = styled.div`
   display: flex;
   margin-left: 1.3px;
     margin-right: 1.30px;
@@ -173,7 +170,7 @@ const StyledMyService = styled.div `
     padding: 0 5px;
   }
 `;
-    const StyledSendButton = styled.button `
+    const StyledSendButton = styled.button`
     display: inline-block;
     margin-bottom: 0;
     text-align: center;
@@ -198,17 +195,17 @@ const StyledMyService = styled.div `
       border: 1px solid rgba(81, 203, 238, 1);
     }
 `;
-    const StyledGroup = styled.div `
+    const StyledGroup = styled.div`
     display: block;
     padding: 0px 40px;
 `;
-    const StyledInputGroup = styled.div `
+    const StyledInputGroup = styled.div`
     width: 100%;
     margin-bottom: 20px;
     display: flex;
     flex-wrap: nowrap;
 `;
-    const StyledInput = styled.input `
+    const StyledInput = styled.input`
     padding-right: 10px;
     height: 30px;
     border-radius: 5px;
@@ -229,7 +226,7 @@ const StyledMyService = styled.div `
     cursor: pointer !important;
     outline: 0;
 `;
-    const StyledFile = styled.div `
+    const StyledFile = styled.div`
     padding-right: 10px;
     
     height: 30px;
@@ -257,7 +254,7 @@ const StyledMyService = styled.div `
       opacity: 0;
   }
 `;
-    const StyledSelect = styled.select `
+    const StyledSelect = styled.select`
     padding-right: 10px;
     height: 30px;
     border-radius: 5px;
@@ -276,12 +273,12 @@ const StyledMyService = styled.div `
     border-style: solid;
     border-color: rgb(169, 169, 169);
 `;
-    const StyledFileLabel = styled.label `
+    const StyledFileLabel = styled.label`
     color: #757575;
     margin: -25px 0px 0 0;
     padding:0 15px;
 `;
-    const StyledSVG = styled.svg `
+    const StyledSVG = styled.svg`
   position: absolute;
   width: 15px;
   margin: 1px 10px 0 10px;

@@ -6,16 +6,18 @@ import { useTranslation, Trans } from "react-i18next";
 import {DiractionContext} from "../../contexts/DiractionContext";
 import {TitleContext} from "../../contexts/TitleContext";
 
-const UserContent = ({isVisible, data}) => {
+const UserContent = () => {
+  const data = {
+    ar:{userName:'علياء أحمد مصطفى', userRole:'اخصائي تطوير مؤسس'},
+    en:{userName:'Alia Ahmed Mustafa', userRole:'Founding Development Specialist'}
+  }
   const { t } = useTranslation();
   const [isLTR] = useContext(DiractionContext);
   const [Title] = useContext(TitleContext);
   console.log("userContent rerendred")
   return (
-    <>
-    {isVisible ? 
-      <StyledUserInfo isLTR={isLTR}>
-        <StyledUserDetails>
+    <StyledUserContent  isLTR={isLTR}>
+        <StyledUserDetails isLTR={isLTR}>
           <div className="user-picture">
           <FontAwesomeIcon size="5x" icon={faCircle} color={"#C4C4C4"} />  
           </div>
@@ -23,11 +25,11 @@ const UserContent = ({isVisible, data}) => {
             <div className="user-name">
               <StyledH3 id="logged-user">
               {/* <FontAwesomeIcon size="1x" icon={faSortDown}  />   */}
-              {data.userName}
+              { isLTR ? data.en.userName : data.ar.userName}
               </StyledH3>
             </div>
             <div className="user-role user-role-h4 user-role-h3">
-            <h4 id="logged-role">{data.userRole}</h4>
+            <h4 id="logged-role">{ isLTR ? data.en.userRole : data.ar.userRole}</h4>
             </div>
           </StyledInfo>
         </StyledUserDetails>
@@ -39,7 +41,7 @@ const UserContent = ({isVisible, data}) => {
           </div>
           <div>
             <StyledH4>
-              لوريم إيبسوم هو ببساطة نص شكلي
+              <Trans i18nKey={"userContent:lorem"} t={t}>الإشعارات</Trans>
             </StyledH4>
           </div>
         </StyledTitle>
@@ -63,31 +65,30 @@ const UserContent = ({isVisible, data}) => {
             <div><Trans i18nKey={"userContent:myNotes"} t={t}>ملاحظاتي</Trans></div>
           </StyledSideBtn>
         </StyledSideBtns>
-      </StyledUserInfo>
-    :<></>
-    }</>);
+        </StyledUserContent>
+        );
 }
 export default UserContent;
 
-const StyledUserInfo = styled.div`
-    margin: 0;
-    padding: 20px 50px 0px 50px;
-    height: fit-content;
-    width: 100%;
-    justify-content: space-around;
-    text-align: center;
-    display: inline-flex;
+const StyledUserContent = styled.div`
+  margin: 0;
+  padding: 20px 50px 0px 50px;
+  height: fit-content;
+  width: 100%;
+  justify-content: space-around;
+  text-align: center;
+  display: inline-flex;
+  flex-direction: row-reverse;
+  flex-wrap: nowrap;
+  box-sizing: border-box;
+    ${({ isLTR }) => isLTR && `
     flex-direction: row;
-    flex-wrap: nowrap;
-    box-sizing: border-box;
-    ${({ isLTR }) => !isLTR && `
-    direction: rtl;
   `}
 `;
 const StyledUserDetails = styled.div`
     justify-content: space-around;
     display: inline-flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
     flex-wrap: nowrap;
     box-sizing: border-box;
     & > img {

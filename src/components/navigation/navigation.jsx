@@ -69,7 +69,7 @@ const Navigation = () => {
                 <SocialBox/>
                 <LanguageBox/>
                 <StyledDropdown>
-    <Dropdown icon={faSlidersH} text={ <Trans i18nKey={"navigation:settings"} t={t}>الاعدادات</Trans>} toRight={isLTR}>
+                    <Dropdown icon={faSlidersH} text={ <Trans i18nKey={"navigation:settings"} t={t}>الاعدادات</Trans>} toRight={isLTR}>
                         <DropdownItem style={DropItem} tag={Link} to="/">
                             <Trans i18nKey={"IncomingRequest:title"} t={t}>الطلبات الواردة</Trans>
                         </DropdownItem>
@@ -84,7 +84,7 @@ const Navigation = () => {
 }
 export default Navigation;
 
-const StyledNavigation = styled.nav `
+const StyledNavigation = styled.nav`
     justify-content: space-between;
     width: 100%;
     background-color: #3C4652;

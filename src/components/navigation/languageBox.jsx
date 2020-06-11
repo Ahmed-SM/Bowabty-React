@@ -51,7 +51,6 @@ const StyledVerticalLine = styled.div`
 `;
 const StyledLangaugePosition = styled.div`
     line-height: 4.6 !important;
-    font-family: Arial, Helvetica, sans-serif;
     cursor:default;
     font-size: 16px;
     & > i {

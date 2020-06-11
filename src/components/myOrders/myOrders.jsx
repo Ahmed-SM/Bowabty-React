@@ -5,6 +5,7 @@ import 'devextreme/dist/css/dx.light.css';
 import {TitleContext} from "../../contexts/TitleContext";
 import {useTranslation} from "react-i18next";
 import DataGrid, { Column, GroupPanel, Paging, SearchPanel} from "devextreme-react/data-grid";
+import Page from "../../containers/Page"
 
   const renderCelleHeader = (data) => {
     return <StyledHeader>{data.column.caption}</StyledHeader>;
@@ -26,8 +27,7 @@ import DataGrid, { Column, GroupPanel, Paging, SearchPanel} from "devextreme-rea
             }
         })
       return (
-          <StyledPage>
-          <StyledContainer>
+          <Page>
             <StyledMdContainer  className="dx-viewport">
             <div className="demo-container">
             <DataGrid
@@ -58,8 +58,7 @@ import DataGrid, { Column, GroupPanel, Paging, SearchPanel} from "devextreme-rea
                 </DataGrid>
             </div>
             </StyledMdContainer>
-        </StyledContainer>
-        </StyledPage>
+        </Page>
       );
     }
   export default Inbox;
@@ -163,24 +162,6 @@ import DataGrid, { Column, GroupPanel, Paging, SearchPanel} from "devextreme-rea
       "orderStatus": "تحت الإجراء "
     },
   ];
-
-  const StyledPage = styled.div`
-  margin: 0 20px;
-  height: 71%;
-`;
-const StyledContainer = styled.div`
-  display: inline-flex;
-  flex-wrap: nowrap;
-  direction: rtl;
-  justify-content: space-around;
-  height: auto;
-  min-height:69vh;
-  padding: 50px 10px;
-  width: 100%;
-  background-color: #F6F4F5;
-  box-sizing: border-box;
-  margin: 0px auto;
-`;
 const StyledMdContainer = styled.div`
   height: fit-content;
   min-height: 500px;

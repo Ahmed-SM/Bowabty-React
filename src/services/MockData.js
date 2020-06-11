@@ -67,4 +67,4 @@ export const Newslist = [
     PostDate: 'الأربعاء 20 , فبراير 2019'
 }
 ]
- export const isUserLogged = true;
+ export const isUserLogged = false;
