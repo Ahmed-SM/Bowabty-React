@@ -108,7 +108,6 @@
   cursor: pointer;
   user-select: none;
   font-weight: 300;
-  font-family: 'Cocon Next Arabic', Sans-Serif !important;
 }
 .langauge-select i:hover {
   font-size: 16.2px;
