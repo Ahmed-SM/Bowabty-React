@@ -5,19 +5,13 @@ import {DiractionContext} from "../../../contexts/DiractionContext";
 
 const LanguageBox = () => {
     const {t, i18n} = useTranslation();
-    const [lng,setLng] = useState(window.document.documentElement.lang);
     const [isLTR,setIsLTR] = useContext(DiractionContext);
     console.log("Navigation LanguageBox rerendred ")
     const changeLanguage = () => {
-        setLng(i18n.language === 'ar'? 'en': 'ar');
+        i18n.changeLanguage(i18n.language == 'ar' ? 'en' : 'ar');
+        window.document.documentElement.lang=i18n.language; 
         setIsLTR(isLTR === true? false: true)
     };
-    useEffect(() => {
-        if (i18n.language === lng) return;
-        i18n.changeLanguage(lng);
-        window.document.documentElement.lang=lng; //a direct call to the actual dom to change the document lang
-        console.log("Navigation LanguageBox rerendred useeffect")
-    });
     return (
         <StyledLangaugeBox>
             <StyledVerticalLine/>
