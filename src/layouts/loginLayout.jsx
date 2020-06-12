@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import {Header} from "./components";
-import {LoginNav} from "./components";
+import {Header} from "./common";
+import {LoginNav} from "./common";
 import {Login} from "../components";
 
 const loginLayout = () => {
