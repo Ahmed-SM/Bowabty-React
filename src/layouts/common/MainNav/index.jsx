@@ -11,6 +11,7 @@ import Dropdown from "./dropdown";
 import {DropdownItem} from 'reactstrap';
 import {DiractionContext} from "../../../contexts/DiractionContext";
 
+
 const MainNav = () => {
     console.log("Navigation rerendred")
     const { t } = useTranslation();
@@ -19,7 +20,7 @@ const MainNav = () => {
     return (
         <StyledNavigation isLTR={isLTR}>
             <StyledRightSection>
-                    <Tab path={"/meeting"} icon={faLifeRing} text={ <Trans i18nKey={"navigation:meetings"} t={t} >الإجتماعات</Trans>}/>
+                <Tab path={"/"} icon={faLifeRing} text={ <Trans i18nKey={"navigation:meetings"} t={t} >الإجتماعات</Trans>}/>
                 <StyledDropdown>
                     <Dropdown icon={faTasks}  text={ <Trans i18nKey={"navigation:tasks.name"} t={t}>المهام</Trans>} toRight={!isLTR}>
                         <DropdownItem style={DropItem} tag={Link} to="/incomingrequest">
@@ -33,7 +34,7 @@ const MainNav = () => {
                         </DropdownItem>
                     </Dropdown>
                 </StyledDropdown>
-                    <Tab path={"/myorders"} icon={faBatteryHalf} text={ <Trans i18nKey={"navigation:myOrders"} t={t} >طلباتي</Trans>} />
+                <Tab path={"/myorders"} icon={faBatteryHalf} text={ <Trans i18nKey={"navigation:myOrders"} t={t} >طلباتي</Trans>} />
                 <StyledDropdown >
                     <Dropdown icon={faCog} text={ <Trans i18nKey={"navigation:administration.name"} t={t}>إدارة النظام</Trans>} toRight={!isLTR}>
                     <DropdownItem style={DropItem} tag={Link} to="/incomingrequest">

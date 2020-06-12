@@ -161,7 +161,7 @@ import DataGrid, { Column, GroupPanel, Paging, SearchPanel} from "devextreme-rea
 ];
 const StyledMdContainer = styled.div`
   height: fit-content;
-  min-height: 500px;
+  min-height: 540px;
   padding: 20px 20px 0 20px;
   margin-top:40px;
   box-shadow: 0px 0px 8px 3px rgba(0, 0, 0, 0.09);

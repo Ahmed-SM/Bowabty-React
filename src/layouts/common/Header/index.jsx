@@ -23,8 +23,7 @@ const Header = ({ islogged }) => {
             </Trans>
           </h5>
           <h5>Aamna Ahmed AlNaqbii</h5>
-        </WelcomeSection> : <></>
-        }
+        </WelcomeSection> : <></>}
       <StyledItem>
         <a href="/">
           <img src={rakLogo} alt="" width="240" />

@@ -7,6 +7,11 @@ const LoadLayout = () =>{
         <StyledLoadLayout>
             <StyledHeader/>
             <StyledNavigation/>
+            <StyledUserContent/>
+            <StyledServicesContainer/>
+            <StyledView>
+                <StyledMyService/>
+            </StyledView>
         </StyledLoadLayout>
     )
 }
@@ -46,7 +51,7 @@ export const StyledNavigation = styled.nav`
 export const StyledUserContent = styled.section`
   margin: 0;
   padding: 20px 50px 0px 50px;
-  height: fit-content;
+  height: 100px;
   width: 100%;
   justify-content: space-around;
   text-align: center;
