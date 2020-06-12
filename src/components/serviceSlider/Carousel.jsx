@@ -20,9 +20,9 @@ const ServicesCarousel = ({deviceType, list}) => {
                     return (
                         <StyledElement key={index}>
                             <Link to={"/ServiceID=" + index}>
-                                <div style={{padding: `30px 30px 0px 30px`}}>                                
+                                <StyledImgFrame>                                
                                     <img src={item.Icon} alt="" width="42"/>
-                                </div>
+                                </StyledImgFrame>
                                 <StyledElementTitle>
                                     <Styledh5>
                                         {item.Title}
@@ -79,7 +79,7 @@ const responsive = {
         items: 1
     }
 };
-const StyledElement = styled.div `
+const StyledElement = styled.div`
   width: 135px;
   height: 160px;
   display: block;
@@ -96,10 +96,10 @@ const StyledElement = styled.div `
     padding: 0 0px 0 0px;
   }
 `;
-const StyledElementTitle = styled.div `
+const StyledElementTitle = styled.div`
   display: inline;
 `;
-const StyledDescription = styled.div `
+const StyledDescription = styled.div`
   display: inline;
   overflow-wrap: break-word;
 `;
@@ -112,4 +112,7 @@ const Styledh5 = styled.h5 `
   -webkit-text-stroke: 0.5px black !important;
   -webkit-text-fill-color: black !important;
   font-size: 15px;
+`;
+const StyledImgFrame = styled.div`
+    padding: 30px 30px 0px 30px;
 `;
