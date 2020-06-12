@@ -5,7 +5,6 @@ import 'devextreme/dist/css/dx.light.css';
 import {TitleContext} from "../../contexts/TitleContext";
 import {useTranslation} from "react-i18next";
 import DataGrid, { Column, GroupPanel, Paging, SearchPanel} from "devextreme-react/data-grid";
-import Page from "../../containers/Page"
 
   const renderCelleHeader = (data) => {
     return <StyledHeader>{data.column.caption}</StyledHeader>;
@@ -27,7 +26,6 @@ import Page from "../../containers/Page"
             }
         })
       return (
-        <Page>
             <StyledMdContainer  className="dx-viewport">
             <div className="demo-container">
             <DataGrid
@@ -58,7 +56,6 @@ import Page from "../../containers/Page"
                 </DataGrid>
             </div>
             </StyledMdContainer>
-            </Page>
       );
     }
   export default MyOrders;

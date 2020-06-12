@@ -1,4 +1,4 @@
-import React, {useContext, useState} from "react";
+import React, {useContext} from "react";
 import Carousel from "react-multi-carousel";
 import styled from "styled-components";
 import UAParser from "ua-parser-js";
@@ -114,7 +114,6 @@ const StyledCardDate = styled.p`
 const StyledCardDivider = styled.hr`
     margin: 0;
 `;
-
 const responsive = {
     desktop: {
         breakpoint: {

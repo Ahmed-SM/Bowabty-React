@@ -9,7 +9,7 @@ import * as Yup from "yup";
 const Login = () => {
     console.log("Login rerendred ")
   const { t } = useTranslation();
-  const [userData, setUserData] = useContext(UserContext);
+  const {setUserData} = useContext(UserContext);
   const validation = Yup.object({
     username: Yup.string()
         .min(3, t('login:min'))

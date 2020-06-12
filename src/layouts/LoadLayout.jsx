@@ -7,23 +7,18 @@ const LoadLayout = () =>{
         <StyledLoadLayout>
             <StyledHeader/>
             <StyledNavigation/>
-            <StyledUserContent/>
-            <StyledServicesContainer/>
-            <StyledView>
-                <StyledMyService/>
-            </StyledView>
         </StyledLoadLayout>
     )
 }
 export default LoadLayout;
 
-const StyledLoadLayout = styled.main`
+export const StyledLoadLayout = styled.main`
     letter-spacing: 0.2px;
     background-color:  transparent;
     box-sizing: border-box;
     min-height:92%;
 `;
-const StyledHeader = styled.header`
+export const StyledHeader = styled.header`
   width: 100%;
   height: 72px;
   box-sizing: border-box;
@@ -35,7 +30,7 @@ const StyledHeader = styled.header`
   flex-wrap: nowrap;
   user-select: none;
 `;
-const StyledNavigation = styled.nav`
+export const StyledNavigation = styled.nav`
     justify-content: space-between;
     width: 100%;
     background-color: #3C4652;
@@ -48,7 +43,7 @@ const StyledNavigation = styled.nav`
     direction: rtl;
 
 `;
-const StyledUserContent = styled.section`
+export const StyledUserContent = styled.section`
   margin: 0;
   padding: 20px 50px 0px 50px;
   height: fit-content;
@@ -60,7 +55,7 @@ const StyledUserContent = styled.section`
   flex-wrap: nowrap;
   box-sizing: border-box;
 `;
-const StyledServicesContainer = styled.div`
+export const StyledServicesContainer = styled.div`
   position: relative;
   margin: 15px 25px 22px 25px;
   background-color: #F6F4F5;
@@ -68,7 +63,7 @@ const StyledServicesContainer = styled.div`
   transition: all 0.5s ease-in-out;
   height: 230px;
 `;
-const StyledMyService = styled.div`
+export const StyledMyService = styled.div`
   display: inline-flex;
   flex-wrap: nowrap;
   direction: rtl;
@@ -82,7 +77,7 @@ const StyledMyService = styled.div`
   background-color: #F6F4F5;
   box-sizing: border-box;
   `;
-  const StyledView = styled.section`
+export const StyledView = styled.section`
   margin 0 20px;
   height: 46%;
 `;

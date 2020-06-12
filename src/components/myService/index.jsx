@@ -7,7 +7,6 @@ import NewsFeedSection from "./newsFeedSection";
 import {useTranslation, Trans} from "react-i18next";
 import {DiractionContext} from "../../contexts/DiractionContext";
 import {TitleContext} from "../../contexts/TitleContext";
-import View from "../../containers/View";
 import { device } from "../../device";
 
 const MyService = () => {
@@ -23,7 +22,6 @@ const MyService = () => {
     })
     console.log("MyService rerendred")
     return (
-        <View>
             <StyledMyService isLTR={isLTR}>
                 <StyledMdContainer primary>
                     <StyledHeader className="d-header ">
@@ -110,7 +108,6 @@ const MyService = () => {
                     </StyledGroup>
                 </StyledMdContainer>
             </StyledMyService>
-        </View>
     );
 }
 export default MyService;

@@ -17,7 +17,7 @@ const CustomInput = ({ label, ...props }) => {
   };
   export default CustomInput; 
 
-  const StyledInput = styled.input`
+const StyledInput = styled.input`
  height: 3rem;
   min-height: 3rem;
   margin-bottom: 0.1rem;

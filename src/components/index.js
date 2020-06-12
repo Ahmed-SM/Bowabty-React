@@ -6,4 +6,4 @@ export { default as CustomInput } from './CustomInput';
 export { default as StickyBox } from './StickyLabel';
 export { default as Login } from './Login';
 export { default as UserSection } from './UserSection';
-
+export { default as ContainerComponentRoute } from './ContainerComponentRoute';

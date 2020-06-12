@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext} from "react";
+import React, {useContext} from "react";
 import styled from "styled-components";
 import {useTranslation, Trans} from "react-i18next";
 import {DiractionContext} from "../../../contexts/DiractionContext";
@@ -8,7 +8,7 @@ const LanguageBox = () => {
     const [isLTR,setIsLTR] = useContext(DiractionContext);
     console.log("Navigation LanguageBox rerendred ")
     const changeLanguage = () => {
-        i18n.changeLanguage(i18n.language == 'ar' ? 'en' : 'ar');
+        i18n.changeLanguage(i18n.language === 'ar' ? 'en' : 'ar');
         window.document.documentElement.lang=i18n.language; 
         setIsLTR(isLTR === true? false: true)
     };
