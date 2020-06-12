@@ -17,7 +17,7 @@ import Page from "../../containers/Page"
   return <StyledLastCell>{data.text}</StyledLastCell>;
   }
 
-  const Inbox = () => {
+  const MyOrders = () => {
     console.log("myOrders rerendred")
     const [Title, setTitle] = useContext(TitleContext);
     const {t} = useTranslation();   
@@ -27,7 +27,7 @@ import Page from "../../containers/Page"
             }
         })
       return (
-          <Page>
+        <Page>
             <StyledMdContainer  className="dx-viewport">
             <div className="demo-container">
             <DataGrid
@@ -58,10 +58,10 @@ import Page from "../../containers/Page"
                 </DataGrid>
             </div>
             </StyledMdContainer>
-        </Page>
+            </Page>
       );
     }
-  export default Inbox;
+  export default MyOrders;
 
   // const pageSizes = [10, 25, 50, 100];
   const testdata = [

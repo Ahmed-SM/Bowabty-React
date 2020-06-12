@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useContext} from "react";
 import styled from "styled-components";
 import {useTranslation, Trans} from "react-i18next";
-import {DiractionContext} from "../../contexts/DiractionContext";
+import {DiractionContext} from "../../../contexts/DiractionContext";
 
 const LanguageBox = () => {
     const {t, i18n} = useTranslation();

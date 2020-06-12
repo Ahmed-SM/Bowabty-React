@@ -1,47 +1,32 @@
-import React, {useContext} from "react";
-import MainLayout from './layouts/mainLayout'
+import React, {useContext, Suspense} from "react";
 import LoginLayout from './layouts/loginLayout'
-import {Route, Redirect} from "react-router-dom";
-import MyOrders from "./components/myOrders/myOrders";
-import IncomingRequest from "./components/incomingRequest/incomingRequest";
-import StickyBox from "./components/stickyLabel/stickyBox";
+import {StickyBox} from "./components";
 import {ServiceContext} from "./contexts/ServiceContext";
-import {NewsFeedContext} from "./contexts/NewsFeedContext";
 import {DiractionProvider} from "./contexts/DiractionContext";
 import {UserContext} from "./contexts/UserContext";
 import {TitleProvider} from "./contexts/TitleContext";
-import {servicesList, Newslist} from './services/MockData';
+import {servicesList} from './services/MockData';
+import Routes from "./Routes";
 import './App.css';
 import "./i18n";
 
-const ServiceSlider = React.lazy(()=> import("./components/serviceSlider/serviceSlider"));
-const MyService = React.lazy(()=> import("./components/myService/myService"));
-
-
 function App() {
-    const [userData , setUserData] = useContext(UserContext);
+    const [userData] = useContext(UserContext);
     console.log("App rerendred")
     return (
         <DiractionProvider>
               { userData ?
             <ServiceContext.Provider value={servicesList}>
              <TitleProvider>
-                <MainLayout>
-                    {/* Dynamic Components are passed down to the Layout,
-                     The Layout component also wraps up a essential static components*/}
-                    <Route exact path={["/v/*", "/"]} component={ServiceSlider}/> {/* Views with Sliders should start /v/NAME_OF_THE_VIEW ✔  */}
-                    <NewsFeedContext.Provider value={Newslist}>
-                    {/*  /meeting and the rest of the array are routes that is not used yet  ✖  */}
-                        <Route exact path={["/", "/meeting", "/useroles", "/user","/1",  ]} component={MyService}/> {/* "/" Default view ✔ */}
-                    </NewsFeedContext.Provider>
-                    <Route exact path="/myorders" component={MyOrders}/>{/* /NAME_OF_THE_COMPONENT for pages with no sliders  ✔  */}
-                    <Route exact path="/incomingrequest" component={IncomingRequest}/>{/* /NAME_OF_THE_COMPONENT for pages with no sliders  ✔  */}
-                    {/* Redirection on route mismatch ✔ Remove or comment this component if you don't want a Redirection on recompiling */}
-                    <Redirect  to="/"/> 
-                </MainLayout>
+                 <React.Suspense fallback={null}>
+
+             <Routes/>
+                 </React.Suspense>
              </TitleProvider>
             </ServiceContext.Provider> : <LoginLayout/>}
+            <Suspense fallback={null}>
             <StickyBox/>
+            </Suspense>
         </DiractionProvider>
     );
 }

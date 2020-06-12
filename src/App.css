@@ -3,14 +3,14 @@
   padding: 0 0 0 50px;
 }
 .feed-slider{
-  margin: 0 30px;
+  margin: 0 30px 0 0px;
 }
 .carousel-slider{
   margin: 0px;
 }
-.ltr{
+.left-to-right{
   direction: ltr;
-  margin: 0 50px 0 0;
+  margin: 0 20px 0 10px;
   padding: 0 0px 0 30px;
 }
 .custom-left-arrow {
@@ -41,10 +41,10 @@
   transform: rotate(315deg) scale(1.2);
   outline: none;
 }
-.carousel-padding{
+/* .carousel-padding{
   margin: 0 50px 0 50px;
   padding: 0 200px 0 200px;
-}
+} */
 .dropdown{
   background: transparent;
   text-decoration: none;
@@ -80,7 +80,7 @@
 .defaultLink{
   color: white;
   text-decoration: none;
-  
+
 }
 .defaultLink:hover{
   color: #333;
@@ -125,6 +125,9 @@ text-shadow: -10px 35px 46px -12px rgba(0,0,0,0.75);
   border: 10px !important;
   width: 870px !important;
   transform: translateY(-200%);
+}
+.btn{
+  font-size: 10pt;
 }
 
 /* .App {

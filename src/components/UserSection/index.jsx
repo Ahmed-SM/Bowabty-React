@@ -5,8 +5,9 @@ import { faClipboard, faCircle, faAddressBook, faBell} from '@fortawesome/free-s
 import { useTranslation, Trans } from "react-i18next";
 import {DiractionContext} from "../../contexts/DiractionContext";
 import {TitleContext} from "../../contexts/TitleContext";
+import { device } from "../../device";
 
-const UserContent = () => {
+const UserContent = ({isVisible}) => {
   const data = {
     ar:{userName:'علياء أحمد مصطفى', userRole:'اخصائي تطوير مؤسس'},
     en:{userName:'Alia Ahmed Mustafa', userRole:'Founding Development Specialist'}
@@ -70,7 +71,7 @@ const UserContent = () => {
 }
 export default UserContent;
 
-const StyledUserContent = styled.div`
+const StyledUserContent = styled.section`
   margin: 0;
   padding: 20px 50px 0px 50px;
   height: fit-content;
@@ -83,7 +84,11 @@ const StyledUserContent = styled.div`
   box-sizing: border-box;
     ${({ isLTR }) => isLTR && `
     flex-direction: row;
-  `}
+  `};
+  @media ${device.mobileL} {
+    display: grid;
+  };
+
 `;
 const StyledUserDetails = styled.div`
     justify-content: space-around;

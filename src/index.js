@@ -9,11 +9,9 @@ import * as serviceWorker from './serviceWorker';
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-    <Suspense fallback={<div> Loading.. </div>}>
       <UserProvider>
         <App />
       </UserProvider>
-      </Suspense>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

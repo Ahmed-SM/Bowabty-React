@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Formik, Form } from "formik";
 import { useTranslation, Trans } from "react-i18next";
 import { UserContext} from "../../contexts/UserContext";
-import CustomInput from "../atoms/customInput"
+import {CustomInput} from ".."
 import * as Yup from "yup";
 
 const Login = () => {

@@ -3,15 +3,15 @@ import styled from "styled-components";
 import { useTranslation, Trans } from "react-i18next";
 import {faLifeRing,faTasks,faBatteryHalf,faCog,faInfo,faSlidersH} from '@fortawesome/free-solid-svg-icons';
 import {faFileAlt} from '@fortawesome/free-regular-svg-icons';
-import LanguageBox from "./languageBox";
-import SocialBox from "./socialBox";
+import {LanguageBox} from "..";
+import {SocialBox} from "..";
 import {Link} from "react-router-dom";
 import Tab from "./tab";
 import Dropdown from "./dropdown";
 import {DropdownItem} from 'reactstrap';
-import {DiractionContext} from "../../contexts/DiractionContext";
+import {DiractionContext} from "../../../contexts/DiractionContext";
 
-const Navigation = () => {
+const MainNav = () => {
     console.log("Navigation rerendred")
     const { t } = useTranslation();
     const [isLTR] = useContext(DiractionContext);
@@ -82,13 +82,13 @@ const Navigation = () => {
         </StyledNavigation>
     );
 }
-export default Navigation;
+export default MainNav;
 
 const StyledNavigation = styled.nav`
     justify-content: space-between;
     width: 100%;
     background-color: #3C4652;
-    height: 66px;
+    height: 6.3rem;
     box-shadow: 0px 7px 5px 0px rgba(0, 0, 0, 0.31);
     text-align: center;
     display: inline-flex;

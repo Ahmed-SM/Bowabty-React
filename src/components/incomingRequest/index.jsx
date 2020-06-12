@@ -28,7 +28,7 @@ import Page from "../../containers/Page"
             }
         })
       return (
-          <Page>
+        <Page>
             <StyledMdContainer  className="dx-viewport __font">
             <div className="demo-container">
                 <DataGrid
@@ -58,7 +58,7 @@ import Page from "../../containers/Page"
                 </DataGrid>
             </div>
             </StyledMdContainer>
-        </Page>
+            </Page>
       );
     }
   export default IncomingRequest;

@@ -1,14 +1,15 @@
 import React from "react";
 import styled from "styled-components";
-import Header from "../components/header/header";
-import LoginNav from "../components/navigation/loginNav";
-import Login from "../components/login/login";
+import {Header} from "./components";
+import {LoginNav} from "./components";
+import {Login} from "../components";
 
 const loginLayout = () => {
     console.log("loginLayout rerendred")
     return (
         <LoginLayout>
-            <Header/>
+            {/* islogged should be removed once there is a authentication */}
+            <Header islogged={false}/> 
             <LoginNav/>
             <Login/>
         </LoginLayout>

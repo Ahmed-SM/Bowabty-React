@@ -24,6 +24,7 @@ const StyledNavTab = styled.div`
     min-width: 90px;
     transition: all 0.5s;
     padding: 6px 12px;
+    font-size:10pt;
     & > * {
         color: white;
         outline: none;

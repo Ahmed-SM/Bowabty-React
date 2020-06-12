@@ -8,6 +8,7 @@ import {useTranslation, Trans} from "react-i18next";
 import {DiractionContext} from "../../contexts/DiractionContext";
 import {TitleContext} from "../../contexts/TitleContext";
 import View from "../../containers/View";
+import { device } from "../../device";
 
 const MyService = () => {
     const {t} = useTranslation();
@@ -50,13 +51,13 @@ const MyService = () => {
                                         <Trans i18nKey={"myService:suggestedTitle"} t={t}>عنوان المقترح</Trans>
                                     </label>
                                     <StyledInput
-                                        className=" col-md-10"
+                                        className=" col-md-12"
                                         type="text"
                                         placeholder={t('myService:suggestedTitlePlaceholder')}/>
                                 </StyledColumn>
                             </StyledInputGroup>
                             <StyledInputGroup className="input-group-b ">
-                                <StyledColumn className="col-md-5  selectdiv">
+                                <StyledColumn className="col-md-6  selectdiv">
                                     <label htmlFor="">
                                         <Trans i18nKey={"myService:suggestionOrigin"} t={t}>مصدر الاقتراح</Trans>
                                     </label>
@@ -66,7 +67,7 @@ const MyService = () => {
                                         </option>
                                     </StyledSelect>
                                 </StyledColumn>
-                                <StyledColumn className="col-md-5 ">
+                                <StyledColumn className="col-md-6 ">
                                     <label htmlFor="file">
                                         <Trans i18nKey={"myService:attachemnt"} t={t}>المرفقات</Trans>
                                     </label>
@@ -121,7 +122,6 @@ const StyledMyService = styled.div`
   justify-content: space-around;
   height: 100%;
   min-height:400px;
-  max-height:400px;
   align-items: center;
   padding: 50px 10px;
   width: 100%;
@@ -130,6 +130,10 @@ const StyledMyService = styled.div`
   ${ ({
     isLTR}) => isLTR && ` direction: ltr;
     `}
+    @media ${device.mobileL} {
+        display: block;
+        margin-top:20px;
+      };
   `;
     const StyledMdContainer = styled.div`
     height: 300px;
@@ -142,6 +146,16 @@ const StyledMyService = styled.div`
     border-bottom: 6px solid ${props => props.primary
         ? "#3497DB"
         : "#000000"};
+
+        @media ${device.mobileL} {
+            margin-top:10px;
+            width: 100%;
+            height: fit-content;
+          };
+          @media ${device.tablet} {
+            height: 340px;
+          };
+          
   `;
     const StyledHeader = styled.div`
     padding: 25px 40px 10px 40px;
@@ -188,7 +202,9 @@ const StyledMyService = styled.div`
     color: #fff;
     background-color: #3C4652;
     outline: 0;
-
+    margin-left: 15.3px;
+    margin-right: 15.30px;
+    margin-bottom: 10px;
     &:hover{
       box-shadow: 0 0 5px rgba(81, 203, 238, 1);
       background: rgba(81, 203, 238, 1);
@@ -204,6 +220,9 @@ const StyledMyService = styled.div`
     margin-bottom: 20px;
     display: flex;
     flex-wrap: nowrap;
+    @media ${device.tablet} {
+        flex-direction:column;
+      };
 `;
     const StyledInput = styled.input`
     padding-right: 10px;
@@ -281,6 +300,6 @@ const StyledMyService = styled.div`
     const StyledSVG = styled.svg`
   position: absolute;
   width: 15px;
-  margin: 1px 10px 0 10px;
+  margin: 1px 10px 0 5px;
   z-index: -1;
   ${ ({isLTR}) => isLTR && ` margin: 1 px 10 px 0 0 px;`}`;

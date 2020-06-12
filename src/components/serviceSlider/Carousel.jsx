@@ -3,7 +3,6 @@ import Carousel from "react-multi-carousel";
 import styled from "styled-components";
 import {Link} from "react-router-dom";
 import UAParser from "ua-parser-js";
-
 const ServicesCarousel = ({deviceType, list}) => {
     const itemsList = useContext(list);
     return (
@@ -15,13 +14,13 @@ const ServicesCarousel = ({deviceType, list}) => {
             deviceType={deviceType}
             itemClass="image-item"
             sliderClass="carousel-slider"
-            containerClass="carousel-padding"
+            // containerClass="carousel-padding"
             responsive={responsive}>
             {itemsList.slice(0, itemsList.length).map((item, index) => {
                     return (
                         <StyledElement key={index}>
                             <Link to={"/ServiceID=" + index}>
-                                <div style={{padding: `30px 30px 0px 30px`}}>
+                                <div style={{padding: `30px 30px 0px 30px`}}>                                
                                     <img src={item.Icon} alt="" width="42"/>
                                 </div>
                                 <StyledElementTitle>
@@ -70,14 +69,14 @@ const responsive = {
             max: 1366,
             min: 464
         },
-        items: 5
+        items: 3
     },
     mobile: {
         breakpoint: {
-            max: 464,
+            max: 700,
             min: 0
         },
-        items: 2
+        items: 1
     }
 };
 const StyledElement = styled.div `
@@ -91,6 +90,10 @@ const StyledElement = styled.div `
   &:hover {
     filter: grayscale(80%);
     transition: all 0.5s;
+  }
+  .carousel-padding{
+    margin: 0 0px 0 0px;
+    padding: 0 0px 0 0px;
   }
 `;
 const StyledElementTitle = styled.div `

@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Header from "../containers/Header";
-import Navigation from "../components/navigation/navigation";
-import UserSection from "../containers/UserSection";
+import {Header} from "./components";
+import {MainNav} from "./components";
 
 
 const mainLayout = ({children}) => {
@@ -10,9 +9,8 @@ const mainLayout = ({children}) => {
     return (
         <MainLayout>
             <Header/>
-            <Navigation/>
-            <UserSection isVisible={true}/>
-                {children}
+            <MainNav/>
+            {children}
         </MainLayout>
     );
 }

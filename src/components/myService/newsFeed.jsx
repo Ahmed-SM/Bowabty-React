@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, {useContext, useState} from "react";
 import Carousel from "react-multi-carousel";
 import styled from "styled-components";
 import UAParser from "ua-parser-js";
@@ -24,7 +24,7 @@ const NewsFeed = ({deviceType, list, isLTR}) => {
             responsive={responsive}
             itemClass="image-item"
             sliderClass="feed-slider"
-            containerClass="ltr">
+            containerClass= "left-to-right" >
             {itemsList
                 .slice(0, itemsList.length)
                 .map((item, index) => {

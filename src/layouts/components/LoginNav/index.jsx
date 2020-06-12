@@ -1,8 +1,8 @@
 import React, {useContext} from "react";
 import styled from "styled-components";
-import LanguageBox from "./languageBox";
-import SocialBox from "./socialBox";
-import {DiractionContext} from "../../contexts/DiractionContext";
+import {LanguageBox} from "../";
+import {SocialBox} from "../";
+import {DiractionContext} from "../../../contexts/DiractionContext";
 
 const LoginNav = () => {
     console.log("Navigation rerendred")
