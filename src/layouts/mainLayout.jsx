@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import {Header} from "./components";
-import {MainNav} from "./components";
+import {Header} from "./common";
+import {MainNav} from "./common";
 
 
 const mainLayout = ({children}) => {
