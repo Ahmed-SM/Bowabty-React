@@ -3,6 +3,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSortDown} from '@fortawesome/free-solid-svg-icons';
 import {UncontrolledDropdown, DropdownToggle, DropdownMenu} from 'reactstrap';
 const Dropdown = ({icon, text,toRight,children}) => {
+    console.log("%c Dropdown rerendred ", "background:red; color: white;");
     return (
         <UncontrolledDropdown>
             <DropdownToggle className="dropdown">
