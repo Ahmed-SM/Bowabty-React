@@ -9,7 +9,7 @@ import * as Yup from "yup";
 const Login = () => {
     console.log("Login rerendred ")
   const { t } = useTranslation();
-  const {setUserData} = useContext(UserContext);
+  const [UserData ,setUserData] = useContext(UserContext);
   const validation = Yup.object({
     username: Yup.string()
         .min(3, t('login:min'))
@@ -17,12 +17,12 @@ const Login = () => {
         .required(t('login:required')),
       password: Yup.string().min(3, t('login:min')).max(8, t('login:max')).required(t('login:required')),
     });
-    const handleOnSubmit = (values) =>{
-        setTimeout(()=>{
-            console.log(JSON.stringify(values, null, 2));
-            setUserData(true);
-        },1000)
-    }
+    const handleOnSubmit = React.useCallback((values)=> {
+      setTimeout(()=>{
+      console.log(JSON.stringify(values, null, 2));
+      setUserData(UserData => !UserData)},1000)
+      },[setUserData]);
+
   return (
     <StyledLogin>
       <StyledContainer>

@@ -7,11 +7,12 @@ import {DiractionContext} from "../../contexts/DiractionContext";
 import {TitleContext} from "../../contexts/TitleContext";
 import { device } from "../../device";
 
+const data = {
+  ar:{userName:'علياء أحمد مصطفى', userRole:'اخصائي تطوير مؤسس'},
+  en:{userName:'Alia Ahmed Mustafa', userRole:'Founding Development Specialist'}
+}
+
 const UserContent = ({isVisible}) => {
-  const data = {
-    ar:{userName:'علياء أحمد مصطفى', userRole:'اخصائي تطوير مؤسس'},
-    en:{userName:'Alia Ahmed Mustafa', userRole:'Founding Development Specialist'}
-  }
   const { t } = useTranslation();
   const [isLTR] = useContext(DiractionContext);
   const [Title] = useContext(TitleContext);

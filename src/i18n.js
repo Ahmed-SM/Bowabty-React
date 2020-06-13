@@ -20,8 +20,8 @@ i18n
       escapeValue: false, 
     },
     react: {
-    wait: false,
-    useSuspense: false
+    wait: true,
+    useSuspense: true
   },
   backend: {
     loadPath: '/locales/{{lng}}/{{ns}}.json'
