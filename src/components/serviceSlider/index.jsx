@@ -1,4 +1,4 @@
-import React, {useRef, useState} from "react";
+import React, {useRef} from "react";
 import styled from "styled-components";
 import 'react-multi-carousel/lib/styles.css';
 import ServicesCarousel from "./Carousel";
@@ -20,30 +20,31 @@ const MemoizedServicesCarousel = React.memo(() =>{
 
 const ServiceSlider = () => {
   console.log("ServicesSlider rerendred")
-  const [isOpen, setIsOpen] = useState(true);
-
   const minimizeRef = useRef();
   const carouselRef = useRef();
 
   const handleMinimize = () =>{
-    if (isOpen){
+    if (carouselRef.current.style.opacity === ''){
       minimizeRef.current.style.height = "35px";
       minimizeRef.current.style.padding = "0";
-      carouselRef.current.style.display = 'none';
+      carouselRef.current.style.transition = 'opacity 0.22s ease-in';
+      carouselRef.current.style.opacity = '0';
+      carouselRef.current.style.visibility = 'hidden';
     }else{
       minimizeRef.current.style.height = '';
       minimizeRef.current.style.padding = '';
-      carouselRef.current.style.display = '';
+      carouselRef.current.style.transition = 'opacity 0.7s ease-in';
+      carouselRef.current.style.visibility = '';
+      carouselRef.current.style.opacity = '';
     }
-    setIsOpen(!isOpen);
   }
   return (
     <StyledServicesContainer ref={minimizeRef} >
       <CarouselSection ref={carouselRef}>
-          <MemoizedServicesCarousel />
+        <MemoizedServicesCarousel />
        </CarouselSection>
       <StyledMinimize onClick={handleMinimize}>
-      <FontAwesomeIcon size="1x" icon={faBars} />
+        <FontAwesomeIcon size="1x" icon={faBars} />
       </StyledMinimize>
     </StyledServicesContainer>
   );
