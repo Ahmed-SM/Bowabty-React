@@ -20,5 +20,6 @@ const StyledStickyBox= styled.div`
     postion:relative;
     margin -27px 20px;
     width:150px;
+    max-width:150px;
     
 `;
