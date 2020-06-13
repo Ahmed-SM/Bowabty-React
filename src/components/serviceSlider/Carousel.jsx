@@ -1,10 +1,10 @@
-import React, {useContext} from "react";
+import React from "react";
 import Carousel from "react-multi-carousel";
 import styled from "styled-components";
 import {Link} from "react-router-dom";
 import UAParser from "ua-parser-js";
 const ServicesCarousel = ({deviceType, list}) => {
-    const itemsList = useContext(list);
+    console.log("%c ServicesCarousel rerendred. ", "background:red; color: white;");
     return (
         <Carousel
             autoPlay
@@ -16,7 +16,7 @@ const ServicesCarousel = ({deviceType, list}) => {
             sliderClass="carousel-slider"
             // containerClass="carousel-padding"
             responsive={responsive}>
-            {itemsList.slice(0, itemsList.length).map((item, index) => {
+            {list.slice(0, list.length).map((item, index) => {
                     return (
                         <StyledElement key={index}>
                             <Link to={"/ServiceID=" + index}>

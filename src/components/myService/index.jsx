@@ -1,19 +1,25 @@
 import React, {useContext, useEffect} from "react";
 import styled from "styled-components";
 import 'react-multi-carousel/lib/styles.css';
-import {NewsFeedContext} from "../../contexts/NewsFeedContext"
 import NewsFeed from "./newsFeed";
 import NewsFeedSection from "./newsFeedSection";
 import {useTranslation, Trans} from "react-i18next";
 import {DiractionContext} from "../../contexts/DiractionContext";
 import {TitleContext} from "../../contexts/TitleContext";
 import { device } from "../../device";
+// import { Formik, Form } from "formik";
+// import * as Yup from "yup";
+// import {CustomInput} from ".."
 
+const MemoizedNewsFeed= React.memo(({isLTR}) =>{
+    return <NewsFeed list={Newslist} isLTR={isLTR}/>
+  })
+
+  
 const MyService = () => {
     const {t} = useTranslation();
     const [isLTR] = useContext(DiractionContext);
-    const [Title,
-        setTitle] = useContext(TitleContext);
+    const [Title, setTitle] = useContext(TitleContext);
 
     useEffect(() => {
         if (Title !== t("myService:title")) {
@@ -24,38 +30,33 @@ const MyService = () => {
     return (
             <StyledMyService isLTR={isLTR}>
                 <StyledMdContainer primary>
-                    <StyledHeader className="d-header ">
+                    <StyledHeader>
                         <Styledh3>
                             <Trans i18nKey={"myService:decision"} t={t}>قرارات داخلية جديدة</Trans>
                         </Styledh3>
-                        <StyledContainerDivider className="hr-d-container"/>
+                        <StyledContainerDivider/>
                     </StyledHeader>
                     <NewsFeedSection >
-                        <NewsFeed list={NewsFeedContext} isLTR={isLTR}/>
+                        <MemoizedNewsFeed isLTR={isLTR}/>
                     </NewsFeedSection>
                 </StyledMdContainer>
-                <StyledMdContainer className="border-bottom-black">
-                    <StyledHeader className="d-header">
+                <StyledMdContainer>
+                    <StyledHeader >
                         <Styledh3>
                             <Trans i18nKey={"myService:suggestion"} t={t}>تقديم مقترح</Trans>
                         </Styledh3>
-                        <StyledContainerDivider className="hr-d-container"/>
+                        <StyledContainerDivider/>
                     </StyledHeader>
-                    <StyledGroup className="d-content group">
+                    <StyledGroup>
                         <form action="/">
-                            <StyledInputGroup className="input-group-a">
+                            <StyledInputGroup>
                                 <StyledColumn className="col-md-12">
-                                    <label htmlFor="">
-                                        <Trans i18nKey={"myService:suggestedTitle"} t={t}>عنوان المقترح</Trans>
-                                    </label>
-                                    <StyledInput
-                                        className=" col-md-12"
-                                        type="text"
-                                        placeholder={t('myService:suggestedTitlePlaceholder')}/>
+                                {/* <CustomInput label={t("myService:suggestedTitle")} name="suggestion" type="text"/> */}
+                                    <StyledInput className="col-md-12" type="text" placeholder={t('myService:suggestedTitlePlaceholder')}/>
                                 </StyledColumn>
                             </StyledInputGroup>
-                            <StyledInputGroup className="input-group-b ">
-                                <StyledColumn className="col-md-6  selectdiv">
+                            <StyledInputGroup>
+                                <StyledColumn className="col-md-6 ">
                                     <label htmlFor="">
                                         <Trans i18nKey={"myService:suggestionOrigin"} t={t}>مصدر الاقتراح</Trans>
                                     </label>
@@ -70,7 +71,7 @@ const MyService = () => {
                                         <Trans i18nKey={"myService:attachemnt"} t={t}>المرفقات</Trans>
                                     </label>
                                     <StyledFile className="col-md-12">
-                                        <div className="user-select">
+                                        <div>
                                             <input name="file" type="file"/>
                                         </div>
                                         <StyledSVG
@@ -78,7 +79,6 @@ const MyService = () => {
                                             focusable="false"
                                             data-prefix="far"
                                             data-icon="file"
-                                            className="svg-inline--fa fa-file fa-w-12"
                                             role="img"
                                             xmlns="http://www.w3.org/2000/svg"
                                             viewBox="0 0 384 512">
@@ -93,9 +93,8 @@ const MyService = () => {
                                             </svg>
                                         </StyledSVG>
                                     </StyledFile>
-                                    <StyledFileLabel className="file-placeholder" htmlFor="file">
+                                    <StyledFileLabel htmlFor="file">
                                         <Trans i18nKey={"myService:attachemnt"} t={t}>المرفقات</Trans>
-
                                     </StyledFileLabel>
                                 </StyledColumn>
                             </StyledInputGroup>
@@ -132,7 +131,7 @@ const StyledMyService = styled.div`
         margin-top:20px;
       };
   `;
-    const StyledMdContainer = styled.div`
+const StyledMdContainer = styled.div`
     height: 300px;
     width: 45%;
     min-width: 45%;
@@ -154,22 +153,22 @@ const StyledMyService = styled.div`
           };
           
   `;
-    const StyledHeader = styled.div`
+const StyledHeader = styled.div`
     padding: 25px 40px 10px 40px;
     -webkit-text-stroke: 0.4px black;
     -webkit-text-fill-color: black;
     overflow: hidden;
     white-space: nowrap;
 `;
-    const Styledh3 = styled.h3`
+const Styledh3 = styled.h3`
     text-overflow: ellipsis;
 `;
-    const StyledContainerDivider = styled.hr`
+const StyledContainerDivider = styled.hr`
   margin: 10px 0px ;
   border: 0;
   border-top: 1px solid #eee;
 `;
-    const StyledColumn = styled.div`
+const StyledColumn = styled.div`
   display: flex;
   margin-left: 1.3px;
     margin-right: 1.30px;
@@ -181,7 +180,7 @@ const StyledMyService = styled.div`
     padding: 0 5px;
   }
 `;
-    const StyledSendButton = styled.button`
+const StyledSendButton = styled.button`
     display: inline-block;
     margin-bottom: 0;
     text-align: center;
@@ -208,11 +207,11 @@ const StyledMyService = styled.div`
       border: 1px solid rgba(81, 203, 238, 1);
     }
 `;
-    const StyledGroup = styled.div`
+const StyledGroup = styled.div`
     display: block;
     padding: 0px 40px;
 `;
-    const StyledInputGroup = styled.div`
+const StyledInputGroup = styled.div`
     width: 100%;
     margin-bottom: 20px;
     display: flex;
@@ -221,7 +220,7 @@ const StyledMyService = styled.div`
         flex-direction:column;
       };
 `;
-    const StyledInput = styled.input`
+const StyledInput = styled.input`
     padding-right: 10px;
     height: 30px;
     border-radius: 5px;
@@ -242,7 +241,7 @@ const StyledMyService = styled.div`
     cursor: pointer !important;
     outline: 0;
 `;
-    const StyledFile = styled.div`
+const StyledFile = styled.div`
     padding-right: 10px;
     
     height: 30px;
@@ -270,7 +269,7 @@ const StyledMyService = styled.div`
       opacity: 0;
   }
 `;
-    const StyledSelect = styled.select`
+const StyledSelect = styled.select`
     padding-right: 10px;
     height: 30px;
     border-radius: 5px;
@@ -289,14 +288,47 @@ const StyledMyService = styled.div`
     border-style: solid;
     border-color: rgb(169, 169, 169);
 `;
-    const StyledFileLabel = styled.label`
+const StyledFileLabel = styled.label`
     color: #757575;
     margin: -25px 0px 0 0;
     padding:0 15px;
 `;
-    const StyledSVG = styled.svg`
+const StyledSVG = styled.svg`
   position: absolute;
   width: 15px;
   margin: 1px 10px 0 5px;
   z-index: -1;
   ${ ({isLTR}) => isLTR && ` margin: 1 px 10 px 0 0 px;`}`;
+
+const Newslist = [
+    {
+        header: '1اليوم العالمي للعدالة الاجتماعية',
+        Paragraph: ' لوريم إيبسوم هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكلوليس المحتوى) ويُستخدم ' +
+                'في صناعات المطابع ودور النشر.',
+        PostDate: 'الأربعاء 20 , فبراير 2019'
+    },
+     {
+        header: '2اليوم العالمي للعدالة الاجتماعية',
+        Paragraph: ' لوريم إيبسوم هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكلوليس المحتوى) ويُستخدم ' +
+                'في صناعات المطابع ودور النشر.',
+        PostDate: 'الأربعاء 20 , فبراير 2019'
+    }, 
+    {
+      header: '3اليوم العالمي للعدالة الاجتماعية',
+      Paragraph: ' لوريم إيبسوم هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكلوليس المحتوى) ويُستخدم ' +
+              'في صناعات المطابع ودور النشر.',
+      PostDate: 'الأربعاء 20 , فبراير 2019'
+  },
+  {
+    header: '4اليوم العالمي للعدالة الاجتماعية',
+    Paragraph: ' لوريم إيبسوم هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكلوليس المحتوى) ويُستخدم ' +
+            'في صناعات المطابع ودور النشر.',
+    PostDate: 'الأربعاء 20 , فبراير 2019'
+},
+ {
+    header: '5اليوم العالمي للعدالة الاجتماعية',
+    Paragraph: ' لوريم إيبسوم هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكلوليس المحتوى) ويُستخدم ' +
+            'في صناعات المطابع ودور النشر.',
+    PostDate: 'الأربعاء 20 , فبراير 2019'
+}
+]

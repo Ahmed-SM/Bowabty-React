@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React from "react";
 import Carousel from "react-multi-carousel";
 import styled from "styled-components";
 import UAParser from "ua-parser-js";
@@ -11,7 +11,7 @@ const CustomRightArrow = ({ onClick, classRight, ...rest }) => {
   };
 
 const NewsFeed = ({deviceType, list, isLTR}) => {
-    const itemsList = useContext(list);
+    console.log("%c NewsFeed rerendred. ", "background:red; color: white;");
     return (
         <Carousel 
             autoPlay={true}
@@ -25,8 +25,8 @@ const NewsFeed = ({deviceType, list, isLTR}) => {
             itemClass="image-item"
             sliderClass="feed-slider"
             containerClass= "left-to-right" >
-            {itemsList
-                .slice(0, itemsList.length)
+            {list
+                .slice(0, list.length)
                 .map((item, index) => {
                     return (
                         <StyledCard key={index}>

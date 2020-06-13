@@ -5,8 +5,18 @@ import ServicesCarousel from "./Carousel";
 import CarouselSection from "./CarouselSection";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faBars} from '@fortawesome/free-solid-svg-icons';
-import {ServiceContext} from "../../contexts/ServiceContext"
 
+import artBag from "../../assets/serviceImgs/art-bag.png";
+import desk from "../../assets/serviceImgs/desk.png";
+import docBlue from "../../assets/serviceImgs/doc-blue.png";
+import docDarkGreen from "../../assets/serviceImgs/doc-dark-green.png";
+import dockGreen from "../../assets/serviceImgs/doc-green.png";
+import dockYellow from "../../assets/serviceImgs/doc-yellow.png";
+import paperTime from "../../assets/serviceImgs/paper-time.png";
+
+const MemoizedServicesCarousel = React.memo(() =>{
+  return <ServicesCarousel list={servicesList}/>
+})
 
 const ServiceSlider = () => {
   console.log("ServicesSlider rerendred")
@@ -30,7 +40,7 @@ const ServiceSlider = () => {
   return (
     <StyledServicesContainer ref={minimizeRef} >
       <CarouselSection ref={carouselRef}>
-          <ServicesCarousel list={ServiceContext}/>
+          <MemoizedServicesCarousel />
        </CarouselSection>
       <StyledMinimize onClick={handleMinimize}>
       <FontAwesomeIcon size="1x" icon={faBars} />
@@ -62,3 +72,35 @@ const StyledMinimize= styled.div`
     color: rgba(81, 203, 238, 1);
   }
 `;
+
+const servicesList = [
+  {
+      Title: 'حالة طلباتي',
+      Description: 'تشمل طلبات القرطاسية صيانة المكتب والمعدات الأخرى في المكتب..',
+      Icon: paperTime
+  }, {
+      Title: 'طلبات متنوعة',
+      Description: 'تشمل طلبات القرطاسية صيانة المكتب والمعدات الأخرى في المكتب..',
+      Icon: artBag
+  }, {
+      Title: 'طلبات من مكتب التطوير المؤسسي',
+      Description: '',
+      Icon: dockGreen
+  }, {
+      Title: 'طلبات من قسم الاتصال المؤسسي',
+      Description: '',
+      Icon: docDarkGreen
+  }, {
+      Title: ' طلبات من قسم الموارد البشرية',
+      Description: '',
+      Icon: dockYellow
+  }, {
+      Title: 'طلبات من قسم الخدمات الإدارية',
+      Description: '',
+      Icon: docBlue
+  }, {
+      Title: 'مكتبي',
+      Description: ' تشمل طلبات القرطاسية صيانة المكتب والمعدات الأخرى في المكتب..',
+      Icon: desk
+  }
+]
