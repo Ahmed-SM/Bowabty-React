@@ -7,19 +7,37 @@ import {useTranslation, Trans} from "react-i18next";
 import {DiractionContext} from "../../contexts/DiractionContext";
 import {TitleContext} from "../../contexts/TitleContext";
 import { device } from "../../device";
-// import { Formik, Form } from "formik";
-// import * as Yup from "yup";
-// import {CustomInput} from ".."
+import { Formik, Form } from "formik";
+import * as Yup from "yup";
+import {CustomInput, CustomSelect} from ".."
 
 const MemoizedNewsFeed= React.memo(({isLTR}) =>{
     return <NewsFeed list={Newslist} isLTR={isLTR}/>
-  })
-
-  
+  });
+  const HeaderContainer = ({children}) =>{ 
+    return(
+        <StyledHeader>
+            <Styledh3>
+                {children}
+            </Styledh3>
+            <StyledContainerDivider/>
+        </StyledHeader>
+    );
+  };  
 const MyService = () => {
     const {t} = useTranslation();
     const [isLTR] = useContext(DiractionContext);
     const [Title, setTitle] = useContext(TitleContext);
+    const validation = Yup.object({
+        suggestion: Yup.string()
+            .min(3, t('login:min'))
+            .max(15, t('login:max'))
+            .required(t('login:required')),
+            suggestionOrigin: Yup.string().min(3, t('login:min')).max(8, t('login:max')).required(t('login:required')),
+            file: Yup.object().required(t('login:required')),
+        });
+    const handleOnSubmit = (values)=> {
+    };
 
     useEffect(() => {
         if (Title !== t("myService:title")) {
@@ -30,43 +48,32 @@ const MyService = () => {
     return (
             <StyledMyService isLTR={isLTR}>
                 <StyledMdContainer primary>
-                    <StyledHeader>
-                        <Styledh3>
-                            <Trans i18nKey={"myService:decision"} t={t}>قرارات داخلية جديدة</Trans>
-                        </Styledh3>
-                        <StyledContainerDivider/>
-                    </StyledHeader>
+                        <HeaderContainer children={<Trans i18nKey={"myService:decision"}>قرارات داخلية جديدة</Trans>} />
                     <NewsFeedSection >
                         <MemoizedNewsFeed isLTR={isLTR}/>
                     </NewsFeedSection>
                 </StyledMdContainer>
                 <StyledMdContainer>
-                    <StyledHeader >
-                        <Styledh3>
-                            <Trans i18nKey={"myService:suggestion"} t={t}>تقديم مقترح</Trans>
-                        </Styledh3>
-                        <StyledContainerDivider/>
-                    </StyledHeader>
+                        <HeaderContainer children={<Trans i18nKey={"myService:suggestion"} t={t}>تقديم مقترح</Trans>}/>
                     <StyledGroup>
-                        <form action="/">
-                            <StyledInputGroup>
-                                <StyledColumn className="col-md-12">
-                                {/* <CustomInput label={t("myService:suggestedTitle")} name="suggestion" type="text"/> */}
-                                    <StyledInput className="col-md-12" type="text" placeholder={t('myService:suggestedTitlePlaceholder')}/>
-                                </StyledColumn>
-                            </StyledInputGroup>
-                            <StyledInputGroup>
-                                <StyledColumn className="col-md-6 ">
-                                    <label htmlFor="">
-                                        <Trans i18nKey={"myService:suggestionOrigin"} t={t}>مصدر الاقتراح</Trans>
-                                    </label>
-                                    <StyledSelect className=" col-md-12 " name="">
-                                        <option value="فكرة شخصية">
-                                            {t('myService:suggestionOriginOption1')}
-                                        </option>
-                                    </StyledSelect>
-                                </StyledColumn>
-                                <StyledColumn className="col-md-6 ">
+                        <Formik initialValues={{suggestion: "", suggestionOrigin:"", file:""}}
+                            validationSchema={validation}
+                            onSubmit={handleOnSubmit}>
+                            <Form>
+                                <StyledInputGroup>
+                                    <StyledColumn className="col-md-12">
+                                        <CustomInput label={t("myService:suggestedTitle")} name="suggestion" type="text" placeholder={t("myService:suggestedTitle")} /> 
+                                    </StyledColumn>
+                                </StyledInputGroup>
+                                <StyledInputGroup>
+                                    <StyledColumn className="col-md-12">
+                                        <CustomSelect label={t("myService:suggestionOrigin")} name="suggestionOrigin">
+                                            <option value={t('myService:suggestionOriginOption1')}>
+                                                {t('myService:suggestionOriginOption1')}
+                                            </option>
+                                        </CustomSelect> 
+                                    </StyledColumn>
+                                     <StyledColumn className="col-md-12 ">
                                     <label htmlFor="file">
                                         <Trans i18nKey={"myService:attachemnt"} t={t}>المرفقات</Trans>
                                     </label>
@@ -98,12 +105,9 @@ const MyService = () => {
                                     </StyledFileLabel>
                                 </StyledColumn>
                             </StyledInputGroup>
-                            <div>
-                                <StyledSendButton type="submit" className="send-btn">
-                                    <Trans i18nKey={"myService:sendBtn"} t={t}>ارسال</Trans>
-                                </StyledSendButton>
-                            </div>
-                        </form>
+                            <StyledSendButton type="submit" className="send-btn"><Trans i18nKey={"myService:sendBtn"} t={t}>ارسال</Trans></StyledSendButton>
+                            </Form>
+                        </Formik>
                     </StyledGroup>
                 </StyledMdContainer>
             </StyledMyService>
@@ -132,7 +136,7 @@ const StyledMyService = styled.div`
       };
   `;
 const StyledMdContainer = styled.div`
-    height: 300px;
+    height: 320px;
     width: 45%;
     min-width: 45%;
     box-shadow: 0px 0px 8px 3px rgba(0, 0, 0, 0.09);
@@ -170,6 +174,7 @@ const StyledContainerDivider = styled.hr`
 `;
 const StyledColumn = styled.div`
   display: flex;
+  height: 60px;
   margin-left: 1.3px;
     margin-right: 1.30px;
   flex-direction: column;
@@ -220,31 +225,9 @@ const StyledInputGroup = styled.div`
         flex-direction:column;
       };
 `;
-const StyledInput = styled.input`
-    padding-right: 10px;
-    height: 30px;
-    border-radius: 5px;
-    text-rendering: auto;
-    letter-spacing: normal;
-    word-spacing: normal;
-    text-indent: 0px;
-    text-shadow: none;
-    display: inline-block;
-    text-align: start;
-    align-items: center;
-    white-space: pre;
-    rtl-ordering: logical;
-    cursor: default;
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgb(169, 169, 169);
-    cursor: pointer !important;
-    outline: 0;
-`;
 const StyledFile = styled.div`
-    padding-right: 10px;
-    
     height: 30px;
+    min-height: 30px;
     border-radius: 5px;
     text-rendering: auto;
     letter-spacing: normal;
@@ -256,7 +239,7 @@ const StyledFile = styled.div`
     align-items: center;
     white-space: pre;
     rtl-ordering: logical;
-    cursor: default;
+    cursor: pointer;
     border-width: 1px;
     border-style: solid;
     border-color: rgb(169, 169, 169);
@@ -269,30 +252,14 @@ const StyledFile = styled.div`
       opacity: 0;
   }
 `;
-const StyledSelect = styled.select`
-    padding-right: 10px;
-    height: 30px;
-    border-radius: 5px;
-    text-rendering: auto;
-    letter-spacing: normal;
-    word-spacing: normal;
-    text-indent: 0px;
-    text-shadow: none;
-    display: inline-block;
-    text-align: start;
-    align-items: center;
-    white-space: pre;
-    rtl-ordering: logical;
-    cursor: default;
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgb(169, 169, 169);
-`;
 const StyledFileLabel = styled.label`
     color: #757575;
     margin: -25px 0px 0 0;
     padding:0 15px;
+    text-indent: 10px;
+
 `;
+
 const StyledSVG = styled.svg`
   position: absolute;
   width: 15px;
