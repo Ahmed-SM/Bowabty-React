@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const ContainerComponentRoute = ({ container: Container, component: Component, ...rest }) => {
-
+  console.log("%c ContainerComponentRoute rerendred ", "background:green; color: white;");
   return (
     <Route
       {...rest}

@@ -5,7 +5,7 @@ import {faYoutube, faFacebookF, faInstagram, faTwitter} from '@fortawesome/free-
 import {Link} from "react-router-dom";
 
 const SocialBox = () => {
-    console.log("Navigation socialBox rerendred ")
+    console.log("%c Navigation socialBox rerendred ", "background:red; color: white;");
     return (
         <StyledSocialBox>
             <StyledSocialPosition>

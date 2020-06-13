@@ -6,7 +6,7 @@ import {DiractionContext} from "../../../contexts/DiractionContext";
 const LanguageBox = () => {
     const {t, i18n} = useTranslation();
     const [isLTR,setIsLTR] = useContext(DiractionContext);
-    console.log("Navigation LanguageBox rerendred ")
+    console.log("%c Navigation LanguageBox rerendred ", "background:red; color: white;");
     const changeLanguage = () => {
         i18n.changeLanguage(i18n.language === 'ar' ? 'en' : 'ar');
         window.document.documentElement.lang=i18n.language; 
