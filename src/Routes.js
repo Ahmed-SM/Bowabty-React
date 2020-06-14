@@ -1,17 +1,17 @@
 import React, {useContext} from 'react';
-import {ContainerComponentRoute} from "./components";
 
 import {UserContext} from "./contexts/UserContext";
 import {TitleProvider} from "./contexts/TitleContext";
 
 
 import LoadLayout, {StyledUserContent, StyledServicesContainer, StyledView, StyledMyService} from "./layouts/LoadLayout";
-import Page from "./containers/Page";
 
+const ContainerComponentRoute = React.lazy(()=> import("./components/ContainerComponentRoute"));
 const LoginLayout = React.lazy(()=> import("./layouts/loginLayout"));
 const MainLayout = React.lazy(()=> import("./layouts/MainLayout"));
 const Shallow = React.lazy(()=> import("./containers/Shallow"));
 const View = React.lazy(()=> import("./containers/View"));
+const Page = React.lazy(()=> import("./containers/Page"));
 const UserSection = React.lazy(()=> import("./components/UserSection"));
 const ServiceSlider = React.lazy(()=> import("./components/ServiceSlider"));
 const MyService = React.lazy(()=> import("./components/MyService"));

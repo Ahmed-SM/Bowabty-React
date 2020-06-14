@@ -4,15 +4,15 @@ import 'react-multi-carousel/lib/styles.css';
 import NewsFeed from "./newsFeed";
 import NewsFeedSection from "./newsFeedSection";
 import {useTranslation, Trans} from "react-i18next";
-import {DiractionContext} from "../../contexts/DiractionContext";
 import {TitleContext} from "../../contexts/TitleContext";
 import { device } from "../../device";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import {CustomInput, CustomSelect} from ".."
+import {MediumBox} from ".."
 
-const MemoizedNewsFeed= React.memo(({isLTR}) =>{
-    return <NewsFeed list={Newslist} isLTR={isLTR}/>
+const MemoizedNewsFeed= React.memo(() =>{
+    return <NewsFeed list={Newslist}/>
   });
   const HeaderContainer = ({children}) =>{ 
     return(
@@ -26,7 +26,6 @@ const MemoizedNewsFeed= React.memo(({isLTR}) =>{
   };  
 const MyService = () => {
     const {t} = useTranslation();
-    const [isLTR] = useContext(DiractionContext);
     const [Title, setTitle] = useContext(TitleContext);
     const validation = Yup.object({
         suggestion: Yup.string()
@@ -46,117 +45,74 @@ const MyService = () => {
     })
     console.log("MyService rerendred")
     return (
-            <StyledMyService isLTR={isLTR}>
-                <StyledMdContainer primary>
-                        <HeaderContainer children={<Trans i18nKey={"myService:decision"}>قرارات داخلية جديدة</Trans>} />
-                    <NewsFeedSection >
-                        <MemoizedNewsFeed isLTR={isLTR}/>
-                    </NewsFeedSection>
-                </StyledMdContainer>
-                <StyledMdContainer>
-                        <HeaderContainer children={<Trans i18nKey={"myService:suggestion"} t={t}>تقديم مقترح</Trans>}/>
-                    <StyledGroup>
-                        <Formik initialValues={{suggestion: "", suggestionOrigin:"", file:""}}
-                            validationSchema={validation}
-                            onSubmit={handleOnSubmit}>
-                            <Form>
-                                <StyledInputGroup>
-                                    <StyledColumn className="col-md-12">
-                                        <CustomInput label={t("myService:suggestedTitle")} name="suggestion" type="text" placeholder={t("myService:suggestedTitle")} /> 
-                                    </StyledColumn>
-                                </StyledInputGroup>
-                                <StyledInputGroup>
-                                    <StyledColumn className="col-md-12">
-                                        <CustomSelect label={t("myService:suggestionOrigin")} name="suggestionOrigin">
-                                            <option value={t('myService:suggestionOriginOption1')}>
-                                                {t('myService:suggestionOriginOption1')}
-                                            </option>
-                                        </CustomSelect> 
-                                    </StyledColumn>
-                                     <StyledColumn className="col-md-12 ">
-                                    <label htmlFor="file">
-                                        <Trans i18nKey={"myService:attachemnt"} t={t}>المرفقات</Trans>
-                                    </label>
-                                    <StyledFile className="col-md-12">
-                                        <div>
-                                            <input name="file" type="file"/>
-                                        </div>
-                                        <StyledSVG
-                                            aria-hidden="true"
-                                            focusable="false"
-                                            data-prefix="far"
-                                            data-icon="file"
-                                            role="img"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            viewBox="0 0 384 512">
-                                            <path
-                                                fill="currentColor"
-                                                d="M369.9 97.9L286 14C277 5 264.8-.1 252.1-.1H48C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48V131.9c0-12.7-5.1-25-14.1-34zM332.1 128H256V51.9l76.1 76.1zM48 464V48h160v104c0 13.3 10.7 24 24 24h104v288H48z"/>
-
-                                            <svg width="250" height="300" viewBox="0 0 600 600" y="200" x="100">
-                                                <path
-                                                    fill="currentColor"
-                                                    d="M43.246 466.142c-58.43-60.289-57.341-157.511 1.386-217.581L254.392 34c44.316-45.332 116.351-45.336 160.671 0 43.89 44.894 43.943 117.329 0 162.276L232.214 383.128c-29.855 30.537-78.633 30.111-107.982-.998-28.275-29.97-27.368-77.473 1.452-106.953l143.743-146.835c6.182-6.314 16.312-6.422 22.626-.241l22.861 22.379c6.315 6.182 6.422 16.312.241 22.626L171.427 319.927c-4.932 5.045-5.236 13.428-.648 18.292 4.372 4.634 11.245 4.711 15.688.165l182.849-186.851c19.613-20.062 19.613-52.725-.011-72.798-19.189-19.627-49.957-19.637-69.154 0L90.39 293.295c-34.763 35.56-35.299 93.12-1.191 128.313 34.01 35.093 88.985 35.137 123.058.286l172.06-175.999c6.177-6.319 16.307-6.433 22.626-.256l22.877 22.364c6.319 6.177 6.434 16.307.256 22.626l-172.06 175.998c-59.576 60.938-155.943 60.216-214.77-.485z"/>
-                                            </svg>
-                                        </StyledSVG>
-                                    </StyledFile>
-                                    <StyledFileLabel htmlFor="file">
-                                        <Trans i18nKey={"myService:attachemnt"} t={t}>المرفقات</Trans>
-                                    </StyledFileLabel>
-                                </StyledColumn>
-                            </StyledInputGroup>
-                            <StyledSendButton type="submit" className="send-btn"><Trans i18nKey={"myService:sendBtn"} t={t}>ارسال</Trans></StyledSendButton>
-                            </Form>
-                        </Formik>
-                    </StyledGroup>
-                </StyledMdContainer>
-            </StyledMyService>
+        <>
+        <MediumBox>
+                <HeaderContainer children={<Trans i18nKey={"myService:suggestion"} t={t}>تقديم مقترح</Trans>}/>
+            <StyledGroup>
+                <Formik initialValues={{suggestion: "", suggestionOrigin:"", file:""}}
+                    validationSchema={validation}
+                    onSubmit={handleOnSubmit}>
+                    <Form>
+                        <StyledInputGroup>
+                            <StyledColumn>
+                                <CustomInput label={t("myService:suggestedTitle")} name="suggestion" type="text" placeholder={t("myService:suggestedTitle")} /> 
+                            </StyledColumn>
+                        </StyledInputGroup>
+                        <StyledInputGroup>
+                            <StyledColumn className="__multi">
+                                <CustomSelect label={t("myService:suggestionOrigin")} name="suggestionOrigin">
+                                    <option value={t('myService:suggestionOriginOption1')}>
+                                        {t('myService:suggestionOriginOption1')}
+                                    </option>
+                                </CustomSelect> 
+                            </StyledColumn>
+                             <StyledColumn className="__multi">
+                            <label htmlFor="file">
+                                <Trans i18nKey={"myService:attachemnt"} t={t}>المرفقات</Trans>
+                            </label>
+                            <StyledFile>
+                                <div>
+                                    <input name="file" type="file"/>
+                                </div>
+                            <StyledSVG
+                                aria-hidden="true"
+                                focusable="false"
+                                data-prefix="far"
+                                data-icon="file"
+                                role="img"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 384 512">
+                                <path
+                                fill="currentColor"
+                                d="M369.9 97.9L286 14C277 5 264.8-.1 252.1-.1H48C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48V131.9c0-12.7-5.1-25-14.1-34zM332.1 128H256V51.9l76.1 76.1zM48 464V48h160v104c0 13.3 10.7 24 24 24h104v288H48z"/>
+                                <svg width="250" height="300" viewBox="0 0 600 600" y="200" x="100">
+                                <path
+                                fill="currentColor"
+                                d="M43.246 466.142c-58.43-60.289-57.341-157.511 1.386-217.581L254.392 34c44.316-45.332 116.351-45.336 160.671 0 43.89 44.894 43.943 117.329 0 162.276L232.214 383.128c-29.855 30.537-78.633 30.111-107.982-.998-28.275-29.97-27.368-77.473 1.452-106.953l143.743-146.835c6.182-6.314 16.312-6.422 22.626-.241l22.861 22.379c6.315 6.182 6.422 16.312.241 22.626L171.427 319.927c-4.932 5.045-5.236 13.428-.648 18.292 4.372 4.634 11.245 4.711 15.688.165l182.849-186.851c19.613-20.062 19.613-52.725-.011-72.798-19.189-19.627-49.957-19.637-69.154 0L90.39 293.295c-34.763 35.56-35.299 93.12-1.191 128.313 34.01 35.093 88.985 35.137 123.058.286l172.06-175.999c6.177-6.319 16.307-6.433 22.626-.256l22.877 22.364c6.319 6.177 6.434 16.307.256 22.626l-172.06 175.998c-59.576 60.938-155.943 60.216-214.77-.485z"/>
+                                </svg>
+                            </StyledSVG>
+                            </StyledFile>
+                            <StyledFileLabel htmlFor="file">
+                                <Trans i18nKey={"myService:attachemnt"} t={t}>المرفقات</Trans>
+                            </StyledFileLabel>
+                        </StyledColumn>
+                    </StyledInputGroup>
+                    <StyledSendButton type="submit" className="send-btn"><Trans i18nKey={"myService:sendBtn"} t={t}>ارسال</Trans></StyledSendButton>
+                    </Form>
+                </Formik>
+            </StyledGroup>
+        </MediumBox>
+        <MediumBox primary>
+            <HeaderContainer children={<Trans i18nKey={"myService:decision"}>قرارات داخلية جديدة</Trans>} />
+            <NewsFeedSection >
+                <MemoizedNewsFeed/>
+            </NewsFeedSection>
+        </MediumBox>
+        </>
     );
 }
 export default MyService;
 
-const StyledMyService = styled.div`
-  display: inline-flex;
-  flex-wrap: nowrap;
-  direction: rtl;
-  justify-content: space-around;
-  height: 100%;
-  min-height:400px;
-  align-items: center;
-  padding: 50px 10px;
-  width: 100%;
-  background-color: #F6F4F5;
-  box-sizing: border-box;
-  ${ ({
-    isLTR}) => isLTR && ` direction: ltr;
-    `}
-    @media ${device.mobileL} {
-        display: block;
-        margin-top:20px;
-      };
-  `;
-const StyledMdContainer = styled.div`
-    height: 320px;
-    width: 45%;
-    min-width: 45%;
-    box-shadow: 0px 0px 8px 3px rgba(0, 0, 0, 0.09);
-    background-color: white;
-    border-radius: 15px;
-    z-index: 0;
-    border-bottom: 6px solid ${props => props.primary
-        ? "#3497DB"
-        : "#000000"};
-
-        @media ${device.mobileL} {
-            margin-top:10px;
-            width: 100%;
-            height: fit-content;
-          };
-          @media ${device.tablet} {
-            height: 340px;
-          };
-          
-  `;
 const StyledHeader = styled.div`
     padding: 25px 40px 10px 40px;
     -webkit-text-stroke: 0.4px black;
@@ -175,10 +131,14 @@ const StyledContainerDivider = styled.hr`
 const StyledColumn = styled.div`
   display: flex;
   height: 60px;
-  margin-left: 1.3px;
-    margin-right: 1.30px;
+  margin-left: 6.30px;
+  margin-right: 6.30px;
   flex-direction: column;
   flex-wrap: nowrap;
+  width:100%;
+  .__multi{
+      width:19rem;
+  }
 
   & > label{
     width: fit-content;
@@ -262,10 +222,11 @@ const StyledFileLabel = styled.label`
 
 const StyledSVG = styled.svg`
   position: absolute;
+  text-indent: 10px;
   width: 15px;
-  margin: 1px 10px 0 5px;
+  margin: 1px -5px 0 -5px;
   z-index: -1;
-  ${ ({isLTR}) => isLTR && ` margin: 1 px 10 px 0 0 px;`}`;
+  `;
 
 const Newslist = [
     {

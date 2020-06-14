@@ -1,7 +1,8 @@
-import React from "react";
+import React,{useContext} from "react";
 import Carousel from "react-multi-carousel";
 import styled from "styled-components";
 import UAParser from "ua-parser-js";
+import {DiractionContext} from "../../contexts/DiractionContext";
 
 const CustomLeftArrow = ({ onClick, classLeft, ...rest }) => {
     return <button className={classLeft} onClick={() => onClick()} />;
@@ -10,17 +11,19 @@ const CustomRightArrow = ({ onClick, classRight, ...rest }) => {
     return <button className={classRight} onClick={() => onClick()} />;
   };
 
-const NewsFeed = ({deviceType, list, isLTR}) => {
+const NewsFeed = ({deviceType, list}) => {
+    const [isLTR] = useContext(DiractionContext);
     console.log("%c NewsFeed rerendred. ", "background:red; color: white;");
     return (
         <Carousel 
             autoPlay={true}
-            autoPlaySpeed={3000}
+            autoPlaySpeed={10000}
             deviceType={deviceType}
             draggable={true}
             infinite={true}
-            customRightArrow={isLTR ? <CustomRightArrow classRight="custom-right-arrow"/> : <CustomRightArrow/> }
-            customLeftArrow={!isLTR ? <CustomLeftArrow  classLeft="custom-left-arrow" /> : <CustomLeftArrow /> }
+            focusOnSelect={true}
+            customRightArrow={<CustomRightArrow classRight="custom-right-arrow"/> }
+            customLeftArrow={!isLTR ? <CustomLeftArrow  classLeft="custom-left-arrow" /> : <CustomLeftArrow  classLeft="custom-left-arrow"  /> }
             responsive={responsive}
             itemClass="image-item"
             sliderClass="feed-slider"
