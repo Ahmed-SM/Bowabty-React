@@ -17,6 +17,11 @@ const LoadLayout = () =>{
 }
 export default LoadLayout;
 
+export const StyledPage = styled.section`
+margin: 0 20px;
+height: 71%;
+background-color: #F6F4F5;
+`;
 export const StyledLoadLayout = styled.main`
     letter-spacing: 0.2px;
     background-color:  transparent;

@@ -4,7 +4,7 @@ import {UserContext} from "./contexts/UserContext";
 import {TitleProvider} from "./contexts/TitleContext";
 
 
-import LoadLayout, {StyledUserContent, StyledServicesContainer, StyledView, StyledMyService} from "./layouts/LoadLayout";
+import LoadLayout, {StyledUserContent, StyledServicesContainer, StyledView, StyledMyService, StyledPage} from "./layouts/LoadLayout";
 
 const ContainerComponentRoute = React.lazy(()=> import("./components/ContainerComponentRoute"));
 const LoginLayout = React.lazy(()=> import("./layouts/loginLayout"));
@@ -38,11 +38,11 @@ const Routes = () => {
                         <ContainerComponentRoute exact component={MyService} container={View} path={"/"}/>
                     </React.Suspense>
 
-                    <React.Suspense fallback={<div>Loading... </div>}>
+                    <React.Suspense fallback={<StyledPage/>}>
                         <ContainerComponentRoute exact component={MyOrders}  container={Page} path="/myorders"/>
                     </React.Suspense>
 
-                    <React.Suspense fallback={<div>Loading... </div>}>
+                    <React.Suspense fallback={<StyledPage/>}>
                         <ContainerComponentRoute exact component={IncomingRequest} container={Page} path="/incomingrequest"/>
                     </React.Suspense>
 
