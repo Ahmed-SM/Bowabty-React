@@ -9,7 +9,7 @@ import { device } from "../../device";
 
 const data = {
   ar:{userName:'علياء أحمد مصطفى', userRole:'اخصائي تطوير مؤسس'},
-  en:{userName:'Alia Ahmed Mustafa', userRole:'Founding Development Specialist'}
+  en:{userName:'Alia Ahmed Mustafa', userRole:'Development Specialist'}
 }
 
 const UserContent = ({isVisible}) => {
