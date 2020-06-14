@@ -18,56 +18,56 @@ const UserContent = ({isVisible}) => {
   const [Title] = useContext(TitleContext);
   console.log("userContent rerendred")
   return (
-    <StyledUserContent  isLTR={isLTR}>
-        <StyledUserDetails isLTR={isLTR}>
-          <div className="user-picture">
-          <FontAwesomeIcon size="5x" icon={faCircle} color={"#C4C4C4"} />  
-          </div>
-          <StyledInfo>
-            <div className="user-name">
-              <StyledH3 id="logged-user">
-              {/* <FontAwesomeIcon size="1x" icon={faSortDown}  />   */}
-              { isLTR ? data.en.userName : data.ar.userName}
-              </StyledH3>
+      <StyledUserContent  isLTR={isLTR}>
+          <StyledUserDetails isLTR={isLTR}>
+            <div className="user-picture">
+            <FontAwesomeIcon size="5x" icon={faCircle} color={"#C4C4C4"} />  
             </div>
-            <div className="user-role user-role-h4 user-role-h3">
-            <h4 id="logged-role">{ isLTR ? data.en.userRole : data.ar.userRole}</h4>
+            <StyledInfo>
+              <div className="user-name">
+                <StyledH3 id="logged-user">
+                {/* <FontAwesomeIcon size="1x" icon={faSortDown}  />   */}
+                { isLTR ? data.en.userName : data.ar.userName}
+                </StyledH3>
+              </div>
+              <div className="user-role user-role-h4 user-role-h3">
+              <h4 id="logged-role">{ isLTR ? data.en.userRole : data.ar.userRole}</h4>
+              </div>
+            </StyledInfo>
+          </StyledUserDetails>
+          <StyledTitle>
+            <div>
+                <StyledH1 >
+                  {Title}
+                </StyledH1>
             </div>
-          </StyledInfo>
-        </StyledUserDetails>
-        <StyledTitle>
-          <div>
-            <StyledH1>
-              {Title}
-            </StyledH1>
-          </div>
-          <div>
-            <StyledH4>
-              <Trans i18nKey={"userContent:lorem"} t={t}>الإشعارات</Trans>
-            </StyledH4>
-          </div>
-        </StyledTitle>
-        <StyledSideBtns>
-          <StyledSideBtn>
-            <a href="/">
-            <FontAwesomeIcon size="3x" icon={faBell} color={"#3C4652"} />  
-            </a>
-            <div> <Trans i18nKey={"userContent:notifications"} t={t}>الإشعارات</Trans></div>
-          </StyledSideBtn>
-          <StyledSideBtn>
-            <a href="/">
-            <FontAwesomeIcon size="3x" icon={faAddressBook} color={"#3C4652"} />  
-            </a>
-            <div><Trans i18nKey={"userContent:contacts"} t={t}>التحويلات</Trans></div>
-          </StyledSideBtn>
-          <StyledSideBtn >
-            <a href="/">
-            <FontAwesomeIcon size="3x" icon={faClipboard} color={"#3C4652"}/>  
-            </a>
-            <div><Trans i18nKey={"userContent:myNotes"} t={t}>ملاحظاتي</Trans></div>
-          </StyledSideBtn>
-        </StyledSideBtns>
-        </StyledUserContent>
+            <div>
+              <StyledH4>
+                <Trans i18nKey={"userContent:lorem"} t={t}></Trans>
+              </StyledH4>
+            </div>
+          </StyledTitle>
+          <StyledSideBtns>
+            <StyledSideBtn>
+              <a href="/">
+              <FontAwesomeIcon size="3x" icon={faBell} color={"#3C4652"} />  
+              </a>
+              <div> <Trans i18nKey={"userContent:notifications"} t={t}>الإشعارات</Trans></div>
+            </StyledSideBtn>
+            <StyledSideBtn>
+              <a href="/">
+              <FontAwesomeIcon size="3x" icon={faAddressBook} color={"#3C4652"} />  
+              </a>
+              <div><Trans i18nKey={"userContent:contacts"} t={t}>التحويلات</Trans></div>
+            </StyledSideBtn>
+            <StyledSideBtn >
+              <a href="/">
+              <FontAwesomeIcon size="3x" icon={faClipboard} color={"#3C4652"}/>  
+              </a>
+              <div><Trans i18nKey={"userContent:myNotes"} t={t}>ملاحظاتي</Trans></div>
+            </StyledSideBtn>
+          </StyledSideBtns>
+          </StyledUserContent>
         );
 }
 export default UserContent;
@@ -86,9 +86,6 @@ const StyledUserContent = styled.section`
     ${({ isLTR }) => isLTR && `
     flex-direction: row;
   `};
-  @media ${device.mobileL} {
-    display: grid;
-  };
 
 `;
 const StyledUserDetails = styled.div`

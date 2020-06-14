@@ -31,12 +31,4 @@ const StyledInner = styled.div`
     border-bottom: 6px solid ${props => props.primary
         ? "#3497DB"
         : "#000000"};
-     @media ${device.mobileL} {
-         margin-top:10px;
-         width: 100%;
-         height: fit-content;
-       };
-       @media ${device.tablet} {
-         height: 340px;
-       };
   `;

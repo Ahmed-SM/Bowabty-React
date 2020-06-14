@@ -48,11 +48,6 @@ const StyledHeader = styled.header`
   flex-direction: row-reverse;
   flex-wrap: nowrap;
   user-select: none;
-  @media ${device.mobileL} {
-    display: block;
-    height: fit-content;
-    padding: 0px;
-  };
   
 `;
 const StyledItem = styled.div`
@@ -67,8 +62,4 @@ const WelcomeSection = styled.div`
   flex-direction: column;
   flex-wrap: nowrap;
   margin-top: 0px;
-  @media ${device.mobileL} {
-    background:#F6F4F5;
-    width:100%
-  };
 `;

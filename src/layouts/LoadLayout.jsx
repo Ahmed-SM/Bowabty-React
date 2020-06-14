@@ -35,28 +35,27 @@ export const StyledHeader = styled.header`
   padding: 0px 30px;
   justify-content: space-between;
   text-align: center;
-  display: inline-flex !important;
+  display: inline-flex;
   flex-direction: row-reverse;
   flex-wrap: nowrap;
   user-select: none;
+  
 `;
 export const StyledNavigation = styled.nav`
     justify-content: space-between;
     width: 100%;
     background-color: #3C4652;
-    height: 66px;
+    height: 6.3rem;
     box-shadow: 0px 7px 5px 0px rgba(0, 0, 0, 0.31);
     text-align: center;
     display: inline-flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    direction: rtl;
-
 `;
 export const StyledUserContent = styled.section`
   margin: 0;
   padding: 20px 50px 0px 50px;
-  height: 100px;
+  height: 99px;
   width: 100%;
   justify-content: space-around;
   text-align: center;
@@ -64,6 +63,7 @@ export const StyledUserContent = styled.section`
   flex-direction: row-reverse;
   flex-wrap: nowrap;
   box-sizing: border-box;
+
 `;
 export const StyledServicesContainer = styled.div`
   position: relative;
