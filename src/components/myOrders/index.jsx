@@ -172,7 +172,7 @@ const StyledMdContainer = styled.div`
       ? "#3497DB"
       : "#000000"};
     .dx-pages, .dx-group-panel-message, .dx-texteditor-input, .dx-placeholder{
-      font-family: 'CoconNextArabic-Regular', Sans-Serif;
+      font-family: 'CoconNextArabic-Bold', Sans-Serif;
     }
     .x-datagrid-headers{
       border: none !important;
@@ -206,7 +206,7 @@ const StyledCell = styled.div`
   padding: 7px 4px;
   border:none;
   background:#f5f5f5;
-  font-family: 'CoconNextArabic-Regular', Sans-Serif ;
+  font-family: 'CoconNextArabic-Bold', Sans-Serif ;
 `; 
 const StyledLastCell = styled.div`
   color: #6F6F6F;
@@ -215,7 +215,7 @@ const StyledLastCell = styled.div`
   margin:0 5px 0 0;
   border:none;
   background:#f5f5f5;
-  font-family: 'CoconNextArabic-Regular', Sans-Serif ;
+  font-family: 'CoconNextArabic-Bold', Sans-Serif ;
 `; 
 const StyledHeader = styled.p`
 color: #333;
@@ -223,5 +223,5 @@ font-weight: 300;
 padding: 0 4px;
 border:none;
 font-size:15px;
-font-family: 'CoconNextArabic-Regular', Sans-Serif;
+font-family: 'CoconNextArabic-Bold', Sans-Serif;
 `; 
