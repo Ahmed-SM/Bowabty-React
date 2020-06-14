@@ -19,7 +19,7 @@ export default LoadLayout;
 
 export const StyledPage = styled.section`
 margin: 0 20px;
-height: 71%;
+height: 71vh;
 background-color: #F6F4F5;
 `;
 export const StyledLoadLayout = styled.main`
