@@ -45,12 +45,12 @@ import DataGrid, { Column, GroupPanel, Paging, SearchPanel} from "devextreme-rea
                 {/* <Grouping autoExpandAll={true} /> */}
     
                 {/* <Column dataField="الطلب" groupIndex={0} /> */}
-                <Column caption={t('IncomingRequest:orderNumber')}  alignment={"right"} headerCellRender={renderCelleHeader} cellRender={renderGridCell} dataField="orderNumber" dataType="number" width={100} />
-                <Column caption={t('IncomingRequest:orderType')}  alignment={"right"} headerCellRender={renderCelleHeader} cellRender={renderGridCell} dataField="orderType" dataType="string" width={150}/>
-                <Column caption={t('IncomingRequest:orderDetails')}  alignment={"right"} headerCellRender={renderCelleHeader} cellRender={renderGridCell} dataField="orderDetails" dataType="string" width={150}/>
-                <Column caption={t('IncomingRequest:OrderDate')}  alignment={"right"} headerCellRender={renderCelleHeader} cellRender={renderGridCell} dataField="orderDate" dataType="date" width={150} />
-                <Column caption={t('IncomingRequest:issuerName')}  alignment={"right"} headerCellRender={renderCelleHeader} cellRender={renderGridCell} dataField="issuerName" dataType="string" width={170}/>
-                <Column caption={t('IncomingRequest:orderStatus')}  alignment={"center"} headerCellRender={renderCelleHeader} cellRender={renderGridLastCell} dataField="orderStatus" dataType="string" width={150}/>
+                <Column caption={t('IncomingRequest:orderNumber')}  alignment={"right"} dataField="orderNumber" dataType="number" width={100} />
+                <Column caption={t('IncomingRequest:orderType')}  alignment={"right"} dataField="orderType" dataType="string" width={150}/>
+                <Column caption={t('IncomingRequest:orderDetails')}  alignment={"right"}  dataField="orderDetails" dataType="string" width={150}/>
+                <Column caption={t('IncomingRequest:OrderDate')}  alignment={"right"} dataField="orderDate" dataType="date" width={150} />
+                <Column caption={t('IncomingRequest:issuerName')}  alignment={"right"}  dataField="issuerName" dataType="string" width={170}/>
+                <Column caption={t('IncomingRequest:orderStatus')}  alignment={"center"}  dataField="orderStatus" dataType="string" width={150}/>
                 {/* <Pager allowedPageSizes={pageSizes} showPageSizeSelector={true} /> */}
                 <Paging defaultPageSize={8} />
                 </DataGrid>
