@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import rakLogo from "../../../assets/RAK.png";
 import logo from "../../../assets/logo.png";
-import { device } from "../../../device";
 import { useTranslation, Trans } from "react-i18next";
 
 const Header = ({ islogged }) => {

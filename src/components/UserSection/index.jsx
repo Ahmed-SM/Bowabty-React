@@ -5,7 +5,6 @@ import { faClipboard, faCircle, faAddressBook, faBell} from '@fortawesome/free-s
 import { useTranslation, Trans } from "react-i18next";
 import {DiractionContext} from "../../contexts/DiractionContext";
 import {TitleContext} from "../../contexts/TitleContext";
-import { device } from "../../device";
 
 const data = {
   ar:{userName:'علياء أحمد مصطفى', userRole:'اخصائي تطوير مؤسس'},

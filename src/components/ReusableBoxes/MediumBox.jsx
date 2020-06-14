@@ -2,7 +2,7 @@ import React, {useContext} from "react";
 import styled from "styled-components";
 import 'react-multi-carousel/lib/styles.css';
 import {DiractionContext} from "../../contexts/DiractionContext";
-import { device } from "../../device";
+
 
  const MediumBox = ({children, ...rest}) => {
     const [isLTR] = useContext(DiractionContext);
