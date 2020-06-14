@@ -5,7 +5,6 @@ import NewsFeed from "./newsFeed";
 import NewsFeedSection from "./newsFeedSection";
 import {useTranslation, Trans} from "react-i18next";
 import {TitleContext} from "../../contexts/TitleContext";
-import { device } from "../../device";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import {CustomInput, CustomSelect} from ".."
@@ -181,9 +180,6 @@ const StyledInputGroup = styled.div`
     margin-bottom: 20px;
     display: flex;
     flex-wrap: nowrap;
-    @media ${device.tablet} {
-        flex-direction:column;
-      };
 `;
 const StyledFile = styled.div`
     height: 30px;
