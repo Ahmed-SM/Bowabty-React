@@ -121,7 +121,7 @@ text-shadow: -10px 35px 46px -12px rgba(0,0,0,0.75);
 .dx-data-row > td{
   color: #6F6F6F;
 font-weight: 300;
-padding: 1px 2px !important;
+padding: 7px 4px !important;
 border:none;
 background:#f5f5f5;
 font-family: 'CoconNextArabic-Regular', Sans-Serif ;
@@ -137,13 +137,13 @@ font-family: 'CoconNextArabic-Regular', Sans-Serif ;
   
   color: #333;
   font-weight: 300;
-  padding: 0 4px;
+  padding: 0 4px !important;
   border: none;
   font-size: 15px;
   font-family: 'CoconNextArabic-Regular',Sans-Serif;
 }
 .dx-header-row {
-  height: 35px;
+  height: 30px;
   border-bottom: #333 solid 1px !important;
 }
 .dx-datagrid-headers{
