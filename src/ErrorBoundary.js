@@ -18,7 +18,7 @@ class ErrorBoundary extends React.Component {
         // Error path
         return (
           <ErrorMessage>
-            <ErrorHeader>عذراً حدث خطأ</ErrorHeader>
+            <ErrorHeader>عذراً حدثَ خطأ</ErrorHeader>
             <ErrorHeader style={{ whiteSpace: 'pre-wrap' }}>
               {this.state.error && this.state.error.toString()}
               <br />

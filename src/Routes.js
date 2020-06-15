@@ -25,28 +25,33 @@ const Routes = () => {
             <MainLayout>
                 <TitleProvider>
                     <Suspense fallback={<StyledUserContent/>}>
+                    <ErrorBoundary>
                         <Switch>
                             
-                            <Route component={UserSection} path={"/*"}/>
+                            <Route exact component={UserSection} path={"/*"}/>
                        
                         </Switch>
+                        </ErrorBoundary>
                     </Suspense>   
                     <Suspense fallback={<StyledServicesContainer/>}>
-                        <Switch>
+                        <ErrorBoundary>
+                            <Switch>
 
-                            <Route component={ServiceSlider} path={["/v/*", "/"]}/>
+                                <Route exact component={ServiceSlider} path={["/v/*", "/"]}/>
 
-                        </Switch>
+                            </Switch>
+                        </ErrorBoundary>
                     </Suspense>
                     <Suspense fallback={<StyledView><StyledMyService/></StyledView>}>
-                        <Switch>
                         <ErrorBoundary>
-                            <ContainerComponentRoute  component={MyService} container={View} path={"/"}/>
+                            <Switch>
+
+                                <ContainerComponentRoute exact component={MyService} container={View} path={"/"}/>
+                                <ContainerComponentRoute  exact component={MyOrders}  container={Page} path={"/myorders"}/>
+                                <ContainerComponentRoute exact  component={IncomingRequest} container={Page} path={"/incomingrequest"}/>
+
+                            </Switch>
                         </ErrorBoundary>
-                            <ContainerComponentRoute  component={MyOrders}  container={Page} path={"/myorders"}/>
-                            <ContainerComponentRoute  component={IncomingRequest} container={Page} path={"/incomingrequest"}/>
-                            
-                        </Switch>
                     </Suspense>
                 </TitleProvider>
             </MainLayout> : <Suspense fallback={<LoadLayout/>}><LoginLayout/></Suspense>}

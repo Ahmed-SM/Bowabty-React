@@ -1,8 +1,10 @@
+import 'react-app-polyfill/ie11';
+import 'react-app-polyfill/stable';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from "react-router-dom";
 import {UserProvider} from "./contexts/UserContext";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import LoadLayout from "./layouts/LoadLayout";
