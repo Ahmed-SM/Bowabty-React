@@ -8,6 +8,7 @@ import * as serviceWorker from './serviceWorker';
 import LoadLayout from "./layouts/LoadLayout";
 const App = React.lazy(()=> import("./App"));
 
+
 ReactDOM.render(
   <React.StrictMode>
       <BrowserRouter>

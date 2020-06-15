@@ -45,6 +45,7 @@ const MyService = () => {
     console.log("MyService rerendred")
     return (
         <>
+        
         <MediumBox>
                 <HeaderContainer children={<Trans i18nKey={"myService:suggestion"} t={t}>تقديم مقترح</Trans>}/>
             <StyledGroup>

@@ -1,5 +1,5 @@
 import React, {useContext, Suspense} from 'react';
-
+import ErrorBoundary from "./ErrorBoundary";
 import {UserContext} from "./contexts/UserContext";
 import {TitleProvider} from "./contexts/TitleContext";
 import { Switch, Route } from 'react-router-dom';
@@ -11,9 +11,9 @@ const ContainerComponentRoute = React.lazy(()=> import("./components/ContainerCo
 const LoginLayout = React.lazy(()=> import("./layouts/LoginLayout"));
 const View = React.lazy(()=> import("./containers/View"));
 const Page = React.lazy(()=> import("./containers/Page"));
+const MyService = React.lazy(()=> import("./components/MyService"));
 const UserSection = React.lazy(()=> import("./components/UserSection"));
 const ServiceSlider = React.lazy(()=> import("./components/ServiceSlider"));
-const MyService = React.lazy(()=> import("./components/MyService"));
 const MyOrders = React.lazy(()=> import("./components/MyOrders"));
 const IncomingRequest = React.lazy(()=> import("./components/IncomingRequest"));
 const StickyBox = React.lazy(()=>import("./components/StickyLabel/StickyBox"));
@@ -40,8 +40,9 @@ const Routes = () => {
                     </Suspense>
                     <Suspense fallback={<StyledView><StyledMyService/></StyledView>}>
                         <Switch>
-
+                        <ErrorBoundary>
                             <ContainerComponentRoute  component={MyService} container={View} path={"/"}/>
+                        </ErrorBoundary>
                             <ContainerComponentRoute  component={MyOrders}  container={Page} path={"/myorders"}/>
                             <ContainerComponentRoute  component={IncomingRequest} container={Page} path={"/incomingrequest"}/>
                             
