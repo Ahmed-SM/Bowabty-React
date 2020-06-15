@@ -38,6 +38,7 @@ const MyService = () => {
     };
 
     useEffect(() => {
+        console.log("MyService rerendred use effect")
         if (Title !== t("myService:title")) {
             setTitle(t("myService:title"))
         }
@@ -163,8 +164,8 @@ const StyledSendButton = styled.button`
     color: #fff;
     background-color: #3C4652;
     outline: 0;
-    margin-left: 15.3px;
-    margin-right: 15.30px;
+    margin-left: 5.3px;
+    margin-right: 5.30px;
     margin-bottom: 10px;
     &:hover{
       box-shadow: 0 0 5px rgba(81, 203, 238, 1);
