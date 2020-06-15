@@ -8,9 +8,9 @@ const View = ({children}) => {
 export default View;
 const StyledView = styled.section`
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   margin 0 20px;
-  padding: 20px 0;
+  padding: 20px 50px;
   height: fit-content;
   min-height:400px;
   align-items: center;
