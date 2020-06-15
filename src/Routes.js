@@ -12,7 +12,7 @@ const LoginLayout = React.lazy(()=> import("./layouts/loginLayout"));
 const View = React.lazy(()=> import("./containers/View"));
 const Page = React.lazy(()=> import("./containers/Page"));
 const UserSection = React.lazy(()=> import("./components/UserSection"));
-const ServiceSlider = React.lazy(()=> import("./components/ServiceSlider"));
+const ServiceSlider = React.lazy(()=> import("./components/serviceSlider"));
 const MyService = React.lazy(()=> import("./components/MyService"));
 const MyOrders = React.lazy(()=> import("./components/MyOrders"));
 const IncomingRequest = React.lazy(()=> import("./components/IncomingRequest"));

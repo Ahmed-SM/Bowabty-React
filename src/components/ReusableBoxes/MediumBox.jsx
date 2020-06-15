@@ -1,6 +1,6 @@
 import React, {useContext} from "react";
 import styled from "styled-components";
-import 'react-multi-carousel/lib/styles.css';
+import '../serviceSlider/node_modules/react-multi-carousel/lib/styles.css';
 import {DiractionContext} from "../../contexts/DiractionContext";
 
 

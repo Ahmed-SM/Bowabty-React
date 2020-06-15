@@ -1,7 +1,7 @@
-import React from "react";
-import Carousel from "react-multi-carousel";
-import styled from "styled-components";
-import {Link} from "react-router-dom";
+import React from "./node_modules/react";
+import Carousel from "./node_modules/react-multi-carousel";
+import styled from "./node_modules/styled-components";
+import {Link} from "./node_modules/react-router-dom";
 import UAParser from "ua-parser-js";
 const ServicesCarousel = ({deviceType, list}) => {
     console.log("%c ServicesCarousel rerendred. ", "background:red; color: white;");

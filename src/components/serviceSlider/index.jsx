@@ -1,10 +1,10 @@
-import React, {useRef} from "react";
-import styled from "styled-components";
-import 'react-multi-carousel/lib/styles.css';
+import React, {useRef} from "./node_modules/react";
+import styled from "./node_modules/styled-components";
+import './node_modules/react-multi-carousel/lib/styles.css';
 import ServicesCarousel from "./Carousel";
 import CarouselSection from "./CarouselSection";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faBars} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "./node_modules/@fortawesome/react-fontawesome";
+import {faBars} from './node_modules/@fortawesome/free-solid-svg-icons';
 
 import artBag from "../../assets/serviceImgs/art-bag.png";
 import desk from "../../assets/serviceImgs/desk.png";
