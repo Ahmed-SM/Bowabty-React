@@ -1,6 +1,6 @@
 import React, {useContext, useEffect} from "react";
 import styled from "styled-components";
-import '../ServiceSlider/node_modules/react-multi-carousel/lib/styles.css';
+import 'react-multi-carousel/lib/styles.css';
 import NewsFeed from "./NewsFeed";
 import NewsFeedSection from "./NewsFeedSection";
 import {useTranslation, Trans} from "react-i18next";
