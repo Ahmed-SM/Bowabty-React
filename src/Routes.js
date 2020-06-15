@@ -1,56 +1,58 @@
-import React, {useContext} from 'react';
+import React, {useContext, Suspense} from 'react';
 
 import {UserContext} from "./contexts/UserContext";
 import {TitleProvider} from "./contexts/TitleContext";
+import { Switch, Route } from 'react-router-dom';
 
+import LoadLayout, {StyledUserContent, StyledServicesContainer, StyledView, StyledMyService} from "./layouts/LoadLayout";
+import MainLayout from "./layouts/MainLayout";
 
-import LoadLayout, {StyledUserContent, StyledServicesContainer, StyledView, StyledMyService, StyledPage} from "./layouts/LoadLayout";
-
-const ContainerComponentRoute = React.lazy(()=> import("./components/ContainerComponentRoute/ContainerComponentRoute"));
+const ContainerComponentRoute = React.lazy(()=> import("./components/ContainerComponentRoute"));
 const LoginLayout = React.lazy(()=> import("./layouts/loginLayout"));
-const MainLayout = React.lazy(()=> import("./layouts/MainLayout"));
-const Shallow = React.lazy(()=> import("./containers/Shallow"));
 const View = React.lazy(()=> import("./containers/View"));
 const Page = React.lazy(()=> import("./containers/Page"));
-const UserSection = React.lazy(()=> import("./components/UserSection/UserSection"));
-const ServiceSlider = React.lazy(()=> import("./components/ServiceSlider/ServiceSlider"));
-const MyService = React.lazy(()=> import("./components/MyService/MyService"));
-const MyOrders = React.lazy(()=> import("./components/MyOrders/MyOrders"));
-const IncomingRequest = React.lazy(()=> import("./components/IncomingRequest/IncomingRequest"));
+const UserSection = React.lazy(()=> import("./components/UserSection"));
+const ServiceSlider = React.lazy(()=> import("./components/ServiceSlider"));
+const MyService = React.lazy(()=> import("./components/MyService"));
+const MyOrders = React.lazy(()=> import("./components/MyOrders"));
+const IncomingRequest = React.lazy(()=> import("./components/IncomingRequest"));
+const StickyBox = React.lazy(()=>import("./components/StickyLabel/StickyBox"));
 
 const Routes = () => {
     const [userData] = useContext(UserContext);
     return(
         <>{ userData ?
-        <React.Suspense fallback={<LoadLayout/>}>
             <MainLayout>
                 <TitleProvider>
+                    <Suspense fallback={<StyledUserContent/>}>
+                        <Switch>
+                            
+                            <Route component={UserSection} path={"/*"}/>
+                       
+                        </Switch>
+                    </Suspense>   
+                    <Suspense fallback={<StyledServicesContainer/>}>
+                        <Switch>
 
-                    <React.Suspense fallback={<StyledUserContent/>}>
-                        <ContainerComponentRoute exact component={UserSection} container={Shallow} path={"/*"}/>
-                    </React.Suspense>
-                    
-                    <React.Suspense fallback={<StyledServicesContainer/>}>
-                        <ContainerComponentRoute exact component={ServiceSlider} container={Shallow} path={["/v/*", "/"]}/>
-                    </React.Suspense>
-                 
-                    <React.Suspense fallback={<StyledView><StyledMyService/></StyledView>}> 
-                        <ContainerComponentRoute exact component={MyService} container={View} path={"/"}/>
-                    </React.Suspense>
+                            <Route component={ServiceSlider} path={["/v/*", "/"]}/>
 
-                    <React.Suspense fallback={<StyledPage/>}>
-                        <ContainerComponentRoute exact component={MyOrders}  container={Page} path="/myorders"/>
-                    </React.Suspense>
+                        </Switch>
+                    </Suspense>
+                    <Suspense fallback={<StyledView><StyledMyService/></StyledView>}>
+                        <Switch>
 
-                    <React.Suspense fallback={<StyledPage/>}>
-                        <ContainerComponentRoute exact component={IncomingRequest} container={Page} path="/incomingrequest"/>
-                    </React.Suspense>
-
+                            <ContainerComponentRoute  component={MyService} container={View} path={"/"}/>
+                            <ContainerComponentRoute  component={MyOrders}  container={Page} path={"/myorders"}/>
+                            <ContainerComponentRoute  component={IncomingRequest} container={Page} path={"/incomingrequest"}/>
+                            
+                        </Switch>
+                    </Suspense>
                 </TitleProvider>
-            </MainLayout>
-    
-        </React.Suspense> : <React.Suspense fallback={<LoadLayout/>}><LoginLayout/></React.Suspense>}
-        </>
+            </MainLayout> : <Suspense fallback={<LoadLayout/>}><LoginLayout/></Suspense>}
+            <Suspense fallback={null}>
+                <StickyBox/>
+            </Suspense>
+         </>
     );
 };
 

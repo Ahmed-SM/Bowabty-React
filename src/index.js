@@ -4,16 +4,19 @@ import { BrowserRouter } from "react-router-dom";
 import {UserProvider} from "./contexts/UserContext";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
+import LoadLayout from "./layouts/LoadLayout";
+const App = React.lazy(()=> import("./App"));
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <UserProvider>
-        <App />
-      </UserProvider>
-    </BrowserRouter>
+      <BrowserRouter>
+        <UserProvider>
+          <React.Suspense fallback={<LoadLayout/>}>
+            <App />
+          </React.Suspense>
+        </UserProvider>
+      </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

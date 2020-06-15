@@ -8,10 +8,7 @@ const LoadLayout = () =>{
             <StyledHeader/>
             <StyledNavigation/>
             <StyledUserContent/>
-            <StyledServicesContainer/>
-            <StyledView>
-                <StyledMyService/>
-            </StyledView>
+            <StyledPage/>
         </StyledLoadLayout>
     )
 }

@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import {Header} from "./common";
-import {LoginNav} from "./common";
-import {Login} from "../components";
+import Header from "./common/Header";
+import LoginNav from "./common/LoginNav";
+import Login from "../components/Login";
 
 const loginLayout = () => {
     console.log("loginLayout rerendred")

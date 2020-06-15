@@ -1,15 +1,21 @@
 import React from "react";
 import styled from "styled-components";
-import {Header} from "./common";
-import {MainNav} from "./common";
+// import {Header} from "./common";
+import {StyledHeader, StyledNavigation} from "./LoadLayout";
 
+const Header = React.lazy(()=> import("./common/Header"));
+const MainNav = React.lazy(()=> import("./common/MainNav"));
 
 const mainLayout = ({children}) => {
     console.log("mainLayout rerendred")
     return (
         <MainLayout>
-            <Header/>
-            <MainNav/>
+            <React.Suspense fallback={<StyledHeader/>}>
+                <Header/>
+            </React.Suspense>
+            <React.Suspense fallback={<StyledNavigation/>}>
+                <MainNav/>
+            </React.Suspense>
             {children}
         </MainLayout>
     );

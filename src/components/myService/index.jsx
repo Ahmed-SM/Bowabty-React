@@ -7,8 +7,8 @@ import {useTranslation, Trans} from "react-i18next";
 import {TitleContext} from "../../contexts/TitleContext";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import {CustomInput, CustomSelect} from ".."
-import {MediumBox} from ".."
+import {CustomInput, CustomSelect} from "../CustomInputs"
+import MediumBox from "../ReusableBoxes/MediumBox"
 
 const MemoizedNewsFeed= React.memo(() =>{
     return <NewsFeed list={Newslist}/>

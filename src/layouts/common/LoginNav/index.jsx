@@ -1,7 +1,7 @@
 import React, {useContext} from "react";
 import styled from "styled-components";
-import {LanguageBox} from "../";
-import {SocialBox} from "../";
+import LanguageBox from "../LanguageBox";
+import SocialBox from "../SocialBox";
 import {DiractionContext} from "../../../contexts/DiractionContext";
 
 const LoginNav = () => {

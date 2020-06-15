@@ -6,6 +6,7 @@
   url("./assets/font/b66fc2e5aebf8caea5968b38f84ce785.woff") format("woff"), /* chrome、firefox */
   url("./assets/font/b66fc2e5aebf8caea5968b38f84ce785.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
   url("./assets/font/b66fc2e5aebf8caea5968b38f84ce785.svg#CoconNextArabic-Bold") format("svg"); /* iOS 4.1- */
+  font-display: swap;
 }
 body {
   margin: 0;

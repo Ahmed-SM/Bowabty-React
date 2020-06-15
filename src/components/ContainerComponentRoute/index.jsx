@@ -7,9 +7,9 @@ const ContainerComponentRoute = ({ container: Container, component: Component, c
   return (
     <Route
       {...rest}
-      render={matchProps => (
+      render={props  => (
         <Container>
-          <Component {...matchProps} children={children}/>
+          <Component {...props}/>
         </Container>
       )}
     />
