@@ -8,7 +8,7 @@ import LoadLayout, {StyledUserContent, StyledServicesContainer, StyledView, Styl
 import MainLayout from "./layouts/MainLayout";
 
 const ContainerComponentRoute = React.lazy(()=> import("./components/ContainerComponentRoute"));
-const LoginLayout = React.lazy(()=> import("./layouts/loginLayout"));
+const LoginLayout = React.lazy(()=> import("./layouts/LoginLayout"));
 const View = React.lazy(()=> import("./containers/View"));
 const Page = React.lazy(()=> import("./containers/Page"));
 const UserSection = React.lazy(()=> import("./components/UserSection"));
