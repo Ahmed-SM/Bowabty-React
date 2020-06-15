@@ -1,8 +1,8 @@
 import React, {useContext, useEffect} from "react";
 import styled from "styled-components";
 import 'react-multi-carousel/lib/styles.css';
-import NewsFeed from "./newsFeed";
-import NewsFeedSection from "./newsFeedSection";
+import NewsFeed from "./NewsFeed";
+import NewsFeedSection from "./NewsFeedSection";
 import {useTranslation, Trans} from "react-i18next";
 import {TitleContext} from "../../contexts/TitleContext";
 import { Formik, Form } from "formik";

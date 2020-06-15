@@ -6,17 +6,17 @@ import {TitleProvider} from "./contexts/TitleContext";
 
 import LoadLayout, {StyledUserContent, StyledServicesContainer, StyledView, StyledMyService, StyledPage} from "./layouts/LoadLayout";
 
-const ContainerComponentRoute = React.lazy(()=> import("./components/ContainerComponentRoute"));
+const ContainerComponentRoute = React.lazy(()=> import("./components/ContainerComponentRoute/ContainerComponentRoute"));
 const LoginLayout = React.lazy(()=> import("./layouts/loginLayout"));
 const MainLayout = React.lazy(()=> import("./layouts/MainLayout"));
 const Shallow = React.lazy(()=> import("./containers/Shallow"));
 const View = React.lazy(()=> import("./containers/View"));
 const Page = React.lazy(()=> import("./containers/Page"));
-const UserSection = React.lazy(()=> import("./components/UserSection"));
-const ServiceSlider = React.lazy(()=> import("./components/ServiceSlider"));
-const MyService = React.lazy(()=> import("./components/MyService"));
-const MyOrders = React.lazy(()=> import("./components/MyOrders"));
-const IncomingRequest = React.lazy(()=> import("./components/IncomingRequest"));
+const UserSection = React.lazy(()=> import("./components/UserSection/UserSection"));
+const ServiceSlider = React.lazy(()=> import("./components/ServiceSlider/ServiceSlider"));
+const MyService = React.lazy(()=> import("./components/MyService/MyService"));
+const MyOrders = React.lazy(()=> import("./components/MyOrders/MyOrders"));
+const IncomingRequest = React.lazy(()=> import("./components/IncomingRequest/IncomingRequest"));
 
 const Routes = () => {
     const [userData] = useContext(UserContext);

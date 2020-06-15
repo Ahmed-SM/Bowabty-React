@@ -5,7 +5,7 @@ import Routes from "./Routes";
 import './App.css';
 import "./i18n";
 
-const StickyBox = React.lazy(()=>import("./components/StickyLabel"));
+const StickyBox = React.lazy(()=>import("./components/StickyLabel/StickyBox"));
 
 
 function App() {

@@ -7,16 +7,6 @@ import {useTranslation} from "react-i18next";
 import DataGrid, { Column, GroupPanel, Paging, SearchPanel} from "devextreme-react/data-grid";
 
     
-  const renderCelleHeader = (data) => {
-    return <StyledHeader>{data.column.caption}</StyledHeader>;
-  }
-  const renderGridCell = (data) => {
-  return <StyledCell>{data.text}</StyledCell>;
-  }
-  const renderGridLastCell = (data) => {
-  return <StyledLastCell>{data.text}</StyledLastCell>;
-  }
-
   const IncomingRequest = () => {
     console.log("IncomingRequest rerendred")
     const [Title, setTitle] = useContext(TitleContext);
@@ -200,28 +190,3 @@ const StyledMdContainer = styled.div`
       padding-bottom:0;
     }
 `;
-const StyledCell = styled.div`
-  color: #6F6F6F;
-  font-weight: 300;
-  padding: 7px 4px;
-  border:none;
-  background:#f5f5f5;
-  font-family: 'CoconNextArabic-Bold', Sans-Serif ;
-`; 
-const StyledLastCell = styled.div`
-  color: #6F6F6F;
-  font-weight: 300;
-  padding: 7px 0;
-  margin:0 5px 0 0;
-  border:none;
-  background:#f5f5f5;
-  font-family: 'CoconNextArabic-Bold', Sans-Serif ;
-`; 
-const StyledHeader = styled.p`
-color: #333;
-font-weight: 300;
-padding: 0 4px;
-border:none;
-font-size:15px;
-font-family: 'CoconNextArabic-Bold', Sans-Serif;
-`; 
