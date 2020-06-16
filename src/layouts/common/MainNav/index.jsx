@@ -60,7 +60,6 @@ const StyledNavigation = styled.nav`
     height: 6.3rem;
     box-shadow: 0px 7px 5px 0px rgba(0, 0, 0, 0.31);
     text-align: center;
-    align-items: center;
     display: inline-flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -73,6 +72,7 @@ const StyledRightSection = styled.div`
     justify-content: space-around;
     flex-direction: row;
     flex-wrap: nowrap;
+    align-items: center;
     
 `;
 const StyledLeftSection = styled.div`
@@ -80,6 +80,7 @@ const StyledLeftSection = styled.div`
     display: inline-flex;
     flex-direction: row;
     flex-wrap: nowrap;
+    align-items: center;
 `;
 const StyledDropdown = styled.div`
     margin: 1px 7px;

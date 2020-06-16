@@ -38,20 +38,27 @@ const StyledSocialBox = styled.div`
     display: inline-flex;
     flex-direction: row-reverse;
     flex-wrap: nowrap;
-    width: 200px;
-    & > div {
-        max-width: 35px;
-    }
+    align-items: center;
+    width: 180px;
+  
 `;
 const StyledSocialPosition = styled.div`
     display: block;
     width: 70px;
-    color: white;
-    line-height: 4.5;
-    & > i {
-        font-size: 25px;  
-    }
     & > * {
         color: white;
+    }
+    .social-icon{
+        font-size: 14px;
+    }
+    .social-icon:hover{
+    text-decoration: none !important;
+    font-size: 17.5px !important;
+    transition: all 0.2s !important;
+    color: white !important;
+    }
+    .social-icon:focus{
+      text-decoration: none !important;
+      color: white !important;
     }
 `;
