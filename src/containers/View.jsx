@@ -7,7 +7,7 @@ export default View;
 const StyledView = styled.section`
   display: flex;
   justify-content: space-between;
-  margin 0 20px;
+  margin 0 25px;
   padding: 20px 50px;
   height: fit-content;
   min-height:400px;

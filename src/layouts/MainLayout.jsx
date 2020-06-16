@@ -27,4 +27,5 @@ const MainLayout = styled.main`
   background-color: transparent;
   box-sizing: border-box;
   min-height: 92%;
+  
 `;

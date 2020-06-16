@@ -37,8 +37,7 @@ const MyService = () => {
     })
     console.log("MyService rerendred")
     return (
-        <>
-        
+        <React.Fragment>    
         <MediumBox>
             <BoxHeader children={<Trans i18nKey={"myService:suggestion"} t={t}>تقديم مقترح</Trans>}/>
             <StyledGroup>
@@ -101,7 +100,7 @@ const MyService = () => {
                 <MemoizedNewsFeed/>
             </NewsFeedSection>
         </MediumBox>
-        </>
+        </React.Fragment>
     );
 }
 export default MyService;

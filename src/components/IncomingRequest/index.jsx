@@ -22,13 +22,13 @@ import LargeBox from "../ReusableBoxes/LargeBox"
             <div className="demo-container">
                 <DataGrid
                 width={870}
-                dataSource={i18n.language == 'ar' ? testdata.ar : testdata.en}
+                dataSource={i18n.language === 'ar' ? testdata.ar : testdata.en}
                 showColumnLines={false}
                 showScrollbar={false}
                 // showRowLines={true}
                 allowColumnReordering={true}
                 // showBorders={true}
-                rtlEnabled={i18n.language == 'ar' ? true : false}
+                rtlEnabled={i18n.language === 'ar' ? true : false}
                 ShowHorizontalLines={false}
                 // rowAlternationEnabled={true}
                 >
@@ -36,11 +36,11 @@ import LargeBox from "../ReusableBoxes/LargeBox"
                 <SearchPanel visible={true} highlightCaseSensitive={true} placeholder={t('IncomingRequest:placeholder')}/>
                 {/* <Grouping autoExpandAll={true} /> */}
                 {/* <Column dataField="الطلب" groupIndex={0} /> */}
-                <Column caption={t('IncomingRequest:orderNumber')}  alignment={i18n.language == 'ar' ? "right ": "left"} dataField="orderNumber" dataType="number" width={100} />
-                <Column caption={t('IncomingRequest:orderType')}  alignment={i18n.language == 'ar' ? "right ": "left"}   dataField="orderType" dataType="string" width={150}/>
-                <Column caption={t('IncomingRequest:orderDetails')}  alignment={i18n.language == 'ar' ? "right ": "left"}   dataField="orderDetails" dataType="string" width={150}/>
-                <Column caption={t('IncomingRequest:OrderDate')}  alignment={i18n.language == 'ar' ? "right ": "left"}  dataField="orderDate" dataType="date" width={150} />
-                <Column caption={t('IncomingRequest:issuerName')}  alignment={i18n.language == 'ar' ? "right ": "left"}  dataField="issuerName" dataType="string" width={170}/>
+                <Column caption={t('IncomingRequest:orderNumber')}  alignment={i18n.language === 'ar' ? "right ": "left"} dataField="orderNumber" dataType="number" width={100} />
+                <Column caption={t('IncomingRequest:orderType')}  alignment={i18n.language === 'ar' ? "right ": "left"}   dataField="orderType" dataType="string" width={150}/>
+                <Column caption={t('IncomingRequest:orderDetails')}  alignment={i18n.language === 'ar' ? "right ": "left"}   dataField="orderDetails" dataType="string" width={150}/>
+                <Column caption={t('IncomingRequest:OrderDate')}  alignment={i18n.language === 'ar' ? "right ": "left"}  dataField="orderDate" dataType="date" width={150} />
+                <Column caption={t('IncomingRequest:issuerName')}  alignment={i18n.language === 'ar' ? "right ": "left"}  dataField="issuerName" dataType="string" width={170}/>
                 <Column caption={t('IncomingRequest:orderStatus')}  alignment={"center"}  dataField="orderStatus" dataType="string" width={150}/>
                 {/* <Pager allowedPageSizes={pageSizes} showPageSizeSelector={true} /> */}
                 <Paging defaultPageSize={8} />

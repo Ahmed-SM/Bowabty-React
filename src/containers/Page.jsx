@@ -20,7 +20,7 @@ const StyledContainer = styled.div`
   justify-content: space-around;
   height: auto;
   min-height: 69vh;
-  padding: 50px 10px;
+  padding: 38px 10px;
   width: 100%;
   background-color: #f6f4f5;
   box-sizing: border-box;
