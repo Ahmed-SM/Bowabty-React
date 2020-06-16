@@ -7,22 +7,14 @@ import {useTranslation, Trans} from "react-i18next";
 import {TitleContext} from "../../contexts/TitleContext";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import {CustomInput, CustomSelect} from "../CustomInputs"
-import MediumBox from "../ReusableBoxes/MediumBox"
+import {CustomInput, CustomSelect} from "../CustomInputs";
+import MediumBox from "../ReusableBoxes/MediumBox";
+import BoxHeader from "../ReusableBoxes/BoxHeader";
 
 const MemoizedNewsFeed= React.memo(() =>{
     return <NewsFeed list={Newslist}/>
   });
-  const HeaderContainer = ({children}) =>{ 
-    return(
-        <StyledHeader>
-            <Styledh3>
-                {children}
-            </Styledh3>
-            <StyledContainerDivider/>
-        </StyledHeader>
-    );
-  };  
+ 
 const MyService = () => {
     const {t} = useTranslation();
     const [Title, setTitle] = useContext(TitleContext);
@@ -48,7 +40,7 @@ const MyService = () => {
         <>
         
         <MediumBox>
-                <HeaderContainer children={<Trans i18nKey={"myService:suggestion"} t={t}>تقديم مقترح</Trans>}/>
+            <BoxHeader children={<Trans i18nKey={"myService:suggestion"} t={t}>تقديم مقترح</Trans>}/>
             <StyledGroup>
                 <Formik initialValues={{suggestion: "", suggestionOrigin:"", file:""}}
                     validationSchema={validation}
@@ -104,7 +96,7 @@ const MyService = () => {
             </StyledGroup>
         </MediumBox>
         <MediumBox primary>
-            <HeaderContainer children={<Trans i18nKey={"myService:decision"}>قرارات داخلية جديدة</Trans>} />
+            <BoxHeader children={<Trans i18nKey={"myService:decision"}>قرارات داخلية جديدة</Trans>} />
             <NewsFeedSection >
                 <MemoizedNewsFeed/>
             </NewsFeedSection>
@@ -114,21 +106,6 @@ const MyService = () => {
 }
 export default MyService;
 
-const StyledHeader = styled.div`
-    padding: 25px 40px 10px 40px;
-    -webkit-text-stroke: 0.4px black;
-    -webkit-text-fill-color: black;
-    overflow: hidden;
-    white-space: nowrap;
-`;
-const Styledh3 = styled.h3`
-    text-overflow: ellipsis;
-`;
-const StyledContainerDivider = styled.hr`
-  margin: 10px 0px ;
-  border: 0;
-  border-top: 1px solid #eee;
-`;
 const StyledColumn = styled.div`
   display: flex;
   height: 60px;

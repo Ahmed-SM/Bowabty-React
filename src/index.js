@@ -5,6 +5,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from "react-router-dom";
 import {UserProvider} from "./contexts/UserContext";
+import ErrorBoundary from "./ErrorBoundary"
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import LoadLayout from "./layouts/LoadLayout";
@@ -16,7 +17,9 @@ ReactDOM.render(
       <BrowserRouter>
         <UserProvider>
           <React.Suspense fallback={<LoadLayout/>}>
+          <ErrorBoundary>
             <App />
+          </ErrorBoundary>
           </React.Suspense>
         </UserProvider>
       </BrowserRouter>

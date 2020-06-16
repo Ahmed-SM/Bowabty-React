@@ -36,9 +36,10 @@ const UserContent = ({isVisible}) => {
           </StyledUserDetails>
           <StyledTitle>
             <div>
+              { Title ? 
                 <StyledH1 >
                   {Title}
-                </StyledH1>
+                </StyledH1> : <StyledTextFallback/>}
             </div>
             <div>
               <StyledH4>
@@ -143,6 +144,13 @@ const StyledInfo = styled.div`
         text-align: right;
         color: #6D6D6D;
     }
+`;
+const StyledTextFallback = styled.h1`
+  height:10px;
+  background:#ddd;
+  border-radius:5px;
+  margin:17px auto;
+  width:100px;
 `;
 const StyledSideBtn = styled.div`
     margin: 0px 10px;

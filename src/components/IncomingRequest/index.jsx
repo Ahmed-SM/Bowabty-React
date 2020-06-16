@@ -5,6 +5,7 @@ import 'devextreme/dist/css/dx.light.css';
 import {TitleContext} from "../../contexts/TitleContext";
 import {useTranslation} from "react-i18next";
 import DataGrid, { Column, GroupPanel, Paging, SearchPanel} from "devextreme-react/data-grid";
+import LargeBox from "../ReusableBoxes/LargeBox"
 
     
   const IncomingRequest = () => {
@@ -149,19 +150,8 @@ import DataGrid, { Column, GroupPanel, Paging, SearchPanel} from "devextreme-rea
       "orderStatus": "تحت الإجراء "
     },
 ];
-const StyledMdContainer = styled.div`
-  height: fit-content;
-  min-height: 540px;
-  padding: 20px 20px 0 20px;
-  margin-top:40px;
-  box-shadow: 0px 0px 8px 3px rgba(0, 0, 0, 0.09);
-  background-color: white;
-  border-radius: 15px;
-  z-index: 0;
-  border-bottom: 6px solid ${props => props.primary
-      ? "#3497DB"
-      : "#000000"};
-    .dx-pages, .dx-group-panel-message, .dx-texteditor-input, .dx-placeholder{
+const StyledMdContainer =  styled(LargeBox)`
+    .dx-pages, .dx-group-panel-message, .dx-texteditor-input, .dx-placeholder, .dx-datagrid-action, .dx-datagrid-drag-action{
       font-family: 'CoconNextArabic-Bold', Sans-Serif;
     }
     .x-datagrid-headers{
@@ -189,4 +179,5 @@ const StyledMdContainer = styled.div`
     .dx-datagrid-headers .dx-datagrid-table .dx-row > td { 
       padding-bottom:0;
     }
+
 `;
