@@ -14,7 +14,7 @@ const Header = ({ islogged }) => {
           <img src={logo} alt="" width="280" />
         </a>
       </StyledItem>
-      {islogged ? 
+      {islogged ? (
         <WelcomeSection>
           <h5>
             <Trans i18nKey={"welcome"} t={t}>
@@ -22,7 +22,10 @@ const Header = ({ islogged }) => {
             </Trans>
           </h5>
           <h5>Aamna Ahmed AlNaqbii</h5>
-        </WelcomeSection> : <></>}
+        </WelcomeSection>
+      ) : (
+        <></>
+      )}
       <StyledItem>
         <a href="/">
           <img src={rakLogo} alt="" width="240" />
@@ -32,8 +35,8 @@ const Header = ({ islogged }) => {
   );
 };
 Header.defaultProps = {
-    islogged: true,
-  };
+  islogged: true,
+};
 export default Header;
 
 const StyledHeader = styled.header`
@@ -47,7 +50,6 @@ const StyledHeader = styled.header`
   flex-direction: row-reverse;
   flex-wrap: nowrap;
   user-select: none;
-  
 `;
 const StyledItem = styled.div`
   display: inline-flex;

@@ -1,18 +1,17 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
-import 'react-multi-carousel/lib/styles.css';
-import {DiractionContext} from "../../contexts/DiractionContext";
+import "react-multi-carousel/lib/styles.css";
+import { DiractionContext } from "../../contexts/DiractionContext";
 
-
- const MediumBox = ({children, ...rest}) => {
-    const [isLTR] = useContext(DiractionContext);
-    console.log("MediumBox rerendred")
-    return (
-        <StyledInner {...rest} isLTR={isLTR}>
-            {children}
-        </StyledInner>
-    );
-}
+const MediumBox = ({ children, ...rest }) => {
+  const [isLTR] = useContext(DiractionContext);
+  console.log("MediumBox rerendred");
+  return (
+    <StyledInner {...rest} isLTR={isLTR}>
+      {children}
+    </StyledInner>
+  );
+};
 export default MediumBox;
 
 const StyledInner = styled.div`
@@ -25,10 +24,10 @@ const StyledInner = styled.div`
     background-color: white;
     border-radius: 15px;
     z-index: 0;
-    ${ ({
-        isLTR}) => isLTR && ` direction: ltr;
+    ${({ isLTR }) =>
+      isLTR &&
+      ` direction: ltr;
         `}
-    border-bottom: 6px solid ${props => props.primary
-        ? "#3497DB"
-        : "#000000"};
+    border-bottom: 6px solid ${(props) =>
+      props.primary ? "#3497DB" : "#000000"};
   `;
