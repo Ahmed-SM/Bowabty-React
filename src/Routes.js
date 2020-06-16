@@ -4,7 +4,7 @@ import {UserContext} from "./contexts/UserContext";
 import {TitleProvider} from "./contexts/TitleContext";
 import { Switch, Route } from 'react-router-dom';
 
-import LoadLayout, {StyledUserContent, StyledServicesContainer, StyledView, StyledMyService} from "./layouts/LoadLayout";
+import LoadLayout, {StyledUserContent, StyledServicesContainer, StyledView, StyledMyService, StyledPage} from "./layouts/LoadLayout";
 import MainLayout from "./layouts/MainLayout";
 
 const ContainerComponentRoute = React.lazy(()=> import("./components/ContainerComponentRoute"));
@@ -25,35 +25,29 @@ const Routes = () => {
             { userData ?
             <MainLayout>
                 <TitleProvider>
-                    <Suspense fallback={<StyledUserContent/>}>
                         <ErrorBoundary>
                             <Switch>
                                 
-                                <Route exact component={UserSection} path={"/*"}/>
+                                <Route exact component={UserSection} fallback={<StyledUserContent/>} path={"/*"}/>
                         
                             </Switch>
                         </ErrorBoundary>
-                    </Suspense>   
-                    <Suspense fallback={<StyledServicesContainer/>}>
                         <ErrorBoundary>
                             <Switch>
 
-                                <Route exact component={ServiceSlider} path={["/v/*", "/"]}/>
+                                <Route exact component={ServiceSlider} fallback={<StyledServicesContainer/>} path={["/v/*", "/"]}/>
 
                             </Switch>
                         </ErrorBoundary>
-                    </Suspense>
-                    <Suspense fallback={<StyledView><StyledMyService/></StyledView>}>
                         <ErrorBoundary>
                             <Switch>
 
-                                <ContainerComponentRoute exact component={MyService} container={View} path={"/"}/>
-                                <ContainerComponentRoute  exact component={MyOrders}  container={Page} path={"/myorders"}/>
-                                <ContainerComponentRoute exact  component={IncomingRequest} container={Page} path={"/incomingrequest"}/>
+                                <ContainerComponentRoute exact component={MyService} container={View} fallback= {<StyledView><StyledMyService/></StyledView>} path={"/"}/>
+                                <ContainerComponentRoute  exact component={MyOrders}  container={Page} fallback= {<StyledPage/>} path={"/myorders"}/>
+                                <ContainerComponentRoute exact  component={IncomingRequest} container={Page} fallback= {<StyledPage/>} path={"/incomingrequest"}/>
 
                             </Switch>
                         </ErrorBoundary>
-                    </Suspense>
                 </TitleProvider>
             </MainLayout> : <Suspense fallback={<LoadLayout/>}><LoginLayout/></Suspense>}
             <Suspense fallback={null}>
