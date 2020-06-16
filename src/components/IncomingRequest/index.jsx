@@ -11,7 +11,7 @@ import LargeBox from "../ReusableBoxes/LargeBox"
   const IncomingRequest = () => {
     console.log("IncomingRequest rerendred")
     const [Title, setTitle] = useContext(TitleContext);
-    const {t} = useTranslation();   
+    const {t, i18n} = useTranslation();   
           useEffect(()=>{
             if(Title !==t("IncomingRequest:title")){
                 setTitle(t("IncomingRequest:title"))
@@ -22,13 +22,13 @@ import LargeBox from "../ReusableBoxes/LargeBox"
             <div className="demo-container">
                 <DataGrid
                 width={870}
-                dataSource={testdata}
+                dataSource={i18n.language == 'ar' ? testdata.ar : testdata.en}
                 showColumnLines={false}
                 showScrollbar={false}
                 // showRowLines={true}
                 allowColumnReordering={true}
                 // showBorders={true}
-                rtlEnabled={true}
+                rtlEnabled={i18n.language == 'ar' ? true : false}
                 ShowHorizontalLines={false}
                 // rowAlternationEnabled={true}
                 >
@@ -36,11 +36,11 @@ import LargeBox from "../ReusableBoxes/LargeBox"
                 <SearchPanel visible={true} highlightCaseSensitive={true} placeholder={t('IncomingRequest:placeholder')}/>
                 {/* <Grouping autoExpandAll={true} /> */}
                 {/* <Column dataField="الطلب" groupIndex={0} /> */}
-                <Column caption={t('IncomingRequest:orderNumber')}  alignment={"right"} dataField="orderNumber" dataType="number" width={100} />
-                <Column caption={t('IncomingRequest:orderType')}  alignment={"right"}   dataField="orderType" dataType="string" width={150}/>
-                <Column caption={t('IncomingRequest:orderDetails')}  alignment={"right"}   dataField="orderDetails" dataType="string" width={150}/>
-                <Column caption={t('IncomingRequest:OrderDate')}  alignment={"right"}  dataField="orderDate" dataType="date" width={150} />
-                <Column caption={t('IncomingRequest:issuerName')}  alignment={"right"}  dataField="issuerName" dataType="string" width={170}/>
+                <Column caption={t('IncomingRequest:orderNumber')}  alignment={i18n.language == 'ar' ? "right ": "left"} dataField="orderNumber" dataType="number" width={100} />
+                <Column caption={t('IncomingRequest:orderType')}  alignment={i18n.language == 'ar' ? "right ": "left"}   dataField="orderType" dataType="string" width={150}/>
+                <Column caption={t('IncomingRequest:orderDetails')}  alignment={i18n.language == 'ar' ? "right ": "left"}   dataField="orderDetails" dataType="string" width={150}/>
+                <Column caption={t('IncomingRequest:OrderDate')}  alignment={i18n.language == 'ar' ? "right ": "left"}  dataField="orderDate" dataType="date" width={150} />
+                <Column caption={t('IncomingRequest:issuerName')}  alignment={i18n.language == 'ar' ? "right ": "left"}  dataField="issuerName" dataType="string" width={170}/>
                 <Column caption={t('IncomingRequest:orderStatus')}  alignment={"center"}  dataField="orderStatus" dataType="string" width={150}/>
                 {/* <Pager allowedPageSizes={pageSizes} showPageSizeSelector={true} /> */}
                 <Paging defaultPageSize={8} />
@@ -51,8 +51,9 @@ import LargeBox from "../ReusableBoxes/LargeBox"
     }
   export default IncomingRequest;
   
-  // const pageSizes = [10, 25, 50, 100];
-  const testdata = [
+
+  const testdata = {
+    "ar":[
     {
       "orderNumber": "32131",
       "orderType": "القرطاسية",
@@ -148,8 +149,107 @@ import LargeBox from "../ReusableBoxes/LargeBox"
       "orderDate": "05/11/2018",
       "issuerName": "يزن محمد احمد",
       "orderStatus": "تحت الإجراء "
-    },
-];
+    }
+  ],
+    "en":[
+      {
+        "orderNumber": "32131",
+        "orderType": "stationery",
+        "orderDetails": "Order Calculator",
+        "orderDate": "12/21/2018",
+        "issuerName": "Fadi Mohamed Ahmed",
+        "orderStatus": "closed"
+      },
+      {
+        "orderNumber": "42343",
+        "orderType": "Maintenance for my office",
+        "orderDetails": "Lighting",
+        "orderDate": "25/12/2018",
+        "issuerName": "Mustafa Khaled Ismail",
+        "orderStatus": "Under Action"
+      },
+      {
+        "orderNumber": "34342",
+        "orderType": "Miscellaneous Orders",
+        "orderDetails": 'Awafi Izbat Reservation',
+        "orderDate": "01/11/2018",
+        "issuerName": "Muhammad Ali Pasha",
+        "orderStatus": "Completed"
+      },
+      {
+        "orderNumber": "32131",
+        "orderType": "Human Resources",
+        "orderDetails": "Salary Certificate",
+        "orderDate": "05/11/2018",
+        "issuerName": "Muhammad Ahmad weighs",
+        "orderStatus": "Under Action"
+      },
+      {
+        "orderNumber": "32131",
+        "orderType": "stationery",
+        "orderDetails": "Order Calculator",
+        "orderDate": "12/21/2018",
+        "issuerName": "Fadi Mohamed Ahmed",
+        "orderStatus": "closed"
+      },
+      {
+        "orderNumber": "42343",
+        "orderType": "Maintenance for my office",
+        "orderDetails": "Lighting",
+        "orderDate": "25/12/2018",
+        "issuerName": "Mustafa Khaled Ismail",
+        "orderStatus": "Under Action"
+      },
+      {
+        "orderNumber": "34342",
+        "orderType": "Miscellaneous Orders",
+        "orderDetails": "Awafi Izbat Reservation",
+        "orderDate": "01/11/2018",
+        "issuerName": "Muhammad Ali Pasha",
+        "orderStatus": "Completed"
+      },
+      {
+        "orderNumber": "32131",
+        "orderType": "Human Resources",
+        "orderDetails": "Salary Certificate",
+        "orderDate": "05/11/2018",
+        "issuerName": "Muhammad Ahmad weighs",
+        "orderStatus": "Under Action"
+      },
+      {
+        "orderNumber": "32131",
+        "orderType": "stationery",
+        "orderDetails": "Order Calculator",
+        "orderDate": "12/21/2018",
+        "issuerName": "Fadi Mohamed Ahmed",
+        "orderStatus": "closed"
+      },
+      {
+        "orderNumber": "42343",
+        "orderType": "Maintenance for my office",
+        "orderDetails": "Lighting",
+        "orderDate": "25/12/2018",
+        "issuerName": "Mustafa Khaled Ismail",
+        "orderStatus": "Under Action"
+      },
+      {
+        "orderNumber": "34342",
+        "orderType": "Miscellaneous Orders",
+        "orderDetails": "Awafi Izbat Reservation",
+        "orderDate": "01/11/2018",
+        "issuerName": "Muhammad Ali Pasha",
+        "orderStatus": "Completed"
+      },
+      {
+        "orderNumber": "32131",
+        "orderType": "Human Resources",
+        "orderDetails": "Salary Certificate",
+        "orderDate": "05/11/2018",
+        "issuerName": "Muhammad Ahmad weighs",
+        "orderStatus": "Under Action"
+      }
+    ]
+  };
 const StyledMdContainer =  styled(LargeBox)`
     .dx-pages, .dx-group-panel-message, .dx-texteditor-input, .dx-placeholder, .dx-datagrid-action, .dx-datagrid-drag-action{
       font-family: 'CoconNextArabic-Bold', Sans-Serif;
@@ -178,6 +278,9 @@ const StyledMdContainer =  styled(LargeBox)`
     } 
     .dx-datagrid-headers .dx-datagrid-table .dx-row > td { 
       padding-bottom:0;
+    }
+    .demo-container{
+      direction: ltr;
     }
 
 `;

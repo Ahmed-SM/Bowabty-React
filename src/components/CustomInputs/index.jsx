@@ -6,13 +6,13 @@ export const CustomInput = React.memo(({ label, ...props }) => {
   console.log("%c CustomInput rerendred ", "background:red; color: white;");
   const [field, meta] = useField(props);
   return (
-    <>
+    <React.Fragment>
       <label htmlFor={props.id || props.name}>{label}</label>
       <StyledInput {...field} {...props} />
       {meta.touched && meta.error ? (
         <div className="error">{meta.error}</div>
       ) : null}
-    </>
+    </React.Fragment>
   );
 });
 
@@ -20,26 +20,26 @@ export const CustomSelect = React.memo(({ label, ...props }) => {
   console.log("%c CustomSelect rerendred ", "background:red; color: white;");
   const [field, meta] = useField(props);
   return (
-    <>
+    <React.Fragment>
       <label htmlFor={props.id || props.name}>{label}</label>
       <StyledSelect {...field} {...props} />
       {meta.touched && meta.error ? (
         <div className="error">{meta.error}</div>
       ) : null}
-    </>
+    </React.Fragment>
   );
 });
 export const CustomFile = React.memo(({ label, ...props }) => {
   console.log("%c CustomSelect rerendred ", "background:red; color: white;");
   const [field, meta] = useField(props);
   return (
-    <>
+    <React.Fragment>
       <label htmlFor={props.id || props.name}>{label}</label>
       <StyledFile {...field} {...props} />
       {meta.touched && meta.error ? (
         <div className="error">{meta.error}</div>
       ) : null}
-    </>
+    </React.Fragment>
   );
 });
 

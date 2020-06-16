@@ -91,7 +91,7 @@ const DropItem ={
     padding: '12px 16px',
     textDecoration: 'none',
     display: 'block',
-    textAlign: 'right',
+    textAlign: 'start',
     border:'none',
     outline:'none',
     borderBottom: '2px dashed #C0C0C0',

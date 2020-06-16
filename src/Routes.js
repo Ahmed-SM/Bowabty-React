@@ -21,16 +21,17 @@ const StickyBox = React.lazy(()=>import("./components/StickyLabel/StickyBox"));
 const Routes = () => {
     const [userData] = useContext(UserContext);
     return(
-        <>{ userData ?
+        <React.Fragment>
+            { userData ?
             <MainLayout>
                 <TitleProvider>
                     <Suspense fallback={<StyledUserContent/>}>
-                    <ErrorBoundary>
-                        <Switch>
-                            
-                            <Route exact component={UserSection} path={"/*"}/>
-                       
-                        </Switch>
+                        <ErrorBoundary>
+                            <Switch>
+                                
+                                <Route exact component={UserSection} path={"/*"}/>
+                        
+                            </Switch>
                         </ErrorBoundary>
                     </Suspense>   
                     <Suspense fallback={<StyledServicesContainer/>}>
@@ -58,7 +59,7 @@ const Routes = () => {
             <Suspense fallback={null}>
                 <StickyBox/>
             </Suspense>
-         </>
+         </React.Fragment>
     );
 };
 
