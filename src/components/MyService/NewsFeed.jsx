@@ -5,10 +5,10 @@ import UAParser from "ua-parser-js";
 import {DiractionContext} from "../../contexts/DiractionContext";
 
 const CustomLeftArrow = ({ onClick, classLeft, ...rest }) => {
-    return <button className={classLeft} onClick={() => onClick()} />;
+    return <button aria-label="Move" className={classLeft} onClick={() => onClick()} />;
   };
 const CustomRightArrow = ({ onClick, classRight, ...rest }) => {
-    return <button className={classRight} onClick={() => onClick()} />;
+    return <button aria-label="Move" className={classRight} onClick={() => onClick()} />;
   };
 
 const NewsFeed = ({deviceType, list}) => {
