@@ -15,7 +15,7 @@ const LargeBox = ({ children, ...rest }) => {
 export default LargeBox;
 
 const StyledInner = styled.div`
-  height: fit-content;
+  height: 560px;
   min-height: 540px;
   padding: 20px 20px 0 20px;
   margin-top: 40px;

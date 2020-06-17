@@ -22,6 +22,7 @@ import LargeBox from "../ReusableBoxes/LargeBox";
             <div className="demo-container">
             <DataGrid
                 width={870}
+                height={530}
                 dataSource={i18n.language === 'ar' ? testdata.ar : testdata.en}
                 showColumnLines={false}
                 showScrollbar={false}
