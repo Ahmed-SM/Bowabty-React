@@ -4,7 +4,7 @@ import 'devextreme/dist/css/dx.common.css';
 import 'devextreme/dist/css/dx.light.css';
 import {TitleContext} from "../../contexts/TitleContext";
 import {useTranslation} from "react-i18next";
-import DataGrid, { Column, GroupPanel, Paging, SearchPanel} from "devextreme-react/data-grid";
+import DataGrid, { Column, GroupPanel, Paging, Grouping ,FilterRow } from "devextreme-react/data-grid";
 import LargeBox from "../ReusableBoxes/LargeBox"
 
     
@@ -32,8 +32,10 @@ import LargeBox from "../ReusableBoxes/LargeBox"
                 ShowHorizontalLines={false}
                 // rowAlternationEnabled={true}
                 >
+                <FilterRow  visible={true} applyFilter={"auto"} />
+                <Grouping contextMenuEnabled={true} />
                 <GroupPanel visible={true} emptyPanelText={t('IncomingRequest:emptyPanelText')}/>
-                <SearchPanel visible={true} highlightCaseSensitive={true} placeholder={t('IncomingRequest:placeholder')}/>
+                {/* <SearchPanel visible={true} highlightCaseSensitive={true} placeholder={t('IncomingRequest:placeholder')}/> */}
                 {/* <Grouping autoExpandAll={true} /> */}
                 {/* <Column dataField="الطلب" groupIndex={0} /> */}
                 <Column caption={t('IncomingRequest:orderNumber')}  alignment={i18n.language === 'ar' ? "right ": "left"} dataField="orderNumber" dataType="number" width={100} />
