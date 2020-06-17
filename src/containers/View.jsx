@@ -8,7 +8,7 @@ const StyledView = styled.section`
   display: flex;
   justify-content: space-between;
   margin 0 25px;
-  padding: 20px 50px;
+  padding: 20px 0px;
   height: fit-content;
   min-height:400px;
   align-items: center;

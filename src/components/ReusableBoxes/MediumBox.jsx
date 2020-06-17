@@ -16,9 +16,10 @@ export default MediumBox;
 
 const StyledInner = styled.div`
     height: 320px;
-    margin: 20px 0;
-    width: 48%;
-    min-width: 48%;
+    margin: 20px auto;
+    width: 46%;
+    min-width: 46%;
+    max-width:50%;
     direction: rtl;
     box-shadow: 0px 0px 8px 3px rgba(0, 0, 0, 0.09);
     background-color: white;
