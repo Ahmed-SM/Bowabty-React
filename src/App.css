@@ -30,6 +30,7 @@
 .custom-right-arrow {
   display: none;
 }
+
 /* .carousel-padding{
   margin: 0 50px 0 50px;
   padding: 0 200px 0 200px;
@@ -138,6 +139,46 @@ font-family: 'CoconNextArabic-Bold', Sans-Serif ;
 .dx-datagrid-headers{
   margin-bottom: 2px !important;
   
+}
+.react-multiple-carousel__arrow {
+  position: absolute;
+  outline: 0;
+  transition: all .5s;
+  border-radius: 55px;
+  background: #ddd !important;
+  
+  z-index: 1000;
+  border: 0;
+  min-width: 35px !important;
+  min-height: 35px !important;
+  opacity: 1 ;
+  cursor:pointer;
+}
+.react-multiple-carousel__arrow::before {
+  display: inline-block !important;
+  content:" " !important;
+  font-family: none !important;
+  border: solid #fff !important;
+  border-width: 0 2.5px 2.5px 0 !important;
+  text-align: center;
+  margin-top: 6.5px;
+  padding: 4px;
+  opacity: 0.9 !important;
+  z-index: 2;
+  position: relative;
+}
+.react-multiple-carousel__arrow:hover {
+  transform: scale(1.1) !important;
+}
+.react-multiple-carousel__arrow--left::before{
+  transform: rotate(135deg) !important;
+  -webkit-transform: rotate(135deg) !important;
+  margin-left: 4px;
+}
+.react-multiple-carousel__arrow--right::before{
+  transform: rotate(-45deg) !important;
+  -webkit-transform: rotate(-45deg) !important;
+  margin-right: 4px;
 }
 
 /* .App {

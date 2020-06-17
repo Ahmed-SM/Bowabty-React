@@ -51,7 +51,7 @@ const UserContent = ({ isVisible }) => {
           </StyledH4>
         </div>
       </StyledTitle>
-      <StyledSideBtns>
+      <StyledSideBtns  isLTR={isLTR}>
         <StyledSideBtn>
           <a href="/">
             <FontAwesomeIcon size="3x" icon={faBell} color={"#3C4652"} />
@@ -150,7 +150,12 @@ const StyledSideBtns = styled.div`
   justify-content: space-around;
   text-align: center;
   display: inline-flex;
+  flex-direction: row-reverse;
+  ${({ isLTR }) =>
+  isLTR &&
+  `
   flex-direction: row;
+`}
   flex-wrap: nowrap;
   margin-top: 8px;
 `;
