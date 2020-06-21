@@ -8,5 +8,6 @@ export default NewsFeedSection;
 
 const StyledElementSection = styled.section`
   text-align: center;
+  margin: 20px 0px;
 }
 `;
