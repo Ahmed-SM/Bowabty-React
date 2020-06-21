@@ -5,17 +5,15 @@ import 'devextreme/dist/css/dx.light.css';
 import {TitleContext} from "../../contexts/TitleContext";
 import {useTranslation} from "react-i18next";
 import DataGrid, { Column, GroupPanel, Paging, Grouping ,FilterRow } from "devextreme-react/data-grid";
-import LargeBox from "../ReusableBoxes/LargeBox"
+import LargeBox from "../Reusables/LargeBox"
 
   const IncomingRequest = () => {
     console.log("IncomingRequest rerendred")
     const [Title, setTitle] = useContext(TitleContext);
     const {t, i18n} = useTranslation();   
           useEffect(()=>{
-            if(Title !==t("IncomingRequest:title")){
-                setTitle(t("IncomingRequest:title"))
-            }
-        })
+            setTitle(Title =>({...Title, Title: t("IncomingRequest:title"), SubTitle: t("userContent:lorem")}));
+        },[t, setTitle])
       return (
             <StyledMdContainer  className="dx-viewport __font">
             <div className="demo-container">

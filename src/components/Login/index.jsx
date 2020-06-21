@@ -3,7 +3,8 @@ import styled from "styled-components";
 import { Formik, Form } from "formik";
 import { useTranslation, Trans } from "react-i18next";
 import { UserContext} from "../../contexts/UserContext";
-import {CustomInput} from "../CustomInputs"
+import {CustomInput} from "../Reusables/CustomInputs"
+import {CustomButton} from "../Reusables/CustomButton";
 import * as Yup from "yup";
 
 const Login = () => {
@@ -43,7 +44,7 @@ const Login = () => {
                     <CustomInput label={t('login:password')} name="password" type="password"/>
                  </StyledColumn>
                 </StyledInputGroup>
-                <StyledButton type="submit"><Trans i18nKey={"login:enter"} t={t}>دخول</Trans></StyledButton>
+                <CustomButton type="submit"><Trans i18nKey={"login:enter"} t={t}>دخول</Trans></CustomButton>
               </Form>
           </Formik>
         </StyledGroup>
@@ -110,22 +111,4 @@ const StyledColumn = styled.div`
   height:80px;
   width: 100%;
 `;
-const StyledButton = styled.button`
-  display: inline-block;
-  margin-bottom: 0;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  touch-action: manipulation;
-  cursor: pointer;
-  background-image: none;
-  border: 1px solid transparent;
-  padding: 3px 32px;
-  font-size: 14px;
-  line-height: 1.42857143;
-  border-radius: 4px;
-  user-select: none;
-  color: #fff;
-  background-color: #3c4652;
-  outline: none;
-`;
+

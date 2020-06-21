@@ -7,9 +7,9 @@ import {useTranslation, Trans} from "react-i18next";
 import {TitleContext} from "../../contexts/TitleContext";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import {CustomInput, CustomSelect} from "../CustomInputs";
-import MediumBox from "../ReusableBoxes/MediumBox";
-import BoxHeader from "../ReusableBoxes/BoxHeader";
+import {CustomInput, CustomSelect} from "../Reusables/CustomInputs";
+import MediumBox from "../Reusables/MediumBox";
+import BoxHeader from "../Reusables/BoxHeader";
 
 const MemoizedNewsFeed= React.memo(() =>{
     return <NewsFeed list={Newslist}/>
@@ -31,13 +31,17 @@ const MyService = () => {
 
     useEffect(() => {
         console.log("MyService rerendred use effect")
-        if (Title !== t("myService:title")) {
-            setTitle(t("myService:title"))
-        }
-    })
+        setTitle(Title =>({...Title, Title: t("myService:title"), SubTitle: t("userContent:lorem")}));
+    },[t, setTitle])
     console.log("MyService rerendred")
     return (
-        <React.Fragment>    
+        <React.Fragment>
+        <MediumBox primary>
+            <BoxHeader children={<Trans i18nKey={"myService:decision"}>قرارات داخلية جديدة</Trans>} />
+            <NewsFeedSection >
+                <MemoizedNewsFeed/>
+            </NewsFeedSection>
+        </MediumBox>    
         <MediumBox>
             <BoxHeader children={<Trans i18nKey={"myService:suggestion"} t={t}>تقديم مقترح</Trans>}/>
             <StyledGroup>
@@ -47,12 +51,12 @@ const MyService = () => {
                     <Form>
                         <StyledInputGroup>
                             <StyledColumn>
-                                <CustomInput label={t("myService:suggestedTitle")} name="suggestion" type="text" placeholder={t("myService:suggestedTitle")} /> 
+                                <CustomInput as={"input"} label={t("myService:suggestedTitle")} id="suggestion" name="suggestion" type="text" placeholder={t("myService:suggestedTitle")} /> 
                             </StyledColumn>
                         </StyledInputGroup>
                         <StyledInputGroup>
                             <StyledColumn className="__multi">
-                                <CustomSelect label={t("myService:suggestionOrigin")} name="suggestionOrigin">
+                                <CustomSelect label={t("myService:suggestionOrigin")} id="suggestionOrigin" name="suggestionOrigin">
                                     <option value={t('myService:suggestionOriginOption1')}>
                                         {t('myService:suggestionOriginOption1')}
                                     </option>
@@ -64,7 +68,7 @@ const MyService = () => {
                             </label>
                             <StyledFile>
                                 <div>
-                                    <input name="file" type="file"/>
+                                    <input multiple name="file" type="file"/>
                                 </div>
                             <StyledSVG
                                 aria-hidden="true"
@@ -94,12 +98,6 @@ const MyService = () => {
                 </Formik>
             </StyledGroup>
         </MediumBox>
-        <MediumBox primary>
-            <BoxHeader children={<Trans i18nKey={"myService:decision"}>قرارات داخلية جديدة</Trans>} />
-            <NewsFeedSection >
-                <MemoizedNewsFeed/>
-            </NewsFeedSection>
-        </MediumBox>
         </React.Fragment>
     );
 }
@@ -107,7 +105,7 @@ export default MyService;
 
 const StyledColumn = styled.div`
   display: flex;
-  height: 60px;
+  min-height: 60px;
   margin-left: 6.30px;
   margin-right: 6.30px;
   flex-direction: column;
@@ -151,7 +149,7 @@ const StyledSendButton = styled.button`
 `;
 const StyledGroup = styled.div`
     display: block;
-    padding: 0px 40px;
+    padding: 0px 0px;
 `;
 const StyledInputGroup = styled.div`
     width: 100%;

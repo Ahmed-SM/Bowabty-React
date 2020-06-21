@@ -5,7 +5,7 @@ import 'devextreme/dist/css/dx.light.css';
 import {TitleContext} from "../../contexts/TitleContext";
 import {useTranslation} from "react-i18next";
 import DataGrid, { Column, GroupPanel, Paging, FilterRow, Grouping} from "devextreme-react/data-grid";
-import LargeBox from "../ReusableBoxes/LargeBox";
+import LargeBox from "../Reusables/LargeBox";
 
 
   const MyOrders = () => {
@@ -13,10 +13,8 @@ import LargeBox from "../ReusableBoxes/LargeBox";
     const [Title, setTitle] = useContext(TitleContext);
     const {t, i18n} = useTranslation();     
           useEffect(()=>{
-            if(Title !==t("myOrders:title")){
-                setTitle(t("myOrders:title"))
-            }
-        })
+            setTitle(Title =>({...Title, Title: t("myService:title"), SubTitle: t("userContent:lorem")}));
+        },[t, setTitle])
       return (
             <StyledMdContainer  className="dx-viewport">
             <div className="demo-container">

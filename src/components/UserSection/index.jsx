@@ -43,11 +43,11 @@ const UserContent = ({ isVisible }) => {
       </StyledUserDetails>
       <StyledTitle>
         <div>
-          {Title ? <StyledH1>{Title}</StyledH1> : <StyledTextFallback />}
+          {Title ? <StyledH1>{Title.Title}</StyledH1> : <StyledTextFallback />}
         </div>
         <div>
           <StyledH4>
-            <Trans i18nKey={"userContent:lorem"} t={t}></Trans>
+            {Title.SubTitle}
           </StyledH4>
         </div>
       </StyledTitle>
