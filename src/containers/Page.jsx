@@ -10,7 +10,7 @@ const Page = ({ children }) => {
 export default Page;
 
 const StyledPage = styled.section`
-  margin: 0 20px;
+  margin: 0 25px;
   height: 71%;
 `;
 const StyledContainer = styled.div`
