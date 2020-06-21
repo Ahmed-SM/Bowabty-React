@@ -6,6 +6,7 @@ import MediumBox from "../Reusables/MediumBox";
 import BoxHeader from "../Reusables/BoxHeader";
 import { CustomButton } from "../Reusables/CustomButton";
 import { CustomInput, CustomSelect, CustomRadio } from "../Reusables/CustomInputs";
+import RichInput from "../Reusables/RichInput";
 import * as Yup from "yup";
 import { Formik, Form } from "formik";
 
@@ -42,65 +43,56 @@ const MyDesk = () => {
         >
           <Form>
           <StyledUnifiedGroup>
-            <StyledInputGroup>
-              <StyledColumn className="__multi">
-                <CustomSelect id="suggestionOrigin" name="suggestionOrigin">
+            <RichInput>
+                <CustomSelect id="suggestionOrigin" name="suggestionOrigin" width={"100%"}>
                   <option value={t("myDesk:unit")}>
                     {t("myDesk:unit")}
                   </option>
                 </CustomSelect>
-              </StyledColumn>
 
-              <StyledColumn className="__multi">
-                <CustomSelect id="suggestionOrigin" name="suggestionOrigin">
+                <CustomSelect id="suggestionOrigin" name="suggestionOrigin" width={"100%"}>
                   <option value={t("myDesk:item")}>
                     {t("myDesk:item")}
                   </option>
                 </CustomSelect>
-              </StyledColumn>
 
-              <StyledColumn className="__multi">
+
                 <CustomInput
+                  width={"30%"}
                   as={"input"}
                   id="suggestion"
                   name="suggestion"
                   type="text"
                   placeholder={t("myDesk:quamtity")}
                 />
-              </StyledColumn>
-            </StyledInputGroup>
+            </RichInput>
 
-            <StyledInputGroup>
-              <StyledColumn className="__multi">
-                <CustomSelect id="suggestionOrigin" name="suggestionOrigin">
+            <RichInput>
+                <CustomSelect id="suggestionOrigin" name="suggestionOrigin" width={"100%"}>
                   <option value={t("myDesk:type")}>
                     {t("myDesk:type")}
                   </option>
                 </CustomSelect>
-              </StyledColumn>
 
-              <StyledColumn className="__multi">
-                <CustomSelect id="suggestionOrigin" name="suggestionOrigin">
+                <CustomSelect id="suggestionOrigin" name="suggestionOrigin" width={"100%"}>
                   <option value={t("myDesk:category")}>
                     {t("myDesk:category")}
                   </option>
                 </CustomSelect>
-              </StyledColumn>
 
-              <StyledColumn className="__multi">
                 <CustomInput
+                  width={"30%"}
                   as={"input"}
                   id="suggestion"
                   name="suggestion"
                   type="text"
                   placeholder={t("myDesk:add")}
                 />
-              </StyledColumn>
-            </StyledInputGroup>
+            </RichInput>
 
-            <StyledInputGroup>
-              <StyledColumn>
+            <RichInput>
                 <CustomInput
+                  width={"100%"}
                   as={"textarea"}
                   label={t("LegalAffairs:textarea")}
                   name="textarea"
@@ -109,8 +101,7 @@ const MyDesk = () => {
                   rows="2"
                   wrap="off"
                 />
-              </StyledColumn>
-            </StyledInputGroup>
+            </RichInput>
 
             <CustomButton green type="submit" className="send-btn">
               <Trans i18nKey={"myDesk:submit"} t={t}>
@@ -132,30 +123,30 @@ const MyDesk = () => {
         >
           <Form>
           <StyledUnifiedGroup>
-          <StyledInputGroup>
+          <RichInput height={" 3.5rem"}>
             <StyledRow>مركبة</StyledRow>
             <StyledRow className="__center __border">A123123</StyledRow>
             <CustomRadio as={"input"} label={t("myDesk:maintenance")} id="radio1" name="radio" type="radio"></CustomRadio> 
             <CustomRadio as={"input"} label={t("myDesk:move")} id="radio2" name="radio" type="radio"></CustomRadio> 
-            </StyledInputGroup>
-            <StyledInputGroup>
+            </RichInput>
+            <RichInput height={" 3.5rem"}>
             <StyledRow>مركبة</StyledRow>
             <StyledRow className="__center __border">A123123</StyledRow>
             <CustomRadio as={"input"} label={t("myDesk:maintenance")} id="radio1" name="radio" type="radio"></CustomRadio> 
             <CustomRadio as={"input"} label={t("myDesk:move")} id="radio2" name="radio" type="radio"></CustomRadio> 
-            </StyledInputGroup>
-            <StyledInputGroup>
+            </RichInput>
+            <RichInput height={" 3.5rem"}>
             <StyledRow>مركبة</StyledRow>
             <StyledRow className="__center __border">A123123</StyledRow>
             <CustomRadio as={"input"} label={t("myDesk:maintenance")} id="radio1" name="radio" type="radio"></CustomRadio> 
             <CustomRadio as={"input"} label={t("myDesk:move")} id="radio2" name="radio" type="radio"></CustomRadio> 
-            </StyledInputGroup>
-            <StyledInputGroup>
+            </RichInput>
+            <RichInput height={" 3.5rem"}>
             <StyledRow>مركبة</StyledRow>
             <StyledRow className="__center __border">A123123</StyledRow>
             <CustomRadio as={"input"} label={t("myDesk:maintenance")} id="radio1" name="radio" type="radio"></CustomRadio> 
             <CustomRadio as={"input"} label={t("myDesk:move")} id="radio2" name="radio" type="radio"></CustomRadio> 
-            </StyledInputGroup>
+            </RichInput>
             </StyledUnifiedGroup>
         <CustomButton primary type="submit" className="send-btn">
           <Trans i18nKey={"myDesk:submit"} t={t}>
@@ -177,19 +168,20 @@ const MyDesk = () => {
         >
           <Form>
           <StyledUnifiedGroup>
-        <StyledInputGroup>
+        <RichInput>
           <StyledColumn>
-          <CustomSelect id="suggestionOrigin" name="suggestionOrigin">
+          <CustomSelect id="suggestionOrigin" name="suggestionOrigin" width={"100%"}>
                   <option value={t("myDesk:typeOfMaintenance")}>
                     {t("myDesk:typeOfMaintenance")}
                   </option>
                 </CustomSelect>
           </StyledColumn>
         
-        </StyledInputGroup>
-        <StyledInputGroup>
+        </RichInput>
+        <RichInput>
               <StyledColumn>
                 <CustomInput
+                  width={"100%"}
                   as={"textarea"}
                   label={t("LegalAffairs:textarea")}
                   name="textarea"
@@ -199,15 +191,15 @@ const MyDesk = () => {
                   wrap="off"
                 />
               </StyledColumn>
-            </StyledInputGroup>
+            </RichInput>
             </StyledUnifiedGroup>
-        </Form>
-          </Formik>
-        <CustomButton lightgreen type="submit" className="send-btn">
+            <CustomButton lightgreen type="submit" className="send-btn">
           <Trans i18nKey={"myDesk:submit"} t={t}>
             ارسال
           </Trans>
         </CustomButton>
+        </Form>
+          </Formik>
       </StyledMdContainer>
 
       <StyledMdContainer purple>
@@ -221,25 +213,25 @@ const MyDesk = () => {
         >
           <Form>      
         <StyledUnifiedGroup>
-        <StyledInputGroup>
+        <RichInput height={" 3.5rem"}>
         <StyledRow>مركبة</StyledRow>
         <StyledRow className="__center __border">A123123</StyledRow>
         <CustomRadio as={"input"} label={t("myDesk:maintenance")} id="radio1" name="radio" type="radio"></CustomRadio> 
-        </StyledInputGroup>
-        <StyledInputGroup>
+        </RichInput>
+        <RichInput height={" 3.5rem"}>
         <StyledRow>مركبة</StyledRow>
         <StyledRow className="__center __border">A123123</StyledRow>
         <CustomRadio as={"input"} label={t("myDesk:issuance")} id="radio1" name="radio" type="radio"></CustomRadio> 
         <CustomRadio as={"input"} label={t("myDesk:cancellation")} id="radio2" name="radio" type="radio"></CustomRadio> 
         <CustomRadio as={"input"} label={t("myDesk:replacementOfLost")} id="radio2" name="radio" type="radio"></CustomRadio> 
-        </StyledInputGroup>
-        <StyledInputGroup>
+        </RichInput>
+        <RichInput height={" 3.5rem"}>
         <StyledRow>مركبة</StyledRow>
         <StyledRow className="__center __border">A123123</StyledRow>
         <CustomRadio as={"input"} label={t("myDesk:issuance")} id="radio1" name="radio" type="radio"></CustomRadio> 
         <CustomRadio as={"input"} label={t("myDesk:cancellation")} id="radio2" name="radio" type="radio"></CustomRadio> 
         <CustomRadio as={"input"} label={t("myDesk:replacementOfLost")} id="radio2" name="radio" type="radio"></CustomRadio> 
-        </StyledInputGroup>
+        </RichInput>
         </StyledUnifiedGroup>
         <CustomButton purple type="submit" className="send-btn">
           <Trans i18nKey={"myDesk:submit"} t={t}>
@@ -283,7 +275,7 @@ const StyledInputGroup = styled.div`
   flex-wrap: nowrap;
 `;
 const StyledRow = styled.div`
-  width: 28%;
+  width: 20%;
   background:#F6F4F5;
   padding:6px 0;
   border-radius:0px 4px 4px 0px;

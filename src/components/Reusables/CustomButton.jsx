@@ -1,7 +1,6 @@
 import styled from "styled-components";
 export const CustomButton = styled.button`
     display: inline-block;
-    margin-bottom: 0;
     text-align: center;
     white-space: nowrap;
     vertical-align: middle;
