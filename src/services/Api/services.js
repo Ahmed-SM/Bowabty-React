@@ -1,4 +1,4 @@
-import { get, post, put, destroy } from 'config/api';
+import { get, post, put } from 'config/api';
 export const Services = {
   index: () =>
     get('/services'),
