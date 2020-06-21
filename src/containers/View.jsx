@@ -6,7 +6,7 @@ const View = ({ children }) => {
 export default View;
 const StyledView = styled.section`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin 0 25px;
   padding: 20px 0px;
   height: fit-content;
@@ -14,4 +14,5 @@ const StyledView = styled.section`
   align-items: center;
   background-color: #F6F4F5;
   flex-wrap: wrap;
+  direction: rtl;
 `;
