@@ -17,6 +17,7 @@ export default MediumBox;
 const StyledInner = styled.div`
     height: 320px;
     margin: 20px auto;
+    padding: 20px 50px 0px 50px;
     width: 46%;
     min-width: 46%;
     max-width:50%;
@@ -29,6 +30,6 @@ const StyledInner = styled.div`
       isLTR &&
       ` direction: ltr;
         `}
-    border-bottom: 6px solid ${(props) =>
-      props.primary ? "#3497DB" : "#000000"};
+        border-bottom: 6px solid ${(props) => (props.primary ? "#3497DB" : props.green ? "#008B38" : props.lightgreen ? "#1BBC9B" : props.purple ? "#902577" : "#000000")};
+        
   `;
