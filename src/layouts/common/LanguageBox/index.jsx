@@ -35,6 +35,7 @@ const StyledLangaugeBox = styled.div`
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-around;
+  cursor: default;
   min-width: 110px;
   & > i {
     font-size: 16.2px;
