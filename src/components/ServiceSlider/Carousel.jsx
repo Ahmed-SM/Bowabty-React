@@ -12,7 +12,7 @@ const ServicesCarousel = ({ deviceType, list }) => {
     <Carousel
       autoPlay
       infinite={true}
-      autoPlaySpeed={2500}
+      autoPlaySpeed={3500}
       centerMode={true}
       deviceType={deviceType}
       itemClass="image-item"
