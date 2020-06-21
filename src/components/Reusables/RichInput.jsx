@@ -18,5 +18,5 @@ const StyledInputGroup = styled.div`
   flex-wrap: nowrap;
 `;
 RichInput.defaultProps = {
-  height: "100%",
+  height: "fit-content",
 };
