@@ -8,6 +8,7 @@ import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import {CustomInput, CustomFile} from "../Reusables/CustomInputs";
 import {CustomButton} from "../Reusables/CustomButton";
+import RichInput from "../Reusables/RichInput";
 
 const LegalAffairs = () => {
     console.log("IncomingRequest rerendred")
@@ -35,16 +36,14 @@ const LegalAffairs = () => {
                     validationSchema={validation}
                     onSubmit={handleOnSubmit}>
                     <Form>
-                <StyledInputGroup>  
-            <StyledColumn>
-            <CustomInput as={"textarea"} label={t("LegalAffairs:textarea")} name="textarea" type="text" placeholder={t("LegalAffairs:textarea")}  rows="15" cols="70" wrap="off" /> 
-            </StyledColumn>
-            </StyledInputGroup> 
-            <StyledInputGroup>  
-            <StyledColumn>   
-            <CustomFile as={"input"} label={t("LegalAffairs:file")} name="file" id="file" type="file" placeholder={t("LegalAffairs:file")}  /> 
-            </StyledColumn>
-            </StyledInputGroup>      
+                <RichInput >  
+
+            <CustomInput as={"textarea"} label={t("LegalAffairs:textarea")} name="textarea" type="text" placeholder={t("LegalAffairs:textarea")}  rows="15" cols="70" wrap="off"  width={"100%"} /> 
+            </RichInput> 
+            <RichInput>  
+ 
+            <CustomFile as={"input"} label={t("LegalAffairs:file")} name="file" id="file" type="file" placeholder={t("LegalAffairs:file")}   width={"100%"}/> 
+            </RichInput>      
             <CustomButton green type="submit" className="send-btn"><Trans i18nKey={"myService:sendBtn"} t={t}>ارسال</Trans></CustomButton>
                     </Form>
                 </Formik>
@@ -59,25 +58,3 @@ const LegalAffairs = () => {
   padding: 20px 40px 0 40px;
   
   `;
-  const StyledColumn = styled.div`
-  display: flex;
-  margin-left: 6.30px;
-  margin-right: 6.30px;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  width:fit-content;
-  .__multi{
-      width:19rem;
-  }
-
-  & > label{
-    width: fit-content;
-    padding: 0 5px;
-  }
-`;
-const StyledInputGroup = styled.div`
-    width: 100%;
-    margin-bottom: 20px;
-    display: flex;
-    flex-wrap: nowrap;
-`;
