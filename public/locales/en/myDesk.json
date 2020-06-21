@@ -1,0 +1,21 @@
+{
+    "title": "My Office",
+    "stationeryRequired":"Stationery required",
+    "unit": "unit",
+    "item": "article",
+    "quamtity": "quantity",
+    "type": "type",
+    "category": "category",
+    "add": "add",
+    "typeOfMaintenance": "Choose maintenance type",
+    "officeMaintenance": "My Office Maintenance",
+    "officeEquipment": "My Office Equipment",
+    "maintenance": "maintenance",
+    "move": "move",
+    "other": "other",
+    "issuance": "issuance",
+    "cancellation": "cancel",
+    "replacementOfLost": "lost replacement",
+    "submit":"Submit"
+
+}

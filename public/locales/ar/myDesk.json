@@ -1,0 +1,20 @@
+{
+    "title":"مكتبي",
+    "stationeryRequired":"القرطاسية المطلوبة",
+    "unit":"الوحدة",
+    "item":"المادة",
+    "quamtity":"العدد",
+    "type":"النوع",
+    "category":"الفئة",
+    "add":"إضافة",
+    "typeOfMaintenance":"اختر نوع الصيانة",
+    "officeMaintenance ":"الصيانة لمكتبي",
+    "officeEquipment":"معدات المكتب",
+    "maintenance":"صيانة",
+    "move":"نقل",
+    "other":"أخرى",
+    "issuance":"إصدار",
+    "cancellation":"إلغاء",
+    "replacementOfLost":"بدل فاقد",
+    "submit":"تقديم"
+}
