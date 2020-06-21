@@ -68,7 +68,7 @@ const MyService = () => {
             onSubmit={handleOnSubmit}
           >
             <Form>
-              <RichInput>
+              <RichInput height={"65px"}>
                 <CustomInput
                   as={"input"}
                   label={t("myService:suggestedTitle")}
@@ -79,7 +79,7 @@ const MyService = () => {
                   width={"100%"}
                 />
               </RichInput>
-              <RichInput >
+              <RichInput height={"65px"}>
                 <CustomSelect
                   label={t("myService:suggestionOrigin")}
                   id="suggestionOrigin"
@@ -134,7 +134,7 @@ const MyService = () => {
                   </StyledFileLabel>
                 </StyledColumn>
               </RichInput>
-              <RichInput>
+              <RichInput height={"65px"}>
                 <StyledSendButton type="submit" className="send-btn">
                   <Trans i18nKey={"myService:sendBtn"} t={t}>
                     ارسال
