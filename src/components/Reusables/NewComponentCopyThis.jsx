@@ -15,7 +15,7 @@ import {CustomButton} from "../Reusables/CustomButton";
 const COMPONENT_NAME = () => {
     // This is the Title Context sets the title that appears in the UserSection component 
     const [Title, setTitle] = useContext(TitleContext);
-    //This the i18n trnaslation hook 
+    //This is the i18n trnaslation hook, you can't use you translation file without it  
     const {t} = useTranslation();  
     // Set your form validation 
     const validation = Yup.object({
@@ -76,7 +76,7 @@ const COMPONENT_NAME = () => {
     // or if you want to use a container
     // <ContainerComponentRoute  exact component={MyOrders}  container={Page} path={"/myorders"}/>
     // A Comparison between the view and page container, and when you should use one of them.. once they are 100% fisnished
-// *******************************************************
+// **************************Ctrl + K + U to uncomment *****************************
 // import React, {useContext, useEffect}  from "react";
 // import styled from "styled-components";
 // import {TitleContext} from "../../contexts/TitleContext";
