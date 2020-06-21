@@ -12,7 +12,7 @@ const BoxHeader = ({ children }) => {
 export default BoxHeader;
 
 const StyledHeader = styled.div`
-  padding: 25px 40px 10px 40px;
+  padding: 5px 5px 5px 5px;
   -webkit-text-stroke: 0.4px black;
   -webkit-text-fill-color: black;
   overflow: hidden;
@@ -20,6 +20,7 @@ const StyledHeader = styled.div`
 `;
 const Styledh3 = styled.h3`
   text-overflow: ellipsis;
+  margin:0;
 `;
 const StyledContainerDivider = styled.hr`
   margin: 10px 0px;
