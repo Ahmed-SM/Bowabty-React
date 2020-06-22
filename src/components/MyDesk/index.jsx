@@ -55,8 +55,6 @@ const MyDesk = () => {
                     {t("myDesk:item")}
                   </option>
                 </CustomSelect>
-
-
                 <CustomInput
                   width={"30%"}
                   as={"input"}
@@ -66,7 +64,6 @@ const MyDesk = () => {
                   placeholder={t("myDesk:quamtity")}
                 />
             </RichInput>
-
             <RichInput>
                 <CustomSelect id="suggestionOrigin" name="suggestionOrigin" width={"100%"}>
                   <option value={t("myDesk:type")}>
@@ -79,7 +76,6 @@ const MyDesk = () => {
                     {t("myDesk:category")}
                   </option>
                 </CustomSelect>
-
                 <CustomInput
                   width={"30%"}
                   as={"input"}
@@ -89,7 +85,6 @@ const MyDesk = () => {
                   placeholder={t("myDesk:add")}
                 />
             </RichInput>
-
             <RichInput>
                 <CustomInput
                   width={"100%"}
@@ -102,7 +97,6 @@ const MyDesk = () => {
                   wrap="off"
                 />
             </RichInput>
-
             <CustomButton green type="submit" className="send-btn">
               <Trans i18nKey={"myDesk:submit"} t={t}>
                 ارسال

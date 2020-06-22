@@ -9,6 +9,7 @@ import * as Yup from "yup";
 import {CustomInput, CustomFile} from "../Reusables/CustomInputs";
 import {CustomButton} from "../Reusables/CustomButton";
 import RichInput from "../Reusables/RichInput";
+import {faPaperclip} from '@fortawesome/free-solid-svg-icons';
 
 const LegalAffairs = () => {
     console.log("IncomingRequest rerendred")
@@ -42,7 +43,7 @@ const LegalAffairs = () => {
             </RichInput> 
             <RichInput>  
  
-            <CustomFile as={"input"} label={t("LegalAffairs:file")} name="file" id="file" type="file" placeholder={t("LegalAffairs:file")}   width={"100%"}/> 
+            <CustomFile as={"input"} label={t("LegalAffairs:file")} name="file" id="file" type="file" placeholder={t("LegalAffairs:file")} icon={faPaperclip} width={"100%"}/> 
             </RichInput>      
             <CustomButton green type="submit" className="send-btn"><Trans i18nKey={"myService:sendBtn"} t={t}>ارسال</Trans></CustomButton>
                     </Form>

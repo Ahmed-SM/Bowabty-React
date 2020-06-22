@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Field, useField } from "formik";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const CustomInput = React.memo(({ label, width, ...props }) => {
   console.log("%c CustomInput rerendred ", "background:red; color: white;");
@@ -29,12 +30,12 @@ export const CustomSelect = React.memo(({ label, width, type, ...props }) => {
     </StyledColumn>
   );
 });
-export const CustomFile = React.memo(({ label, width, ...props }) => {
+export const CustomFile = React.memo(({ label, width,icon, ...props }) => {
   console.log("%c CustomSelect rerendred ", "background:red; color: white;");
   const [field, meta] = useField(props);
   return (
     <StyledColumn width={width}>
-      <label className="custom-file-upload" htmlFor={props.id || props.name}>{label}</label>
+      <label className="custom-file-upload" htmlFor={props.id || props.name}>{label}<span>{<FontAwesomeIcon size="1x" icon={icon} />}</span></label>
       <StyledFile type="file" {...field} {...props} />
       {meta.touched && meta.error ? (
         <div className="error">{meta.error}</div>
@@ -48,7 +49,7 @@ export const CustomRadio= React.memo(({ label, width, ...props }) => {
   return (
     <StyledColumn width={width}>
       <StyledRadio {...field} {...props}></StyledRadio>
-      <label htmlFor={props.id || props.name}>{label}</label>
+  <label htmlFor={props.id || props.name}>{label}</label>
       {meta.touched && meta.error ? (
         <div className="error">{meta.error}</div>
         ) : null}
@@ -128,7 +129,8 @@ width:${props => props.width};
 min-width: 8rem;
 
 & > label {
-  width: fit-content;
+  justify-content: space-between;
+  display:flex;
   padding: 0 5px;
 }
 `;
