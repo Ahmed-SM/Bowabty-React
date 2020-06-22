@@ -31,7 +31,7 @@ const COMPONENT_NAME = () => {
 
       return (
             // if you are extending one of the reusables you can set the color green primary purple greenlight 
-        <StyledMdContainer green>
+        <StyledContainer green>
             {/* This the header just change the Trans Object  */}
             <BoxHeader children={<Trans i18nKey={"LegalAffairs:followUp"} t={t}></Trans>}/>
             <Formik initialValues={{textarea: ""}} // you should change this or you will get an error {A component is changing an uncontrolled input of type text to be controlled}
@@ -49,7 +49,7 @@ const COMPONENT_NAME = () => {
                 <CustomButton green type="submit" className="send-btn"><Trans i18nKey={"myService:sendBtn"} t={t}>ارسال</Trans></CustomButton>
                 </Form>
             </Formik>
-        </StyledMdContainer>
+        </StyledContainer>
       );
     }
   export default COMPONENT_NAME;
