@@ -16,11 +16,11 @@ const ServicesBox = () => {
 },[t, setTitle]);
     return (
         <>
-            <SmallBox index={"index"} icon={<FontAwesomeIcon size="3x" icon={faCar} color={"#902577"}/>} title={"طلب مركبة مهمة رسمية"}  width={"200px"}  height={"130px"} selectionEnabled={0.5}/>
-            <SmallBox index={"index"} icon={<FontAwesomeIcon size="3x" icon={faUser} color={"#F1C40F"} />} title={"طلب مستخدم"}  width={"200px"} height={"130px"} selectionEnabled={0.5}/>
-            <SmallBox index={"index"} icon={<FontAwesomeIcon size="3x" icon={faBox} color={"#9A59B5"} />} title={"طلب مراسلة"} width={"200px"} height={"130px"} selectionEnabled={0.5}/>
-            <SmallBox index={"index"} icon={<FontAwesomeIcon size="3x" icon={faGift} color={"#F05261"} />} title={"طلب هدايا"}  width={"200px"} height={"130px"} selectionEnabled={0.5}/>
-            <SmallBox index={"index"} icon={<FontAwesomeIcon size="3x" icon={faHotel} color={"#008B38"}/>} title={"طلب حجز فندق"}  width={"200px"} height={"130px"} selectionEnabled={0.5}/>
+            <SmallBox index={"2/ServiceID=1"} icon={<FontAwesomeIcon size="3x" icon={faCar} color={"#902577"}/>} title={"طلب مركبة مهمة رسمية"}  width={"200px"}  height={"130px"} selectionEnabled={0.5}/>
+            <SmallBox index={"2/ServiceID=1"}  icon={<FontAwesomeIcon size="3x" icon={faUser} color={"#F1C40F"} />} title={"طلب مستخدم"}  width={"200px"} height={"130px"} selectionEnabled={0.5}/>
+            <SmallBox index={"2/ServiceID=1"}  icon={<FontAwesomeIcon size="3x" icon={faBox} color={"#9A59B5"} />} title={"طلب مراسلة"} width={"200px"} height={"130px"} selectionEnabled={0.5}/>
+            <SmallBox index={"2/ServiceID=1"}  icon={<FontAwesomeIcon size="3x" icon={faGift} color={"#F05261"} />} title={"طلب هدايا"}  width={"200px"} height={"130px"} selectionEnabled={0.5}/>
+            <SmallBox index={"2/ServiceID=1"}  icon={<FontAwesomeIcon size="3x" icon={faHotel} color={"#008B38"}/>} title={"طلب حجز فندق"}  width={"200px"} height={"130px"} selectionEnabled={0.5}/>
         </>
     );
   }
