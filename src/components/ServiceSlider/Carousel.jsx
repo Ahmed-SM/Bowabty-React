@@ -14,7 +14,7 @@ const ServicesCarousel = ({ deviceType, list }) => {
       autoPlaySpeed={3500}
       centerMode={true}
       deviceType={deviceType}
-      itemClass="image-item"
+      itemClass="image-carousel"
       sliderClass="carousel-slider"
       // containerClass="carousel-padding"
       responsive={responsive}

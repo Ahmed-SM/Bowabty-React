@@ -1,11 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-const SmallBox = ({index, icon, title, description, width}) => (
-<StyledElement width={width}>
-  <Link to={"/ServiceID=" + index}>
+const SmallBox = ({index, icon, title, description, width, height, selectionEnabled}) => {
+console.log(typeof({icon}))
+
+return (
+<StyledElement width={width} height={height} selectionEnabled={selectionEnabled}>
+  <StyledLink to={"/ServiceID=" + index}>
     <StyledImgFrame>
-      <img src={icon} alt="" width="42" />
+    {icon === Object(icon) ? 
+      icon
+    :
+    <img src={icon} alt="" width="42" />
+    }
     </StyledImgFrame>
     <StyledElementTitle>
       <Styledh5>{title}</Styledh5>
@@ -13,23 +20,32 @@ const SmallBox = ({index, icon, title, description, width}) => (
     <StyledDescription>
       <Styledh6>{description}</Styledh6>
     </StyledDescription>
-  </Link>
-</StyledElement>);
+  </StyledLink>
+</StyledElement>)};
 export default SmallBox;
 SmallBox.defaultProps = {
     width: "135px",
+    height: "160px",
+    selectionEnabled:0,
   };
 const StyledElement = styled.div`
   width: ${props => props.width};
-  height: 160px;
-  display: block;
+  height: ${props => props.height};
+  opacity: calc(1 - ${props => props.selectionEnabled});
+  display: flex;
   border-radius: 10px;
   background-color: white;
   box-shadow: 0px 0px 8px 3px rgba(0, 0, 0, 0.05);
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  flex-flow:row;
+  text-align: center;
+  transition: all 0.2s ease-in-out;
 
   &:hover {
-    filter: grayscale(80%);
-    transition: all 0.5s;
+    transform: scale(1.1);
+    opacity:1;
+
   }
   .carousel-padding {
     margin: 0 0px 0 0px;
@@ -38,6 +54,7 @@ const StyledElement = styled.div`
 `;
 const StyledElementTitle = styled.div`
   display: inline;
+  text-align:center;
 `;
 const StyledDescription = styled.div`
   display: inline;
@@ -55,4 +72,9 @@ const Styledh5 = styled.h5`
 `;
 const StyledImgFrame = styled.div`
   padding: 30px 30px 0px 30px;
+`;
+const StyledLink = styled(Link)`
+&:hover {
+    text-decoration: none;
+}
 `;

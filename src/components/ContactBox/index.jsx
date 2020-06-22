@@ -121,7 +121,6 @@ const StyledContact= styled.div`
     width:100%;
     justify-content: space-between;
     flex-wrap: wrap;
-    direction: rtl;
 `;
 const StyledContactGroup= styled.div`
 

@@ -55,7 +55,7 @@ const StyledServicesContainer = styled.div`
   position: relative;
   margin: 15px 25px 22px 25px;
   background-color: #f6f4f5;
-  padding: 30px 0px 0px 0px;
+  padding: 10px 0px 0px 0px;
   transition: all 0.5s ease-in-out;
   height: 230px;
 `;
