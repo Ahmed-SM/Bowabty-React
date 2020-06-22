@@ -10,6 +10,7 @@ import {
 import { useTranslation, Trans } from "react-i18next";
 import { DiractionContext } from "../../contexts/DiractionContext";
 import { TitleContext } from "../../contexts/TitleContext";
+import { Link } from "react-router-dom";
 
 const data = {
   ar: { userName: "علياء أحمد مصطفى", userRole: "اخصائي تطوير مؤسس" },
@@ -53,9 +54,9 @@ const UserContent = ({ isVisible }) => {
       </StyledTitle>
       <StyledSideBtns  isLTR={isLTR}>
         <StyledSideBtn>
-          <a href="/">
+          <Link  to={"/"} >
             <FontAwesomeIcon size="3x" icon={faBell} color={"#3C4652"} />
-          </a>
+          </Link >
           <div>
             {" "}
             <Trans i18nKey={"userContent:notifications"} t={t}>
@@ -64,9 +65,9 @@ const UserContent = ({ isVisible }) => {
           </div>
         </StyledSideBtn>
         <StyledSideBtn>
-          <a href="/">
+          <Link  to={"/Contacts"} >
             <FontAwesomeIcon size="3x" icon={faAddressBook} color={"#3C4652"} />
-          </a>
+          </Link>
           <div>
             <Trans i18nKey={"userContent:contacts"} t={t}>
               التحويلات
