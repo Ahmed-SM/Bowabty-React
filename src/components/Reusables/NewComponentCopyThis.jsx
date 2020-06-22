@@ -40,7 +40,7 @@ const COMPONENT_NAME = () => {
                 <Form>
                 <StyledInputGroup>  
                     <StyledColumn>
-                    {/* now you can you as={INPUT_TYPE} to chose between textarea or input */}
+                    {/* now you can use "as={INPUT_TYPE}" to choose between textarea or input */}
                     {/* also pass the id property as the name property  ex: name="textarea" id="textarea" */}
                         <CustomInput as={"textarea"} label={t("LegalAffairs:textarea")} name="textarea" id="textarea" type="text" placeholder={t("LegalAffairs:textarea")}  rows="15" cols="70" /> 
                     </StyledColumn>
