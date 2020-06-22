@@ -63,13 +63,14 @@ align-items:center;
 
 `;
 const StyledContent= styled.div`
-width:33rem;
+width:100%;
 height:2.5rem;
+padding:0 15px;
 color:black;
 background:${props => props.background};
 text-align:center;
 display:flex;
-justify-content:center;
+justify-content:space-between;
 align-items:center;
 border-bottom: 0.2px solid #F6F4F5;
 transition: all 0.22s ease-in;
@@ -97,18 +98,18 @@ const Contact = () => {
     return (
         <StyledContact>
         <StyledContactGroup>
-        <ContactBox title={"الإدارة العليا"} groupName={"الاسم التحويلة"} list={testdata} labelColor={"#902577"}></ContactBox>
-        <ContactBox title={"إدارة دعم وتطوير الأعمال"} groupName={"الاسم التحويلة"} list={testdata} labelColor={"#F05261"}></ContactBox>
-        <ContactBox title={"مركز الدراسات والاحصاء"} groupName={"الاسم التحويلة"} list={testdata} labelColor={"#2D3E50"}></ContactBox>
+        <ContactBox title={"الإدارة العليا"} groupName={<><span>الاسم</span><span>التحويلة</span></>} list={testdata} labelColor={"#902577"}></ContactBox>
+        <ContactBox title={"إدارة دعم وتطوير الأعمال"} groupName={<><span>الاسم</span><span>التحويلة</span></>}  list={testdata} labelColor={"#F05261"}></ContactBox>
+        <ContactBox title={"مركز الدراسات والاحصاء"} groupName={<><span>الاسم</span><span>التحويلة</span></>}  list={testdata} labelColor={"#2D3E50"}></ContactBox>
         </StyledContactGroup>
         <StyledContactGroup>
-        <ContactBox title={"إدارة الشؤون التجارية"} groupName={"الاسم التحويلة"} list={testdata} labelColor={"#1BBC9B"}></ContactBox>
-        <ContactBox title={"الأفرع"} groupName={"الاسم التحويلة"} list={testdata} labelColor={"#3497DB"}></ContactBox>
+        <ContactBox title={"إدارة الشؤون التجارية"} groupName={<><span>الاسم</span><span>التحويلة</span></>}  list={testdata} labelColor={"#1BBC9B"}></ContactBox>
+        <ContactBox title={"الأفرع"} groupName={<><span>الاسم</span><span>التحويلة</span></>}  list={testdata} labelColor={"#3497DB"}></ContactBox>
         </StyledContactGroup>
         <StyledContactGroup>
-        <ContactBox title={"إدراة الخدمات المساندة"} groupName={"الاسم التحويلة"} list={testdata} labelColor={"#008B38"}></ContactBox>
-        <ContactBox title={"إدارة الرقابة و الحماية التجارية"} groupName={"الاسم التحويلة"} list={testdata} labelColor={"#2D3E50"}></ContactBox>
-        <ContactBox title={"المطابخ"} groupName={"الاسم التحويلة"} list={testdata} labelColor={"#F1C40F"}></ContactBox>
+        <ContactBox title={"إدراة الخدمات المساندة"} groupName={<><span>الاسم</span><span>التحويلة</span></>}  list={testdata} labelColor={"#008B38"}></ContactBox>
+        <ContactBox title={"إدارة الرقابة و الحماية التجارية"} groupName={<><span>الاسم</span><span>التحويلة</span></>}  list={testdata} labelColor={"#2D3E50"}></ContactBox>
+        <ContactBox title={"المطابخ"} groupName={<><span>الاسم</span><span>التحويلة</span></>}  list={testdata} labelColor={"#F1C40F"}></ContactBox>
         </StyledContactGroup>
         </StyledContact>
     );
@@ -126,4 +127,5 @@ const StyledContactGroup= styled.div`
 
 `;
 
-const testdata = ["الاسم التحويلة","الاسم التحويلة","الاسم التحويلة","الاسم التحويلة","الاسم التحويلة"];
+
+const testdata = [<><span>الاسم</span><span>التحويلة</span></>, <><span>الاسم</span><span>التحويلة</span></>,<><span>الاسم</span><span>التحويلة</span></>,<><span>الاسم</span><span>التحويلة</span></>];
