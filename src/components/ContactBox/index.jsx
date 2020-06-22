@@ -1,12 +1,11 @@
 import React, {useRef, useContext, useEffect} from "react";
 import styled from "styled-components";
-import { useTranslation, Trans } from "react-i18next";
+import { useTranslation } from "react-i18next";
 import {TitleContext} from "../../contexts/TitleContext";
 import {faChevronRight} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ContactBox = ({title, groupName, list, labelColor}) => {
-  const { t } = useTranslation();
 
   const toggleRef = useRef();
   const expandablelRef = useRef();

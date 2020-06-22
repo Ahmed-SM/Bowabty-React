@@ -262,12 +262,6 @@ const StyledColumn = styled.div`
     padding: 0 5px;
   }
 `;
-const StyledInputGroup = styled.div`
-  width: 100%;
-  margin-bottom: 13px;
-  display: flex;
-  flex-wrap: nowrap;
-`;
 const StyledRow = styled.div`
   width: 20%;
   background:#F6F4F5;

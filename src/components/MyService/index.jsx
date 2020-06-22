@@ -147,48 +147,6 @@ const StyledGroup = styled.div`
   display: block;
   padding: 0px 0px;
 `;
-const StyledFile = styled.div`
-  height: 30px;
-  min-height: 30px;
-  border-radius: 5px;
-  text-rendering: auto;
-  letter-spacing: normal;
-  word-spacing: normal;
-  text-indent: 0px;
-  text-shadow: none;
-  display: inline-block;
-  text-align: start;
-  align-items: center;
-  white-space: pre;
-  rtl-ordering: logical;
-  cursor: pointer;
-  border-width: 1px;
-  border-style: solid;
-  border-color: rgb(169, 169, 169);
-  display: flex;
-  flex-direction: row-reverse;
-  background-color: transparent;
-  & input[type="file"] {
-    font-size: calc(1px + 0.65vw);
-    padding-left: 10px;
-    opacity: 0;
-  }
-`;
-const StyledFileLabel = styled.label`
-  color: #757575;
-  margin: -25px 0px 0 0;
-  padding: 0 15px;
-  text-indent: 10px;
-`;
-
-const StyledSVG = styled.svg`
-  position: absolute;
-  text-indent: 10px;
-  width: 15px;
-  margin: 1px -5px 0 -5px;
-  z-index: -1;
-`;
-
 const Newslist = [
   {
     header: "1اليوم العالمي للعدالة الاجتماعية",
