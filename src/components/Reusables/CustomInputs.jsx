@@ -133,4 +133,7 @@ min-width: 8rem;
   display:flex;
   padding: 0 5px;
 }
+& > label > span{
+  color:black;
+}
 `;
