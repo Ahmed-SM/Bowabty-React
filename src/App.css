@@ -186,24 +186,6 @@ textarea {
   resize: none;
   word-break: break-all !important;
 }
-.custom-file-upload {
-  border: 1px solid  rgb(169, 169, 169);
-  display: inline-block;
-  cursor: pointer;
-  min-height: 3rem;
-  padding:0.5rem !important;
-  text-indent: 5px;
-  width: 200px !important;
-  color: #757575;
-  font-size: 1.3rem;
-  outline: 0;
-  border-radius: 5px;
-  text-rendering: auto;
-  letter-spacing: normal;
-  word-spacing: normal;
-  text-shadow: none;
-  text-align: start;
-}
 
 /* .App {
   text-align: center;

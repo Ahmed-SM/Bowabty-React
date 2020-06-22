@@ -35,7 +35,8 @@ export const CustomFile = React.memo(({ label, width,icon, ...props }) => {
   const [field, meta] = useField(props);
   return (
     <StyledColumn width={width}>
-      <label className="custom-file-upload" htmlFor={props.id || props.name}>{label}<span>{<FontAwesomeIcon size="1x" icon={icon} />}</span></label>
+      <label htmlFor={props.id || props.name}>{label}</label>
+      <label className="__custom-file-upload" htmlFor={props.id || props.name}>{label}<span>{<FontAwesomeIcon size="1x" icon={icon} />}</span></label>
       <StyledFile type="file" {...field} {...props} />
       {meta.touched && meta.error ? (
         <div className="error">{meta.error}</div>
@@ -130,10 +131,30 @@ min-width: 8rem;
 
 & > label {
   justify-content: space-between;
-  display:flex;
   padding: 0 5px;
+  width:fit-content;
 }
 & > label > span{
+  margin-top:5px;
   color:black;
+}
+.__custom-file-upload {
+  border: 1px solid  rgb(169, 169, 169);
+  width: 100%;
+  display: flex;
+  cursor: pointer;
+  min-height: 3rem;
+ align-items:center;
+  text-indent: 5px;
+  color: #757575;
+  font-size: 1.3rem;
+  outline: 0;
+  text-indent: 15px;
+  text-rendering: auto;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-shadow: none;
+  text-align: start;
+  border-radius: 5px;
 }
 `;

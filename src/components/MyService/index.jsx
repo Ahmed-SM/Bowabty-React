@@ -7,7 +7,8 @@ import { useTranslation, Trans } from "react-i18next";
 import { TitleContext } from "../../contexts/TitleContext";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import { CustomInput, CustomSelect } from "../Reusables/CustomInputs";
+import { CustomInput, CustomSelect, CustomFile } from "../Reusables/CustomInputs";
+import {faPaperclip} from '@fortawesome/free-solid-svg-icons';
 import RichInput from "../Reusables/RichInput";
 import MediumBox from "../Reusables/MediumBox";
 import BoxHeader from "../Reusables/BoxHeader";
@@ -90,49 +91,14 @@ const MyService = () => {
                     {t("myService:suggestionOriginOption1")}
                   </option>
                 </CustomSelect>
-                <StyledColumn className="__multi">
-                  <label htmlFor="file">
-                    <Trans i18nKey={"myService:attachemnt"} t={t}>
-                      المرفقات
-                    </Trans>
-                  </label>
-                  <StyledFile>
-                    <div>
-                      <input multiple name="file" type="file" />
-                    </div>
-                    <StyledSVG
-                      aria-hidden="true"
-                      focusable="false"
-                      data-prefix="far"
-                      data-icon="file"
-                      role="img"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 384 512"
-                    >
-                      <path
-                        fill="currentColor"
-                        d="M369.9 97.9L286 14C277 5 264.8-.1 252.1-.1H48C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48V131.9c0-12.7-5.1-25-14.1-34zM332.1 128H256V51.9l76.1 76.1zM48 464V48h160v104c0 13.3 10.7 24 24 24h104v288H48z"
-                      />
-                      <svg
-                        width="250"
-                        height="300"
-                        viewBox="0 0 600 600"
-                        y="200"
-                        x="100"
-                      >
-                        <path
-                          fill="currentColor"
-                          d="M43.246 466.142c-58.43-60.289-57.341-157.511 1.386-217.581L254.392 34c44.316-45.332 116.351-45.336 160.671 0 43.89 44.894 43.943 117.329 0 162.276L232.214 383.128c-29.855 30.537-78.633 30.111-107.982-.998-28.275-29.97-27.368-77.473 1.452-106.953l143.743-146.835c6.182-6.314 16.312-6.422 22.626-.241l22.861 22.379c6.315 6.182 6.422 16.312.241 22.626L171.427 319.927c-4.932 5.045-5.236 13.428-.648 18.292 4.372 4.634 11.245 4.711 15.688.165l182.849-186.851c19.613-20.062 19.613-52.725-.011-72.798-19.189-19.627-49.957-19.637-69.154 0L90.39 293.295c-34.763 35.56-35.299 93.12-1.191 128.313 34.01 35.093 88.985 35.137 123.058.286l172.06-175.999c6.177-6.319 16.307-6.433 22.626-.256l22.877 22.364c6.319 6.177 6.434 16.307.256 22.626l-172.06 175.998c-59.576 60.938-155.943 60.216-214.77-.485z"
-                        />
-                      </svg>
-                    </StyledSVG>
-                  </StyledFile>
-                  <StyledFileLabel htmlFor="file">
-                    <Trans i18nKey={"myService:attachemnt"} t={t}>
-                      المرفقات
-                    </Trans>
-                  </StyledFileLabel>
-                </StyledColumn>
+                <CustomFile
+                label={t("myService:attachemnt")}
+                id="file"
+                name="file"
+                type="type"
+                placeholder={t("myService:attachemnt")}
+                icon={faPaperclip}
+                width={"100%"}/>
               </RichInput>
               <RichInput height={"65px"}>
                 <StyledSendButton type="submit" className="send-btn">
