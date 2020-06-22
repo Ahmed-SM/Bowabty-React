@@ -116,20 +116,6 @@ const MyService = () => {
 };
 export default MyService;
 
-const StyledColumn = styled.div`
-  display: flex;
-  min-height: 60px;
-  margin-left: 6.3px;
-  margin-right: 6.3px;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  width: 100%;
-
-  & > label {
-    width: fit-content;
-    padding: 0 5px;
-  }
-`;
 const StyledSendButton = styled.button`
   display: inline-block;
   margin-bottom: 0;
