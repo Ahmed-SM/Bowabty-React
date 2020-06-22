@@ -93,9 +93,9 @@ const MyService = () => {
                 </CustomSelect>
                 <CustomFile
                 label={t("myService:attachemnt")}
-                id="file"
                 name="file"
-                type="type"
+                id="file"
+                type="file"
                 placeholder={t("myService:attachemnt")}
                 icon={faPaperclip}
                 width={"100%"}/>
