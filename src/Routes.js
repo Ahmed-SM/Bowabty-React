@@ -42,7 +42,7 @@ const Routes = () => {
                             <Switch>
 
                             <Route exact component={ServiceSlider} path={["/v/*", "/"]}/>
-                            <Route exact component={ServiceSlider} path={"/ServiceID=2/Sub=1"}/>
+                            <Route exact component={ServiceSlider} path={"/ServiceID=2/ServiceID=1"}/>
 
                             </Switch>
                         </ErrorBoundary>
