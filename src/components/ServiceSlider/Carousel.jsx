@@ -1,8 +1,7 @@
 import React from "react";
 import Carousel from "react-multi-carousel";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
 import UAParser from "ua-parser-js";
+import SmallBox from "../Reusables/SmallBox";
 const ServicesCarousel = ({ deviceType, list }) => {
   console.log(
     "%c ServicesCarousel rerendred. ",
@@ -22,19 +21,7 @@ const ServicesCarousel = ({ deviceType, list }) => {
     >
       {list.slice(0, list.length).map((item, index) => {
         return (
-          <StyledElement key={index}>
-            <Link to={"/ServiceID=" + index}>
-              <StyledImgFrame>
-                <img src={item.Icon} alt="" width="42" />
-              </StyledImgFrame>
-              <StyledElementTitle>
-                <Styledh5>{item.Title}</Styledh5>
-              </StyledElementTitle>
-              <StyledDescription>
-                <Styledh6>{item.Description}</Styledh6>
-              </StyledDescription>
-            </Link>
-          </StyledElement>
+          <SmallBox key={index} index={index} icon={item.Icon} title={item.Title} description={item.Description} />
         );
       })}
     </Carousel>
@@ -79,40 +66,3 @@ const responsive = {
     items: 1,
   },
 };
-const StyledElement = styled.div`
-  width: 135px;
-  height: 160px;
-  display: block;
-  border-radius: 10px;
-  background-color: white;
-  box-shadow: 0px 0px 8px 3px rgba(0, 0, 0, 0.05);
-
-  &:hover {
-    filter: grayscale(80%);
-    transition: all 0.5s;
-  }
-  .carousel-padding {
-    margin: 0 0px 0 0px;
-    padding: 0 0px 0 0px;
-  }
-`;
-const StyledElementTitle = styled.div`
-  display: inline;
-`;
-const StyledDescription = styled.div`
-  display: inline;
-  overflow-wrap: break-word;
-`;
-const Styledh6 = styled.h6`
-  font-size: calc(4px + 0.4vw);
-  opacity: 0.6;
-  color: black;
-`;
-const Styledh5 = styled.h5`
-  -webkit-text-stroke: 0.5px black !important;
-  -webkit-text-fill-color: black !important;
-  font-size: 15px;
-`;
-const StyledImgFrame = styled.div`
-  padding: 30px 30px 0px 30px;
-`;
