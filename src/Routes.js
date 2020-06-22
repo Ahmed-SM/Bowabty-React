@@ -20,6 +20,7 @@ const LegalAffairs = React.lazy(()=> import("./components/LegalAffairs"));
 const StickyBox = React.lazy(()=>import("./components/StickyLabel/StickyBox"));
 const MyDesk = React.lazy(()=>import("./components/MyDesk"));
 const Contacts = React.lazy(()=>import("./components/ContactBox"));
+const ServicesBox = React.lazy(()=>import("./components/ServicesBox"));
 
 const Routes = () => {
     const [userData] = useContext(UserContext);
@@ -61,9 +62,10 @@ const Routes = () => {
 
                                 <ContainerComponentRoute  exact component={MyOrders}  container={Page} path={"/myorders"}/>
                                 <ContainerComponentRoute exact  component={IncomingRequest} container={Page} path={"/incomingrequest"}/>
-                                <ContainerComponentRoute exact  component={LegalAffairs} container={View} path={"/legalaffairs"}/>
                                 <ContainerComponentRoute exact  component={MyDesk} container={View} path={"/mydesk"}/>
                                 <ContainerComponentRoute exact  component={Contacts} container={Page} path={"/Contacts"}/>
+                                <ContainerComponentRoute exact  component={ServicesBox} container={Page} path={"/ServicesBox"}/>
+                                <ContainerComponentRoute exact  component={LegalAffairs} container={View} path={"/legalaffairs"}/>
                                 {/* <Route exact component={LegalAffairs} path={"/LegalAffairs"}/> */}
 
                             </Switch>
