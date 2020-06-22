@@ -43,7 +43,7 @@ const LegalAffairs = () => {
             </RichInput> 
             <RichInput>  
  
-            <CustomFile as={"input"} label={t("LegalAffairs:file")} name="file" id="file" type="file" placeholder={t("LegalAffairs:file")} icon={faPaperclip} width={"100%"}/> 
+            <CustomFile as={"input"} label={t("LegalAffairs:file")} name="file" id="file" type="file" placeholder={t("LegalAffairs:file")} icon={faPaperclip} width={"19rem"}/> 
             </RichInput>      
             <CustomButton green type="submit" className="send-btn"><Trans i18nKey={"myService:sendBtn"} t={t}>ارسال</Trans></CustomButton>
                     </Form>
@@ -54,8 +54,7 @@ const LegalAffairs = () => {
     }
   export default LegalAffairs;
   const StyledMdContainer =  styled(LargeBox)`
-  width:760px;
-  height:520px;
-  padding: 20px 40px 0 40px;
-  
+    width:760px;
+    height:520px;
+    padding: 20px 40px 0 40px;
   `;
