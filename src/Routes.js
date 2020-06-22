@@ -42,7 +42,7 @@ const Routes = () => {
                             <Switch>
 
                             <Route exact component={ServiceSlider} path={["/v/*", "/"]}/>
-                            <Route exact component={ServiceSlider} path={"/LegalAffairs"}/>
+                            <Route exact component={ServiceSlider} path={"/ServiceID=2"}/>
 
                             </Switch>
                         </ErrorBoundary>
@@ -62,10 +62,10 @@ const Routes = () => {
 
                                 <ContainerComponentRoute  exact component={MyOrders}  container={Page} path={"/myorders"}/>
                                 <ContainerComponentRoute exact  component={IncomingRequest} container={Page} path={"/incomingrequest"}/>
-                                <ContainerComponentRoute exact  component={MyDesk} container={View} path={"/mydesk"}/>
+                                <ContainerComponentRoute exact  component={MyDesk} container={View} path={"/ServiceID=6"}/>
                                 <ContainerComponentRoute exact  component={Contacts} container={Page} path={"/Contacts"}/>
                                 <ContainerComponentRoute exact  component={ServicesBox} container={Page} path={"/ServicesBox"}/>
-                                <ContainerComponentRoute exact  component={LegalAffairs} container={View} path={"/legalaffairs"}/>
+                                <ContainerComponentRoute exact  component={LegalAffairs} container={View} path={"/ServiceID=2"}/>
                                 {/* <Route exact component={LegalAffairs} path={"/LegalAffairs"}/> */}
 
                             </Switch>
