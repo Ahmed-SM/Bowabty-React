@@ -2,27 +2,36 @@ import React, {useRef, useContext, useEffect} from "react";
 import styled from "styled-components";
 import { useTranslation, Trans } from "react-i18next";
 import {TitleContext} from "../../contexts/TitleContext";
+import {faChevronRight} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ContactBox = ({title, groupName, list, labelColor}) => {
   const { t } = useTranslation();
 
   const toggleRef = useRef();
   const expandablelRef = useRef();
+  const arrowRef = useRef();
 
   const handleToggle = () => {
     if (expandablelRef.current.style.display === "block") {
         toggleRef.current.style.borderRadius = "";
         expandablelRef.current.style.display ="none";
+        arrowRef.current.style.transform = "";
     } else {
         toggleRef.current.style.borderRadius = "10px 10px 0px 0px";
         expandablelRef.current.style.display = "block";
+        arrowRef.current.style.transform = "rotate(90deg)";
     }
   };
  
   return (
     <StyledContianer >
         <StyledContacts background={labelColor} ref={toggleRef}  onClick={handleToggle}>
+            <span/>
             {title}
+            <span ref={arrowRef}>
+            <FontAwesomeIcon size="1x" icon={faChevronRight}  />
+            </span>
         </StyledContacts>
         <StyledInner background={"white"} ref={expandablelRef} >
         <StyledContent background={"#F6F4F5"}>
@@ -44,11 +53,12 @@ const StyledContacts = styled.div`
 width:33rem;
 height:5rem;
 color:white;
+padding:0 25px;
 background:${props => props.background};
 text-align:center;
 border-radius:10px;
 display:flex;
-justify-content:center;
+justify-content:space-between;
 align-items:center; 
 
 `;
