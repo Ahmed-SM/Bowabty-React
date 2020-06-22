@@ -11,7 +11,7 @@ export const CustomInput = React.memo(({ label, width, ...props }) => {
       <label htmlFor={props.id || props.name}>{label}</label>
       <StyledInput {...field} {...props} />
       {meta.touched && meta.error ? (
-        <div className="error">{meta.error}</div>
+        <StyledError>{meta.error}</StyledError>
       ) : null}
     </StyledColumn>
   );
@@ -25,7 +25,7 @@ export const CustomSelect = React.memo(({ label, width, type, ...props }) => {
       <label htmlFor={props.id || props.name}>{label}</label>
       <StyledSelect as={type} {...field} {...props} />
       {meta.touched && meta.error ? (
-        <div className="error">{meta.error}</div>
+        <StyledError>{meta.error}</StyledError>
       ) : null}
     </StyledColumn>
   );
@@ -39,7 +39,7 @@ export const CustomFile = React.memo(({ label, width,icon, ...props }) => {
       <label className="__custom-file-upload" htmlFor={props.id || props.name}>{label}<span>{<FontAwesomeIcon size="1x" icon={icon} />}</span></label>
       <StyledFile type="file" {...field} {...props} />
       {meta.touched && meta.error ? (
-        <div className="error">{meta.error}</div>
+        <StyledError>{meta.error}</StyledError>
       ) : null}
     </StyledColumn>
   );
@@ -52,7 +52,7 @@ export const CustomRadio= React.memo(({ label, width, ...props }) => {
       <StyledRadio {...field} {...props}></StyledRadio>
   <label htmlFor={props.id || props.name}>{label}</label>
       {meta.touched && meta.error ? (
-        <div className="error">{meta.error}</div>
+        <StyledError>{meta.error}</StyledError>
         ) : null}
     </StyledColumn>
   );
@@ -157,4 +157,10 @@ min-width: 8rem;
   text-align: start;
   border-radius: 5px;
 }
+`;
+const StyledError = styled.div`
+  color:red;
+  height: 0px;
+  min-height: 0px;
+  max-height: 0px;
 `;
