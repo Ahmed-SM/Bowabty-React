@@ -73,7 +73,7 @@ const StyledContianer= styled.div`
 box-shadow: 0px 0px 8px 3px rgba(0, 0, 0, 0.09);
 height:fit-content;
 border-radius:10px;
-margin:0 30px;
+margin:30px 30px;
 `;
 
 const Contact = () => {
@@ -86,14 +86,20 @@ const Contact = () => {
    
     return (
         <StyledContact>
+        <StyledContactGroup>
         <ContactBox title={"الإدارة العليا"} groupName={"الاسم التحويلة"} list={testdata} labelColor={"#902577"}></ContactBox>
-        <ContactBox title={"إدارة الشؤون التجارية"} groupName={"الاسم التحويلة"} list={testdata} labelColor={"#1BBC9B"}></ContactBox>
-        <ContactBox title={"إدراة الخدمات المساندة"} groupName={"الاسم التحويلة"} list={testdata} labelColor={"#008B38"}></ContactBox>
         <ContactBox title={"إدارة دعم وتطوير الأعمال"} groupName={"الاسم التحويلة"} list={testdata} labelColor={"#F05261"}></ContactBox>
-        <ContactBox title={"الأفرع"} groupName={"الاسم التحويلة"} list={testdata} labelColor={"#3497DB"}></ContactBox>
-        <ContactBox title={"إدارة الرقابة و الحماية التجارية"} groupName={"الاسم التحويلة"} list={testdata} labelColor={"#2D3E50"}></ContactBox>
         <ContactBox title={"مركز الدراسات والاحصاء"} groupName={"الاسم التحويلة"} list={testdata} labelColor={"#2D3E50"}></ContactBox>
+        </StyledContactGroup>
+        <StyledContactGroup>
+        <ContactBox title={"إدارة الشؤون التجارية"} groupName={"الاسم التحويلة"} list={testdata} labelColor={"#1BBC9B"}></ContactBox>
+        <ContactBox title={"الأفرع"} groupName={"الاسم التحويلة"} list={testdata} labelColor={"#3497DB"}></ContactBox>
+        </StyledContactGroup>
+        <StyledContactGroup>
+        <ContactBox title={"إدراة الخدمات المساندة"} groupName={"الاسم التحويلة"} list={testdata} labelColor={"#008B38"}></ContactBox>
+        <ContactBox title={"إدارة الرقابة و الحماية التجارية"} groupName={"الاسم التحويلة"} list={testdata} labelColor={"#2D3E50"}></ContactBox>
         <ContactBox title={"المطابخ"} groupName={"الاسم التحويلة"} list={testdata} labelColor={"#F1C40F"}></ContactBox>
+        </StyledContactGroup>
         </StyledContact>
     );
   };
@@ -105,6 +111,9 @@ const StyledContact= styled.div`
     justify-content: space-between;
     flex-wrap: wrap;
     direction: rtl;
+`;
+const StyledContactGroup= styled.div`
+
 `;
 
 const testdata = ["الاسم التحويلة","الاسم التحويلة","الاسم التحويلة","الاسم التحويلة","الاسم التحويلة"];
