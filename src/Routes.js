@@ -2,7 +2,7 @@ import React, {useContext, Suspense} from 'react';
 import ErrorBoundary from "./ErrorBoundary";
 import {UserContext} from "./contexts/UserContext";
 import {TitleProvider} from "./contexts/TitleContext";
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 import LoadLayout, {StyledUserContent, StyledServicesContainer, StyledView, StyledMyService, StyledPage} from "./layouts/LoadLayout";
 import MainLayout from "./layouts/MainLayout";
@@ -42,7 +42,7 @@ const Routes = () => {
                             <Switch>
 
                             <Route exact component={ServiceSlider} path={["/v/*", "/"]}/>
-                            <Route exact component={ServiceSlider} path={"/ServiceID=2"}/>
+                            <Route exact component={ServiceSlider} path={"/ServiceID=2/Sub=1"}/>
 
                             </Switch>
                         </ErrorBoundary>
@@ -64,13 +64,14 @@ const Routes = () => {
                                 <ContainerComponentRoute exact  component={IncomingRequest} container={Page} path={"/incomingrequest"}/>
                                 <ContainerComponentRoute exact  component={MyDesk} container={View} path={"/ServiceID=6"}/>
                                 <ContainerComponentRoute exact  component={Contacts} container={Page} path={"/Contacts"}/>
-                                <ContainerComponentRoute exact  component={ServicesBox} container={Page} path={"/ServicesBox"}/>
-                                <ContainerComponentRoute exact  component={LegalAffairs} container={View} path={"/ServiceID=2"}/>
+                                <ContainerComponentRoute exact  component={ServicesBox} container={Page} path={"/ServiceID=2"}/>
+                                <ContainerComponentRoute exact  component={LegalAffairs} container={View} path={"/ServiceID=2/ServiceID=1"}/>
                                 {/* <Route exact component={LegalAffairs} path={"/LegalAffairs"}/> */}
 
                             </Switch>
                         </ErrorBoundary>
                     </Suspense>
+                    <Route render={() => <Redirect to="/" />} />
                 </TitleProvider>
             </MainLayout> : <Suspense fallback={<LoadLayout/>}> <LoginLayout/> </Suspense>}
             <Suspense fallback={null}>
