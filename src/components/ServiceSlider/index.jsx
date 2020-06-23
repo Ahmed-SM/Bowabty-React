@@ -14,11 +14,11 @@ import dockGreen from "../../assets/serviceImgs/doc-green.png";
 import dockYellow from "../../assets/serviceImgs/doc-yellow.png";
 import paperTime from "../../assets/serviceImgs/paper-time.png";
 
-const MemoizedServicesCarousel = React.memo(() => {
-  return <ServicesCarousel list={servicesList} />;
+const MemoizedServicesCarousel = React.memo(({services}) => {
+  return <ServicesCarousel list={services} />;
 });
 
-const ServiceSlider = () => {
+const ServiceSlider = ({services}) => {
   console.log("ServicesSlider rerendred");
   const minimizeRef = useRef();
   const carouselRef = useRef();
@@ -41,7 +41,7 @@ const ServiceSlider = () => {
   return (
     <StyledServicesContainer ref={minimizeRef}>
       <CarouselSection ref={carouselRef}>
-        <MemoizedServicesCarousel />
+        <MemoizedServicesCarousel services={services ? services : servicesList }/>
       </CarouselSection>
       <StyledMinimize onClick={handleMinimize}>
         <FontAwesomeIcon size="1x" icon={faBars} />

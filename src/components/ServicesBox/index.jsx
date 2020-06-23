@@ -11,7 +11,7 @@ const ServicesBox = () => {
     const [Title, setTitle] = useContext(TitleContext);
     const {t} = useTranslation();  
     useEffect(() => {
-    console.log("MyService rerendred use effect")
+    console.log("ServicesBox rerendred use effect")
         setTitle(Title =>({...Title, Title: t("LegalAffairs:title"), SubTitle: t("userContent:lorem")}));
 },[t, setTitle]);
     return (

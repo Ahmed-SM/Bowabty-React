@@ -42,7 +42,6 @@ const Routes = () => {
                             <Switch>
 
                             <Route exact component={ServiceSlider} path={["/v/*", "/"]}/>
-                            <Route exact component={ServiceSlider} path={"/ServiceID=2/ServiceID=1"}/>
 
                             </Switch>
                         </ErrorBoundary>
@@ -65,13 +64,13 @@ const Routes = () => {
                                 <ContainerComponentRoute exact  component={MyDesk} container={View} path={"/ServiceID=6"}/>
                                 <ContainerComponentRoute exact  component={Contacts} container={Page} path={"/Contacts"}/>
                                 <ContainerComponentRoute exact  component={ServicesBox} container={Page} path={"/ServiceID=2"}/>
-                                <ContainerComponentRoute exact  component={LegalAffairs} container={View} path={"/ServiceID=2/ServiceID=1"}/>
-                                {/* <Route exact component={LegalAffairs} path={"/LegalAffairs"}/> */}
+                                {/* <ContainerComponentRoute exact  component={LegalAffairs} container={Page} path={"/ServiceID=2/ServiceID=1"}/> */}
+                                <Route exact component={LegalAffairs} path={"/ServiceID=2/ServiceID=1"}/>
 
                             </Switch>
                         </ErrorBoundary>
                     </Suspense>
-                    <Route render={() => <Redirect to="/" />} />
+                    {/* <Route render={() => <Redirect to="/" />} /> */}
                 </TitleProvider>
             </MainLayout> : <Suspense fallback={<LoadLayout/>}> <LoginLayout/> </Suspense>}
             <Suspense fallback={null}>
