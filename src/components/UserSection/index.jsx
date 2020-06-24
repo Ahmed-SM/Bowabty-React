@@ -20,7 +20,7 @@ const data = {
 const UserContent = ({ isVisible }) => {
   const { t } = useTranslation();
   const [isLTR] = useContext(DiractionContext);
-  const [Title] = useContext(TitleContext);
+  const {Title} = useContext(TitleContext);
   console.log("userContent rerendred");
   return (
     <StyledUserContent isLTR={isLTR}>

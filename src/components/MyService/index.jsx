@@ -19,7 +19,7 @@ const MemoizedNewsFeed = React.memo(() => {
 
 const MyService = () => {
   const { t } = useTranslation();
-  const [Title, setTitle] = useContext(TitleContext);
+  const {setTitle} = useContext(TitleContext);
   const validation = Yup.object({
     suggestion: Yup.string()
       .min(3, t("login:min"))

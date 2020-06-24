@@ -10,7 +10,7 @@ import LargeBox from "../Reusables/LargeBox";
 
   const MyOrders = () => {
     console.log("myOrders rerendred")
-    const [Title, setTitle] = useContext(TitleContext);
+    const {setTitle}  = useContext(TitleContext);
     const {t, i18n} = useTranslation();     
           useEffect(()=>{
             setTitle(Title =>({...Title, Title: t("myService:title"), SubTitle: t("userContent:lorem")}));

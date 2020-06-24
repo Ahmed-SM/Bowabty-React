@@ -6,7 +6,7 @@ import LargeBox from "../Reusables/LargeBox";
 import BoxHeader from "../Reusables/BoxHeader";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
-import { CustomInput, CustomFile } from "../Reusables/CustomInputs";
+import { CustomInput } from "../Reusables/CustomInputs";
 import { CustomButton } from "../Reusables/CustomButton";
 import RichInput from "../Reusables/RichInput";
 import { faPaperclip } from "@fortawesome/free-solid-svg-icons";
@@ -17,7 +17,7 @@ import CustomUpload from "../Reusables/CustomUpload";
 
 const LegalAffairs = () => {
   console.log("IncomingRequest rerendred");
-  const [Title, setTitle] = useContext(TitleContext);
+  const {setTitle}  = useContext(TitleContext);
   const { t } = useTranslation();
   const validation = Yup.object({
     textarea: Yup.string()

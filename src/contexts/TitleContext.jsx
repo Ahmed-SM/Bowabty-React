@@ -2,9 +2,9 @@ import React, { useState, createContext } from "react";
 const TitleContext = createContext([{}, () => {}]);
 const TitleProvider = ({ children }) => {
 
-  const [Title, setTitle] = useState({Title:"", SubTitle:""});
+  const [title, SetTitle] = useState({Title:"", SubTitle:""});
   return (
-    <TitleContext.Provider value={[Title, setTitle]}>
+    <TitleContext.Provider value={{Title:title, setTitle:SetTitle}}>
       {children}
     </TitleContext.Provider>
   );

@@ -9,7 +9,7 @@ import LargeBox from "../Reusables/LargeBox"
 
   const IncomingRequest = () => {
     console.log("IncomingRequest rerendred")
-    const [Title, setTitle] = useContext(TitleContext);
+    const {setTitle}  = useContext(TitleContext);
     const {t, i18n} = useTranslation();   
           useEffect(()=>{
             setTitle(Title =>({...Title, Title: t("IncomingRequest:title"), SubTitle: t("userContent:lorem")}));

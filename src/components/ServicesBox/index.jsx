@@ -9,7 +9,7 @@ import {faCar, faUser, faBox, faGift, faHotel} from '@fortawesome/free-solid-svg
 
 
 const ServicesBox = () => {
-    const [Title, setTitle] = useContext(TitleContext);
+    const {setTitle}  = useContext(TitleContext);
     const {t} = useTranslation();  
     useEffect(() => {
     console.log("ServicesBox rerendred use effect")

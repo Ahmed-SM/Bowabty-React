@@ -88,7 +88,7 @@ margin:30px 30px;
 
 const Contact = () => {
     const { t } = useTranslation();
-    const [Title, setTitle] = useContext(TitleContext);
+    const {setTitle}  = useContext(TitleContext);
 
     useEffect(()=>{
         setTitle(Title =>({...Title, Title: "التحويلات", SubTitle: t("userContent:lorem")}));
