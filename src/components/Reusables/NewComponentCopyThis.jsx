@@ -14,7 +14,7 @@ import {CustomButton} from "../Reusables/CustomButton";
 
 const COMPONENT_NAME = () => {
     // This is the Title Context sets the title that appears in the UserSection component 
-    const [Title, setTitle] = useContext(TitleContext);
+    const {Title, setTitle}  = useContext(TitleContext);
     //This is the i18n trnaslation hook, you can't use you translation file without it  
     const {t} = useTranslation();  
     // Set your form validation 
@@ -91,7 +91,7 @@ const COMPONENT_NAME = () => {
 // import {CustomButton} from "../Reusables/CustomButton";
 
 // const COMPONENT_NAME = () => {
-//     const [Title, setTitle] = useContext(TitleContext);
+//     const {Title, setTitle}  = useContext(TitleContext);
 //     const {t} = useTranslation();  
 //     const validation = Yup.object({
 //             textarea: Yup.string().min(3, t('login:min')).max(8, t('login:max')).required(t('login:required')),
