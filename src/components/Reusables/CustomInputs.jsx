@@ -37,7 +37,7 @@ export const CustomFile = React.memo(({ label, width,icon, ...props }) => {
     <StyledColumn width={width}>
       <label htmlFor={props.id || props.name}>{label}</label>
       <label className="__custom-file-upload" htmlFor={props.id || props.name}>{label}<span>{<FontAwesomeIcon size="1x" icon={icon} />}</span></label>
-      <StyledFile type="file" {...field} {...props} />
+      <StyledFile  {...field} {...props} />
       {meta.touched && meta.error ? (
         <StyledError>{meta.error}</StyledError>
       ) : null}

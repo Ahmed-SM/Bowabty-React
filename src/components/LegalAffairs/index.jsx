@@ -4,7 +4,7 @@ import { TitleContext } from "../../contexts/TitleContext";
 import { useTranslation, Trans } from "react-i18next";
 import LargeBox from "../Reusables/LargeBox";
 import BoxHeader from "../Reusables/BoxHeader";
-import { Formik, Form } from "formik";
+import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { CustomInput, CustomFile } from "../Reusables/CustomInputs";
 import { CustomButton } from "../Reusables/CustomButton";
@@ -12,23 +12,26 @@ import RichInput from "../Reusables/RichInput";
 import { faPaperclip } from "@fortawesome/free-solid-svg-icons";
 import ServiceSlider from "../ServiceSlider";
 import Page from "../../containers/Page";
+import CustomUpload from "../Reusables/CustomUpload";
+
 
 const LegalAffairs = () => {
   console.log("IncomingRequest rerendred");
   const [Title, setTitle] = useContext(TitleContext);
   const { t } = useTranslation();
   const validation = Yup.object({
-    suggestion: Yup.string()
-      .min(3, t("login:min"))
-      .max(15, t("login:max"))
-      .required(t("login:required")),
     textarea: Yup.string()
       .min(3, t("login:min"))
       .max(8, t("login:max"))
       .required(t("login:required")),
-    attach: Yup.object().required(t("login:required")),
   });
-  const handleOnSubmit = (values) => {};
+  const handleOnSubmit = (values) => {
+    console.log(JSON.stringify(values.file.map(file=>({
+      fileName:file.name,
+      type:file.type,
+      size:`${file.size} bytes`
+    })), null, 2));
+  };
 
   useEffect(() => {
     console.log("LegalAffairs rerendred use effect");
@@ -48,7 +51,7 @@ const LegalAffairs = () => {
         children={<Trans i18nKey={"LegalAffairs:followUp"} t={t}></Trans>}
       />
       <Formik
-        initialValues={{ textarea: "", file: "" }}
+        initialValues={{ textarea: "", file: [] }}
         validationSchema={validation}
         onSubmit={handleOnSubmit}
       >
@@ -67,7 +70,14 @@ const LegalAffairs = () => {
             />
           </RichInput>
           <RichInput>
-            <CustomFile
+            <Field label={t("LegalAffairs:file")} 
+            icon={faPaperclip}
+            width={"19rem"}
+            type="file"
+            id="file"
+            name="file"
+            component={CustomUpload}/>
+            {/* <CustomFile
               as={"input"}
               label={t("LegalAffairs:file")}
               name="file"
@@ -76,7 +86,7 @@ const LegalAffairs = () => {
               placeholder={t("LegalAffairs:file")}
               icon={faPaperclip}
               width={"19rem"}
-            />
+            /> */}
           </RichInput>
           <CustomButton green type="submit" className="send-btn">
             <Trans i18nKey={"myService:sendBtn"} t={t}>
@@ -93,7 +103,7 @@ const LegalAffairs = () => {
 export default LegalAffairs;
 const StyledMdContainer = styled(LargeBox)`
   width: 760px;
-  height: 520px;
+  height: fit-content;
   padding: 20px 40px 0 40px;
 `;
 const services = [

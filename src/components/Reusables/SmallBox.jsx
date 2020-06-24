@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-const SmallBox = ({index, icon, title, description, width, height, selectionEnabled}) => {
+const SmallBox = ({index, icon, title, description, width, height}) => {
 console.log(typeof({icon}))
 
 return (
-<StyledElement width={width} height={height} selectionEnabled={selectionEnabled}>
+<StyledElement width={width} height={height} >
   <StyledLink to={"/ServiceID=" + index}>
     <StyledImgFrame>
     {icon === Object(icon) ? 
@@ -26,12 +26,10 @@ export default SmallBox;
 SmallBox.defaultProps = {
     width: "135px",
     height: "160px",
-    selectionEnabled:0,
   };
 const StyledElement = styled.div`
   width: ${props => props.width};
   height: ${props => props.height};
-  opacity: calc(1 - ${props => props.selectionEnabled});
   display: flex;
   border-radius: 10px;
   background-color: white;
@@ -41,6 +39,7 @@ const StyledElement = styled.div`
   flex-flow:row;
   text-align: center;
   transition: all 0.2s ease-in-out;
+
 
   &:hover {
     transform: scale(1.1);
