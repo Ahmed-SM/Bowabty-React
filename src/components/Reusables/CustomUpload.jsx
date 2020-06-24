@@ -1,29 +1,13 @@
 import React  from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faTimes} from '@fortawesome/free-solid-svg-icons';
+import {CustomFileView, CustomFileContent} from "./CustomFileView";
 
-const FilesGrid = ({ children, acceptedFileslength }) => {
-  return (
-    <React.Fragment>
-      {acceptedFileslength > 0 && (
-        <StyledTable>
-          <Styledthead>
-            <StyledTr>
-              <StyledTh>الاسم</StyledTh>
-              <StyledTh>الصيغة</StyledTh>
-              <StyledTh>الحجم</StyledTh>
-              <StyledTh></StyledTh>
-            </StyledTr>
-          </Styledthead>
-          <tbody>{children}</tbody>
-        </StyledTable>
-      )}
-    </React.Fragment>
-  );
-};
 export default class Upload extends React.Component {
   constructor() {
     super();
+    this.inputRef = React.createRef();
     this.onChange = this.onChange.bind(this);
     this.state = {
       files: [],
@@ -35,11 +19,14 @@ export default class Upload extends React.Component {
     var filesArr = Array.prototype.slice.call(files);
     console.log(filesArr);
     this.setState({ files: [...this.state.files, ...filesArr] });
-    this.props.form.setFieldValue("file", [...filesArr]);
+    this.props.form.setFieldValue("file", [...this.state.files]);
+    
   }
 
   removeFile(f) {
     this.setState({ files: this.state.files.filter((x) => x !== f) });
+    this.inputRef.current.value = '';
+
   }
 
   render() {
@@ -56,20 +43,14 @@ export default class Upload extends React.Component {
             type={this.props.type}
             multiple
             onChange={this.onChange}
+            ref={this.inputRef}
           />
         </StyledColumn>
-        <FilesGrid acceptedFileslength={this.state.files.length}>
+        <CustomFileView acceptedFileslength={this.state.files.length}>
           {this.state.files.map((acceptedFile, index) => (
-            <StyledTr key={index}>
-              <StyledTd>{acceptedFile.name}</StyledTd>
-              <StyledTd>{acceptedFile.type}</StyledTd>
-              <StyledTd>{acceptedFile.size} Bytes</StyledTd>
-              <StyledTd onClick={this.removeFile.bind(this, acceptedFile)}>
-                إلغاء
-              </StyledTd>
-            </StyledTr>
+              <CustomFileContent  key={index} icon={faTimes} file={acceptedFile} color={"#F05261"} callBack={this.removeFile.bind(this, acceptedFile)}/>
           ))}
-        </FilesGrid>
+        </CustomFileView>
       </div>
     );
   }
@@ -113,37 +94,7 @@ const StyledColumn = styled.div`
     border-radius: 5px;
   }
 `;
-const StyledError = styled.div`
-  color: red;
-  height: 0px;
-  min-height: 0px;
-  max-height: 0px;
-`;
-const Styledthead = styled.thead`
-  border-bottom: 1px solid black;
-`;
-const StyledTr = styled.tr`
-  text-align: center;
-  margin: 5px 0;
-  border-bottom: 10px solid white !important;
-  & td:last-child {
-    border-right: 10px solid white !important;
-    border-left: 10px solid white !important;
-  }
-`;
-const StyledTh = styled.th`
-  text-align: center;
-`;
-const StyledTd = styled.td`
-  width: 20px;
-  padding: 5px 0;
-  background-color: rgb(245, 245, 245);
-`;
-const StyledTable = styled.table`
-  width: 500px;
-  border-collapse: collapse;
-`;
 
 const StyledFile = styled.input`
-  display: none !important;
+display: none !important;
 `;
