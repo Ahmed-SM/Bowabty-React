@@ -16,7 +16,7 @@ i18n
     lng: 'ar',
     fallbackLng: 'ar',
     debug: true,
-    ns:['myOrders', 'myService', 'navigation', 'userContent', 'login', 'IncomingRequest', 'LegalAffairs', 'myDesk'],
+    ns:['myOrders', 'myService', 'navigation', 'userContent', 'login', 'IncomingRequest', 'LegalAffairs', 'myDesk', 'customFile'],
     interpolation: {
       escapeValue: false, 
     },

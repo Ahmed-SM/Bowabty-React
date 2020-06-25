@@ -1,17 +1,19 @@
 import React  from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useTranslation, Trans } from "react-i18next";
 
 export const CustomFileView = ({ children, acceptedFileslength }) => {
+  const { t } = useTranslation();
     return (
       <React.Fragment>
         {acceptedFileslength > 0 && (
           <StyledTable>
             <Styledthead>
               <StyledTr>
-                <StyledTh>الاسم</StyledTh>
-                <StyledTh>الصيغة</StyledTh>
-                <StyledTh>الحجم</StyledTh>
+                <StyledTh><Trans i18nKey={"customFile:fileName"}></Trans></StyledTh>
+                <StyledTh><Trans i18nKey={"customFile:fileType"}></Trans></StyledTh>
+                <StyledTh><Trans i18nKey={"customFile:fileSize"}></Trans></StyledTh>
                 <StyledTh></StyledTh>
               </StyledTr>
             </Styledthead>
@@ -26,7 +28,7 @@ export const CustomFileContent = ({icon, color, callBack, file}) =>{
         <StyledTr className={"__item"}>
           <StyledTd>{file.name}</StyledTd>
           <StyledTd>{file.type}</StyledTd>
-          <StyledTd>{file.size} Bytes</StyledTd>
+          <StyledTd>{file.size} B</StyledTd>
           <StyledTd className={"__last"} onClick={callBack}>
             <FontAwesomeIcon size="1x" color={color} icon={icon}/>
           </StyledTd>
