@@ -185,6 +185,9 @@ textarea {
   resize: none;
   word-break: break-all !important;
 }
+label {
+  margin-bottom: 0;
+}
 
 /* .App {
   text-align: center;
