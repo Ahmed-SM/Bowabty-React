@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useTranslation, Trans } from "react-i18next";
 
 export const CustomFileView = ({ children, acceptedFileslength }) => {
-  const { t } = useTranslation();
     return (
       <React.Fragment>
         {acceptedFileslength > 0 && (
