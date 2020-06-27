@@ -10,15 +10,23 @@ const Languages = ['en', 'ar'];
 const componentName = "TestComponent";
 const componentBase = "MediumBox";
 
-const componentAvailableImports = {
+const ComponentAvailableImports = {
     LargeBox: 'import LargeBox from "../Reusables/LargeBox";',
     BoxHeader: 'import BoxHeader from "../Reusables/BoxHeader";',
     MediumBox: 'import MediumBox from "../Reusables/MediumBox";',
+    formImports:[
+    'import RichInput from "../Reusables/RichInput";',
+    'import { CustomInput, CustomSelect, CustomRadio } from "../Reusables/CustomInputs";',
+    'import * as Yup from "yup";',
+    'import { Formik, Form } from "formik";',
+    'import { CustomButton } from "../Reusables/CustomButton";',
+    ]
 }
 const ContainerWithHeader = {
     NoHeader: '',
     BoxHeader: `<BoxHeader children={<Trans i18nKey={"${componentName}:header"} t={t}></Trans>}/>`
 }
+
 const ColorOptions = {
     primary: 'primary',
     green: 'green',
@@ -32,8 +40,9 @@ const RouteOptions = {
 const LazyImport = `const ${componentName} = React.lazy(()=>import("./components/${componentName}"));`
 
 
-ImportsList.push(componentAvailableImports[componentBase])
-ImportsList.push(componentAvailableImports.BoxHeader)
+ImportsList.push(ComponentAvailableImports[componentBase])
+ImportsList.push(ComponentAvailableImports.BoxHeader)
+ImportsList.push(ComponentAvailableImports.formImports.join('\n'))
 CodesList.push(ContainerWithHeader.BoxHeader)
 
 

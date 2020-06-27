@@ -15,8 +15,9 @@ const LargeBox = ({ children, ...rest }) => {
 export default LargeBox;
 
 const StyledInner = styled.div`
-  height: 560px;
-  padding: 20px 20px 0 20px;
+  width: 760px;
+  height: fit-content;
+  padding: 20px 40px 0 40px;
   margin-top: 40px;
   box-shadow: 0px 0px 8px 3px rgba(0, 0, 0, 0.09);
   background-color: white;

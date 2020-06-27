@@ -13,7 +13,7 @@ import LargeBox from "../Reusables/LargeBox";
     const {setTitle}  = useContext(TitleContext);
     const {t, i18n} = useTranslation();     
           useEffect(()=>{
-            setTitle(Title =>({...Title, Title: t("myService:title"), SubTitle: t("userContent:lorem")}));
+            setTitle(Title =>({...Title, Title: t("myOrders:title"), SubTitle: t("userContent:lorem")}));
         },[t, setTitle])
       return (
             <StyledMdContainer  className="dx-viewport">
@@ -254,6 +254,9 @@ import LargeBox from "../Reusables/LargeBox";
     ]
   };
 const StyledMdContainer =  styled(LargeBox)`
+    width:fit-content;
+    height: 560px;
+    padding: 20px 20px 0 20px !important;
     .dx-pages, .dx-group-panel-message, .dx-texteditor-input, .dx-placeholder, .dx-datagrid-action, .dx-datagrid-drag-action{
       font-family: 'CoconNextArabic-Bold', Sans-Serif;
     }
