@@ -21,6 +21,7 @@ const StickyBox = React.lazy(()=>import("./components/StickyLabel/StickyBox"));
 const MyDesk = React.lazy(()=>import("./components/MyDesk"));
 const Contacts = React.lazy(()=>import("./components/ContactBox"));
 const ServicesBox = React.lazy(()=>import("./components/ServicesBox"));
+{/* Gulp Import Anchor */}
 
 const Routes = () => {
     const [userData] = useContext(UserContext);
@@ -66,7 +67,8 @@ const Routes = () => {
                                 <ContainerComponentRoute exact  component={ServicesBox} container={Page} path={"/ServiceID=2"}/>
                                 {/* <ContainerComponentRoute exact  component={LegalAffairs} container={Page} path={"/ServiceID=2/ServiceID=1"}/> */}
                                 <Route exact component={LegalAffairs} path={"/ServiceID=2/ServiceID=1"}/>
-
+                                {/* Gulp Route Anchor*/}
+                                
                             </Switch>
                         </ErrorBoundary>
                     </Suspense>
