@@ -8,7 +8,8 @@ var ImportsList = [];
 var CodesList = [];
 const Languages = ['en', 'ar'];
 const componentName = "TestComponent";
-const componentBase = "MediumBox";
+const componentBase = "LargeBox";
+const WithHeader = "Yes";
 
 const ComponentAvailableImports = {
     LargeBox: 'import LargeBox from "../Reusables/LargeBox";',
@@ -23,8 +24,8 @@ const ComponentAvailableImports = {
     ]
 }
 const ContainerWithHeader = {
-    NoHeader: '',
-    BoxHeader: `<BoxHeader children={<Trans i18nKey={"${componentName}:header"} t={t}></Trans>}/>`
+    No: '',
+    Yes: `<BoxHeader children={<Trans i18nKey={"${componentName}:header"} t={t}></Trans>}/>`
 }
 
 const ColorOptions = {
@@ -41,9 +42,11 @@ const LazyImport = `const ${componentName} = React.lazy(()=>import("./components
 
 
 ImportsList.push(ComponentAvailableImports[componentBase])
-ImportsList.push(ComponentAvailableImports.BoxHeader)
 ImportsList.push(ComponentAvailableImports.formImports.join('\n'))
-CodesList.push(ContainerWithHeader.BoxHeader)
+if(WithHeader === "Yes"){
+    ImportsList.push(ComponentAvailableImports.BoxHeader)
+}
+CodesList.push(ContainerWithHeader[WithHeader]);
 
 
 // Available automated tasks
