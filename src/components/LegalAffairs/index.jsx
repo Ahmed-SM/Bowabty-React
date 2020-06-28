@@ -77,16 +77,6 @@ const LegalAffairs = () => {
             id="file"
             name="file"
             component={CustomUpload}/>
-            {/* <CustomFile
-              as={"input"}
-              label={t("LegalAffairs:file")}
-              name="file"
-              id="file"
-              type="file"
-              placeholder={t("LegalAffairs:file")}
-              icon={faPaperclip}
-              width={"19rem"}
-            /> */}
           </RichInput>
           <CustomButton green type="submit" className="send-btn">
             <Trans i18nKey={"myService:sendBtn"} t={t}>

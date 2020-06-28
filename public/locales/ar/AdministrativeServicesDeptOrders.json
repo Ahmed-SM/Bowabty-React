@@ -1,0 +1,18 @@
+{
+    "title":"طلبات من قسم الخدمات الإدارية",
+    "hotelReservationOrder": "طلب حجز فندق",
+    "giftRequest": "طلب هدية",
+    "messageRequest":"طلب مراسلة",
+    "userRequest":"طلب مستخدم",
+    "requestOfficialMissionVehicle":"طلب مركبة مهمة رسمية",
+    "hotelName":"اسم الفندق المقترح",
+    "reservationRegisterName":"تسجيل الحجز باسم",
+    "peopleNumber":"عدد الافراد",
+    "roomsNumber":"عدد الغرف",
+    "personName":"اسم الشخص",
+    "date":"التاريخ",
+    "dateTo":"الى",
+    "submitBtn":"تقديم",
+    "required":"إجباري"
+
+}

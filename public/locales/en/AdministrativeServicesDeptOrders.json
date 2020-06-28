@@ -1,0 +1,17 @@
+{
+    "title":"Administrative Services Department Orders",
+    "hotelReservationOrder": "Hotel Reservation Order",
+    "giftRequest": "Gift request",
+    "messageRequest":"message Request",
+    "userRequest":"User request",
+    "requestOfficialMissionVehicle":"Request an official mission vehicle",
+    "hotelName":"Suggested Hotel Name",
+    "reservationRegisterName":"Name of Reservation Register",
+    "peopleNumber":"people Number",
+    "roomsNumber":"Rooms Number",
+    "personName":"Person Name",
+    "date":"Date",
+    "dateTo":"to",
+    "submitBtn":"Submit",
+    "required":"Required"
+}

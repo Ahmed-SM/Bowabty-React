@@ -1,7 +1,7 @@
 import React  from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useTranslation, Trans } from "react-i18next";
+import {Trans } from "react-i18next";
 
 export const CustomFileView = ({ children, acceptedFileslength }) => {
     return (
@@ -35,12 +35,12 @@ export const CustomFileContent = ({icon, color, callBack, file}) =>{
     )
 }
 
-  const StyledError = styled.div`
-  color: red;
-  height: 0px;
-  min-height: 0px;
-  max-height: 0px;
-`;
+//   const StyledError = styled.div`
+//   color: red;
+//   height: 0px;
+//   min-height: 0px;
+//   max-height: 0px;
+// `;
 const Styledthead = styled.thead`
   border-bottom: 2px solid black !important;
 `;
