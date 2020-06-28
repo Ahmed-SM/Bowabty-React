@@ -40,12 +40,15 @@ const RouteOptions = {
 const LazyImport = `const ${componentName} = React.lazy(()=>import("./components/${componentName}"));`
 const InputOptions = {
     CustomInput: {
-        textarea: `<CustomInput as={"textarea"} label={t("${componentName}:textarea")} name="textarea" type="text" placeholder={t("${componentName}:textarea")} rows="15" cols="70" wrap="off" width={"100%"}/>`,
-        input: `<CustomInput width={"30%"} as={"input"} id="suggestion" name="suggestion" type="text" placeholder={t("${componentName}:input")}/>`
+        textarea: `<CustomInput as={"textarea"} label={t("${componentName}:textarea")} id="name" name="name" type="text" placeholder={t("${componentName}:textarea")} rows="15" cols="70" wrap="off" width={"100%"}/>`,
+        input: `<CustomInput width={"30%"} as={"input"} id="name" name="name" type="text" placeholder={t("${componentName}:input")}/>`
     },
-    CustomSelect: `<CustomSelect id="suggestionOrigin" name="suggestionOrigin" width={"100%"}><option value={t("${componentName}:type")}>{t("${componentName}:type")}</option></CustomSelect>`
+    CustomSelect: `<CustomSelect id="name" name="name" width={"100%"}><option value={t("${componentName}:type")}>{t("${componentName}:type")}</option></CustomSelect>`
 }
-const InputField = `<RichInput>\n\t\t\t\t\t${InputOptions.CustomInput.textarea}\n\t\t\t\t</RichInput>`
+//Change this
+const InputField = `<RichInput>\n\t\t\t\t\t${InputOptions.CustomInput.textarea}\n\t\t\t\t</RichInput>\n\t\t\t\t\t\t`;
+const CustomButton = ` <CustomButton ${ColorOptions.green} type="submit" className="send-btn"><Trans i18nKey={"myService:sendBtn"} t={t}></Trans></CustomButton>\n\t\t\t\t\t`;
+const formik = `<Formik initialValues={{ name: "", }} validationSchema={null} onSubmit={null}>\n\t\t\t\t\t<Form>\n\t\t\t\t\t\t${InputField}${CustomButton}</Form>\n\t\t\t\t\t</Formik>`;
 
 ImportsList.push(ComponentAvailableImports[componentBase])
 ImportsList.push(ComponentAvailableImports.formImports.join('\n'))
@@ -53,7 +56,7 @@ if (WithHeader === "Yes") {
     ImportsList.push(ComponentAvailableImports.BoxHeader)
 }
 CodesList.push(ContainerWithHeader[WithHeader]);
-// CodesList.push(InputField);
+CodesList.push(formik);
 
 // Available automated tasks
 gulp.task("_NewComponent", () => {
