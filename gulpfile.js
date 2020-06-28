@@ -15,19 +15,18 @@ const ComponentAvailableImports = {
     LargeBox: 'import LargeBox from "../Reusables/LargeBox";',
     BoxHeader: 'import BoxHeader from "../Reusables/BoxHeader";',
     MediumBox: 'import MediumBox from "../Reusables/MediumBox";',
-    formImports:[
-    'import RichInput from "../Reusables/RichInput";',
-    'import { CustomInput, CustomSelect, CustomRadio } from "../Reusables/CustomInputs";',
-    'import * as Yup from "yup";',
-    'import { Formik, Form } from "formik";',
-    'import { CustomButton } from "../Reusables/CustomButton";',
+    formImports: [
+        'import RichInput from "../Reusables/RichInput";',
+        'import { CustomInput, CustomSelect, CustomRadio } from "../Reusables/CustomInputs";',
+        'import * as Yup from "yup";',
+        'import { Formik, Form } from "formik";',
+        'import { CustomButton } from "../Reusables/CustomButton";',
     ]
 }
 const ContainerWithHeader = {
     No: '',
     Yes: `<BoxHeader children={<Trans i18nKey={"${componentName}:header"} t={t}></Trans>}/>`
 }
-
 const ColorOptions = {
     primary: 'primary',
     green: 'green',
@@ -39,15 +38,22 @@ const RouteOptions = {
     WithContainerRoute: `<ContainerComponentRoute exact component={${componentName}}  container={Page} path={"/${componentName}"}/>`
 };
 const LazyImport = `const ${componentName} = React.lazy(()=>import("./components/${componentName}"));`
-
+const InputOptions = {
+    CustomInput: {
+        textarea: `<CustomInput as={"textarea"} label={t("${componentName}:textarea")} name="textarea" type="text" placeholder={t("${componentName}:textarea")} rows="15" cols="70" wrap="off" width={"100%"}/>`,
+        input: `<CustomInput width={"30%"} as={"input"} id="suggestion" name="suggestion" type="text" placeholder={t("${componentName}:input")}/>`
+    },
+    CustomSelect: `<CustomSelect id="suggestionOrigin" name="suggestionOrigin" width={"100%"}><option value={t("${componentName}:type")}>{t("${componentName}:type")}</option></CustomSelect>`
+}
+const InputField = `<RichInput>\n\t\t\t\t\t${InputOptions.CustomInput.textarea}\n\t\t\t\t</RichInput>`
 
 ImportsList.push(ComponentAvailableImports[componentBase])
 ImportsList.push(ComponentAvailableImports.formImports.join('\n'))
-if(WithHeader === "Yes"){
+if (WithHeader === "Yes") {
     ImportsList.push(ComponentAvailableImports.BoxHeader)
 }
 CodesList.push(ContainerWithHeader[WithHeader]);
-
+// CodesList.push(InputField);
 
 // Available automated tasks
 gulp.task("_NewComponent", () => {
@@ -57,7 +63,7 @@ gulp.task("_NewComponent", () => {
         .pipe(replace('COMPONENT_NAME', `${componentName}`))
         .pipe(replace('COMPONENT_BASE', `${componentBase}`))
         .pipe(inject.after(ImportAnchor, `\n${ImportsList.join('\n')}`))
-        .pipe(inject.after('<StyledContainer COLOR>', `\n\t\t\t\t${CodesList.join('\n')}`))
+        .pipe(inject.after('<StyledContainer COLOR>', `\n\t\t\t\t${CodesList.join('\n\t\t\t\t')}`))
         .pipe(replace('COLOR', ColorOptions.green))
         .pipe(gulp.dest(`src/components/${componentName}`));
 });
