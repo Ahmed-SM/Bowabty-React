@@ -30,7 +30,7 @@ export const CustomSelect = React.memo(({ label, width, type, ...props }) => {
     </StyledColumn>
   );
 });
-export const CustomFile = React.memo(({ label, width,icon, ...props }) => {
+export const CustomFile = React.memo(({ label, width,icon, ...props }) => { //This one is going to be used for single file upload without list don't use it now it's not ready 
   console.log("%c CustomSelect rerendred ", "background:red; color: white;");
   const [field, meta] = useField(props);
   return (
