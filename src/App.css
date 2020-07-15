@@ -1,4 +1,9 @@
 
+.Toastify__toast {
+  font-family:  'CoconNextArabic-Bold', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif !important;
+}
 .image-item {
   padding: 0 0 0 50px;
 }
