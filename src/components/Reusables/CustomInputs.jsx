@@ -4,7 +4,7 @@ import { Field, useField } from "formik";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const CustomInput = React.memo(({ label, width, ...props }) => {
-  console.log("%c CustomInput rerendred ", "background:red; color: white;");
+
   const [field, meta] = useField(props);
   return (
     <StyledColumn width={width}>
@@ -18,7 +18,7 @@ export const CustomInput = React.memo(({ label, width, ...props }) => {
 });
 
 export const CustomSelect = React.memo(({ label, width, type, ...props }) => {
-  console.log("%c CustomSelect rerendred ", "background:red; color: white;");
+  
   const [field, meta] = useField(props);
   return (
     <StyledColumn width={width}>
@@ -31,7 +31,7 @@ export const CustomSelect = React.memo(({ label, width, type, ...props }) => {
   );
 });
 export const CustomFile = React.memo(({ label, width,icon, ...props }) => { //This one is going to be used for single file upload without list don't use it now it's not ready 
-  console.log("%c CustomSelect rerendred ", "background:red; color: white;");
+
   const [field, meta] = useField(props);
   return (
     <StyledColumn width={width}>
@@ -45,7 +45,6 @@ export const CustomFile = React.memo(({ label, width,icon, ...props }) => { //Th
   );
 });
 export const CustomRadio= React.memo(({ label, width, ...props }) => {
-  console.log("%c CustomRadio rerendred ", "background:red; color: white;");
   const [field, meta] = useField(props);
   return (
     <StyledColumn width={width}>

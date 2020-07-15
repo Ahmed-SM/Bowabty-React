@@ -16,7 +16,6 @@ import CustomUpload from "../Reusables/CustomUpload";
 
 
 const LegalAffairs = () => {
-  console.log("IncomingRequest rerendred");
   const {setTitle}  = useContext(TitleContext);
   const { t } = useTranslation();
   const validation = Yup.object({
@@ -34,7 +33,7 @@ const LegalAffairs = () => {
   };
 
   useEffect(() => {
-    console.log("LegalAffairs rerendred use effect");
+  
     setTitle((Title) => ({
       ...Title,
       Title: t("LegalAffairs:title"),

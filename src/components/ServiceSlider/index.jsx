@@ -19,7 +19,6 @@ const MemoizedServicesCarousel = React.memo(({services}) => {
 });
 
 const ServiceSlider = ({services}) => {
-  console.log("ServicesSlider rerendred");
   const minimizeRef = useRef();
   const carouselRef = useRef();
 

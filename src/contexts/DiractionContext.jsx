@@ -1,9 +1,9 @@
 import React, { useState, createContext } from "react";
 const DiractionContext = createContext([{}, () => {}]);
 const DiractionProvider = ({ children }) => {
-  const [isLTR, setIsLTR] = useState(false);
+  const [IsLTR, setIsLTR] = useState(window.document.documentElement.lang === "en" ? true : false);
   return (
-    <DiractionContext.Provider value={[isLTR, setIsLTR]}>
+    <DiractionContext.Provider value={{IsLTR:IsLTR, SetIsLTR:setIsLTR}}>
       {children}
     </DiractionContext.Provider>
   );

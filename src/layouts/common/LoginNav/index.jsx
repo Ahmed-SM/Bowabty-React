@@ -5,11 +5,10 @@ import SocialBox from "../SocialBox";
 import { DiractionContext } from "../../../contexts/DiractionContext";
 
 const LoginNav = () => {
-  console.log("Navigation rerendred");
-  const [isLTR] = useContext(DiractionContext);
+  const {IsLTR} = useContext(DiractionContext);
 
   return (
-    <StyledNavigation isLTR={isLTR}>
+    <StyledNavigation IsLTR={IsLTR}>
       <StyledLeftSection>
         <SocialBox />
         <LanguageBox />
@@ -29,8 +28,8 @@ const StyledNavigation = styled.nav`
   display: inline-flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  ${({ isLTR }) =>
-    isLTR &&
+  ${({ IsLTR }) =>
+    IsLTR &&
     `
     direction: rtl;
   `}

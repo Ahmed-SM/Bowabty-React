@@ -1,20 +1,20 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import styled from "styled-components";
 import { useTranslation, Trans } from "react-i18next";
 import { DiractionContext } from "../../../contexts/DiractionContext";
 
 const LanguageBox = () => {
   const { t, i18n } = useTranslation();
-  const [isLTR, setIsLTR] = useContext(DiractionContext);
-  console.log(
-    "%c Navigation LanguageBox rerendred ",
-    "background:red; color: white;"
-  );
+  const {SetIsLTR} = useContext(DiractionContext);
+
   const changeLanguage = () => {
     i18n.changeLanguage(i18n.language === "ar" ? "en" : "ar");
     window.document.documentElement.lang = i18n.language;
-    setIsLTR(isLTR === true ? false : true);
   };
+  useEffect(()=>{
+    window.document.documentElement.lang = i18n.language;
+    SetIsLTR(window.document.documentElement.lang === "en" ? true : false);
+  },[ i18n.language, SetIsLTR])
   return (
     <StyledLangaugeBox>
       <StyledVerticalLine />

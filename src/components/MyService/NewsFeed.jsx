@@ -12,8 +12,8 @@ const CustomRightArrow = ({ onClick, classRight, ...rest }) => {
   };
 
 const NewsFeed = ({deviceType, list}) => {
-    const [isLTR] = useContext(DiractionContext);
-    console.log("%c NewsFeed rerendred. ", "background:red; color: white;");
+    const {IsLTR} = useContext(DiractionContext);
+
     return (
         <Carousel 
             autoPlay={true}
@@ -23,7 +23,7 @@ const NewsFeed = ({deviceType, list}) => {
             infinite={true}
             focusOnSelect={true}
             customRightArrow={<CustomRightArrow classRight="custom-right-arrow"/> }
-            customLeftArrow={!isLTR ? <CustomLeftArrow  classLeft="custom-left-arrow" /> : <CustomLeftArrow  classLeft="custom-left-arrow"  /> }
+            customLeftArrow={!IsLTR ? <CustomLeftArrow  classLeft="custom-left-arrow" /> : <CustomLeftArrow  classLeft="custom-left-arrow"  /> }
             responsive={responsive}
             itemClass="image-item"
             sliderClass="feed-slider"

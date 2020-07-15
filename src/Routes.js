@@ -26,10 +26,10 @@ const AdministrativeServicesDeptOrders = React.lazy(()=>import("./components/Adm
 {/* Gulp Import Anchor */}
 
 const Routes = () => {
-    const [userData] = useContext(UserContext);
+    const {IsAuthenticated} = useContext(UserContext);
     return(
         <React.Fragment>
-            { userData ?
+            { IsAuthenticated ?
             <MainLayout>
                 <TitleProvider>
                     <Suspense fallback={<StyledUserContent/>}>
@@ -69,16 +69,18 @@ const Routes = () => {
                                 <ContainerComponentRoute exact  component={ServicesBox} container={Page} path={"/ServiceID=2"}/>
                                 {/* ////// hamed */}
                                 <Route exact  component={AdministrativeServicesDeptOrders}  path={"/ServiceID=5"}/>
-                               {/* //////  */}
                                 <Route exact component={LegalAffairs} path={"/ServiceID=2/ServiceID=1"}/>
                                 {/* Gulp Route Anchor*/}
                                 
                             </Switch>
                         </ErrorBoundary>
                     </Suspense>
-                    {/* <Route render={() => <Redirect to="/" />} /> */}
                 </TitleProvider>
-            </MainLayout> : <Suspense fallback={<LoadLayout/>}> <LoginLayout/> </Suspense>}
+            </MainLayout> : <Suspense fallback={<LoadLayout/>}> 
+                <LoginLayout>
+                  <Redirect to="/" />
+                </LoginLayout> 
+            </Suspense>}
             <Suspense fallback={null}>
                 <StickyBox/>
             </Suspense>

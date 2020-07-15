@@ -10,10 +10,6 @@ import {
 import { Link } from "react-router-dom";
 
 const SocialBox = () => {
-  console.log(
-    "%c Navigation socialBox rerendred ",
-    "background:red; color: white;"
-  );
   return (
     <StyledSocialBox>
       <StyledSocialPosition>

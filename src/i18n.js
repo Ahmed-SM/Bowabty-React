@@ -13,7 +13,6 @@ i18n
   .use(initReactI18next)
 
   .init({
-    lng: 'ar',
     fallbackLng: 'ar',
     debug: true,
     ns:['myOrders', 'myService', 'navigation', 'userContent', 'login', 'IncomingRequest', 'LegalAffairs', 'myDesk', 'customFile', 'AdministrativeServicesDeptOrders'],

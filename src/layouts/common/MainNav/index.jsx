@@ -12,6 +12,7 @@ import Dropdown from "./dropdown";
 import {DropdownItem} from 'reactstrap';
 import {DiractionContext} from "../../../contexts/DiractionContext";
 
+
 const DropdownComponent = ({icon, btnText, items, diraction})=>{
     return(
         <StyledDropdown>
@@ -31,22 +32,21 @@ DropdownComponent.propTypes ={
 }
 const MainNav = () => {
     const { t } = useTranslation();
-    console.log("Navigation rerendred")
-    const [isLTR] = useContext(DiractionContext);
+    const {IsLTR} = useContext(DiractionContext);
     return (
-        <StyledNavigation isLTR={isLTR}>
+        <StyledNavigation IsLTR={IsLTR}>
             <StyledRightSection>
                 <Tab path={"/"} icon={faLifeRing} text={ t("navigation:meetings")}/>
-                <DropdownComponent icon={faTasks} btnText={t("navigation:tasks.name")} items={[{path:"/incomingrequest", text:t("IncomingRequest:title")}]} diraction={!isLTR} />
+                <DropdownComponent icon={faTasks} btnText={t("navigation:tasks.name")} items={[{path:"/incomingrequest", text:t("IncomingRequest:title")}]} diraction={!IsLTR} />
                 <Tab path={"/myorders"} icon={faBatteryHalf} text={t("navigation:myOrders")}/>
-                <DropdownComponent icon={faCog} btnText={t("navigation:tasks.name")} items={[{path:"/incomingrequest", text:t("IncomingRequest:title")}]} diraction={!isLTR}/>
-                <DropdownComponent icon={faInfo} btnText={t("navigation:others.name")} items={[{path:"/incomingrequest", text:t("IncomingRequest:title")}]} diraction={!isLTR}/>
-                <DropdownComponent icon={faFileAlt} btnText={t("navigation:reports.name")} items={[{path:"/incomingrequest", text:t("IncomingRequest:title")}]} diraction={!isLTR} />
+                <DropdownComponent icon={faCog} btnText={t("navigation:tasks.name")} items={[{path:"/incomingrequest", text:t("IncomingRequest:title")}]} diraction={!IsLTR}/>
+                <DropdownComponent icon={faInfo} btnText={t("navigation:others.name")} items={[{path:"/incomingrequest", text:t("IncomingRequest:title")}]} diraction={!IsLTR}/>
+                <DropdownComponent icon={faFileAlt} btnText={t("navigation:reports.name")} items={[{path:"/incomingrequest", text:t("IncomingRequest:title")}]} diraction={!IsLTR} />
             </StyledRightSection>
             <StyledLeftSection>
                 <SocialBox/>
                 <LanguageBox/>
-                <DropdownComponent icon={faSlidersH} btnText={t("navigation:settings")} items={[{path:"/", text:t("IncomingRequest:title")}]} diraction={isLTR} />
+                <DropdownComponent icon={faSlidersH} btnText={t("navigation:settings")} items={[{path:"/", text:t("IncomingRequest:title")}]} diraction={IsLTR} />
             </StyledLeftSection>
         </StyledNavigation>
     );
@@ -63,7 +63,7 @@ const StyledNavigation = styled.nav`
     display: inline-flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    ${({ isLTR }) => !isLTR && `
+    ${({ IsLTR }) => !IsLTR && `
     direction: rtl;
   `}
 `;

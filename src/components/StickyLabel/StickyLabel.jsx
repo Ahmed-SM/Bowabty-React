@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 const StickyLabel = ({ Title, Icon, Color }) => {
-  console.log("%c StickyLabel rerendred ", "background:red; color: white;");
   return (
     <StyledStickyLabel Color={Color}>
       <StyledContainer>{Icon}</StyledContainer>

@@ -11,20 +11,27 @@ import { useTranslation, Trans } from "react-i18next";
 import { DiractionContext } from "../../contexts/DiractionContext";
 import { TitleContext } from "../../contexts/TitleContext";
 import { Link } from "react-router-dom";
+import { UserContext} from "../../contexts/UserContext";
 
 const data = {
   ar: { userName: "علياء أحمد مصطفى", userRole: "اخصائي تطوير مؤسس" },
   en: { userName: "Alia Ahmed Mustafa", userRole: "Development Specialist" },
 };
 
+
 const UserContent = ({ isVisible }) => {
   const { t } = useTranslation();
-  const [isLTR] = useContext(DiractionContext);
+  const {IsLTR} = useContext(DiractionContext);
   const {Title} = useContext(TitleContext);
-  console.log("userContent rerendred");
+  const {SetIsAuthenticated} = useContext(UserContext);
+  const Logout = () => {
+    localStorage.removeItem('accessToken');
+      SetIsAuthenticated(localStorage.getItem("accessToken") !== null);
+  }
+
   return (
-    <StyledUserContent isLTR={isLTR}>
-      <StyledUserDetails isLTR={isLTR}>
+    <StyledUserContent IsLTR={IsLTR}>
+      <StyledUserDetails IsLTR={IsLTR}>
         <div className="user-picture">
           <FontAwesomeIcon size="5x" icon={faCircle} color={"#C4C4C4"} />
         </div>
@@ -32,12 +39,12 @@ const UserContent = ({ isVisible }) => {
           <div className="user-name">
             <StyledH3 id="logged-user">
               {/* <FontAwesomeIcon size="1x" icon={faSortDown}  />   */}
-              {isLTR ? data.en.userName : data.ar.userName}
+              {IsLTR ? data.en.userName : data.ar.userName}
             </StyledH3>
           </div>
           <div className="user-role user-role-h4 user-role-h3">
             <h4 id="logged-role">
-              {isLTR ? data.en.userRole : data.ar.userRole}
+              {IsLTR ? data.en.userRole : data.ar.userRole}
             </h4>
           </div>
         </StyledInfo>
@@ -52,7 +59,7 @@ const UserContent = ({ isVisible }) => {
           </StyledH4>
         </div>
       </StyledTitle>
-      <StyledSideBtns  isLTR={isLTR}>
+      <StyledSideBtns  IsLTR={IsLTR}>
         <StyledSideBtn>
           <Link  to={"/"} >
             <FontAwesomeIcon size="3x" icon={faBell} color={"#3C4652"} />
@@ -75,7 +82,7 @@ const UserContent = ({ isVisible }) => {
           </div>
         </StyledSideBtn>
         <StyledSideBtn>
-          <a href="/">
+          <a onClick={Logout}>
             <FontAwesomeIcon size="3x" icon={faClipboard} color={"#3C4652"} />
           </a>
           <div>
@@ -101,8 +108,8 @@ const StyledUserContent = styled.section`
   flex-direction: row-reverse;
   flex-wrap: nowrap;
   box-sizing: border-box;
-  ${({ isLTR }) =>
-    isLTR &&
+  ${({ IsLTR }) =>
+    IsLTR &&
     `
     flex-direction: row;
   `};
@@ -116,8 +123,8 @@ const StyledUserDetails = styled.div`
   & > img {
     width: 70px;
   }
-  ${({ isLTR }) =>
-    isLTR &&
+  ${({ IsLTR }) =>
+    IsLTR &&
     `
     flex-direction: row;
   `}
@@ -152,8 +159,8 @@ const StyledSideBtns = styled.div`
   text-align: center;
   display: inline-flex;
   flex-direction: row-reverse;
-  ${({ isLTR }) =>
-  isLTR &&
+  ${({ IsLTR }) =>
+  IsLTR &&
   `
   flex-direction: row;
 `}

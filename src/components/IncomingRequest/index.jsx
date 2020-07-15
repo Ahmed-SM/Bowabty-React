@@ -8,7 +8,6 @@ import DataGrid, { Column, GroupPanel, Paging, Grouping ,FilterRow } from "devex
 import LargeBox from "../Reusables/LargeBox"
 
   const IncomingRequest = () => {
-    console.log("IncomingRequest rerendred")
     const {setTitle}  = useContext(TitleContext);
     const {t, i18n} = useTranslation();   
           useEffect(()=>{

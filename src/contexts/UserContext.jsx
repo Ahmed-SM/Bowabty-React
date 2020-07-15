@@ -1,9 +1,9 @@
 import React, { useState, createContext } from "react";
 const UserContext = createContext([{}, () => {}]);
 const UserProvider = ({ children }) => {
-  const [userData, setUserData] = useState(true); // 📌 LOGIN: change this to false to enable Login 📌
+  const [isAuthenticated, setIsAuthenticated] = useState(localStorage.getItem("accessToken") !== null); // 📌 LOGIN: change this to false to enable Login 📌
   return (
-    <UserContext.Provider value={[userData, setUserData]}>
+    <UserContext.Provider value={{IsAuthenticated:isAuthenticated, SetIsAuthenticated:setIsAuthenticated}}>
       {children}
     </UserContext.Provider>
   );

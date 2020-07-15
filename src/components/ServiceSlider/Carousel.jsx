@@ -3,10 +3,7 @@ import Carousel from "react-multi-carousel";
 import UAParser from "ua-parser-js";
 import SmallBox from "../Reusables/SmallBox";
 const ServicesCarousel = ({ deviceType, list }) => {
-  console.log(
-    "%c ServicesCarousel rerendred. ",
-    "background:red; color: white;"
-  );
+
   return (
     <Carousel
       autoPlay

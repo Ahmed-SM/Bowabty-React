@@ -6,7 +6,6 @@ import "./App.css";
 import "./i18n";
 
 function App() {
-  console.log("App rerendred");
   return (
     <DiractionProvider>
         <UserProvider>

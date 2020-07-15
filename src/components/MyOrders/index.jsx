@@ -9,7 +9,6 @@ import LargeBox from "../Reusables/LargeBox";
 
 
   const MyOrders = () => {
-    console.log("myOrders rerendred")
     const {setTitle}  = useContext(TitleContext);
     const {t, i18n} = useTranslation();     
           useEffect(()=>{

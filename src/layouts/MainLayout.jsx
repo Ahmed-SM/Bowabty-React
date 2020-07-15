@@ -7,7 +7,7 @@ const Header = React.lazy(() => import("./common/Header"));
 const MainNav = React.lazy(() => import("./common/MainNav"));
 
 const mainLayout = ({ children }) => {
-  console.log("mainLayout rerendred");
+  
   return (
     <MainLayout>
       <React.Suspense fallback={<StyledHeader />}>

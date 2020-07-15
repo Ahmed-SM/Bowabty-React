@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 const Tab = ({ path, icon, text }) => {
-  console.log("%c Tab rerendred ", "background:red; color: white;");
   return (
     <Link className="defaultLink" to={path}>
       <StyledNavTab>
