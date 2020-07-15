@@ -34,14 +34,13 @@ const MyService = () => {
   const handleOnSubmit = (values) => {};
 
   useEffect(() => {
-    console.log("MyService rerendred use effect");
+
     setTitle((Title) => ({
       ...Title,
       Title: t("myService:title"),
       SubTitle: t("userContent:lorem"),
     }));
   }, [t, setTitle]);
-  console.log("MyService rerendred");
   return (
     <React.Fragment>
       <MediumBox primary>

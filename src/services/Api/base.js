@@ -1,12 +1,13 @@
 import axios from "axios";
 const apiClient = axios.create({
-  baseURL: API_URL, // <- ENV variable
+  baseURL: 'http://localhost:50054/API/', // <- ENV variable
 });
 apiClient.interceptors.request.use((config) => {
   return ({
     ...config,
     headers: {
-        //params
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${localStorage.getItem("accessToken")}`,
     },
   })
 },
@@ -16,8 +17,7 @@ apiClient.interceptors.request.use((config) => {
 apiClient.interceptors.response.use((response) =>
   response,
   async (error) => {
-    //load
-    return Promise.reject(error.response.data);
+    return Promise.reject(error.response);
   },
 );
 

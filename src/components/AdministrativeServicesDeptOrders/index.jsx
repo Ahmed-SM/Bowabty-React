@@ -15,7 +15,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faPlus} from '@fortawesome/free-solid-svg-icons';
 
 const AdministrativeServicesDeptOrders = () => {
-  console.log("AdministrativeServicesDeptOrders rerendred")
   const {setTitle}  = useContext(TitleContext);
   const { t } = useTranslation();
   

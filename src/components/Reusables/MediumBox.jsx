@@ -4,10 +4,9 @@ import "react-multi-carousel/lib/styles.css";
 import { DiractionContext } from "../../contexts/DiractionContext";
 
 const MediumBox = ({ children, ...rest }) => {
-  const [isLTR] = useContext(DiractionContext);
-  console.log("MediumBox rerendred");
+  const {IsLTR} = useContext(DiractionContext);
   return (
-    <StyledInner {...rest} isLTR={isLTR}>
+    <StyledInner {...rest} IsLTR={IsLTR}>
       {children}
     </StyledInner>
   );
@@ -26,8 +25,8 @@ const StyledInner = styled.div`
     background-color: white;
     border-radius: 15px;
     z-index: 0;
-    ${({ isLTR }) =>
-      isLTR &&
+    ${({ IsLTR }) =>
+      IsLTR &&
       ` direction: ltr;
         `}
         border-bottom: 6px solid ${(props) => (props.primary ? "#3497DB" : props.green ? "#008B38" : props.lightgreen ? "#1BBC9B" : props.purple ? "#902577" : "#000000")};

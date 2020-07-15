@@ -1,50 +1,69 @@
-import React, {useContext} from "react";
+import React, {useContext, useRef } from "react";
 import styled from "styled-components";
 import { Formik, Form } from "formik";
 import { useTranslation, Trans } from "react-i18next";
 import { UserContext} from "../../contexts/UserContext";
 import {CustomInput} from "../Reusables/CustomInputs"
 import {CustomButton} from "../Reusables/CustomButton";
+import Auth from "../../services/Api/auth";
 import * as Yup from "yup";
 
 const Login = () => {
-    console.log("Login rerendred ")
   const { t } = useTranslation();
-  const [UserData ,setUserData] = useContext(UserContext);
+  const {IsAuthenticated, SetIsAuthenticated} = useContext(UserContext);
+  const ContainerRef = useRef();
+  const ButtonRef = useRef();
+  const FormRef = useRef();
+  const RollerRef = useRef();
+
+  const loginFailed = () =>{
+    ContainerRef.current.style.borderBottom= "6px solid #323130";
+    ContainerRef.current.style.animation= "";
+    FormRef.current.removeAttribute('disabled');
+    RollerRef.current.className=" ";
+  }
+
   const validation = Yup.object({
-    username: Yup.string()
+    Login_Name: Yup.string()
         .min(3, t('login:min'))
         .max(15, t('login:max'))
         .required(t('login:required')),
-      password: Yup.string().min(3, t('login:min')).max(8, t('login:max')).required(t('login:required')),
+      Login_Pass: Yup.string().min(1, t('login:min')).max(8, t('login:max')).required(t('login:required')),
     });
     const handleOnSubmit = React.useCallback((values)=> {
-      setTimeout(()=>{
       console.log(JSON.stringify(values, null, 2));
-      setUserData(UserData => !UserData)},1000)
-      },[setUserData]);
-
+      let data = JSON.stringify(values);
+      ContainerRef.current.style.borderBottom= "6px solid #51ee73";
+      ContainerRef.current.style.animation= "barberpole 1s linear infinite";
+      FormRef.current.setAttribute('disabled', true);
+      RollerRef.current.className="lds-roller";
+      Auth.index(data,SetIsAuthenticated, loginFailed);
+      },[IsAuthenticated]);
+    
   return (
     <StyledLogin>
-      <StyledContainer>
+      <StyledContainer ref={ContainerRef}>
         <StyledHeader>
           <h3><Trans i18nKey={"login:logIn"} t={t}>تسجيل دخول</Trans></h3>
         </StyledHeader>
         <StyledDivider />
+          <div ref={RollerRef}><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
         <StyledGroup dir="auto">
-          <Formik initialValues={{username: "", password: ""}}
+          <Formik initialValues={{Login_Name: "", Login_Pass: ""}}
             validationSchema={validation}
             onSubmit={handleOnSubmit}>
               <Form>
+                <fieldset ref={FormRef}>
                 <StyledInputGroup>
                   <StyledColumn>
-                    <CustomInput label={t('login:username')} name="username" type="text"/>
+                    <CustomInput label={t('login:username')} name="Login_Name" type="text"/>
                     </StyledColumn>
                     <StyledColumn>
-                    <CustomInput label={t('login:password')} name="password" type="password"/>
+                    <CustomInput label={t('login:password')} name="Login_Pass" type="password"/>
                  </StyledColumn>
                 </StyledInputGroup>
-                <CustomButton type="submit"><Trans i18nKey={"login:enter"} t={t}>دخول</Trans></CustomButton>
+                <CustomButton ref={ButtonRef} type="submit"><Trans i18nKey={"login:enter"} t={t}>دخول</Trans></CustomButton>
+                </fieldset>
               </Form>
           </Formik>
         </StyledGroup>
@@ -81,6 +100,10 @@ const StyledContainer = styled.div`
   background-color: white;
   border-radius: 15px;
   border-bottom: 6px solid #323130;
+  @keyframes barberpole {
+    100% {
+      border-bottom: 6px solid #323130;
+    }
 `;
 const StyledDivider = styled.hr`
   margin-top: 10px;

@@ -99,7 +99,6 @@ const COMPONENT_NAME = () => {
 //         const handleOnSubmit = (values)=> {
 //         };
 //     useEffect(() => {
-//         console.log("MyService rerendred use effect")
 //             setTitle(Title =>({...Title, Title: t("LegalAffairs:title"), SubTitle: t("userContent:lorem")}));
 //     },[t, setTitle]);
 

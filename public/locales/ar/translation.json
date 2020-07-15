@@ -9,6 +9,7 @@
     "humanRequests": "طلبات من إدارة الموارد البشرية",
     "administrativeRequests": "طلبات من قسم الخدمات الإدارية",
     "support": "مؤشر السعادة",
-    "happiness": "الدعم الفني"
+    "happiness": "الدعم الفني",
+    "logout":"خروج"
 
 }

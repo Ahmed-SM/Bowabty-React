@@ -6,7 +6,7 @@ import { useTranslation, Trans } from "react-i18next";
 
 const Header = ({ islogged }) => {
   const { t } = useTranslation();
-  console.log("Header container rerendred");
+
   return (
     <StyledHeader className="user-select">
       <StyledItem>

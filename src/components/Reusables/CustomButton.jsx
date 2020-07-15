@@ -3,7 +3,6 @@ export const CustomButton = styled.button`
     display: inline-block;
     text-align: center;
     white-space: nowrap;
-    vertical-align: middle;
     touch-action: manipulation;
     cursor: pointer;
     background-image: none;
@@ -24,4 +23,5 @@ export const CustomButton = styled.button`
       background: rgba(81, 203, 238, 1);
       border: 1px solid rgba(81, 203, 238, 1);
     }
+    
 `;

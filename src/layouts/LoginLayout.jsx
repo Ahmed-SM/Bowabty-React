@@ -5,7 +5,6 @@ import LoginNav from "./common/LoginNav";
 import Login from "../components/Login";
 
 const loginLayout = () => {
-  console.log("loginLayout rerendred");
   return (
     <LoginLayout>
       {/* islogged should be removed once there is a authentication */}

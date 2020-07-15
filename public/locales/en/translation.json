@@ -9,5 +9,6 @@
     "humanRequests": "Human Resources Department Requests",
     "administrativeRequests": "Department of Administrative Services Requests",
     "support": "Happiness Meter",
-    "happiness": "Support"
+    "happiness": "Support",
+    "logout":"Logout"
 }

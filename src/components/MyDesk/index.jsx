@@ -11,7 +11,6 @@ import * as Yup from "yup";
 import { Formik, Form } from "formik";
 
 const MyDesk = () => {
-  console.log("IncomingRequest rerendred");
   const {setTitle}  = useContext(TitleContext);
   const { t } = useTranslation();
   const validation = Yup.object({
@@ -26,7 +25,6 @@ const MyDesk = () => {
   });
   const handleOnSubmit = (values) => {};
   useEffect(() => {
-    console.log("MyService rerendred use effect");
     setTitle(Title =>({...Title, Title: t("myDesk:title"),  SubTitle: t("userContent:lorem")}));
   }, [t, setTitle]);
 
