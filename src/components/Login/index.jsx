@@ -1,4 +1,6 @@
 import React, {useContext, useRef } from "react";
+import { toast } from 'react-toastify';
+
 import styled from "styled-components";
 import { Formik, Form } from "formik";
 import { useTranslation, Trans } from "react-i18next";
@@ -15,12 +17,22 @@ const Login = () => {
   const ButtonRef = useRef();
   const FormRef = useRef();
   const RollerRef = useRef();
+  const notify = () => toast("Login Failed !");
 
   const loginFailed = () =>{
     ContainerRef.current.style.borderBottom= "6px solid #323130";
     ContainerRef.current.style.animation= "";
     FormRef.current.removeAttribute('disabled');
     RollerRef.current.className=" ";
+    toast.error('فشل تسجيل دخول!', {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      });
   }
 
   const validation = Yup.object({
