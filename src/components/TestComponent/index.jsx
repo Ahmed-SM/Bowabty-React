@@ -19,11 +19,10 @@ const TestComponent = () => {
     const location = useLocation();
     useEffect(()=>{
         setTitle(Title =>({...Title, Title: t("TestComponent:title"), SubTitle: t("userContent:lorem")}));
-        console.log(location.state)
     },[t, setTitle])
       return (
         <>
-        {location.state ?
+        {location.state || location.pathname.split("/")[2] === "add" ?
         <StyledContainer green>
 				<BoxHeader children={<Trans i18nKey={"TestComponent:header"} t={t}></Trans>}/>
 				<Formik initialValues={{ name: "", }} validationSchema={null} onSubmit={null}>
@@ -61,7 +60,7 @@ const TestComponent = () => {
 					</Formik>
 
 
-        </StyledContainer>: <Redirect to="/" />}
+        </StyledContainer>: <Redirect to={"/"+location.pathname.split("/")[1]} />}
         </>
       );
     }
