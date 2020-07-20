@@ -24,6 +24,8 @@ const ServicesBox = React.lazy(()=>import("./components/ServicesBox"));
 // // hamed.h 18-Jun 2020
 const AdministrativeServicesDeptOrders = React.lazy(()=>import("./components/AdministrativeServicesDeptOrders"));
 {/* Gulp Import Anchor */}
+const TestComponent = React.lazy(()=>import("./components/TestComponent"));
+
 
 const Routes = () => {
     const {IsAuthenticated} = useContext(UserContext);
@@ -71,6 +73,8 @@ const Routes = () => {
                                 <Route exact  component={AdministrativeServicesDeptOrders}  path={"/ServiceID=5"}/>
                                 <Route exact component={LegalAffairs} path={"/ServiceID=2/ServiceID=1"}/>
                                 {/* Gulp Route Anchor*/}
+								<ContainerComponentRoute exact component={TestComponent}  container={Page} path={"/TestComponent"}/>
+
                                 
                             </Switch>
                         </ErrorBoundary>
