@@ -19,7 +19,6 @@ const TestComponent = () => {
     const location = useLocation();
     useEffect(()=>{
         setTitle(Title =>({...Title, Title: t("TestComponent:title"), SubTitle: t("userContent:lorem")}));
-        console.log(location.state)
     },[t, setTitle])
       return (
         <>
@@ -61,7 +60,7 @@ const TestComponent = () => {
 					</Formik>
 
 
-        </StyledContainer>: <Redirect to="/" />}
+        </StyledContainer>: <Redirect to={"/"+location.pathname.split("/")[1]} />}
         </>
       );
     }

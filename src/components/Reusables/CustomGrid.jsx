@@ -29,7 +29,7 @@ const CustomGrid = ({children , data , addPath, editPath, viewPath}) => {
       console.log(data.row.data);
     history.push(editPath+"/edit", data.row.data);
   });
-  const handleView = useCallback(() => {
+  const handleView = useCallback((data) => {
     history.push(viewPath+"/view", data.row.data);
 });
 
@@ -164,8 +164,8 @@ const StyledResize = styled.div`
   z-index:100;
   cursor:pointer;
   top:4px;
-  left:${props => props.diraction !== 'ar' ?  "unset" : "0px" };
-  right:${props => props.diraction === 'ar'? "unset" : "0px"};
+  left:${props => props.diraction !== 'ar' ?  "unset" : " " };
+  right:${props => props.diraction === 'ar'? "unset" : " "};
   display:flex;
   flex-direction: ${props => props.diraction === 'ar' ?  "row" : "row-reverse" };
   &>*{
