@@ -22,7 +22,7 @@ const TestComponent = () => {
     },[t, setTitle])
       return (
         <>
-        {location.state ?
+        {location.state || location.pathname.split("/")[2] === "add" ?
         <StyledContainer green>
 				<BoxHeader children={<Trans i18nKey={"TestComponent:header"} t={t}></Trans>}/>
 				<Formik initialValues={{ name: "", }} validationSchema={null} onSubmit={null}>

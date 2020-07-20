@@ -165,7 +165,7 @@ const StyledResize = styled.div`
   cursor:pointer;
   top:4px;
   left:${props => props.diraction !== 'ar' ?  "unset" : " " };
-  right:${props => props.diraction === 'ar'? "unset" : " "};
+  right:${props => props.diraction === 'ar'? "unset" : "20px"};
   display:flex;
   flex-direction: ${props => props.diraction === 'ar' ?  "row" : "row-reverse" };
   &>*{
