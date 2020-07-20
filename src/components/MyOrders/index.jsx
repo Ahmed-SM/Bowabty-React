@@ -21,7 +21,9 @@ const MyOrders = () => {
       SubTitle: t("userContent:lorem"),
     }));
   }, [t, setTitle]);
-
+  useEffect(() => {
+    SetGirdAligment(i18n.language === "ar" ? "right " : "left");
+  }, [i18n.language, SetGirdAligment]);
   return (
     <CustomGrid data={testdata} addPath={componentName} editPath={componentName} viewPath={componentName}>
       <Column
