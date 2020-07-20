@@ -27,10 +27,10 @@ const CustomGrid = ({children , data , addPath, editPath, viewPath}) => {
   },[width]);
   const handleEdit = useCallback((data) => {
       console.log(data.row.data);
-    history.push(editPath+"/edit");
+    history.push(editPath+"/edit", data.row.data);
   });
   const handleView = useCallback(() => {
-    alert("test")
+    history.push(viewPath+"/view", data.row.data);
 });
 
 
@@ -75,18 +75,18 @@ const CustomGrid = ({children , data , addPath, editPath, viewPath}) => {
           <Column type="buttons" 
           
           buttons={[{
-            hint: 'Edit',
+            hint: t("edit"),
             icon: 'edit',
             visible: true,
             onClick:handleEdit,
           },
           {
-            hint: 'View',
+            hint: t("view"),
             icon: 'find',
             visible: true,
             onClick:handleView,
           }]} 
-          caption={"التفاصيل"}
+          caption={t("details")}
           alignment={"center"}
           />
           

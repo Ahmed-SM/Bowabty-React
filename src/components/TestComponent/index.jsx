@@ -5,6 +5,7 @@ import {useTranslation, Trans} from "react-i18next";
 // Gulp Import Anchor
 import LargeBox from "../Reusables/LargeBox";
 import RichInput from "../Reusables/RichInput";
+import {useLocation, Redirect} from "react-router-dom";
 import { CustomInput, CustomSelect, CustomRadio } from "../Reusables/CustomInputs";
 import * as Yup from "yup";
 import { Formik, Form } from "formik";
@@ -15,10 +16,14 @@ import BoxHeader from "../Reusables/BoxHeader";
 const TestComponent = () => {
     const {setTitle}  = useContext(TitleContext);
     const {t} = useTranslation();  
+    const location = useLocation();
     useEffect(()=>{
         setTitle(Title =>({...Title, Title: t("TestComponent:title"), SubTitle: t("userContent:lorem")}));
+        console.log(location.state)
     },[t, setTitle])
       return (
+        <>
+        {location.state ?
         <StyledContainer green>
 				<BoxHeader children={<Trans i18nKey={"TestComponent:header"} t={t}></Trans>}/>
 				<Formik initialValues={{ name: "", }} validationSchema={null} onSubmit={null}>
@@ -56,7 +61,8 @@ const TestComponent = () => {
 					</Formik>
 
 
-        </StyledContainer>
+        </StyledContainer>: <Redirect to="/" />}
+        </>
       );
     }
   export default TestComponent;

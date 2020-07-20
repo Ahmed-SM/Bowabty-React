@@ -10,6 +10,9 @@
     "administrativeRequests": "طلبات من قسم الخدمات الإدارية",
     "support": "مؤشر السعادة",
     "happiness": "الدعم الفني",
-    "logout":"خروج"
+    "logout":"خروج",
+    "details":"تفاصيل",
+    "edit":"تعديل",
+    "view":"رؤية"
 
 }
