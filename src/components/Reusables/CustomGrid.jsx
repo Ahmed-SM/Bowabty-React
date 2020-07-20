@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState, useCallback } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus,faExpandAlt } from "@fortawesome/free-solid-svg-icons";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import "devextreme/dist/css/dx.common.css";
 import "devextreme/dist/css/dx.light.css";
@@ -17,6 +18,7 @@ import {Link} from "react-router-dom";
 import LargeBox from "../Reusables/LargeBox";
 
 const CustomGrid = ({children , data , addPath, editPath, viewPath}) => {
+  const history = useHistory();
   const [width, setWidth] = useState("870");
   const { t, i18n } = useTranslation();
   const [langauge, setLangauge] = useState(i18n.language);
@@ -35,6 +37,13 @@ const CustomGrid = ({children , data , addPath, editPath, viewPath}) => {
   const handleResize = useCallback(() => {
     setWidth(width === "870" ? "100%" : "870");
   },[width]);
+  const handleEdit = useCallback((data) => {
+      console.log(data.row.data);
+    history.push(editPath+"/edit");
+  });
+  const handleView = useCallback(() => {
+    history.push(editPath+"/view");
+});
 
 
   return (
@@ -79,13 +88,13 @@ const CustomGrid = ({children , data , addPath, editPath, viewPath}) => {
             hint: 'Clone',
             icon: 'edit',
             visible: true,
-            onClick:true,
+            onClick:handleEdit,
           },
           {
             hint: 'Clone',
             icon: 'find',
             visible: true,
-            onClick:true,
+            onClick:handleView,
           }]} 
           caption={"التفاصيل"}
           alignment={"center"}
