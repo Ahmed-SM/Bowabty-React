@@ -126,9 +126,7 @@ font-family: 'CoconNextArabic-Bold', Sans-Serif ;
   border-top: 5px solid white !important;
   border-bottom: 13px solid white !important;
 }
-.dx-data-row > td:last-child{
-  border-right: 20px solid white !important;
-}
+
 .dx-header-row > td{
   user-select: none;
   color: #333;

@@ -10,5 +10,8 @@
     "administrativeRequests": "Department of Administrative Services Requests",
     "support": "Happiness Meter",
     "happiness": "Support",
-    "logout":"Logout"
+    "logout":"Logout",
+    "details":"Details",
+    "edit":"Edit",
+    "view":"View"
 }
