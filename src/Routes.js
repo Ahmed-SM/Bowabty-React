@@ -73,9 +73,7 @@ const Routes = () => {
                                 <Route exact  component={AdministrativeServicesDeptOrders}  path={"/ServiceID=5"}/>
                                 <Route exact component={LegalAffairs} path={"/ServiceID=2/ServiceID=1"}/>
                                 {/* Gulp Route Anchor*/}
-								<ContainerComponentRoute exact component={TestComponent}  container={Page} path={"/myorders/add"}/>
-								<ContainerComponentRoute exact component={TestComponent}  container={Page} path={"/myorders/edit"}/>
-								<ContainerComponentRoute exact component={TestComponent}  container={Page} path={"/myorders/view"}/>
+								<ContainerComponentRoute exact component={TestComponent}  container={Page} path={["/myorders/add","/myorders/edit","/myorders/view"]}/>
 
                                 
                             </Switch>
