@@ -16,7 +16,7 @@ import DataGrid, {
 import {Link} from "react-router-dom";
 import LargeBox from "../Reusables/LargeBox";
 
-const CustomGrid = ({children , data , addPath, editPath, viewPath, customWidth}) => {
+const CustomGrid = ({children , data , addPath, editPath, viewPath, customWidth, addEnabled, editEnabled}) => {
   const history = useHistory();
   const [width, setWidth] = useState(customWidth);
   const { t, i18n } = useTranslation();
@@ -41,10 +41,12 @@ const CustomGrid = ({children , data , addPath, editPath, viewPath, customWidth}
             <span> تكبير </span>
             <FontAwesomeIcon size="1x" icon={faExpandAlt} rotation={90}/>
           </div>
+          { addEnabled ?
           <Link to={addPath +"/add"} >
             <span> إضافة </span>
             <FontAwesomeIcon size="1x" icon={faPlus}/>
-          </Link>
+          </Link> : <></>
+          }
         </StyledResize>
         <DataGrid
           width={width}
@@ -71,8 +73,8 @@ const CustomGrid = ({children , data , addPath, editPath, viewPath, customWidth}
 
           {/* <Column dataField="الطلب" groupIndex={0} /> */}
           {children}
+          { editEnabled ? 
           <Column type="buttons" 
-          
           buttons={[{
             hint: t("edit"),
             icon: 'edit',
@@ -81,13 +83,26 @@ const CustomGrid = ({children , data , addPath, editPath, viewPath, customWidth}
           },
           {
             hint: t("view"),
-            icon: 'detailslayout',
+            icon: 'find',
             visible: true,
             onClick:handleView,
           }]} 
           caption={t("details")}
           alignment={"center"}
           />
+          :
+          <Column type="buttons" 
+          buttons={[
+          {
+            hint: t("view"),
+            icon: 'find',
+            visible: true,
+            onClick:handleView,
+          }]} 
+          caption={t("details")}
+          alignment={"center"}
+          />
+          }
           
           {/* <Pager allowedPageSizes={pageSizes} showPageSizeSelector={true} /> */}
           <Paging defaultPageSize={8} />
@@ -97,7 +112,9 @@ const CustomGrid = ({children , data , addPath, editPath, viewPath, customWidth}
   );
 };
 CustomGrid.defaultProps = {
-  customWidth:"870", 
+  customWidth:"870",
+  addEnabled:true,
+  editEnabled:true, 
 }
 export default CustomGrid;
 
