@@ -1,4 +1,4 @@
-import React, {useContext, Suspense} from 'react';
+  import React, {useContext, Suspense} from 'react';
 import ErrorBoundary from "./ErrorBoundary";
 import {UserContext} from "./contexts/UserContext";
 import {TitleProvider} from "./contexts/TitleContext";
@@ -21,6 +21,11 @@ const StickyBox = React.lazy(()=>import("./components/StickyLabel/StickyBox"));
 const MyDesk = React.lazy(()=>import("./components/MyDesk"));
 const Contacts = React.lazy(()=>import("./components/ContactBox"));
 const ServicesBox = React.lazy(()=>import("./components/ServicesBox"));
+
+// // haytham 20-jul 2020
+const Services = React.lazy(()=> import("./components/Services"));
+const EditService = React.lazy(()=>import("./components/Services/EditServices"));
+
 // // hamed.h 18-Jun 2020
 const AdministrativeServicesDeptOrders = React.lazy(()=>import("./components/AdministrativeServicesDeptOrders"));
 {/* Gulp Import Anchor */}
@@ -69,6 +74,10 @@ const Routes = () => {
                                 <ContainerComponentRoute exact  component={MyDesk} container={View} path={"/ServiceID=6"}/>
                                 <ContainerComponentRoute exact  component={Contacts} container={Page} path={"/Contacts"}/>
                                 <ContainerComponentRoute exact  component={ServicesBox} container={Page} path={"/ServiceID=2"}/>
+                                
+                                {/* ////// haytham */} 
+                                <ContainerComponentRoute  exact component={Services}  container={Page} path={"/services"}/>
+								<ContainerComponentRoute exact component={EditService}  container={Page} path={"/services/edit"}/>
                                 {/* ////// hamed */}
                                 <Route exact  component={AdministrativeServicesDeptOrders}  path={"/ServiceID=5"}/>
                                 <Route exact component={LegalAffairs} path={"/ServiceID=2/ServiceID=1"}/>
