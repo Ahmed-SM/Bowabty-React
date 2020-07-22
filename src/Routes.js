@@ -16,6 +16,9 @@ const UserSection = React.lazy(()=> import("./components/UserSection"));
 const ServiceSlider = React.lazy(()=> import("./components/ServiceSlider"));
 const MyOrders = React.lazy(()=> import("./components/MyOrders"));
 const Departement = React.lazy(()=>import("./components/Departements"));
+const AddDepartement = React.lazy(()=>import("./components/Departements/add"));
+const userType = React.lazy(()=>import("./components/UserType"));
+const AddUserType = React.lazy(()=>import("./components/UserType/add"));
 const IncomingRequest = React.lazy(()=> import("./components/IncomingRequest"));
 const LegalAffairs = React.lazy(()=> import("./components/LegalAffairs"));
 const StickyBox = React.lazy(()=>import("./components/StickyLabel/StickyBox"));
@@ -65,6 +68,9 @@ const Routes = () => {
 
                                 <ContainerComponentRoute  exact component={MyOrders}  container={Page} path={"/myorders"}/>
                                 <ContainerComponentRoute  exact component={Departement}  container={Page} path={"/departement"}/>
+                                <ContainerComponentRoute  exact component={AddDepartement}  container={Page} path={"/departements/add"}/>
+                                <ContainerComponentRoute  exact component={userType}  container={Page} path={"/userType"}/>
+                                <ContainerComponentRoute  exact component={AddUserType}  container={Page} path={"/userType/add"}/>
                                 <ContainerComponentRoute exact  component={IncomingRequest} container={Page} path={"/incomingrequest"}/>
                                 <ContainerComponentRoute exact  component={MyDesk} container={View} path={"/ServiceID=6"}/>
                                 <ContainerComponentRoute exact  component={Contacts} container={Page} path={"/Contacts"}/>
