@@ -27,7 +27,7 @@ const CustomGrid = ({children , data , addPath, editPath, viewPath}) => {
   },[width]);
   const handleEdit = useCallback((data) => {
       console.log(data.row.data);
-    history.push(editPath+"/edit", data.row.data);
+    history.push(editPath+"/edit", data.row.data[2]);
   });
   const handleView = useCallback((data) => {
     history.push(viewPath+"/view", data.row.data);
