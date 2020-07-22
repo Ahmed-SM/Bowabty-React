@@ -11,9 +11,23 @@ import * as Yup from "yup";
 import { Formik, Form } from "formik";
 import { CustomButton } from "../Reusables/CustomButton";
 import BoxHeader from "../Reusables/BoxHeader";
-
+import {post} from "../../services/Api/base"
 
 const EditServices = () => {
+
+  const Update = React.useCallback((values) => {
+    let service = JSON.stringify(values);
+    console.log(service);
+    post("ADMIN/SERVICES/SERVICES/UPDATE_SERVICES", service).then((s)=>{
+        let error = s.data.Error_EN;
+        if(error == null || error == "")
+        {
+            alert("Done!!");
+          
+        }
+    })
+});
+
     const {setTitle}  = useContext(TitleContext);
     const {t} = useTranslation();  
     const location = useLocation();
@@ -27,15 +41,24 @@ const EditServices = () => {
         {location.state || location.pathname.split("/")[2] === "add" ?
         <StyledContainer green>
 				<BoxHeader children={<Trans i18nKey={"Services:Editheader"} t={t}></Trans>}/>
-				<Formik initialValues={{ name: "", }} validationSchema={null} onSubmit={null}>
+        <Formik initialValues={{ Service_Id:location.state.Service_Id,
+                                 Service_Max_Received_Time: location.state.Service_Max_Received_Time,
+                                 Service_Max_Received_Time_Type_Id:location.state.Service_Max_Received_Time_Type_Id,
+                                 Service_Max_Processing_Time:location.state.Service_Max_Processing_Time,
+                                 Service_Max_Processing_Time_Type_Id:location.state.Service_Max_Processing_Time_Type_Id,
+                                 Service_Max_Review_Time:location.state.Service_Max_Review_Time,
+                                 Service_Max_Review_Time_Type_Id:location.state.Service_Max_Review_Time_Type_Id,
+                                 Service_Max_Confirmation_Time:location.state.Service_Max_Confirmation_Time,
+                                 Service_Max_Confirmation_Time_Type_Id:location.state.Service_Max_Confirmation_Time_Type_Id,
+                                 Active_Status_Id:location.state.Active_Status_Id  }} validationSchema={null} onSubmit={Update}>
 					<Form>
 						<RichInput>
-            <CustomInput disabled width={"30%"} as={"input"} id="Edit_Service_Name_Arabic" name="Edit_Service_Name_Arabic" type="text"  label={<Trans i18nKey={"Services:Edit_Service_Name_Arabic"} t={t}></Trans>} placeholder={location.state.Service_Name_AR}/>
-            <CustomInput width={"30%"} as={"input"} id="Edit_Service_Name_English" name="Edit_Service_Name_English" type="text"  label={<Trans i18nKey={"Services:Edit_Service_Name_English"} t={t}></Trans>} placeholder={location.state.Service_Name_EN}/>
+            <CustomInput  width={"30%"} as={"input"} id="Edit_Service_Name_Arabic" name="Edit_Service_Name_Arabic" type="text"  label={<Trans i18nKey={"Services:Edit_Service_Name_Arabic"} t={t}></Trans>} value={location.state.Service_Name_AR}/>
+            <CustomInput  width={"30%"} as={"input"} id="Edit_Service_Name_English" name="Edit_Service_Name_English" type="text"  label={<Trans i18nKey={"Services:Edit_Service_Name_English"} t={t}></Trans>} value={location.state.Service_Name_EN}/>
 				  </RichInput>
           <RichInput>
             <CustomInput width={"30%"} as={"input"} id="Service_Max_Received_Time" name="Service_Max_Received_Time" type="text" label={<Trans i18nKey={"Services:Service_Max_Received_Time"} t={t}></Trans>} placeholder={location.state.Service_Max_Received_Time}/>
-            <CustomSelect value={location.state.Service_Max_Received_Time_Type_Id} width={"30%"} id="Service_Max_Received_Time_Type_Id" name="Service_Max_Received_Time_Type_Id" label="-" >
+            <CustomSelect placeholder={location.state.Service_Max_Received_Time_Type_Id} width={"30%"} id="Service_Max_Received_Time_Type_Id" name="Service_Max_Received_Time_Type_Id" label="-" >
             <option value="0">{t("Services:option_day")}</option>
             <option value="1">{t("Services:option_hour")}</option>
             <option value="2">{t("Services:option_minute")}</option>
@@ -43,8 +66,8 @@ const EditServices = () => {
 		      </RichInput>
 
           <RichInput>
-            <CustomInput width={"30%"} as={"input"} id="Service_Max_Processing_Time" name="name" type="text" label={<Trans i18nKey={"Services:Service_Max_Processing_Time"} t={t}></Trans>} placeholder={location.state.Service_Max_Processing_Time}/>
-            <CustomSelect value={location.state.Service_Max_Processing_Time_Type_Id} width={"30%"} id="Service_Max_Processing_Time_Type_Id" name="Service_Max_Processing_Time_Type_Id" label="-" >
+            <CustomInput width={"30%"} as={"input"} id="Service_Max_Processing_Time" name="Service_Max_Processing_Time" type="text" label={<Trans i18nKey={"Services:Service_Max_Processing_Time"} t={t}></Trans>} placeholder={location.state.Service_Max_Processing_Time}/>
+            <CustomSelect placeholder={location.state.Service_Max_Processing_Time_Type_Id} width={"30%"} id="Service_Max_Processing_Time_Type_Id" name="Service_Max_Processing_Time_Type_Id" label="-" >
             <option value="0">{t("Services:option_day")}</option>
             <option value="1">{t("Services:option_hour")}</option>
             <option value="2">{t("Services:option_minute")}</option>
@@ -53,7 +76,7 @@ const EditServices = () => {
 
           <RichInput>
             <CustomInput width={"30%"} as={"input"} id="Service_Max_Review_Time" name="Service_Max_Review_Time" type="text" label={<Trans i18nKey={"Services:Service_Max_Review_Time"} t={t}></Trans>} placeholder={location.state.Service_Max_Review_Time}/>
-            <CustomSelect value={location.state.Service_Max_Review_Time_Type_Id} width={"30%"} id="Service_Max_Review_Time_Type_Id" name="Service_Max_Review_Time_Type_Id" label="-" >
+            <CustomSelect placeholder={location.state.Service_Max_Review_Time_Type_Id} width={"30%"} id="Service_Max_Review_Time_Type_Id" name="Service_Max_Review_Time_Type_Id" label="-" >
             <option value="0">{t("Services:option_day")}</option>
             <option value="1">{t("Services:option_hour")}</option>
             <option value="2">{t("Services:option_minute")}</option>
@@ -62,7 +85,7 @@ const EditServices = () => {
 
           <RichInput>
             <CustomInput width={"30%"} as={"input"} id="Service_Max_Confirmation_Time" name="Service_Max_Confirmation_Time" type="text" label={<Trans i18nKey={"Services:Service_Max_Confirmation_Time"} t={t}></Trans>} placeholder={location.state.Service_Max_Confirmation_Time}/>
-            <CustomSelect value={location.state.Service_Max_Confirmation_Time_Type_Id} width={"30%"} id="Service_Max_Confirmation_Time_Type_Id" name="Service_Max_Confirmation_Time_Type_Id" label="-" >
+            <CustomSelect placeholdere={location.state.Service_Max_Confirmation_Time_Type_Id} width={"30%"} id="Service_Max_Confirmation_Time_Type_Id" name="Service_Max_Confirmation_Time_Type_Id" label="-" >
             <option value="0">{t("Services:option_day")}</option>
             <option value="1">{t("Services:option_hour")}</option>
             <option value="2">{t("Services:option_minute")}</option>
@@ -70,7 +93,7 @@ const EditServices = () => {
 		      </RichInput>
           
           <RichInput>
-          <CustomSelect value={location.state.Active_Status_Id} width={"30%"} id="Active_Status_Name" name="Active_Status_Name" label={<Trans i18nKey={"Services:Active_Status_Name"} t={t}></Trans>}>
+          <CustomSelect placeholder={location.state.Active_Status_Id} width={"30%"} id="Active_Status_Name" name="Active_Status_Id" label={<Trans i18nKey={"Services:Active_Status_Name"} t={t}></Trans>}>
             <option value="0">{t("Services:option_stopped")} </option>
             <option value="1">{t("Services:option_active")} </option>
             <option value="2">{t("Services:option_deleted")} </option>
@@ -87,6 +110,8 @@ const EditServices = () => {
       );
     }
   export default EditServices;
+
+  
 
   const StyledContainer =  styled(LargeBox)`
   

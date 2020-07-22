@@ -50,7 +50,7 @@ const CustomGrid = ({children , data , addPath, editPath, viewPath}) => {
         <DataGrid
           width={width}
           height={532}
-          dataSource={i18n.language === 'ar' ? data.ar : data.en}
+          dataSource={ data ? i18n.language === 'ar' ? data.ar : data.en : null}
           showColumnLines={false}
           showScrollbar={false}
           hoverStateEnabled={true}

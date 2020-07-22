@@ -30,10 +30,10 @@ const [testData,setTestData] = useState({ar: [],en: [],})
   }, [i18n.language, SetGirdAligment]);
 
   useEffect(() => {
-    setTestData(getData())
+    getData(setTestData)
   }, []);
   return (
-    <CustomGrid data={testdata} addPath={componentName} editPath={componentName} viewPath={componentName}>
+    <CustomGrid data={testData} addPath={componentName} editPath={componentName} viewPath={componentName}>
       <Column
             caption={t("Services:Service_Code")}
             alignment={girdAligment}
@@ -64,10 +64,11 @@ const [testData,setTestData] = useState({ar: [],en: [],})
 export default Services;
 
 
-const getData = () =>{
+const getData = (setTestData) =>{
   get("ADMIN/SERVICES/SERVICES/SERVICES_LIST")
     .then((response) => {
       console.log(response)
+      var testdata = {ar:[] , en:[]};
       let temp = Object.values(response.data.Data);
       for (let i = 0; i < temp.length; i++) {
         testdata.ar.push(
@@ -81,52 +82,52 @@ const getData = () =>{
             Service_Code: temp[i].Service_Code,
           });
       }
-      return testdata
+      setTestData(testdata);
     });
 }
 
 
 // const pageSizes = [10, 25, 50, 100];
-const testdata = {
-  ar: [
-    {
-      Main_Service_Name : "طلبات اداريه ",
-      Service_Name:"طلب سياره",
-      Service_Code : "123",
-      Service_Id:"1",
-      Active_Status_Name:"فعال",
-      Service_Name_AR:"طلب سياره",
-      Service_Name_EN:"car request",
-      Service_Max_Received_Time:"2",
-      Service_Max_Received_Time_Type_Id:"1",
-      Service_Max_Processing_Time:"1",
-      Service_Max_Processing_Time_Type_Id:"1",
-      Service_Max_Review_Time:"3",
-      Service_Max_Review_Time_Type_Id:"2",
-      Service_Max_Confirmation_Time:"1",
-      Service_Max_Confirmation_Time_Id:"1",
-      Active_Status_Id:"2"
-    }
-  ],
-  en: [
-    {
-      Main_Service_Name : "maintain services",
-      Service_Name:"car request",
-      Service_Code : "123",
-      Service_Id:"1",
-      Active_Status_Name:"active",
-      Service_Name_AR:"طلب سياره",
-      Service_Name_EN:"car request",
-      Service_Max_Received_Time:"2",
-      Service_Max_Received_Time_Type_Id:"2",
-      Service_Max_Processing_Time:"1",
-      Service_Max_Processing_Time_Type_Id:"1",
-      Service_Max_Review_Time:"3",
-      Service_Max_Review_Time_Type_Id:"2",
-      Service_Max_Confirmation_Time:"1",
-      Service_Max_Confirmation_Time_Type_Id:"1",
-      Active_Status_Id:"2"
+// const testdata = {
+//   ar: [
+//     {
+//       Main_Service_Name : "طلبات اداريه ",
+//       Service_Name:"طلب سياره",
+//       Service_Code : "123",
+//       Service_Id:"3",
+//       Active_Status_Name:"فعال",
+//       Service_Name_AR:"طلب سياره",
+//       Service_Name_EN:"car request",
+//       Service_Max_Received_Time:"2",
+//       Service_Max_Received_Time_Type_Id:"1",
+//       Service_Max_Processing_Time:"1",
+//       Service_Max_Processing_Time_Type_Id:"1",
+//       Service_Max_Review_Time:"3",
+//       Service_Max_Review_Time_Type_Id:"2",
+//       Service_Max_Confirmation_Time:"1",
+//       Service_Max_Confirmation_Time_Type_Id:"1",
+//       Active_Status_Id:"0"
+//     }
+//   ],
+//   en: [
+//     {
+//       Main_Service_Name : "maintain services",
+//       Service_Name:"car request",
+//       Service_Code : "123",
+//       Service_Id:"3",
+//       Active_Status_Name:"active",
+//       Service_Name_AR:"طلب سياره",
+//       Service_Name_EN:"car request",
+//       Service_Max_Received_Time:"2",
+//       Service_Max_Received_Time_Type_Id:"2",
+//       Service_Max_Processing_Time:"1",
+//       Service_Max_Processing_Time_Type_Id:"1",
+//       Service_Max_Review_Time:"3",
+//       Service_Max_Review_Time_Type_Id:"2",
+//       Service_Max_Confirmation_Time:"1",
+//       Service_Max_Confirmation_Time_Type_Id:"1",
+//       Active_Status_Id:"0"
 
-    }
-  ],
-};
+//     }
+//   ],
+// };
