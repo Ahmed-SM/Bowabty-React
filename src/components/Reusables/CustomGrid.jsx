@@ -16,13 +16,13 @@ import DataGrid, {
 import {Link} from "react-router-dom";
 import LargeBox from "../Reusables/LargeBox";
 
-const CustomGrid = ({children , data , addPath, editPath, viewPath}) => {
+const CustomGrid = ({children , data , addPath, editPath, viewPath, customWidth}) => {
   const history = useHistory();
-  const [width, setWidth] = useState("870");
+  const [width, setWidth] = useState(customWidth);
   const { t, i18n } = useTranslation();
 
   const handleResize = useCallback(() => {
-    setWidth(width === "870" ? "100%" : "870");
+    setWidth(width === customWidth ? "100%" : customWidth);
   },[width]);
   const handleEdit = useCallback((data) => {
       console.log(data.row.data);
@@ -49,7 +49,7 @@ const CustomGrid = ({children , data , addPath, editPath, viewPath}) => {
         <DataGrid
           width={width}
           height={532}
-          dataSource={i18n.language === 'ar' ? data.ar : data.en}
+          dataSource={ data ? i18n.language === 'ar' ? data.ar : data.en : null}
           showColumnLines={false}
           showScrollbar={false}
           hoverStateEnabled={true}
@@ -96,6 +96,9 @@ const CustomGrid = ({children , data , addPath, editPath, viewPath}) => {
     </StyledMdContainer>
   );
 };
+CustomGrid.defaultProps = {
+  customWidth:"870", 
+}
 export default CustomGrid;
 
 const StyledMdContainer = styled(LargeBox)`
