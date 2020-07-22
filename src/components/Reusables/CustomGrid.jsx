@@ -5,7 +5,6 @@ import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import "devextreme/dist/css/dx.common.css";
 import "devextreme/dist/css/dx.light.css";
-import { TitleContext } from "../../contexts/TitleContext";
 import { useTranslation } from "react-i18next";
 import DataGrid, {
   Column,
@@ -82,7 +81,7 @@ const CustomGrid = ({children , data , addPath, editPath, viewPath}) => {
           },
           {
             hint: t("view"),
-            icon: 'find',
+            icon: 'detailslayout',
             visible: true,
             onClick:handleView,
           }]} 
