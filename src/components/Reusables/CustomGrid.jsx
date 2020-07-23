@@ -5,7 +5,6 @@ import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import "devextreme/dist/css/dx.common.css";
 import "devextreme/dist/css/dx.light.css";
-import { TitleContext } from "../../contexts/TitleContext";
 import { useTranslation } from "react-i18next";
 import DataGrid, {
   Column,
@@ -17,13 +16,13 @@ import DataGrid, {
 import {Link} from "react-router-dom";
 import LargeBox from "../Reusables/LargeBox";
 
-const CustomGrid = ({children , data , addPath, editPath, viewPath}) => {
+const CustomGrid = ({children , data , addPath, editPath, viewPath, customWidth, addEnabled, editEnabled}) => {
   const history = useHistory();
-  const [width, setWidth] = useState("870");
+  const [width, setWidth] = useState(customWidth);
   const { t, i18n } = useTranslation();
 
   const handleResize = useCallback(() => {
-    setWidth(width === "870" ? "100%" : "870");
+    setWidth(width === customWidth ? "100%" : customWidth);
   },[width]);
   const handleEdit = useCallback((data) => {
       console.log(data.row.data);
@@ -42,10 +41,12 @@ const CustomGrid = ({children , data , addPath, editPath, viewPath}) => {
             <span> تكبير </span>
             <FontAwesomeIcon size="1x" icon={faExpandAlt} rotation={90}/>
           </div>
+          { addEnabled ?
           <Link to={addPath +"/add"} >
             <span> إضافة </span>
             <FontAwesomeIcon size="1x" icon={faPlus}/>
-          </Link>
+          </Link> : <></>
+          }
         </StyledResize>
         <DataGrid
           width={width}
@@ -72,8 +73,8 @@ const CustomGrid = ({children , data , addPath, editPath, viewPath}) => {
 
           {/* <Column dataField="الطلب" groupIndex={0} /> */}
           {children}
+          { editEnabled ? 
           <Column type="buttons" 
-          
           buttons={[{
             hint: t("edit"),
             icon: 'edit',
@@ -89,6 +90,19 @@ const CustomGrid = ({children , data , addPath, editPath, viewPath}) => {
           caption={t("details")}
           alignment={"center"}
           />
+          :
+          <Column type="buttons" 
+          buttons={[
+          {
+            hint: t("view"),
+            icon: 'find',
+            visible: true,
+            onClick:handleView,
+          }]} 
+          caption={t("details")}
+          alignment={"center"}
+          />
+          }
           
           {/* <Pager allowedPageSizes={pageSizes} showPageSizeSelector={true} /> */}
           <Paging defaultPageSize={8} />
@@ -97,6 +111,11 @@ const CustomGrid = ({children , data , addPath, editPath, viewPath}) => {
     </StyledMdContainer>
   );
 };
+CustomGrid.defaultProps = {
+  customWidth:"870",
+  addEnabled:true,
+  editEnabled:true, 
+}
 export default CustomGrid;
 
 const StyledMdContainer = styled(LargeBox)`
