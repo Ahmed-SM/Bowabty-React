@@ -1,0 +1,10 @@
+{
+    "title":"انواع المستخدمين",
+    "User_Type_Id":"الكود",
+    "User_Type_Name":"اسم نوع المستخدم",
+    "User_Type_Name_AR":"الاسم بالعربية",
+    "User_Type_Name_EN":"الاسم بالانجليزية",
+    "AddUserType":"اضافة نوع مستخدم جديد",
+    "EditUserType":"تعديل نوع المستخدم",
+    "save":"حفظ"
+}

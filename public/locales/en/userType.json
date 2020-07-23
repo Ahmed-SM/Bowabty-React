@@ -1,0 +1,10 @@
+{
+    "title":"User Type",
+    "User_Type_Id":"Id",
+    "User_Type_Name":"User Type Name",
+    "User_Type_Name_AR":"Arabic Name",
+    "User_Type_Name_EN":"English Name",
+    "AddUserType":"Add New User Type",
+    "EditUserType":"Edit User Type",
+    "save":"Save"
+}

@@ -1,0 +1,10 @@
+{
+    "title": "الاقسام",
+    "Deparement_Id": "الكود",
+    "Deparement_Name": "اسم القسم",
+    "Deparement_Name_AR": "الاسم بالعربية",
+    "Deparement_Name_EN": "الاسم بالانجليزية",
+    "AddDepartement": "اضافة قسم جديد",
+    "ُEditDepartement": "تعديل قسم",
+    "save":"حفظ"
+}
