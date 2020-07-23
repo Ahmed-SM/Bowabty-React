@@ -48,7 +48,7 @@ const CustomGrid = ({children , sourceData , addPath, editPath, viewPath, custom
         <DataGrid
           width={width}
           height={532}
-          dataSource={ sourceData ? i18n.language === 'ar' ? sourceData.ar : sourceData.en : null }
+          dataSource={ sourceData ? i18n.language === 'ar' ? sourceData.ar : sourceData.en : multiLanguageTemplate }
           showColumnLines={false}
           showScrollbar={false}
           hoverStateEnabled={true}
@@ -114,7 +114,10 @@ CustomGrid.defaultProps = {
   editEnabled:true, 
 }
 export default CustomGrid;
-
+var multiLanguageTemplate = {
+  ar:[],
+  en:[]
+}
 const StyledMdContainer = styled(LargeBox)`
   position: relative;
   width: fit-content;
