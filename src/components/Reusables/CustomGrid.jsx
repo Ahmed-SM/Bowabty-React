@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState, useCallback } from "react";
+import React, { useState, useCallback } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus,faExpandAlt } from "@fortawesome/free-solid-svg-icons";
 import { useHistory } from "react-router-dom";
@@ -21,15 +21,16 @@ const CustomGrid = ({children , sourceData , addPath, editPath, viewPath, custom
   const [width, setWidth] = useState(customWidth);
   const { t, i18n } = useTranslation();
   const handleResize = useCallback(() => {
+    console.log("called");
     setWidth(width === customWidth ? "100%" : customWidth);
-  },[width]);
-  const handleEdit = useCallback((data) => {
+  },[customWidth, width]);
+  const handleEdit = (data) => {
       console.log(data.row.data);
     history.push(editPath+"/edit", data.row.data);
-  });
-  const handleView = useCallback((data) => {
+  };
+  const handleView = (data) => {
     history.push(viewPath+"/view", data.row.data);
-});
+};
   return (
     <StyledMdContainer className="dx-viewport">
       <div className="demo-container">

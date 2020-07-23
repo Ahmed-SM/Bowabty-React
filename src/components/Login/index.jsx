@@ -12,12 +12,11 @@ import * as Yup from "yup";
 
 const Login = () => {
   const { t } = useTranslation();
-  const {IsAuthenticated, SetIsAuthenticated} = useContext(UserContext);
+  const {SetIsAuthenticated} = useContext(UserContext);
   const ContainerRef = useRef();
   const ButtonRef = useRef();
   const FormRef = useRef();
   const RollerRef = useRef();
-  const notify = () => toast("Login Failed !");
 
   const loginFailed = () =>{
     ContainerRef.current.style.borderBottom= "6px solid #323130";
@@ -50,7 +49,7 @@ const Login = () => {
       FormRef.current.setAttribute('disabled', true);
       RollerRef.current.className="lds-roller";
       Auth.index(data,SetIsAuthenticated, loginFailed);
-      },[IsAuthenticated]);
+      },[SetIsAuthenticated]);
     
   return (
     <StyledLogin>
