@@ -33,7 +33,7 @@ const [testData,setTestData] = useState({ar: [],en: [],})
     getData(setTestData)
   }, []);
   return (
-    <CustomGrid data={testData} addPath={componentName} editPath={componentName} viewPath={componentName}>
+    <CustomGrid data={testData} addPath={componentName} editPath={componentName} addEnabled={false} viewPath={componentName}>
       <Column
             caption={t("Services:Service_Code")}
             alignment={girdAligment}
