@@ -13,7 +13,7 @@ export const CustomButton = styled.button`
     border-radius: 4px;
     user-select: none;
     color: #fff;
-    background-color: ${(props) => (props.primary ? "#3497DB" : props.green ? "#008B38" : props.lightgreen ? "#1BBC9B" : props.purple ? "#902577" : "#000000")};
+    background-color: ${(props) => (props.primary ? "#3497DB" : props.red ? "#d13039" : props.green ? "#008B38" : props.lightgreen ? "#1BBC9B" : props.purple ? "#902577" : "#000000")};
     outline: 0;
     margin-left: 5.3px;
     margin-right: 5.30px;

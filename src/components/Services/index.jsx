@@ -75,11 +75,43 @@ const getData = (setTestData) =>{
           {
             Main_Service_Name: temp[i].Main_Service_Name_AR,
             Service_Code: temp[i].Service_Code,
+            Service_Name:temp[i].Service_Name_AR,
+            Service_Id:temp[i].Service_Id,
+            Active_Status_Name:temp[i].Active_Status_Name_AR,
+            Active_Status_Name_AR:temp[i].Active_Status_Name_AR,
+            Active_Status_Name_EN:temp[i].Active_Status_Name_EN,
+            Service_Name_AR:temp[i].Service_Name_AR,
+            Service_Name_EN:temp[i].Service_Name_EN,
+            Service_Max_Received_Time:temp[i].Service_Max_Received_Time,
+            Service_Max_Received_Time_Type_Id:temp[i].Service_Max_Received_Time_Type_Id,
+            Service_Max_Processing_Time:temp[i].Service_Max_Processing_Time,
+            Service_Max_Processing_Time_Type_Id:temp[i].Service_Max_Processing_Time_Type_Id,
+            Service_Max_Review_Time:temp[i].Service_Max_Review_Time,
+            Service_Max_Review_Time_Type_Id:temp[i].Service_Max_Review_Time_Type_Id,
+            Service_Max_Confirmation_Time:temp[i].Service_Max_Confirmation_Time,
+            Service_Max_Confirmation_Time_Type_Id:temp[i].Service_Max_Confirmation_Time_Type_Id,
+            Active_Status_Id:temp[i].Active_Status_Id
           });
         testdata.en.push(
           {
             Main_Service_Name: temp[i].Main_Service_Name_EN,
             Service_Code: temp[i].Service_Code,
+            Service_Name:temp[i].Service_Name_EN,
+            Service_Id:temp[i].Service_Id,
+            Active_Status_Name:temp[i].Active_Status_Name_EN,
+            Active_Status_Name_AR:temp[i].Active_Status_Name_AR,
+            Active_Status_Name_EN:temp[i].Active_Status_Name_EN,
+            Service_Name_AR:temp[i].Service_Name_AR,
+            Service_Name_EN:temp[i].Service_Name_EN,
+            Service_Max_Received_Time:temp[i].Service_Max_Received_Time,
+            Service_Max_Received_Time_Type_Id:temp[i].Service_Max_Received_Time_Type_Id,
+            Service_Max_Processing_Time:temp[i].Service_Max_Processing_Time,
+            Service_Max_Processing_Time_Type_Id:temp[i].Service_Max_Processing_Time_Type_Id,
+            Service_Max_Review_Time:temp[i].Service_Max_Review_Time,
+            Service_Max_Review_Time_Type_Id:temp[i].Service_Max_Review_Time_Type_Id,
+            Service_Max_Confirmation_Time:temp[i].Service_Max_Confirmation_Time,
+            Service_Max_Confirmation_Time_Type_Id:temp[i].Service_Max_Confirmation_Time_Type_Id,
+            Active_Status_Id:"0"
           });
       }
       setTestData(testdata);
@@ -92,8 +124,8 @@ const getData = (setTestData) =>{
 //   ar: [
 //     {
 //       Main_Service_Name : "طلبات اداريه ",
-//       Service_Name:"طلب سياره",
 //       Service_Code : "123",
+//       Service_Name:"طلب سياره",
 //       Service_Id:"3",
 //       Active_Status_Name:"فعال",
 //       Service_Name_AR:"طلب سياره",
@@ -112,8 +144,8 @@ const getData = (setTestData) =>{
 //   en: [
 //     {
 //       Main_Service_Name : "maintain services",
-//       Service_Name:"car request",
 //       Service_Code : "123",
+//       Service_Name:"car request",
 //       Service_Id:"3",
 //       Active_Status_Name:"active",
 //       Service_Name_AR:"طلب سياره",

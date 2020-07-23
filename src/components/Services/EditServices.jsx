@@ -11,19 +11,22 @@ import * as Yup from "yup";
 import { Formik, Form } from "formik";
 import { CustomButton } from "../Reusables/CustomButton";
 import BoxHeader from "../Reusables/BoxHeader";
-import {post} from "../../services/Api/base"
+import {post} from "../../services/Api/base";
+import { useHistory } from "react-router";;
 
 const EditServices = () => {
 
+  const redirect = ()=>{
+    history.push({ pathname:"/services"});
+  }
   const Update = React.useCallback((values) => {
     let service = JSON.stringify(values);
     console.log(service);
     post("ADMIN/SERVICES/SERVICES/UPDATE_SERVICES", service).then((s)=>{
         let error = s.data.Error_EN;
-        if(error == null || error == "")
+        if(error == null || error === "")
         {
-            alert("Done!!");
-          
+          history.push({ pathname:"/services"});
         }
     })
 });
@@ -31,6 +34,7 @@ const EditServices = () => {
     const {setTitle}  = useContext(TitleContext);
     const {t} = useTranslation();  
     const location = useLocation();
+    const history = useHistory();
     useEffect(()=>{
         setTitle(Title =>({...Title, Title: t("Services:title"), SubTitle: t("userContent:lorem")}));
     },[t, setTitle])
@@ -101,6 +105,8 @@ const EditServices = () => {
 				  </RichInput>
           
 						 <CustomButton green type="submit" className="send-btn">حفظ</CustomButton>
+						 <CustomButton red type="reset" onClick={redirect} className="send-btn">الغاء</CustomButton>
+
 					</Form>
 					</Formik>
 
