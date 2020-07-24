@@ -14,12 +14,14 @@ import BoxHeader from "../Reusables/BoxHeader";
 import {post} from "../../services/Api/base";
 import { useHistory } from "react-router";;
 
+
+
 const EditServices = () => {
 
   const redirect = ()=>{
     history.push({ pathname:"/services"});
   }
-  const Update = React.useCallback((values) => {
+  const Update = ((values) => {
     let service = JSON.stringify(values);
     console.log(service);
     post("ADMIN/SERVICES/SERVICES/UPDATE_SERVICES", service).then((s)=>{
@@ -27,10 +29,11 @@ const EditServices = () => {
         if(error == null || error === "")
         {
           history.push({ pathname:"/services"});
+        }else{
+          alert(error)
         }
     })
-});
-
+  });
     const {setTitle}  = useContext(TitleContext);
     const {t} = useTranslation();  
     const location = useLocation();
