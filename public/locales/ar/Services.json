@@ -1,0 +1,23 @@
+{
+    "title": "الخدمات",
+    "emptyPanelText":"اسحب الخانة هنا للتجميع",
+    "placeholder":"بحث",
+    "Service_Code":"كود الخدمه",
+    "Main_Service_Name":"اسم الخدمه الرئيسية",
+    "Service_Name":"اسم الخدمة",
+    "Active_Status_Name":"حالة الخدمة",
+    "Editheader":"تعديل الخدمه",
+    "Edit_Service_Name_Arabic":"اسم الخدمه بالعربيه",
+    "Edit_Service_Name_English":"اسم الخدمه بالانجليزيه",
+    "option_day" : "يوم",
+    "option_hour" :"ساعه",
+    "option_minute" : "دقيقة",
+    "Service_Max_Received_Time" : "اقصي وقت للاستلام",
+    "Service_Max_Processing_Time" : "اقصي وقت للتشغيل",
+    "Service_Max_Review_Time":"اقصي وقت للمراجعه",
+    "Service_Max_Confirmation_Time" : "اقصي وقت للتاكيد",
+    "option_stopped" :"موقوف",
+    "option_active" : "فعال",
+    "option_deleted" : "محذوف",
+    "ViewHeader" : "عرض الخدمه"
+}
