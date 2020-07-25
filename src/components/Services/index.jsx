@@ -31,9 +31,9 @@ const [testData,setTestData] = useState({ar: [],en: [],})
 
   useEffect(() => {
     getData(setTestData)
-  }, []);
+  },[]);
   return (
-    <CustomGrid data={testData} addPath={componentName} editPath={componentName} addEnabled={false} viewPath={componentName}>
+    <CustomGrid sourceData={testData} addPath={componentName} editPath={componentName} addEnabled={false} viewPath={componentName}>
       <Column
             caption={t("Services:Service_Code")}
             alignment={girdAligment}
@@ -115,6 +115,7 @@ const getData = (setTestData) =>{
           });
       }
       setTestData(testdata);
+
     });
 }
 
