@@ -6,7 +6,8 @@ const GridRequests = {
         if (response.data.RESULT_CODE === 401) {
           localStorage.removeItem('accessToken');
         } else {
-          let temp = template;
+          console.log(template.ar.length)
+          let temp = Object.assign([], template);
           response.data.Data.forEach(item => {
             let objectAR = {};
             let objectEN = {};

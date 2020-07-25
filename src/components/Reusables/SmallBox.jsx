@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 const SmallBox = ({index, icon, title, description, width, height}) => {
-console.log(typeof({icon}))
+console.log("reender")
 
 return (
 <StyledElement width={width} height={height} >

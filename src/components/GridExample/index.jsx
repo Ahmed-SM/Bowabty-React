@@ -13,7 +13,7 @@ var multiLanguageTemplate = {
 }
 
 const GridExample = () => {
-  const [gridData,setGridData] = useState();
+  const [gridData,setGridData] = useState(multiLanguageTemplate);
   const { setTitle } = useContext(TitleContext);
   const { t, i18n } = useTranslation();
   const componentName = "myorders";
@@ -31,7 +31,11 @@ const GridExample = () => {
     SetGirdAligment(i18n.language === "ar" ? "right " : "left");
   }, [i18n.language, SetGirdAligment]);
   useEffect(() => {
-    setGridData(GridRequests.index(null, "ADMIN/SERVICES/SERVICES/SERVICES_LIST", setGridData, multiLanguageTemplate));
+    console.log(multiLanguageTemplate.ar.length && multiLanguageTemplate.en.length)
+    if(multiLanguageTemplate.ar.length && multiLanguageTemplate.en.length){
+      return;
+   }
+      setGridData(GridRequests.index(null, "ADMIN/SERVICES/SERVICES/SERVICES_LIST", setGridData, multiLanguageTemplate));
   }, []);
 
   return (
