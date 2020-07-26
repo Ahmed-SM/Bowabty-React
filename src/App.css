@@ -294,8 +294,8 @@ button:disabled:hover{
 }
 
 .Styledloader{
-  margin-left: 20%;
-  margin-top: 8%;
+ left: 50%;
+ top:40%;
   opacity: 1;
 }
 /* .App {

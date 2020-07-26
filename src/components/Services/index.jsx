@@ -1,4 +1,4 @@
-import React,  { useContext, useEffect, useState } from "react";
+import React,  { useContext, useEffect, useState, useRef } from "react";
 import styled from "styled-components";
 import "devextreme/dist/css/dx.common.css";
 import "devextreme/dist/css/dx.light.css";
@@ -6,18 +6,24 @@ import { TitleContext } from "../../contexts/TitleContext";
 import { useTranslation } from "react-i18next";
 import {Column} from "devextreme-react/data-grid";
 import CustomGrid from "../Reusables/CustomGrid";
+import ServicesModes from "./ServicesModes";
 import { get } from "../../services/Api/base";
 import GridRequests from "../../services/Api/gridRequests";
 
 var session={data:[]};
 const Services = () => {
-  const [testData,setTestData] = useState(session)
+  const [testData,setTestData] = useState(session);
+  const [singleData, setSingleData]=useState();
+  const [servicesMode,SetServicesMode] = useState("grid");  
   const { setTitle } = useContext(TitleContext);
   const { t, i18n } = useTranslation();
   const componentName = "services";
   const [girdAligment, SetGirdAligment] = useState(
     i18n.language === "ar" ? "right " : "left"
   );
+  const GridRef = useRef();
+  const ServicesRef = useRef();
+
   useEffect(() => {
     setTitle((Title) => ({
       ...Title,
@@ -31,15 +37,27 @@ const Services = () => {
   }, [i18n.language, SetGirdAligment]);
 
   useEffect(() => {
-  //   console.log(session)
-  //   if(session.data.length){
-  //     return;
-  //  }
     setTestData(GridRequests.index(null, "ADMIN/SERVICES/SERVICES/SERVICES_LIST", setTestData, session));
   }, []);
+  useEffect(() => {
+    if(servicesMode === "grid"){
+      ServicesRef.current.style.display = "none";
+        GridRef.current.style.display = "block";
+    }else if (servicesMode === "edit" || servicesMode === "view") {
+      ServicesRef.current.style.display = "block";
+      GridRef.current.style.display = "none";
+    }
+    }, [servicesMode]);
 
+  const ModeSwitch = (name, data) => {
+    console.log(name);
+    SetServicesMode(name);
+    setSingleData(data.row.data);
+
+  };
   return (
-    <CustomGrid sourceData={testData.data} addPath={componentName} editPath={componentName} addEnabled={false} viewPath={componentName}>
+    <>
+    <CustomGrid sourceData={testData.data} addPath={componentName} editPath={componentName} addEnabled={false} viewPath={componentName} rowData={ModeSwitch} editEnabled={true} customWidth={"870"} ref={GridRef}>
       <Column
             caption={t("Services:Service_Code")}
             alignment={girdAligment}
@@ -92,6 +110,8 @@ const Services = () => {
           />
           }
     </CustomGrid>
+    <ServicesModes ref={ServicesRef} rowData={ModeSwitch} servicesMode={servicesMode} SetServicesMode={SetServicesMode} data={singleData}></ServicesModes>
+    </>
   );
 };
 export default Services;

@@ -3,15 +3,15 @@ import styled from "styled-components";
 import "react-multi-carousel/lib/styles.css";
 import { DiractionContext } from "../../contexts/DiractionContext";
 
-const LargeBox = ({ children, ...rest }) => {
+const LargeBox = ({ children, ...rest }, ref) => {
   const {IsLTR} = useContext(DiractionContext);
   return (
-    <StyledInner {...rest} IsLTR={IsLTR}>
+    <StyledInner ref={ref} {...rest} IsLTR={IsLTR}>
       {children}
     </StyledInner>
   );
 };
-export default LargeBox;
+export default React.forwardRef(LargeBox);
 
 const StyledInner = styled.div`
   width: 760px;

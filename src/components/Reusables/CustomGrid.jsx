@@ -16,23 +16,21 @@ import DataGrid, {
 import {Link} from "react-router-dom";
 import LargeBox from "../Reusables/LargeBox";
 
-const CustomGrid = ({children , sourceData , addPath, editPath, viewPath, customWidth, addEnabled, editEnabled}) => {
-  const history = useHistory();
+const CustomGrid = ({children , sourceData , addPath, editPath, viewPath, customWidth, addEnabled, editEnabled, rowData}, ref) => {
   const [width, setWidth] = useState(customWidth);
   const { t, i18n } = useTranslation();
   const handleResize = useCallback(() => {
-    console.log("called");
     setWidth(width === customWidth ? "100%" : customWidth);
   },[customWidth, width]);
   const handleEdit = (data) => {
-      console.log(data.row.data);
-    history.push(editPath+"/edit", data.row.data);
-  };
-  const handleView = (data) => {
-    history.push(viewPath+"/view", data.row.data);
+    rowData("edit",data);
 };
+const handleView = (data) => {
+  rowData("view",data);
+};
+
   return (
-    <StyledMdContainer className="dx-viewport">
+    <StyledMdContainer className="dx-viewport" ref={ref}>
       <div className="demo-container">
         <StyledResize diraction={i18n.language} >
           <div onClick={handleResize}>
@@ -109,12 +107,7 @@ const CustomGrid = ({children , sourceData , addPath, editPath, viewPath, custom
     </StyledMdContainer>
   );
 };
-CustomGrid.defaultProps = {
-  customWidth:"870",
-  addEnabled:true,
-  editEnabled:true, 
-}
-export default CustomGrid;
+export default React.forwardRef(CustomGrid);
 const StyledMdContainer = styled(LargeBox)`
   position: relative;
   width: fit-content;

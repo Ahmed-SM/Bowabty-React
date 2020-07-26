@@ -109,5 +109,5 @@ const ViewService = () => {
   
 
   const StyledContainer =  styled(LargeBox)`
-  
+  position: relative;
   `;
