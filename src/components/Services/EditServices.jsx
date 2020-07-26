@@ -103,7 +103,6 @@ const EditServices = () => {
           <CustomSelect  width={"30%"} id="Active_Status_Name" name="Active_Status_Id" label={<Trans i18nKey={"Services:Active_Status_Name"} t={t}></Trans>}>
             <option value="0">{t("Services:option_stopped")} </option>
             <option value="1">{t("Services:option_active")} </option>
-            <option value="2">{t("Services:option_deleted")} </option>
             </CustomSelect>
 				  </RichInput>
           

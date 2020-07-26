@@ -76,78 +76,81 @@ const Services = () => {
             dataType="string"
           />
           }
-          <Column
-            caption={t("Services:Service_Name")}
-            alignment={girdAligment}
-            dataField="Service_Name"
-            dataType="string"
-          />
-          <Column
+          {i18n.language === 'ar'?
+            <Column
             caption={t("Services:Active_Status_Name")}
             alignment={girdAligment}
-            dataField="Active_Status_Name"
+            dataField="Active_Status_Name_AR"
             dataType="string"
           />
+            : 
+            <Column
+            caption={t("Services:Active_Status_Name")}
+            alignment={girdAligment}
+            dataField="Active_Status_Name_EN"
+            dataType="string"
+          />
+          }
     </CustomGrid>
   );
 };
 export default Services;
 
 
-const getData = (setTestData) =>{
-  get("ADMIN/SERVICES/SERVICES/SERVICES_LIST")
-    .then((response) => {
-      console.log(response)
-      var testdata = {ar:[] , en:[]};
-      let temp = Object.values(response.data.Data);
-      for (let i = 0; i < temp.length; i++) {
-        testdata.ar.push(
-          {
-            Main_Service_Name: temp[i].Main_Service_Name_AR,
-            Service_Code: temp[i].Service_Code,
-            Service_Name:temp[i].Service_Name_AR,
-            Service_Id:temp[i].Service_Id,
-            Active_Status_Name:temp[i].Active_Status_Name_AR,
-            Active_Status_Name_AR:temp[i].Active_Status_Name_AR,
-            Active_Status_Name_EN:temp[i].Active_Status_Name_EN,
-            Service_Name_AR:temp[i].Service_Name_AR,
-            Service_Name_EN:temp[i].Service_Name_EN,
-            Service_Max_Received_Time:temp[i].Service_Max_Received_Time,
-            Service_Max_Received_Time_Type_Id:temp[i].Service_Max_Received_Time_Type_Id,
-            Service_Max_Processing_Time:temp[i].Service_Max_Processing_Time,
-            Service_Max_Processing_Time_Type_Id:temp[i].Service_Max_Processing_Time_Type_Id,
-            Service_Max_Review_Time:temp[i].Service_Max_Review_Time,
-            Service_Max_Review_Time_Type_Id:temp[i].Service_Max_Review_Time_Type_Id,
-            Service_Max_Confirmation_Time:temp[i].Service_Max_Confirmation_Time,
-            Service_Max_Confirmation_Time_Type_Id:temp[i].Service_Max_Confirmation_Time_Type_Id,
-            Active_Status_Id:temp[i].Active_Status_Id
-          });
-        testdata.en.push(
-          {
-            Main_Service_Name: temp[i].Main_Service_Name_EN,
-            Service_Code: temp[i].Service_Code,
-            Service_Name:temp[i].Service_Name_EN,
-            Service_Id:temp[i].Service_Id,
-            Active_Status_Name:temp[i].Active_Status_Name_EN,
-            Active_Status_Name_AR:temp[i].Active_Status_Name_AR,
-            Active_Status_Name_EN:temp[i].Active_Status_Name_EN,
-            Service_Name_AR:temp[i].Service_Name_AR,
-            Service_Name_EN:temp[i].Service_Name_EN,
-            Service_Max_Received_Time:temp[i].Service_Max_Received_Time,
-            Service_Max_Received_Time_Type_Id:temp[i].Service_Max_Received_Time_Type_Id,
-            Service_Max_Processing_Time:temp[i].Service_Max_Processing_Time,
-            Service_Max_Processing_Time_Type_Id:temp[i].Service_Max_Processing_Time_Type_Id,
-            Service_Max_Review_Time:temp[i].Service_Max_Review_Time,
-            Service_Max_Review_Time_Type_Id:temp[i].Service_Max_Review_Time_Type_Id,
-            Service_Max_Confirmation_Time:temp[i].Service_Max_Confirmation_Time,
-            Service_Max_Confirmation_Time_Type_Id:temp[i].Service_Max_Confirmation_Time_Type_Id,
-            Active_Status_Id:"0"
-          });
-      }
-      setTestData(testdata);
+// const getData = (setTestData) =>{
+//   get("ADMIN/SERVICES/SERVICES/SERVICES_LIST")
+//     .then((response) => {
+//       console.log(response)
+//       var testdata = {ar:[] , en:[]};
+//       let temp = Object.values(response.data.Data);
+//       for (let i = 0; i < temp.length; i++) {
+//         testdata.ar.push(
+//           {
+//             Main_Service_Name: temp[i].Main_Service_Name_AR,
+//             Service_Code: temp[i].Service_Code,
+//             Service_Name:temp[i].Service_Name_AR,
+//             Service_Id:temp[i].Service_Id,
+//             Active_Status_Name:temp[i].Active_Status_Name_AR,
+//             Active_Status_Name_AR:temp[i].Active_Status_Name_AR,
+//             Active_Status_Name_EN:temp[i].Active_Status_Name_EN,
+//             Service_Name_AR:temp[i].Service_Name_AR,
+//             Service_Name_EN:temp[i].Service_Name_EN,
+//             Service_Max_Received_Time:temp[i].Service_Max_Received_Time,
+//             Service_Max_Received_Time_Type_Id:temp[i].Service_Max_Received_Time_Type_Id,
+//             Service_Max_Processing_Time:temp[i].Service_Max_Processing_Time,
+//             Service_Max_Processing_Time_Type_Id:temp[i].Service_Max_Processing_Time_Type_Id,
+//             Service_Max_Review_Time:temp[i].Service_Max_Review_Time,
+//             Service_Max_Review_Time_Type_Id:temp[i].Service_Max_Review_Time_Type_Id,
+//             Service_Max_Confirmation_Time:temp[i].Service_Max_Confirmation_Time,
+//             Service_Max_Confirmation_Time_Type_Id:temp[i].Service_Max_Confirmation_Time_Type_Id,
+//             Active_Status_Id:temp[i].Active_Status_Id
+//           });
+//         testdata.en.push(
+//           {
+//             Main_Service_Name: temp[i].Main_Service_Name_EN,
+//             Service_Code: temp[i].Service_Code,
+//             Service_Name:temp[i].Service_Name_EN,
+//             Service_Id:temp[i].Service_Id,
+//             Active_Status_Name:temp[i].Active_Status_Name_EN,
+//             Active_Status_Name_AR:temp[i].Active_Status_Name_AR,
+//             Active_Status_Name_EN:temp[i].Active_Status_Name_EN,
+//             Service_Name_AR:temp[i].Service_Name_AR,
+//             Service_Name_EN:temp[i].Service_Name_EN,
+//             Service_Max_Received_Time:temp[i].Service_Max_Received_Time,
+//             Service_Max_Received_Time_Type_Id:temp[i].Service_Max_Received_Time_Type_Id,
+//             Service_Max_Processing_Time:temp[i].Service_Max_Processing_Time,
+//             Service_Max_Processing_Time_Type_Id:temp[i].Service_Max_Processing_Time_Type_Id,
+//             Service_Max_Review_Time:temp[i].Service_Max_Review_Time,
+//             Service_Max_Review_Time_Type_Id:temp[i].Service_Max_Review_Time_Type_Id,
+//             Service_Max_Confirmation_Time:temp[i].Service_Max_Confirmation_Time,
+//             Service_Max_Confirmation_Time_Type_Id:temp[i].Service_Max_Confirmation_Time_Type_Id,
+//             Active_Status_Id:"0"
+//           });
+//       }
+//       setTestData(testdata);
 
-    });
-}
+//     });
+// }
 
 
 // const pageSizes = [10, 25, 50, 100];
