@@ -127,7 +127,7 @@ const EditServices = () => {
   
 
   const StyledContainer =  styled(LargeBox)`
-  
+      position: relative;
   `;
 
   
