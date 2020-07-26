@@ -5,14 +5,12 @@ import {useTranslation, Trans} from "react-i18next";
 // Gulp Import Anchor
 import LargeBox from "../Reusables/LargeBox";
 import RichInput from "../Reusables/RichInput";
-import {useLocation, Redirect} from "react-router-dom";
 import { CustomInput, CustomSelect, CustomRadio } from "../Reusables/CustomInputs";
 import * as Yup from "yup";
 import { Formik, Form } from "formik";
 import { CustomButton } from "../Reusables/CustomButton";
 import BoxHeader from "../Reusables/BoxHeader";
 import {post} from "../../services/Api/base";
-import { useHistory } from "react-router";
 
 
 
