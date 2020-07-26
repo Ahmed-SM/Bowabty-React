@@ -1,4 +1,4 @@
-import React, {useContext, useEffect}  from "react";
+import React, {useContext, useEffect ,useRef}  from "react";
 import styled from "styled-components";
 import {TitleContext} from "../../contexts/TitleContext";
 import {useTranslation, Trans} from "react-i18next";
@@ -18,12 +18,16 @@ import { useHistory } from "react-router";
 
 const EditServices = () => {
 
+  const RollerRef = useRef();
+  const BoxContainer = useRef();
   const redirect = ()=>{
     history.push({ pathname:"/services"});
   }
   const Update = ((values) => {
+    // BoxContainer.current.className="0.4";
+    RollerRef.current.className="lds-roller Styledloader";
+    console.log(RollerRef.current.style.opacity);
     let service = JSON.stringify(values);
-    console.log(service);
     post("ADMIN/SERVICES/SERVICES/UPDATE_SERVICES", service).then((s)=>{
         let error = s.data.Error_EN;
         if(error == null || error === "")
@@ -46,8 +50,9 @@ const EditServices = () => {
         <>
         
         {location.state || location.pathname.split("/")[2] === "edit" ?
-        <StyledContainer green>
+        <StyledContainer  green>
 				<BoxHeader children={<Trans i18nKey={"Services:Editheader"} t={t}></Trans>}/>
+        <div ref={RollerRef}><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
         <Formik initialValues={{ Service_Id:location.state.Service_Id,
                                  Service_Max_Received_Time: location.state.Service_Max_Received_Time,
                                  Service_Max_Received_Time_Type_Id:location.state.Service_Max_Received_Time_Type_Id,
@@ -112,8 +117,8 @@ const EditServices = () => {
 					</Form>
 					</Formik>
 
-
         </StyledContainer>: <Redirect to={"/"+location.pathname.split("/")[1]} />}
+          
         </>
       );
     }
@@ -124,3 +129,5 @@ const EditServices = () => {
   const StyledContainer =  styled(LargeBox)`
   
   `;
+
+  
