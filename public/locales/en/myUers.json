@@ -1,8 +1,8 @@
 {
     "title":"Users",
     "User_Id":"User Number",
-    "User_Name_AR": "اسم المستخدم",
-    
+   
+    "User_Name": "User Name  English",
     "userPhone": "Phone ",
     "userMail":"Mail",
     "loginName":"Login Name",
@@ -13,5 +13,6 @@
     "userImage":"Image",
     "Details":"Details",
     "placeholder":"بحث",
+    "dep":"Deparment",
 "AddNewUser":"Add New User"
 }

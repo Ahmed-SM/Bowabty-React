@@ -24,6 +24,7 @@ const ServicesBox = React.lazy(()=>import("./components/ServicesBox"));
 const Users = React.lazy(()=>import("./components/Users"));
 const AddNewUser = React.lazy(()=>import("./components/Users/addUser"));
 const EditUser = React.lazy(()=>import("./components/Users/editUser"));
+const viewUser = React.lazy(()=>import("./components/Users/view"));
 // // hamed.h 18-Jun 2020
 const AdministrativeServicesDeptOrders = React.lazy(()=>import("./components/AdministrativeServicesDeptOrders"));
 {/* Gulp Import Anchor */}
@@ -67,9 +68,10 @@ const Routes = () => {
                         <ErrorBoundary>
                             <Switch>
                             
-                            <ContainerComponentRoute exact  component={EditUser} container={Page} path={"/Users/edit"}/>
-                            <ContainerComponentRoute exact  component={AddNewUser} container={Page} path={"/Users/add"}/>
-                            <ContainerComponentRoute exact  component={Users} container={Page} path={"/Users"}/>
+                            <ContainerComponentRoute exact  component={viewUser} container={Page} path={"/Users/view"}/>
+                                <ContainerComponentRoute exact  component={EditUser} container={Page} path={"/Users/edit"}/>
+                                <ContainerComponentRoute exact  component={AddNewUser} container={Page} path={"/Users/add"}/>
+                                <ContainerComponentRoute exact  component={Users} container={Page} path={"/Users"}/>
                                 <ContainerComponentRoute  exact component={MyOrders}  container={Page} path={"/myorders"}/>
                                 <ContainerComponentRoute exact  component={IncomingRequest} container={Page} path={"/incomingrequest"}/>
                                 <ContainerComponentRoute exact  component={MyDesk} container={View} path={"/ServiceID=6"}/>
