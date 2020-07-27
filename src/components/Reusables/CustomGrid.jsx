@@ -1,11 +1,10 @@
-import React, { useContext, useEffect, useState, useCallback } from "react";
+import React, { useState, useCallback } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus,faExpandAlt } from "@fortawesome/free-solid-svg-icons";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import "devextreme/dist/css/dx.common.css";
 import "devextreme/dist/css/dx.light.css";
-import { TitleContext } from "../../contexts/TitleContext";
 import { useTranslation } from "react-i18next";
 import DataGrid, {
   Column,
@@ -17,23 +16,21 @@ import DataGrid, {
 import {Link} from "react-router-dom";
 import LargeBox from "../Reusables/LargeBox";
 
-const CustomGrid = ({children , data , addPath, editPath, viewPath}) => {
+const CustomGrid = ({children , sourceData , addPath, editPath, viewPath, customWidth, addEnabled, editEnabled}) => {
   const history = useHistory();
-  const [width, setWidth] = useState("870");
+  const [width, setWidth] = useState(customWidth);
   const { t, i18n } = useTranslation();
-
   const handleResize = useCallback(() => {
-    setWidth(width === "870" ? "100%" : "870");
-  },[width]);
-  const handleEdit = useCallback((data) => {
+    console.log("called");
+    setWidth(width === customWidth ? "100%" : customWidth);
+  },[customWidth, width]);
+  const handleEdit = (data) => {
       console.log(data.row.data);
     history.push(editPath+"/edit", data.row.data);
-  });
-  const handleView = useCallback((data) => {
+  };
+  const handleView = (data) => {
     history.push(viewPath+"/view", data.row.data);
-});
-
-
+};
   return (
     <StyledMdContainer className="dx-viewport">
       <div className="demo-container">
@@ -42,15 +39,17 @@ const CustomGrid = ({children , data , addPath, editPath, viewPath}) => {
             <span> تكبير </span>
             <FontAwesomeIcon size="1x" icon={faExpandAlt} rotation={90}/>
           </div>
+          { addEnabled ?
           <Link to={addPath +"/add"} >
             <span> إضافة </span>
             <FontAwesomeIcon size="1x" icon={faPlus}/>
-          </Link>
+          </Link> : <></>
+          }
         </StyledResize>
         <DataGrid
           width={width}
           height={532}
-          dataSource={i18n.language === 'ar' ? data.ar : data.en}
+          dataSource={ sourceData ? i18n.language === 'ar' ? sourceData.ar : sourceData.en : multiLanguageTemplate }
           showColumnLines={false}
           showScrollbar={false}
           hoverStateEnabled={true}
@@ -72,8 +71,8 @@ const CustomGrid = ({children , data , addPath, editPath, viewPath}) => {
 
           {/* <Column dataField="الطلب" groupIndex={0} /> */}
           {children}
+          { editEnabled ? 
           <Column type="buttons" 
-          
           buttons={[{
             hint: t("edit"),
             icon: 'edit',
@@ -89,6 +88,19 @@ const CustomGrid = ({children , data , addPath, editPath, viewPath}) => {
           caption={t("details")}
           alignment={"center"}
           />
+          :
+          <Column type="buttons" 
+          buttons={[
+          {
+            hint: t("view"),
+            icon: 'find',
+            visible: true,
+            onClick:handleView,
+          }]} 
+          caption={t("details")}
+          alignment={"center"}
+          />
+          }
           
           {/* <Pager allowedPageSizes={pageSizes} showPageSizeSelector={true} /> */}
           <Paging defaultPageSize={8} />
@@ -97,8 +109,16 @@ const CustomGrid = ({children , data , addPath, editPath, viewPath}) => {
     </StyledMdContainer>
   );
 };
+CustomGrid.defaultProps = {
+  customWidth:"870",
+  addEnabled:true,
+  editEnabled:true, 
+}
 export default CustomGrid;
-
+var multiLanguageTemplate = {
+  ar:[],
+  en:[]
+}
 const StyledMdContainer = styled(LargeBox)`
   position: relative;
   width: fit-content;
