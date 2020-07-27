@@ -9,9 +9,8 @@ import CustomGrid from "../Reusables/CustomGrid";
 import { get } from "../../services/Api/base";
 import GridRequests from "../../services/Api/gridRequests";
 
-var session={data:[]};
 const Services = () => {
-  const [testData,setTestData] = useState(session)
+  const [testData,setTestData] = useState()
   const { setTitle } = useContext(TitleContext);
   const { t, i18n } = useTranslation();
   const componentName = "services";
@@ -35,11 +34,11 @@ const Services = () => {
   //   if(session.data.length){
   //     return;
   //  }
-    setTestData(GridRequests.index(null, "ADMIN/SERVICES/SERVICES/SERVICES_LIST", setTestData, session));
+    GridRequests.index(null, "ADMIN/SERVICES/SERVICES/SERVICES_LIST", setTestData, null);
   }, []);
 
   return (
-    <CustomGrid sourceData={testData.data} addPath={componentName} editPath={componentName} addEnabled={false} viewPath={componentName}>
+    <CustomGrid sourceData={testData} addPath={componentName} editPath={componentName} addEnabled={false} viewPath={componentName}>
       <Column
             caption={t("Services:Service_Code")}
             alignment={girdAligment}
