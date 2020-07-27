@@ -1,10 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\src",
-    "\\src\\components",
-    "\\src\\components\\Reusables"
+    "\\src"
   ],
-  "SelectedNode": "\\src\\components\\Reusables\\CustomGrid.jsx",
+  "SelectedNode": "\\src\\components",
   "PreviewInSolutionExplorer": false
 }
