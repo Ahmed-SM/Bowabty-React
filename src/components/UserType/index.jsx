@@ -6,12 +6,11 @@ import { TitleContext } from "../../contexts/TitleContext";
 import { useTranslation } from "react-i18next";
 import { Column } from "devextreme-react/data-grid";
 import CustomGrid from "../Reusables/CustomGrid";
-import { get } from "../../services/Api/base";
+import GridRequests from "../../services/Api/gridRequests";
+
 
 const UserType = () => {
-
-    const [testData, setTestData] = useState({ ar: [], en: [], })
-
+    const [testData,setTestData] = useState()
     const { setTitle } = useContext(TitleContext);
     const { t, i18n } = useTranslation();
     const componentName = "Departements";
@@ -31,12 +30,11 @@ const UserType = () => {
     }, [i18n.language, SetGirdAligment]);
 
     useEffect(() => {
-        getData(setTestData)
+        GridRequests.index(null, "ADMIN/SYSTEM/USER_TYPES/USER_TYPES_LIST", setTestData, null);
     }, []);
 
-
     return (
-        <CustomGrid data={testData} addPath={"UserType"} editPath={"UserType"} viewPath={"UserType"}>
+        <CustomGrid sourceData={testData} addPath={"UserType"} editPath={"UserType"} viewPath={"UserType"}>
             <Column
                 caption={t("userType:User_Type_Id")}
                 alignment={girdAligment}
@@ -60,58 +58,4 @@ const UserType = () => {
 };
 export default UserType;
 
-const getData =(setTestData) => {
-    get("ADMIN/SYSTEM/USER_TYPES/USER_TYPES_LIST")
-        .then((response) => {
-            let temp = Object.values(response.data.Data);
-            var testdata = {ar:[] , en:[]};
-            for (let i = 0; i < temp.length; i++) {
-                testdata.ar.push(
-                    {
-                        User_Type_Name_AR: temp[i].User_Type_Name_AR,
-                        User_Type_Name_EN: temp[i].User_Type_Name_EN,
-                        User_Type_Id: temp[i].User_Type_Id,
-                    });
-                testdata.en.push(
-                    {
-                        User_Type_Name_AR: temp[i].User_Type_Name_AR,
-                        User_Type_Name_EN: temp[i].User_Type_Name_EN,
-                        User_Type_Id: temp[i].User_Type_Id,
-                    });
-            }
-            setTestData(testdata);
-            console.log(testdata);
 
-        });
-}
-
-const test = {
-    ar: [
-      {
-        User_Type_Id:"1",
-        User_Type_Name:"برمجة"
-      },
-      {
-        User_Type_Id:"1",
-        User_Type_Name:"برمجة"
-      },
-      {
-        User_Type_Id:"1",
-        User_Type_Name:"برمجة"
-      },
-    ],
-    en: [
-      {
-        User_Type_Id:"1",
-        User_Type_Name:"Programmer"
-      },
-      {
-        User_Type_Id:"1",
-        User_Type_Name:"Programmer"
-      },
-      {
-        User_Type_Id:"1",
-        User_Type_Name:"Programmer"
-      },
-    ]
-  }
