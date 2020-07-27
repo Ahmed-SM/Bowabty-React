@@ -17,6 +17,7 @@
     "Service_Max_Review_Time":"اقصي وقت للمراجعه",
     "Service_Max_Confirmation_Time" : "اقصي وقت للتاكيد",
     "option_stopped" :"موقوف",
-    "option_active" : "نشط",
-    "option_deleted" : "محذوف"
+    "option_active" : "فعال",
+    "option_deleted" : "محذوف",
+    "ViewHeader" : "عرض الخدمه"
 }

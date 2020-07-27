@@ -18,5 +18,7 @@
     "Service_Max_Confirmation_Time" : "Max Confirmation Time",
     "option_stopped" :"stopped",
     "option_active" : "active",
-    "option_deleted" : "deleted"
+    "option_deleted" : "deleted",
+    "ViewHeader" : "View Service"
+
 }

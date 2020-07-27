@@ -115,7 +115,6 @@ CustomGrid.defaultProps = {
   editEnabled:true, 
 }
 export default CustomGrid;
-
 const StyledMdContainer = styled(LargeBox)`
   position: relative;
   width: fit-content;

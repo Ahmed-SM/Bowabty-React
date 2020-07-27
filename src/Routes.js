@@ -33,6 +33,7 @@ const ServicesBox = React.lazy(()=>import("./components/ServicesBox"));
 // // haytham 20-jul 2020
 const Services = React.lazy(()=> import("./components/Services"));
 const EditService = React.lazy(()=>import("./components/Services/EditServices"));
+const ViewService = React.lazy(()=>import("./components/Services/ViewService"));
 
 // // hamed.h 18-Jun 2020
 const AdministrativeServicesDeptOrders = React.lazy(()=>import("./components/AdministrativeServicesDeptOrders"));
@@ -96,6 +97,8 @@ const Routes = () => {
                                 {/* ////// haytham */} 
                                 <ContainerComponentRoute  exact component={Services}  container={Page} path={"/services"}/>
 								<ContainerComponentRoute exact component={EditService}  container={Page} path={"/services/edit"}/>
+								<ContainerComponentRoute exact component={ViewService}  container={Page} path={"/services/view"}/>
+
                                 {/* ////// hamed */}
                                 <Route exact  component={AdministrativeServicesDeptOrders}  path={"/ServiceID=5"}/>
                                 <Route exact component={LegalAffairs} path={"/ServiceID=2/ServiceID=1"}/>
