@@ -47,6 +47,7 @@ const CustomGrid = ({children , sourceData , addPath, editPath, viewPath, custom
           }
         </StyledResize>
         <DataGrid
+          noDataText={" "}
           width={width}
           height={532}
           dataSource={ sourceData }
