@@ -13,7 +13,7 @@ const LanguageBox = () => {
   };
   useEffect(()=>{
     window.document.documentElement.lang = i18n.language;
-    SetIsLTR(window.document.documentElement.lang === "en" ? true : false);
+    SetIsLTR(window.document.documentElement.lang === "ar" ? false : true);
   },[ i18n.language, SetIsLTR])
   return (
     <StyledLangaugeBox>

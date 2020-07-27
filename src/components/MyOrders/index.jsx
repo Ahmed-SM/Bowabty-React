@@ -1,5 +1,4 @@
 import React,  { useContext, useEffect, useState } from "react";
-import styled from "styled-components";
 import "devextreme/dist/css/dx.common.css";
 import "devextreme/dist/css/dx.light.css";
 import { TitleContext } from "../../contexts/TitleContext";
@@ -25,7 +24,7 @@ const MyOrders = () => {
     SetGirdAligment(i18n.language === "ar" ? "right " : "left");
   }, [i18n.language, SetGirdAligment]);
   return (
-    <CustomGrid data={testdata} addPath={componentName} editPath={componentName} viewPath={componentName}>
+    <CustomGrid sourceData={testdata} addPath={componentName} editPath={componentName} viewPath={componentName}  addEnabled={false} editEnabled={false}>
       <Column
             caption={t("IncomingRequest:orderNumber")}
             alignment={girdAligment}
