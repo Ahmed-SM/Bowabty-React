@@ -17,8 +17,12 @@ const ServiceSlider = React.lazy(()=> import("./components/ServiceSlider"));
 const MyOrders = React.lazy(()=> import("./components/MyOrders"));
 const Departement = React.lazy(()=>import("./components/Departements"));
 const AddDepartement = React.lazy(()=>import("./components/Departements/add"));
+const EditDepartement = React.lazy(()=>import("./components/Departements/Edit"));
+const ViewDepartement = React.lazy(()=>import("./components/Departements/view"));
 const userType = React.lazy(()=>import("./components/UserType"));
 const AddUserType = React.lazy(()=>import("./components/UserType/add"));
+const EditUserType = React.lazy(()=>import("./components/UserType/edit"));
+const ViewUserType = React.lazy(()=>import("./components/UserType/view"));
 const IncomingRequest = React.lazy(()=> import("./components/IncomingRequest"));
 const LegalAffairs = React.lazy(()=> import("./components/LegalAffairs"));
 const StickyBox = React.lazy(()=>import("./components/StickyLabel/StickyBox"));
@@ -71,8 +75,12 @@ const Routes = () => {
                                 <ContainerComponentRoute  exact component={MyOrders}  container={Page} path={"/myorders"}/>
                                 <ContainerComponentRoute  exact component={Departement}  container={Page} path={"/departement"}/>
                                 <ContainerComponentRoute  exact component={AddDepartement}  container={Page} path={"/departements/add"}/>
+                                <ContainerComponentRoute  exact component={EditDepartement}  container={Page} path={"/departements/edit"}/>    
+                                <ContainerComponentRoute  exact component={ViewDepartement}  container={Page} path={"/departements/view"}/>                           
                                 <ContainerComponentRoute  exact component={userType}  container={Page} path={"/userType"}/>
                                 <ContainerComponentRoute  exact component={AddUserType}  container={Page} path={"/userType/add"}/>
+                                <ContainerComponentRoute  exact component={EditUserType}  container={Page} path={"/userType/edit"}/>
+                                <ContainerComponentRoute  exact component={ViewUserType}  container={Page} path={"/userType/view"}/>
                                 <ContainerComponentRoute exact  component={IncomingRequest} container={Page} path={"/incomingrequest"}/>
                                 <ContainerComponentRoute exact  component={MyDesk} container={View} path={"/ServiceID=6"}/>
                                 <ContainerComponentRoute exact  component={Contacts} container={Page} path={"/Contacts"}/>

@@ -34,7 +34,7 @@ const Departements = () => {
   }, []);
 
   return (
-    <CustomGrid data={testData} addPath={"Departements"} editPath={componentName} viewPath={componentName}>
+    <CustomGrid data={testData} addPath={"Departements"} editPath={"Departements"} viewPath={"Departements"}>
       <Column
         caption={t("departement:Deparement_Id")}
         alignment={girdAligment}

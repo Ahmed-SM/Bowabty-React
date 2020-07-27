@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from "react";
+import React, {useContext, useEffect, useState, useCallback} from "react";
 import styled from "styled-components";
 import { Formik, Form } from "formik";
 import { useTranslation, Trans } from "react-i18next";
@@ -13,51 +13,52 @@ import {useLocation, Redirect} from "react-router-dom";
 import { CustomInput, CustomSelect, CustomRadio } from "../Reusables/CustomInputs";
 import { CustomButton } from "../Reusables/CustomButton";
 import BoxHeader from "../Reusables/BoxHeader";
-import { useHistory } from "react-router";;
+import { useHistory } from "react-router-dom";
 
-const AddUserType = () => {
-  
+const EditUserType = () => {
+  const history = useHistory();
   const {setTitle}  = useContext(TitleContext);
     const {t} = useTranslation();  
     const location = useLocation();
+    console.log(location.state);
     useEffect(()=>{
-        setTitle(Title =>({...Title, Title: t("userType:AddUserType")}));
+        setTitle(Title =>({...Title, Title: t("userType:edit")}));
     },[t, setTitle])
 
-    const history = useHistory();
+    const Update = React.useCallback((values) => {
 
-    const redirect = ()=>{
-      history.push({ pathname:"/UserType"});
-    }
+        let userTypes = JSON.stringify(values);
+        console.log(userTypes);
+        
+        const redirect = ()=>{
+          history.push({ pathname:"/userType"});
+        }
 
-    const add = React.useCallback((values) => {
-        // console.log(JSON.stringify(values, null, 2));
-        let userType = JSON.stringify(values);
-        console.log(userType);
-        post("RAK/INVITATIONS/USER_TYPES/ADD_USER_TYPE", userType).then((s)=>{
-            let error = s.data.Error_EN;
-            if(error == null || error == "")
+        post("RAK/INVITATIONS/USER_TYPES/UPDATE_USER_TYPE", userTypes).then((s)=>{
+            let state = s.data.Status;
+            console.log(s.data);
+            if(state == true)
             {
               redirect();
             }
-          
+            
         })
-    });
+    }); 
   
   return (
    
     <>
-    {location.state || location.pathname.split("/")[2] === "add" ?
+    {location.state || location.pathname.split("/")[2] === "edit" ?
     <StyledContainer green>
-    <BoxHeader children={<Trans i18nKey={"userType:AddUserType"} t={t}></Trans>}/>
-    <Formik initialValues={{ User_Type_Name_AR: "", User_Type_Name_EN: ""}} validationSchema={null} onSubmit={add}>
+    <BoxHeader children={<Trans i18nKey={"userType:edit"} t={t}></Trans>}/>
+    <Formik initialValues={{ User_Type_Id : location.state.User_Type_Id,User_Type_Name_AR: location.state.User_Type_Name_AR, User_Type_Name_EN: location.state.User_Type_Name_EN}} validationSchema={null} onSubmit={Update}>
       <Form>
         <RichInput>
         <CustomInput width={"30%"} as={"input"} id="User_Type_Name_AR" name="User_Type_Name_AR" type="text"  label={t("userType:User_Type_Name_AR")} placeholder={t("userType:User_Type_Name_AR")}/>
-        <CustomInput width={"30%"} as={"input"} id="User_Type_Name_EN" name="User_Type_Name_EN" type="text" label={t("userType:User_Type_Name_EN")} placeholder={t("userType:User_Type_Name_EN")}/>
+        <CustomInput width={"30%"} as={"input"} id="User_Type_Name_EN" name="User_Type_Name_EN" type="text"  label={t("userType:User_Type_Name_EN")} placeholder={t("userType:User_Type_Name_EN")}/>
       </RichInput>
          <CustomButton green type="submit" className="send-btn">{t("userType:save")}</CustomButton>
-         <CustomButton type="" onClick="redirect()">{t("userType:cancel")}</CustomButton>
+         <CustomButton >{t("userType:cancel")}</CustomButton>
       </Form>
       </Formik>
 
@@ -67,11 +68,7 @@ const AddUserType = () => {
  
   );
 };
-export default AddUserType;
-
-const BtnStyle = styled.button(`
-color:red;
-`);
+export default EditUserType;
 
 const StyledContainer =  styled(LargeBox)`
   

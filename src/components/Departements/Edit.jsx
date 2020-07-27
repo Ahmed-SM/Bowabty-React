@@ -15,17 +15,18 @@ import { CustomButton } from "../Reusables/CustomButton";
 import BoxHeader from "../Reusables/BoxHeader";
 import { useHistory } from "react-router-dom";
 
-const AddDepartement = () => {
+const EditDepartement = () => {
   const history = useHistory();
   const {setTitle}  = useContext(TitleContext);
     const {t} = useTranslation();  
     const location = useLocation();
+    console.log(location.state);
     useEffect(()=>{
-        setTitle(Title =>({...Title, Title: t("departement:AddDepartement")}));
+        setTitle(Title =>({...Title, Title: t("departement:edit")}));
     },[t, setTitle])
 
-    const add = React.useCallback((values) => {
-        // console.log(JSON.stringify(values, null, 2));
+    const Update = React.useCallback((values) => {
+
         let departments = JSON.stringify(values);
         console.log(departments);
         
@@ -33,11 +34,11 @@ const AddDepartement = () => {
           history.push({ pathname:"/departement"});
         }
 
-        post("RAK/INVITATIONS/DEPARTEMENTS/ADD_DEPARTEMENT", departments).then((s)=>{
-            let error = s.data.Error_EN;
-            if(error == null || error == "")
+        post("RAK/INVITATIONS/DEPARTEMENTS/UPDATE_DEPARTEMENT", departments).then((s)=>{
+            let state = s.data.Status;
+            if(state == true)
             {
-              redirect();             
+              redirect();
             }
             
         })
@@ -46,17 +47,17 @@ const AddDepartement = () => {
   return (
    
     <>
-    {location.state || location.pathname.split("/")[2] === "add" ?
+    {location.state || location.pathname.split("/")[2] === "edit" ?
     <StyledContainer green>
-    <BoxHeader children={<Trans i18nKey={"departement:AddDepartement"} t={t}></Trans>}/>
-    <Formik initialValues={{ Department_Name_AR: "", Department_Name_EN: ""}} validationSchema={null} onSubmit={add}>
+    <BoxHeader children={<Trans i18nKey={"departement:edit"} t={t}></Trans>}/>
+    <Formik initialValues={{ Deparement_Id : location.state.Deparement_Id,Department_Name_AR: location.state.Deparement_Name_AR, Department_Name_EN: location.state.Deparement_Name_EN}} validationSchema={null} onSubmit={Update}>
       <Form>
         <RichInput>
         <CustomInput width={"30%"} as={"input"} id="Department_Name_AR" name="Department_Name_AR" type="text"  label={t("departement:Deparement_Name_AR")} placeholder={t("departement:Deparement_Name_AR")}/>
         <CustomInput width={"30%"} as={"input"} id="Department_Name_EN" name="Department_Name_EN" type="text" label={t("departement:Deparement_Name_EN")} placeholder={t("departement:Deparement_Name_EN")}/>
       </RichInput>
          <CustomButton green type="submit" className="send-btn">{t("departement:save")}</CustomButton>
-         <CustomButton green>{t("userType:cancel")}</CustomButton>
+         <CustomButton >{t("userType:cancel")}</CustomButton>
       </Form>
       </Formik>
 
@@ -66,7 +67,7 @@ const AddDepartement = () => {
  
   );
 };
-export default AddDepartement;
+export default EditDepartement;
 
 const StyledContainer =  styled(LargeBox)`
   

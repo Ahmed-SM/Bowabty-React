@@ -5,6 +5,10 @@
     "User_Type_Name_AR":"Arabic Name",
     "User_Type_Name_EN":"English Name",
     "AddUserType":"Add New User Type",
-    "EditUserType":"Edit User Type",
-    "save":"Save"
+    "edit":"Edit User Type",
+    "save":"Save",
+    "cancel":"Cancel",
+    "Update":"Update",
+    "back":"Back to index",
+    "show":"View User Type"
 }

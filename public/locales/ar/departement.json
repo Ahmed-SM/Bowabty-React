@@ -5,6 +5,10 @@
     "Deparement_Name_AR": "الاسم بالعربية",
     "Deparement_Name_EN": "الاسم بالانجليزية",
     "AddDepartement": "اضافة قسم جديد",
-    "ُEditDepartement": "تعديل قسم",
-    "save":"حفظ"
+    "save":"حفظ",
+    "cancel":"الغاء",
+    "edit":"تعديل بيانات القسم",
+    "Update":"تعديل",
+    "back":"الرجوع لقائمة عرض الجميع",
+    "show":"عرض بيانات القسم"
 }

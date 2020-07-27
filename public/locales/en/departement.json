@@ -5,6 +5,10 @@
     "Deparement_Name_AR":"Arabic Name",
     "Deparement_Name_EN":"English Name",
     "AddDepartement":"Add New Department",
-    "ُEditDepartement":"ُEdit Department",
-    "save":"Save"
+    "save":"Save",
+    "cancel":"Cancel",
+    "edit":"Edit Department",
+    "Update":"Update",
+    "back":"Back to index",
+    "show":"View Department"
 }

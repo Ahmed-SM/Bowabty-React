@@ -36,7 +36,7 @@ const UserType = () => {
 
 
     return (
-        <CustomGrid data={testData} addPath={"UserType"} editPath={componentName} viewPath={componentName}>
+        <CustomGrid data={testData} addPath={"UserType"} editPath={"UserType"} viewPath={"UserType"}>
             <Column
                 caption={t("userType:User_Type_Id")}
                 alignment={girdAligment}
