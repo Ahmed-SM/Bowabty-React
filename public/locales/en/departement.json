@@ -1,0 +1,14 @@
+{
+    "title":"Departments",
+    "Deparement_Id":"Id",
+    "Deparement_Name":"Department Name",
+    "Deparement_Name_AR":"Arabic Name",
+    "Deparement_Name_EN":"English Name",
+    "AddDepartement":"Add New Department",
+    "save":"Save",
+    "cancel":"Cancel",
+    "edit":"Edit Department",
+    "Update":"Update",
+    "back":"Back to index",
+    "show":"View Department"
+}

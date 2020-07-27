@@ -14,9 +14,8 @@ i18n
 
   .init({
     fallbackLng: 'ar',
-
     debug: false,
-    ns:['TestComponent','myOrders', 'myService', 'navigation', 'userContent', 'login', 'IncomingRequest', 'LegalAffairs', 'myDesk', 'customFile', 'AdministrativeServicesDeptOrders', 'Services'],
+    ns:['TestComponent','myOrders', 'myService', 'navigation', 'userContent', 'login', 'IncomingRequest', 'LegalAffairs', 'myDesk', 'customFile', 'AdministrativeServicesDeptOrders', 'Services', 'departement', 'userType'],
     interpolation: {
       escapeValue: false, 
     },

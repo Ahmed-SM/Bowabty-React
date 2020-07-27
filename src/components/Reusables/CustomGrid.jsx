@@ -49,7 +49,7 @@ const CustomGrid = ({children , sourceData , addPath, editPath, viewPath, custom
         <DataGrid
           width={width}
           height={532}
-          dataSource={ sourceData}
+          dataSource={ sourceData }
           showColumnLines={false}
           showScrollbar={false}
           hoverStateEnabled={true}
