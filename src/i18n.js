@@ -16,7 +16,7 @@ i18n
     fallbackLng: 'ar',
 
     debug: false,
-    ns:['TestComponent','myOrders', 'myService', 'navigation', 'userContent', 'login', 'IncomingRequest', 'LegalAffairs', 'myDesk', 'customFile', 'AdministrativeServicesDeptOrders', 'Services'],
+    ns:['TestComponent','myOrders', 'myService', 'navigation', 'userContent', 'login', 'IncomingRequest', 'LegalAffairs', 'myDesk', 'customFile', 'AdministrativeServicesDeptOrders', 'Services','Request'],
     interpolation: {
       escapeValue: false, 
     },
