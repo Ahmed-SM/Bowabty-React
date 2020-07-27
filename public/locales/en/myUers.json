@@ -1,7 +1,8 @@
 {
     "title":"Users",
     "User_Id":"User Number",
-    "userName": "Uer Name",
+    "User_Name_AR": "اسم المستخدم",
+    
     "userPhone": "Phone ",
     "userMail":"Mail",
     "loginName":"Login Name",

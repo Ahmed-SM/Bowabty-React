@@ -20,17 +20,35 @@ const funAddUser=()=>{
         'Content-Type': 'application/x-www-form-urlencoded'
     }
 };
+// var e = document.getElementById("User_Type_Id");
+//   var User_Type_Id = e.options[e.selectedIndex].value;
+  
+//   var c = document.getElementById("Job_Id");
+//   var Job_Id = c.options[c.selectedIndex].value;
+  
+//   var d = document.getElementById("Active_Status_Id");
+//   var Active_Status_Id = d.options[d.selectedIndex].value;
+//
 
+
+//
+
+
+
+var e = document.getElementById("Department_Id");
+var val1 = e.options[e.selectedIndex].value;
 let PARAMETERS = {
+  
     'User_Name_AR' : document.getElementById('User_Name_AR').value,
     'User_Name_EN': document.getElementById('User_Name_EN').value,
     'User_Phone': document.getElementById('User_Phone').value,
     'User_Mail': document.getElementById('User_Phone').value,
     'Login_Name': document.getElementById('Login_Name').value,
     'Login_Pass': document.getElementById('Login_Pass').value,
-    // 'User_Type_Id': document.getElementById('User_Type_Id').value,
-    // 'Job_Id': document.getElementById('Job_Id').value,
-    // 'Active_Status_Id': document.getElementById('Active_Status_Id').value,
+       'Department_Id': val1,
+      'Job_Id': document.getElementById('Job_Id').selectedOptions[0].value,
+     'Active_Status_Id': document.getElementById('Active_Status_Id').selectedOptions[0].value,
+     'User_Image':'',
     'api_key': 'apikey',
     'api_sig': 'signature',
     'method': 'auth.getMobileSession',
@@ -110,7 +128,7 @@ const AddNewUser = () => {
         }}
         onClick={() => imageUploader.current.click()}
       >
-        <img
+        <img 
           ref={uploadedImage}
           style={{
             width: "100%",
@@ -133,7 +151,7 @@ const AddNewUser = () => {
 				  </RichInput>
           <RichInput>
             <CustomSelect width={"30%"} id="Department_Id" name="Department_Id" label={"القسم"} placeholder={"القسم"}>
-            <option value={t("myDesk:item")}>
+            <option value="1">
             تقنية المعلومات
             </option>
             </CustomSelect>

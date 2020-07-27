@@ -20,36 +20,35 @@ const TestComponent = () => {
     useEffect(()=>{
         setTitle(Title =>({...Title, Title: t("TestComponent:title"), SubTitle: t("userContent:lorem")}));
     },[t, setTitle])
-    console.log(location.state)
       return (
         <>
         {location.state || location.pathname.split("/")[2] === "edit" ?
         <StyledContainer green>
 				<BoxHeader children={<Trans i18nKey={"TestComponent:header"} t={t}></Trans>}/>
-                <Formik initialValues={{ User_Name_AR: "",User_Name_EN: "",User_Name_EN: "",User_Phone: "",User_Mail: "",Department_Id: "",Active_Status_Id: "" }} validationSchema={null} onSubmit={null}>
+				<Formik initialValues={{ name: "", }} validationSchema={null} onSubmit={null}>
 					<Form>
 						<RichInput>
-                        <CustomInput width={"30%"} as={"input"} id="Login_Name" name="Login_Name" type="text" label={" اسم الدخول"} placeholder={location.state.userName} />
-            <CustomInput width={"30%"} as={"input"} id="Login_Pass" name="Login_Pass" type="text" label={"كلمة المرور "} />
+            <CustomInput width={"30%"} as={"input"} id="name" name="name" type="text"  label={"اسم المتسخدم بالعربية"} placeholder={"فادي محمد احمد"}/>
+            <CustomInput width={"30%"} as={"input"} id="name" name="name" type="text" label={"اسم المتسخدم بالإنجليزية"} placeholder={"Fadi Mohamed Ahmed"}/>
 				  </RichInput>
           <RichInput>
-          <CustomInput width={"30%"} as={"input"} id="User_Phone" name="User_Phone" type="text" label={"رقم الهاتف"} />
-            <CustomInput width={"30%"} as={"input"} id="User_Mail" name="User_Mail" type="text" label={"البريد الإلكتروني"} />
+            <CustomInput width={"30%"} as={"input"} id="name" name="name" type="text" label={"رقم الهاتف"} placeholder={"0501234567"}/>
+            <CustomInput width={"30%"} as={"input"} id="name" name="name" type="text" label={"البريد الإلكتروني"} placeholder={"f.Mohamed@ega.rak.ae"}/>
 				  </RichInput>
           <RichInput>
-          <CustomSelect width={"30%"} id="Department_Id" name="Department_Id" label={"القسم"} placeholder={"القسم"}>
+            <CustomSelect width={"30%"} id="name" name="name" label={"القسم"} placeholder={"القسم"}>
             <option value={t("myDesk:item")}>
             تقنية المعلومات
             </option>
             </CustomSelect>
-            <CustomSelect width={"30%"} id="Job_Id" name="Job_Id" label={"الوظيفة"} placeholder={"الوظيفة"}>
+            <CustomSelect width={"30%"} id="name" name="name" label={"الوظيفة"} placeholder={"الوظيفة"}>
             <option value={t("myDesk:item")}>
             إداري
             </option>
             </CustomSelect>
 				  </RichInput>
           <RichInput>
-          <CustomSelect width={"30%"} id="Active_Status_Id" name="Active_Status_Id" label={"حالة المستخدم"} placeholder={"حالة المستخدم"}>
+          <CustomSelect width={"30%"} id="name" name="name" label={"حالة المستخدم"} placeholder={"حالة المستخدم"}>
             <option value={t("myDesk:item")}>
                     نشط
             </option>
