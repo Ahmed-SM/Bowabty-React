@@ -1,0 +1,24 @@
+{
+    "title":"Services",
+    "emptyPanelText":"Drag a column header here to group by that column",
+    "placeholder":"Search",
+    "Service_Code":"Service Code",
+    "Main_Service_Name":"Main Service Name",
+    "Service_Name":"Service Name",
+    "Active_Status_Name":"Service State",
+    "Editheader":"Edit Service",
+    "Edit_Service_Name_Arabic" : "Arabic Service Name",
+    "Edit_Service_Name_English" : "English Service Name",
+    "option_day" : "day",
+    "option_hour" :"hour",
+    "option_minute" : "minute",
+    "Service_Max_Received_Time" : "Max Received Time",
+    "Service_Max_Processing_Time" :"Max Processing Time",
+    "Service_Max_Review_Time" : "Max Review Time",
+    "Service_Max_Confirmation_Time" : "Max Confirmation Time",
+    "option_stopped" :"stopped",
+    "option_active" : "active",
+    "option_deleted" : "deleted",
+    "ViewHeader" : "View Service"
+
+}
