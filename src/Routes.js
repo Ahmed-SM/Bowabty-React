@@ -29,6 +29,10 @@ const StickyBox = React.lazy(()=>import("./components/StickyLabel/StickyBox"));
 const MyDesk = React.lazy(()=>import("./components/MyDesk"));
 const Contacts = React.lazy(()=>import("./components/ContactBox"));
 const ServicesBox = React.lazy(()=>import("./components/ServicesBox"));
+const Users = React.lazy(()=>import("./components/Users"));
+const AddNewUser = React.lazy(()=>import("./components/Users/addUser"));
+const EditUser = React.lazy(()=>import("./components/Users/editUser"));
+const viewUser = React.lazy(()=>import("./components/Users/view"));
 
 // // haytham 20-jul 2020
 const Services = React.lazy(()=> import("./components/Services"));
@@ -78,6 +82,11 @@ const Routes = () => {
                     <Suspense fallback={<StyledPage/>}>
                         <ErrorBoundary>
                             <Switch>
+                            
+                            <ContainerComponentRoute exact  component={viewUser} container={Page} path={"/Users/view"}/>
+                                <ContainerComponentRoute exact  component={EditUser} container={Page} path={"/Users/edit"}/>
+                                <ContainerComponentRoute exact  component={AddNewUser} container={Page} path={"/Users/add"}/>
+                                <ContainerComponentRoute exact  component={Users} container={Page} path={"/Users"}/>
 
                                 <ContainerComponentRoute  exact component={GridExample}  container={Page} path={"/gridexample"}/>
                                 <ContainerComponentRoute  exact component={MyOrders}  container={Page} path={"/myorders"}/>

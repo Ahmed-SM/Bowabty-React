@@ -1,0 +1,19 @@
+{
+    "title":"المستخدمون",
+    "User_Id":"رقم المستخدم",
+    
+    "User_Name":  "اسم المستخدم",
+    "userPhone": "رقم التليفون",
+    "userMail":" البريد الإلكترونى",
+    "loginName":"اسم الدخــول",
+    "loginPassword":"كلمة السر",
+    "userType":"نوع المستخدم ",
+    "job":"الوظيفة",
+    "userActive_Status":"حالة المستخدم",
+    "userImage":"الصورة",
+    "Details":"التفاصيل",
+    "placeholder":"بحث",
+    "dep":"القسم",
+    "AddNewUser":"أضافة مستخدم جديد"
+
+}
