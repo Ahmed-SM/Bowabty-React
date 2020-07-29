@@ -35,7 +35,7 @@ const Requests = () => {
   //   if(session.data.length){
   //     return;
   //  }
-    setTestData(GridRequests.index(null,"ADMIN/SYSTEM/REQUEST/EEQUESTS_LIST", setTestData, session));
+    setTestData(GridRequests.index(null,"ADMIN/SYSTEM/REQUEST/REQUESTS_LIST", setTestData, session));
   }, []);
 
   return (
