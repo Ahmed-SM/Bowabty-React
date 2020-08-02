@@ -1,8 +1,8 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\src"
+    "\\src",
+    "\\src\\components",
+    "\\src\\components\\Services"
   ],
-  "SelectedNode": "\\src\\components",
   "PreviewInSolutionExplorer": false
 }

@@ -1,0 +1,16 @@
+{
+    "title":"طلباتي",
+    "requestCode": "كود الطلب",
+    "serviceName": "اسم الخدمة",
+    "mainServiceName":"اسم الخدمة الرئيسي",
+    "requesteDate":"تاريخ تقديم الطلب",
+    "requestUserName":"اسم مقدم الطلب",
+    "requestStatus":"حالة الطلب",
+    "emptyPanelText":"اسحب الخانة هنا للتجميع",
+    "placeholder":"بحث",
+    "ViewHeader" : "عرض الطلب",
+    "Main_Service_Name_Arabic":"اسم الخدمة الرئيسي",
+    "Service_Name_Arabic": "اسم الخدمة"
+    
+
+}

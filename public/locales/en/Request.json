@@ -1,0 +1,17 @@
+{
+    "title":"My Requests",
+    "requestCode": "Request Code",
+    "serviceName": "Service Name",
+    "mainServiceName":"main Service Name",
+    "requesteDate":"Request Date",
+    "requestUserName":"Request User Name",
+    "requestStatus":"Request Status",
+    "emptyPanelText":"Drag a column header here to group by that column",
+    "placeholder":"Search",
+    "ViewHeader" : "View Request",
+    "Main_Service_Name_English":"main Service Name",
+    "Service_Name_English": "Service Name",
+    "Request_User_Name_English":"Request User Name",
+    "Request_Status_Name_EN":"Request Status"
+    
+}

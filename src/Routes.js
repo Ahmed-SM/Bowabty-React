@@ -39,6 +39,10 @@ const Services = React.lazy(()=> import("./components/Services"));
 const EditService = React.lazy(()=>import("./components/Services/EditServices"));
 const ViewService = React.lazy(()=>import("./components/Services/ViewService"));
 
+// // Sakr 20-jul 2020
+const Requests = React.lazy(()=> import("./components/Requests"));
+const ViewRequest = React.lazy(()=>import("./components/Requests/ViewRequest"));
+
 // // hamed.h 18-Jun 2020
 const AdministrativeServicesDeptOrders = React.lazy(()=>import("./components/AdministrativeServicesDeptOrders"));
 const UsersJobs = React.lazy(()=> import("./components/UsersJobs"));
@@ -112,6 +116,10 @@ const Routes = () => {
                                 <ContainerComponentRoute  exact component={Services}  container={Page} path={"/services"}/>
 								<ContainerComponentRoute exact component={EditService}  container={Page} path={"/services/edit"}/>
 								<ContainerComponentRoute exact component={ViewService}  container={Page} path={"/services/view"}/>
+
+                                    {/* ////// Sakr */} 
+                                <ContainerComponentRoute  exact component={Requests}  container={Page} path={"/Requests"}/>
+								<ContainerComponentRoute exact component={ViewRequest}  container={Page} path={"/Requests/view"}/>
 
                                 {/* ////// hamed */}
                                 <Route exact  component={AdministrativeServicesDeptOrders}  path={"/ServiceID=5"}/>
