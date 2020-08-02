@@ -293,6 +293,10 @@ button:disabled:hover{
   }
 }
 
+.Styledloader{
+  left:50%;
+  top :40%;
+}
 /* .App {
   text-align: center;
 }

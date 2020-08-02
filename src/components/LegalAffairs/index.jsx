@@ -13,6 +13,7 @@ import { faPaperclip } from "@fortawesome/free-solid-svg-icons";
 import ServiceSlider from "../ServiceSlider";
 import Page from "../../containers/Page";
 import CustomUpload from "../Reusables/CustomUpload";
+import {CustomCheckBox } from "../Reusables/CustomInputs";
 
 
 const LegalAffairs = () => {
@@ -25,11 +26,7 @@ const LegalAffairs = () => {
       .required(t("login:required")),
   });
   const handleOnSubmit = (values) => {
-    console.log(JSON.stringify(values.file.map(file=>({
-      fileName:file.name,
-      type:file.type,
-      size:`${file.size} bytes`
-    })), null, 2));
+    console.log(JSON.stringify(values, null, 2));
   };
 
   useEffect(() => {
@@ -50,7 +47,7 @@ const LegalAffairs = () => {
         children={<Trans i18nKey={"LegalAffairs:followUp"} t={t}></Trans>}
       />
       <Formik
-        initialValues={{ textarea: "", file: [] }}
+        initialValues={{ textarea: "", file: [], test:1 }}
         validationSchema={validation}
         onSubmit={handleOnSubmit}
       >
@@ -77,6 +74,7 @@ const LegalAffairs = () => {
             name="file"
             component={CustomUpload}/>
           </RichInput>
+          <CustomCheckBox label={t("myDesk:maintenance")} id="test" name="test"/>
           <CustomButton green type="submit" className="send-btn">
             <Trans i18nKey={"myService:sendBtn"} t={t}>
               ارسال

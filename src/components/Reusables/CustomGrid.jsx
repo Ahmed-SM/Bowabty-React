@@ -47,6 +47,7 @@ const CustomGrid = ({children , sourceData , addPath, editPath, viewPath, custom
           }
         </StyledResize>
         <DataGrid
+          noDataText={" "}
           width={width}
           height={532}
           dataSource={ sourceData }
@@ -115,7 +116,6 @@ CustomGrid.defaultProps = {
   editEnabled:true, 
 }
 export default CustomGrid;
-
 const StyledMdContainer = styled(LargeBox)`
   position: relative;
   width: fit-content;

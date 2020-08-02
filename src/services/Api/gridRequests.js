@@ -7,9 +7,7 @@ const GridRequests = {
         if (response.data.RESULT_CODE === 401) {
           localStorage.removeItem('accessToken');
         } else {
-          console.log(response.data.Data)
-          template.data = response.data.Data;
-          setState(template);
+          setState(response.data.Data);
         }
       }
     ),

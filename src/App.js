@@ -9,7 +9,7 @@ import "./i18n";
 
 function App() {
   return (
-    <DiractionProvider>
+    <DiractionProvider> 
         <UserProvider>
           <Routes />
         </UserProvider>

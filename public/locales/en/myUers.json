@@ -1,0 +1,17 @@
+{
+    "title":"Users",
+    "User_Id":"User Number",
+    "User_Name": "User Name  English",
+    "userPhone": "Phone ",
+    "userMail":"Mail",
+    "loginName":"Login Name",
+    "loginPassword":"Password",
+    "userType":"User Type",
+    "job":"Job",
+    "userActive_Status":"Active Status",
+    "userImage":"Image",
+    "Details":"Details",
+    "placeholder":"بحث",
+    "dep":"Deparment",
+"AddNewUser":"Add New User"
+}

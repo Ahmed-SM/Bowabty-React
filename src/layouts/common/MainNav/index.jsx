@@ -40,7 +40,7 @@ const MainNav = () => {
                 <DropdownComponent icon={faTasks} btnText={t("navigation:tasks.name")} items={[{path:"/incomingrequest", text:t("IncomingRequest:title")}]} diraction={!IsLTR} />
                 <Tab path={"/myorders"} icon={faBatteryHalf} text={t("navigation:myOrders")}/>
                 <DropdownComponent icon={faCog} btnText={t("navigation:tasks.name")} items={[{path:"/incomingrequest", text:t("IncomingRequest:title")}]} diraction={!IsLTR}/>
-                <DropdownComponent icon={faInfo} btnText={t("navigation:others.name")} items={[{path:"/incomingrequest", text:t("IncomingRequest:title")}]} diraction={!IsLTR}/>
+                <DropdownComponent icon={faInfo} btnText={t("navigation:others.name")} items={[{path:"/services", text:t("Services:title")}, {path:"/departement", text:t("departement:title")}, {path:"/userType", text:t("userType:title")}, {path:"/incomingrequest", text:t("IncomingRequest:title")}]} diraction={!IsLTR}/>
                 <DropdownComponent icon={faFileAlt} btnText={t("navigation:reports.name")} items={[{path:"/incomingrequest", text:t("IncomingRequest:title")}]} diraction={!IsLTR} />
             </StyledRightSection>
             <StyledLeftSection>
