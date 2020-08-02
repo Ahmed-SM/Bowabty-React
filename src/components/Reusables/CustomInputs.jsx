@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Field, useField } from "formik";
+import { Field, useField, useFormikContext } from "formik";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const CustomInput = React.memo(({ label, width, ...props }) => {
@@ -49,6 +49,25 @@ export const CustomRadio= React.memo(({ label, width, ...props }) => {
   return (
     <StyledColumn width={width}>
       <StyledRadio {...field} {...props}></StyledRadio>
+  <label htmlFor={props.id || props.name}>{label}</label>
+      {meta.touched && meta.error ? (
+        <StyledError>{meta.error}</StyledError>
+        ) : null}
+    </StyledColumn>
+  );
+});
+export const CustomCheckBox= React.memo(({ label, width, children, ...props }) => {
+  const [field, meta, helpers] = useField(props.name , 'checkbox');
+  const { setValues, setFieldTouched, setFieldValue } = useFormikContext();
+  return (
+    <StyledColumn width={width}>
+      <StyledRadio {...field} {...props}  type="checkbox"
+      checked={field.value}
+      onChange={() => {
+        setFieldValue(field.name, field.value === 1 ? 0 : 1)
+      }}
+      ></StyledRadio>
+      {children}
   <label htmlFor={props.id || props.name}>{label}</label>
       {meta.touched && meta.error ? (
         <StyledError>{meta.error}</StyledError>

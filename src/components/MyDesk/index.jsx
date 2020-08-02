@@ -5,7 +5,7 @@ import { useTranslation, Trans } from "react-i18next";
 import MediumBox from "../Reusables/MediumBox";
 import BoxHeader from "../Reusables/BoxHeader";
 import { CustomButton } from "../Reusables/CustomButton";
-import { CustomInput, CustomSelect, CustomRadio } from "../Reusables/CustomInputs";
+import { CustomInput, CustomSelect, CustomRadio,CustomCheckBox } from "../Reusables/CustomInputs";
 import RichInput from "../Reusables/RichInput";
 import * as Yup from "yup";
 import { Formik, Form } from "formik";
@@ -23,7 +23,9 @@ const MyDesk = () => {
       .max(8, t("login:max"))
       .required(t("login:required")),
   });
-  const handleOnSubmit = (values) => {};
+  const handleOnSubmit = (values) => {
+    alert(JSON.stringify(values, null, 2))
+  };
   useEffect(() => {
     setTitle(Title =>({...Title, Title: t("myDesk:title"),  SubTitle: t("userContent:lorem")}));
   }, [t, setTitle]);
@@ -109,7 +111,7 @@ const MyDesk = () => {
           children={<Trans i18nKey={"myDesk:officeEquipment"} t={t}></Trans>}
         />
         <Formik
-          initialValues={{ suggestion: "", suggestionOrigin: "", file: "" }}
+          initialValues={{test:1 }}
           validationSchema={validation}
           onSubmit={handleOnSubmit}
         >
@@ -118,7 +120,8 @@ const MyDesk = () => {
           <RichInput height={" 3.5rem"}>
             <StyledRow>مركبة</StyledRow>
             <StyledRow className="__center __border">A123123</StyledRow>
-            <CustomRadio as={"input"} label={t("myDesk:maintenance")} id="radio1" name="radio" type="radio"></CustomRadio> 
+            <CustomCheckBox as={"input"} label={t("myDesk:maintenance")} id="test" name="test" value={0}>
+              </CustomCheckBox> 
             <CustomRadio as={"input"} label={t("myDesk:move")} id="radio2" name="radio" type="radio"></CustomRadio> 
             </RichInput>
             <RichInput height={" 3.5rem"}>

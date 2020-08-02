@@ -41,6 +41,11 @@ const ViewService = React.lazy(()=>import("./components/Services/ViewService"));
 
 // // hamed.h 18-Jun 2020
 const AdministrativeServicesDeptOrders = React.lazy(()=>import("./components/AdministrativeServicesDeptOrders"));
+const UsersJobs = React.lazy(()=> import("./components/UsersJobs"));
+const UsersJobDetails = React.lazy(()=> import("./components/UsersJobs/view"));
+const editUsersJobs = React.lazy(()=>import("./components/UsersJobs/edit"));
+const addUsersJobs = React.lazy(()=>import("./components/UsersJobs/add"));
+
 {/* Gulp Import Anchor */}
 const TestComponent = React.lazy(()=>import("./components/TestComponent"));
 const GridExample = React.lazy(()=>import("./components/GridExample"));
@@ -83,7 +88,7 @@ const Routes = () => {
                         <ErrorBoundary>
                             <Switch>
                             
-                            <ContainerComponentRoute exact  component={viewUser} container={Page} path={"/Users/view"}/>
+                                <ContainerComponentRoute exact  component={viewUser} container={Page} path={"/Users/view"}/>
                                 <ContainerComponentRoute exact  component={EditUser} container={Page} path={"/Users/edit"}/>
                                 <ContainerComponentRoute exact  component={AddNewUser} container={Page} path={"/Users/add"}/>
                                 <ContainerComponentRoute exact  component={Users} container={Page} path={"/Users"}/>
@@ -111,6 +116,10 @@ const Routes = () => {
                                 {/* ////// hamed */}
                                 <Route exact  component={AdministrativeServicesDeptOrders}  path={"/ServiceID=5"}/>
                                 <Route exact component={LegalAffairs} path={"/ServiceID=2/ServiceID=1"}/>
+                                <ContainerComponentRoute  exact component={UsersJobs}  container={Page} path={"/UsersJobs"}/>
+                                <ContainerComponentRoute  exact component={UsersJobDetails}  container={Page} path={"/UsersJobs/view"}/>
+                                <ContainerComponentRoute  exact component={editUsersJobs}  container={Page} path={"/UsersJobs/edit"}/>
+                                <ContainerComponentRoute  exact component={addUsersJobs}  container={Page} path={"/UsersJobs/add"}/>
                                 {/* Gulp Route Anchor*/}
 								<ContainerComponentRoute exact component={TestComponent}  container={Page} path={["/myorders/add","/myorders/edit","/myorders/view"]}/>
 

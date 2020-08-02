@@ -1,12 +1,10 @@
 import React,  { useContext, useEffect, useState } from "react";
-import styled from "styled-components";
 import "devextreme/dist/css/dx.common.css";
 import "devextreme/dist/css/dx.light.css";
 import { TitleContext } from "../../contexts/TitleContext";
 import { useTranslation } from "react-i18next";
 import {Column} from "devextreme-react/data-grid";
 import CustomGrid from "../Reusables/CustomGrid";
-import { get } from "../../services/Api/base";
 import GridRequests from "../../services/Api/gridRequests";
 
 const Services = () => {
